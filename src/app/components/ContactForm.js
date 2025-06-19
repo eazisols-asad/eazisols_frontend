@@ -4,7 +4,7 @@ import { useState } from 'react';
 import { Form, Button, Row, Col } from 'react-bootstrap';
 import PhoneInput from 'react-phone-input-2';
 import 'react-phone-input-2/lib/bootstrap.css';
-
+import '../globals.css'
 export default function ContactForm({ onSubmit, buttonText = "Please wait..." }) {
   const [formData, setFormData] = useState({
     name: '',
@@ -54,12 +54,12 @@ export default function ContactForm({ onSubmit, buttonText = "Please wait..." })
   };
 
   return (
-    <div className="bg-white rounded-3 shadow-sm p-4 contact-form-box">
-      <h3 className="mb-4">Drop us a Message</h3>
-      <p className="text-muted mb-4">Drop your details, we will get in touch with you soon.</p>
+    <div className="bg-white rounded-3  contact-form-box">
+      <h3 className="mb-2">Drop us a Message</h3>
+      <p className="text-muted">Drop your details, we will get in touch with you soon.</p>
       
       <Form noValidate validated={validated} onSubmit={handleSubmit}>
-        <Row className="mb-3">
+        <Row className="">
           <Col md={6}>
             <Form.Group>
               <Form.Label className="small-label">Name *</Form.Label>
@@ -94,7 +94,7 @@ export default function ContactForm({ onSubmit, buttonText = "Please wait..." })
           </Col>
         </Row>
 
-        <Row className="mb-3">
+        <Row className="mb-1">
           <Col md={6}>
             <Form.Group>
               <Form.Label className="small-label">Phone Number *</Form.Label>
@@ -136,8 +136,9 @@ export default function ContactForm({ onSubmit, buttonText = "Please wait..." })
           />
         </Form.Group>
 
-        <Form.Group className="mb-4">
-          <Form.Text className="text-muted small">
+        <Form.Group className="mb-2">
+          <Form.Text className="text-muted small"
+          >
             By submitting this form, you agree to be contacted by our team.
           </Form.Text>
         </Form.Group>
@@ -145,7 +146,7 @@ export default function ContactForm({ onSubmit, buttonText = "Please wait..." })
         <Button 
           type="submit" 
           variant="dark" 
-          className="w-100 py-2"
+          className="w-100 "
           disabled={loading}
         >
           {loading ? buttonText : 'Submit'}

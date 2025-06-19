@@ -245,18 +245,154 @@ img {
 
 .navbar-spacer {
   height: 76px;
-  /* Height of navbar */
+}
+ .contact-form-box {
+  max-width: 500px;
+  margin-top: 40px;
+    margin-right: auto;
+    margin-bottom: 40px;
+    margin-left: 0;
+  padding: 32px 40px;
+  background-color: #fff;
+  
+  border: 1px solid #1a1a1a;
+  border-radius: 12px;
+  font-size: 14px;
+  font-weight: 400;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+
+}
+@media (max-width: 576px) {
+  .contact-form-box {
+    width: 100%;
+    max-width: 100%;
+    margin: 20px 16px;
+    padding: 24px;
+  }
+}
+/* Heading */
+.contact-form-box h3 {
+  font-size: 24px;
+  font-weight: 600;
+  margin-bottom: 2px;
 }
 
-/* Contact Form Styles */
-.contact-form-box {
-  border: 3px solid #DDDDDD;
-}
-
-.small-label {
-  font-size: 0.85rem;
+/* Subheading */
+.contact-form-box p {
+  font-size: 14px;
   color: #6c757d;
+  margin-bottom: 24px;
+}
+
+/* Labels */
+.contact-form-box .small-label {
+  font-size: 10px;
+  font-weight: 700;
+  margin-bottom: 6px;
+  color: #757575;
+  display: block;
+  line-height: 1.4;
+      font-family: Inter, Inter Fallback;
+    font-style: normal;
+}
+
+/* Inputs and selects */
+.contact-form-box input.form-control,
+.contact-form-box select.form-select,
+.contact-form-box textarea.form-control,
+.contact-form-box .w-input,
+.contact-form-box .w-select {
+  width: 100%;
+  height: 44px;
+  background-color: #fff;
+  color: #333;
+  font-family: 'Inter', 'Segoe UI', sans-serif;
+  font-size: 14px;
+  padding: 10px 14px;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  box-sizing: border-box;
+  line-height: 1.5;
+  margin-bottom: 12px;
+}
+/* Ensure outer container fits */
+.contact-form-box .phone-input {
+  width: 100% !important;
+  margin-bottom: 12px;
+}
+
+/* Main input styling */
+.contact-form-box .phone-input .form-control {
+  width: 100% !important;
+  height: 44px !important;
+  font-size: 14px;
+  padding-left: 50px !important; 
+  padding-right: 12px;
+  color: #333;
+  font-family: 'Inter', 'Segoe UI', sans-serif;
+  border: 1px solid #ccc !important;
+  border-radius: 6px !important;
+  box-sizing: border-box;
+}
+
+/* Flag dropdown styling */
+.contact-form-box .phone-input .flag-dropdown {
+  height: 44px !important;
+  border: 1px solid #ccc !important;
+  border-right: none !important;
+  background-color: #fff !important;
+  border-radius: 6px 0 0 6px !important;
+}
+
+/* Flag icon wrapper */
+.contact-form-box .phone-input .selected-flag {
+  height: 44px !important;
+  padding-left: 10px;
+  display: flex;
+  align-items: center;
+}
+
+/* Country flag image */
+.contact-form-box .phone-input .selected-flag .flag {
+  transform: scale(1.2); /* optional for size match */
+}
+
+
+/* Textarea */
+.contact-form-box textarea.form-control {
+  height: 100px;
+  resize: vertical;
+}
+
+/* Disclaimer text */
+.contact-form-box .form-text {
+  font-size: 12px;
+  color: #6c757d;
+  margin-top: -6px;
+  margin-bottom: 16px;
+  font-family: Arial, Helvetica Neue, Helvetica, sans-serif;
+}
+
+/* Submit button */
+.contact-form-box button[type="submit"] {
+  background-color: #000;
+  color: white;
+  border: none;
+  border-radius: 6px;
+  padding: 12px;
+  font-size: 15px;
   font-weight: 500;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.contact-form-box button[type="submit"]:hover {
+  background-color: #222;
+}
+
+.or-hero{
+  font-weight: 800;
+  color: #000;
 }
 
 /* Globe Styles */
@@ -316,6 +452,7 @@ img {
 /* Hero Section Styles */
 .min-vh-100 {
   min-height: 100vh !important;
+  
 }
 
 @media (max-width: 991.98px) {
@@ -798,5 +935,13 @@ img {
     grid-template-columns: 1fr;
   }
 }
-
-/* Rest of your existing styles... */
+.heroSection {
+    font-family: Arial, "Helvetica Neue", Helvetica, sans-serif;
+    font-size: 14px;
+    line-height: 20px;
+    width: 100%;
+    max-width: 1280px;
+    margin-left: 2px;
+    margin-right: auto;
+    position: relative;
+}

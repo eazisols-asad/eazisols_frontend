@@ -9,6 +9,7 @@ import ComparisonSection from './components/ComparisonSection';
 import ChallengesSection from './components/ChallengesSection';
 import StatsSection from './components/StatsSection';
 import FAQSection from './components/FAQSection';
+import HeroSection from './components/HeroSection';
 
 const faqs = [
   {
@@ -53,53 +54,8 @@ export default function Home() {
   return (
     <div>
       {/* Hero Section */}
-      <section className="py-5 min-vh-100 d-flex flex-column bg-white position-relative">
-        <Container className="flex-grow-1 d-flex flex-column">
-          <Row className="align-items-center flex-grow-1">
-            <Col lg={7}>
-              <div className="pe-lg-5">
-                <h1 className="display-3 fw-bold mb-4">
-                  <span className="text-secondary">Transform your</span><br />
-                  <span className="text-secondary">idea into </span>
-                  <span className="text-dark">a startup</span>
-                </h1>
-                <div className="mt-5">
-                  <ContactForm 
-                    onSubmit={async (formData) => {
-                      // Handle form submission
-                      console.log(formData);
-                    }}
-                    buttonText="Submit"
-                  />
-                  <div className="mt-4 text-center">
-                    <p className="text-muted mb-3">OR</p>
-                    <Button 
-                      variant="dark" 
-                      size="lg" 
-                      className="rounded-pill px-4"
-                      href="/book-appointment"
-                    >
-                      Book an appointment →
-                    </Button>
-                  </div>
-                </div>
-              </div>
-            </Col>
-            <Col lg={5} className="mt-5 mt-lg-0">
-              <div className="globe-container position-relative">
-        <Image
-                  src="/globe-map.svg"
-                  alt="Globe Map"
-                  width={600}
-                  height={600}
-                  className="globe-image"
-          priority
-        />
-              </div>
-            </Col>
-          </Row>
-        </Container>
-      </section>
+      <HeroSection />
+      
 
       {/* Trusted Companies Section */}
       <section className="py-5">
@@ -153,16 +109,12 @@ export default function Home() {
         </Container>
       </section>
 
-      {/* Comparison Section */}
       <ComparisonSection />
 
-      {/* Challenges Section */}
       <ChallengesSection />
 
-      {/* Stats Section */}
       <StatsSection />
 
-      {/* Statistics Section */}
       <section className="py-5">
         <Container>
           <Row className="text-center mb-5">
