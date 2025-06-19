@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="400" height="400" viewBox="0 0 400 400" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <!-- Character -->
+  <g transform="translate(50, 50)">
+    <!-- Body with Red Sweater -->
+    <path d="M100 80 C100 80 140 120 140 180 C140 240 60 240 60 180 C60 120 100 80 100 80Z" fill="#EF4444"/>
+    
+    <!-- Head -->
+    <circle cx="100" cy="60" r="35" fill="#FCD34D"/>
+    
+    <!-- Hair -->
+    <path d="M70 60 Q100 0 130 60" stroke="#1F2937" strokeWidth="12" fill="none"/>
+    <path d="M80 70 Q100 30 120 70" stroke="#1F2937" strokeWidth="12" fill="none"/>
+    
+    <!-- Thumbs Up Hand -->
+    <path d="M140 120 L180 100 L190 120" stroke="#FCD34D" strokeWidth="12" strokeLinecap="round"/>
+  </g>
+
+  <!-- Floating Elements -->
+  <!-- Checklist -->
+  <g transform="translate(280, 80)">
+    <rect width="80" height="100" rx="4" fill="none" stroke="#94A3B8" strokeWidth="2"/>
+    <line x1="20" y1="30" x2="60" y2="30" stroke="#94A3B8" strokeWidth="2"/>
+    <line x1="20" y1="50" x2="60" y2="50" stroke="#94A3B8" strokeWidth="2"/>
+    <line x1="20" y1="70" x2="60" y2="70" stroke="#94A3B8" strokeWidth="2"/>
+  </g>
+
+  <!-- Target -->
+  <g transform="translate(300, 220)">
+    <circle cx="0" cy="0" r="25" stroke="#EF4444" strokeWidth="2" fill="none"/>
+    <circle cx="0" cy="0" r="15" stroke="#EF4444" strokeWidth="2" fill="none"/>
+    <circle cx="0" cy="0" r="5" fill="#EF4444"/>
+  </g>
+
+  <!-- Wrench -->
+  <g transform="translate(250, 180) rotate(45)">
+    <rect x="-6" y="-40" width="12" height="80" fill="#94A3B8" rx="4"/>
+    <circle cx="0" cy="-35" r="15" fill="#94A3B8"/>
+  </g>
+
+  <!-- Stars -->
+  <path d="M50 50L53 58L61 61L53 64L50 72L47 64L39 61L47 58Z" fill="#0EA5E9"/>
+  <path d="M320 280L323 288L331 291L323 294L320 302L317 294L309 291L317 288Z" fill="#0EA5E9"/>
+  <path d="M280 120L283 128L291 131L283 134L280 142L277 134L269 131L277 128Z" fill="#0EA5E9"/>
+</svg> 

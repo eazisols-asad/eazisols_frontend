@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="600" height="600" viewBox="0 0 600 600" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <!-- Globe base -->
+  <circle cx="300" cy="300" r="280" fill="#f8f9fa" opacity="0.3"/>
+  
+  <!-- Globe grid lines -->
+  <path d="M300 20C300 580 300 580 300 20" stroke="#198754" stroke-width="1" opacity="0.2">
+    <animate attributeName="d" dur="10s" repeatCount="indefinite"
+      values="M300 20C300 580 300 580 300 20;
+              M300 20C400 580 200 580 300 20;
+              M300 20C300 580 300 580 300 20"/>
+  </path>
+  
+  <!-- Animated dots -->
+  <circle cx="300" cy="150" r="2" fill="#198754">
+    <animate attributeName="cy" dur="4s" values="150;450;150" repeatCount="indefinite"/>
+  </circle>
+  
+  <circle cx="400" cy="300" r="2" fill="#198754">
+    <animate attributeName="cx" dur="6s" values="400;200;400" repeatCount="indefinite"/>
+  </circle>
+  
+  <circle cx="350" cy="250" r="2" fill="#198754">
+    <animate attributeName="cy" dur="5s" values="250;350;250" repeatCount="indefinite"/>
+  </circle>
+  
+  <!-- Connection lines -->
+  <path d="M250 250L350 350" stroke="#198754" stroke-width="1" opacity="0.3">
+    <animate attributeName="d" dur="8s" repeatCount="indefinite"
+      values="M250 250L350 350;M200 300L400 300;M250 250L350 350"/>
+  </path>
+</svg> 
