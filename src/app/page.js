@@ -1,7 +1,6 @@
 'use client';
 
 import { Container, Row, Col, Button, Card, Form, InputGroup } from 'react-bootstrap';
-import Image from 'next/image';
 import ContactForm from './components/ContactForm';
 import LogoSlider from './components/LogoSlider';
 import ProcessTimeline from './components/ProcessTimeline';
@@ -10,6 +9,7 @@ import ChallengesSection from './components/ChallengesSection';
 import StatsSection from './components/StatsSection';
 import FAQSection from './components/FAQSection';
 import HeroSection from './components/HeroSection';
+import InTouch from './components/InTouch';
 
 const faqs = [
   {
@@ -53,16 +53,8 @@ const faqs = [
 export default function Home() {
   return (
     <div>
-      {/* Hero Section */}
-      <HeroSection />
-      
-
-      {/* Trusted Companies Section */}
-      <section className="py-5">
-        <Container>
+      <HeroSection />     
           <LogoSlider />
-        </Container>
-      </section>
 
       {/* Process Section */}
       <section className="process-section py-5">
@@ -74,41 +66,7 @@ export default function Home() {
           <ProcessTimeline />
         </Container>
       </section>
-
-      {/* Contact Section */}
-      <section className="contact-section">
-        <Container>
-          <div className="contact-container">
-            <Row className="align-items-center">
-              <Col lg={6} className="mb-5 mb-lg-0">
-                <div className="pe-lg-5">
-                  <p className="text-uppercase text-muted mb-1">CONTACT US</p>
-                  <h2 className="display-4 fw-bold mb-4">Get in Touch</h2>
-                  <p className="lead text-muted mb-5">Drop your details, we will get in touch with you soon.</p>
-            <Image
-                    src="/contact-illustration.svg"
-                    alt="Contact Illustration"
-                    width={500}
-                    height={400}
-                    className="contact-illustration"
-                  />
-        </div>
-              </Col>
-              <Col lg={6}>
-                <div className="contact-form-box">
-                  <ContactForm 
-                    onSubmit={async (formData) => {
-                      console.log(formData);
-                    }}
-                    buttonText="Send Message"
-                  />
-                </div>
-              </Col>
-            </Row>
-          </div>
-        </Container>
-      </section>
-
+      <InTouch />
       <ComparisonSection />
 
       <ChallengesSection />

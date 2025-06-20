@@ -6,7 +6,7 @@ import ContactForm from './ContactForm';
 import Image from 'next/image';
 import '../globals.css'
 
-const HeroSection = () => {1
+const HeroSection = () => {
   return (
    <>
         <section className=" min-vh-100 d-flex flex-column bg-white position-relative"

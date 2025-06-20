@@ -1,63 +1,93 @@
-'use client';
-import { Navbar, Nav, Container, NavDropdown, Button } from 'react-bootstrap';
-import Link from 'next/link';
-import Image from 'next/image';
-// import styles from './Navbar.module.css';
+"use client";
+
+import { Navbar, Nav, Container, NavDropdown, Button } from "react-bootstrap";
+import Link from "next/link";
+import { FiPhone, FiMail } from "react-icons/fi";
+import { FaWhatsapp } from "react-icons/fa";
 
 export default function NavigationBar() {
   return (
     <>
-      <Navbar expand="lg" className="bg-white py-3 shadow-sm fixed-top">
+      <Navbar
+        expand="lg"
+        className="bg-white py-3 shadow-sm fixed-top custom-navbar"
+      >
         <Container>
-          <Navbar.Brand as={Link} href="/">
-            {/* <Image src="/vercel.svg" alt="Eazisols Logo" width={120} height={30} priority /> */}
-            <span className="fw-bold fst-italic">Eazisols</span>
+          <Navbar.Brand
+            as={Link}
+            href="/"
+            className="d-flex align-items-center"
+          >
+            <span className="fw-bold fst-italic fs-4 text-dark">Eazisols</span>
           </Navbar.Brand>
-          
+
           <Navbar.Toggle aria-controls="basic-navbar-nav" />
-          
+
           <Navbar.Collapse id="basic-navbar-nav">
-            <Nav className="ms-auto align-items-center">
-              <Nav.Link as={Link} href="/">Home</Nav.Link>
-              <Nav.Link as={Link} href="/contact">Contact Us</Nav.Link>
-              <NavDropdown title="Services" id="services-dropdown">
-                <NavDropdown.Item as={Link} href="/services/marketing">Marketing</NavDropdown.Item>
-                <NavDropdown.Item as={Link} href="/services/development">Development</NavDropdown.Item>
-                <NavDropdown.Item as={Link} href="/services/ui-ux">UI UX Design</NavDropdown.Item>
-                <NavDropdown.Item as={Link} href="/services/business-website">Business Website</NavDropdown.Item>
-              </NavDropdown>
-              {/* <Nav.Link as={Link} href="/portfolio">Portfolio</Nav.Link> */}
-              <Nav.Link as={Link} href="/cost-calculator" className="position-relative">
-                Cost Calculator
-                <span className="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger">
-                  NEW
-                </span>
+            <Nav className="ms-auto align-items-center gap-2">
+              <Nav.Link as={Link} href="/">
+                Home
               </Nav.Link>
-              {/* <Nav.Link as={Link} href="/blog">Blog</Nav.Link> */}
-              <Button variant="danger" className="ms-2" href="tel:+1234567890">
-                Call us
-              </Button>
-              <Button variant="dark" className="ms-2">
-                Drop a Message
-              </Button>
-              <Button variant="success" className="ms-2" href="https://wa.me/1234567890">
-                WhatsApp
-              </Button>
+              <Nav.Link as={Link} href="/About">
+                About Us
+              </Nav.Link>
+              <Nav.Link as={Link} href="/Services">
+                Services
+              </Nav.Link>
+              <NavDropdown title="Our Work" id="services-dropdown">
+                <NavDropdown.Item as={Link} href="/services/marketing">
+                  Case Studies
+                </NavDropdown.Item>
+                <NavDropdown.Item as={Link} href="/services/development">
+                  Blog
+                </NavDropdown.Item>
+              </NavDropdown>
+              <Nav.Link as={Link} href="/Careers">
+                Careers
+              </Nav.Link>
+              <Nav.Link as={Link} href="/contact">
+                Contact Us
+              </Nav.Link>
+
+              <Nav.Link
+                as={Link}
+                href="/cost-calculator"
+                className="position-relative fw-semibold text-dark"
+              >
+                Get a Quote
+              </Nav.Link>
+
+              {/* ✅ Buttons with icons */}
+              <Nav.Link
+                href="tel:+1234567890"
+                className="icon-button text-dark"
+                title="Call Us"
+              >
+                <FiPhone size={18} />
+              </Nav.Link>
+              <Nav.Link
+                href="#"
+                className="icon-button text-dark"
+                title="Drop a Message"
+              >
+                <FiMail size={18} />
+              </Nav.Link>
+              <Nav.Link
+                href="https://wa.me/1234567890"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="icon-button text-success"
+                title="WhatsApp"
+              >
+                <FaWhatsapp size={18} />
+              </Nav.Link>
             </Nav>
-            {/* <Dropdown align="end" className="ms-auto">
-              <Dropdown.Toggle variant="link" className="p-0 border-0 bg-transparent">
-                <img src="https://flagcdn.com/us.svg" alt="English" width={28} className="rounded-circle border" />
-              </Dropdown.Toggle>
-              <Dropdown.Menu>
-                <Dropdown.Item href="#"><img src="https://flagcdn.com/us.svg" alt="English" width={20} className="me-2 rounded-circle" /> English</Dropdown.Item>
-                <Dropdown.Item href="#"><img src="https://flagcdn.com/pk.svg" alt="Urdu" width={20} className="me-2 rounded-circle" /> Urdu</Dropdown.Item>
-              </Dropdown.Menu>
-            </Dropdown> */}
           </Navbar.Collapse>
         </Container>
       </Navbar>
-      {/* Add a spacer div to prevent content from hiding under fixed navbar */}
-      <div className="navbar-spacer"></div>
+
+      {/* Keeps space below fixed navbar */}
+      <div className="navbar-spacer" style={{ height: "76px" }}></div>
     </>
   );
-} 
+}

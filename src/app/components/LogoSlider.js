@@ -2,22 +2,29 @@
 
 import Image from 'next/image';
 
+import logo1 from '@/app/assets/logo1.svg';
+import logo2 from '@/app/assets/logo2.svg';
+import logo3 from '@/app/assets/logo3.svg';
+import logo4 from '@/app/assets/logo4.svg';
+import logo5 from '@/app/assets/logo5.svg';
+import logo6 from '@/app/assets/logo6.svg';
+import logo7 from '@/app/assets/logo7.svg';
+
+
 export default function LogoSlider() {
   const logos = [
-    { src: '/logos/logo1.svg', alt: 'Wagers', width: 100 },
-    { src: '/logos/logo2.svg', alt: 'Golden Ops', width: 120 },
-    { src: '/logos/logo3.svg', alt: 'Grintary', width: 110 },
-    { src: '/logos/logo4.svg', alt: 'TWLM', width: 90 },
-    { src: '/logos/logo5.svg', alt: 'LiftBuddy', width: 100 },
-    { src: '/logos/logo6.svg', alt: 'TheWalt', width: 110 },
-    { src: '/logos/logo7.svg', alt: 'Company', width: 120 },
+    { src: logo1, alt: 'Logo 1', width: 100 },
+    { src: logo2, alt: 'Logo 2', width: 120 },
+    { src: logo3, alt: 'Logo 3', width: 110 },
+    { src: logo4, alt: 'Logo 4', width: 90 },
+    { src: logo5, alt: 'Logo 5', width: 100 },
+    { src: logo6, alt: 'Logo 6', width: 110 },
+    { src: logo7, alt: 'Logo 7', width: 120 },
   ];
 
   return (
-    <div className="logo-container">
-      <div className="text-center mb-4">
-        <p className="text-muted mb-0">Trusted by innovative companies</p>
-      </div>
+    <div className="row logosli-container">
+    
       <div className="logos-grid">
         {logos.map((logo, index) => (
           <div key={index} className="logo-item">
@@ -40,4 +47,4 @@ export default function LogoSlider() {
       </div>
     </div>
   );
-} 
+}
