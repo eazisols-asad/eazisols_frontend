@@ -1,4 +1,4 @@
-import { Container, Row, Col, Button, Card, Form, InputGroup } from 'react-bootstrap';
+import { Container, Row, Col, Button, Card, Form, InputGroup, Badge } from 'react-bootstrap';
 import Image from 'next/image';
 import FeatureCard from '../components/FeatureCard';
 import FAQSection from '../components/FAQSection';
@@ -49,9 +49,9 @@ export default function CostCalculatorPage() {
       <section className="text-center py-5">
         <Container>
           <div className="mb-3">
-            <Button variant="outline-secondary" size="sm" className="rounded-pill px-3 mb-2">Cost Calculator</Button>
-            <h1 className="display-4 fw-bold mb-3">Idea <span className="text-primary">&rarr;</span> Estimation<br />in seconds</h1>
-            <p className="lead text-muted mb-4" style={{maxWidth: 600, margin: '0 auto'}}>Use industry data to estimate and understand development costs. No hidden fees. Just transparent insights.</p>
+            <Badge bg="secondary" className="rounded-pill px-3 mb-2" style={{animation: 'auto ease 0s 1 normal none running none', padding: '14px', backgroundColor: '#EEEEEE !important', color: '#000000',fontWeight: 500}}>Cost Calculator</Badge>
+            <h1 className="display-4 fw-bold mb-3" style={{textAlign: 'center', marginTop: 0, marginBottom: 0, paddingBottom: 0, fontSize: '60px', lineHeight: '72px',color: '#000000'}}>Idea <span >&rarr;</span> Estimation<br />in seconds</h1>
+            <p className="lead text-muted mb-4" style={{maxWidth: 600, margin: '0 auto', textAlign: 'center', marginBottom: 0, fontFamily: 'Inter, sans-serif', fontSize: '18px', lineHeight: '30px',fontWeight: 400}}>Use industry data to estimate and understand development costs. No hidden fees. Just transparent insights.</p>
             <div className="d-flex justify-content-center gap-3 mb-4 flex-wrap">
               <Button variant="dark" size="lg" className="rounded-pill px-4">Start Calculating</Button>
               <Button variant="outline-dark" size="lg" className="rounded-pill px-4">Contact us</Button>
