@@ -9,8 +9,8 @@ import '../globals.css'
 const HeroSection = () => {
   return (
    <>
-        <section className=" min-vh-100 d-flex flex-column bg-white position-relative"
-      style={{padding: '64px'}}>
+        <section className=" min-vh-100 d-flex flex-column bg-light position-relative"
+      >
         <Container className="flex-grow-1 d-flex flex-column heroSection">
           <Row className="align-items-center flex-grow-1 gx-4">
             <Col lg={7}>

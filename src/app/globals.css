@@ -1,7 +1,7 @@
 @import url("https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css");
 
 :root {
-  --max-width: 1500px;
+  --max-width: 1400px;
   --border-radius: 12px;
   --font-mono: ui-monospace, Menlo, Monaco, 'Cascadia Mono', 'Segoe UI Mono',
     'Roboto Mono', 'Oxygen Mono', 'Ubuntu Monospace', 'Source Code Pro',
@@ -293,7 +293,7 @@ img {
     margin-left: 0;
   padding: 32px 40px;
   background-color: #fff;
-  border: 1px solid #464646;
+  border: 3px solid #DDDDDD;
   border-radius: 12px;
   font-size: 14px;
   font-weight: 400;
@@ -566,8 +566,8 @@ img {
   content: '';
   position: absolute;
   width: 2px;
-  background: #0ea5e9;
-  top: 0;
+  border: 1px dashed #0ea5e9;
+  top: 70px;
   bottom: 0;
   left: 50%;
   transform: translateX(-50%);
@@ -577,7 +577,7 @@ img {
   position: relative;
   width: 100%;
   padding: 60px 0;
-  border-bottom: 1px solid #e5f3fb;
+ 
 }
 
 .timeline-item:last-child {
@@ -600,11 +600,11 @@ img {
   background: white;
   width: 50px;
   height: 50px;
-  border-radius: 50%;
+  border-radius: 20%;
   display: flex;
   align-items: center;
   justify-content: center;
-  border: 2px solid #0ea5e9;
+  border: 2px dashed #0ea5e9;
   z-index: 2;
 }
 
@@ -630,6 +630,7 @@ img {
   color: #333;
   position: relative;
   padding-bottom: 10px;
+  text-align: start;
 }
 
 .timeline-title::after {
@@ -639,7 +640,7 @@ img {
   left: 0;
   width: 50px;
   height: 2px;
-  background: #0ea5e9;
+  /* background: #0ea5e9; */
 }
 
 .timeline-text.text-end .timeline-title::after {
@@ -650,6 +651,7 @@ img {
 .timeline-description {
   color: #666;
   line-height: 1.6;
+  text-align: start;
 }
 
 .timeline-text {
@@ -812,7 +814,7 @@ img {
 
 .challenge-card {
   background: white;
-  padding: 32px;
+  padding: 15px;
   border-radius: 16px;
   border: 1px solid #e2e8f0;
   transition: all 0.2s ease-in-out;
@@ -978,7 +980,7 @@ img {
     font-size: 14px;
     line-height: 20px;
     width: 100%;
-    max-width: 1280px;
+    max-width:  var(--max-width);
     margin-left: auto;
     margin-right: auto;
     position: relative;

@@ -105,7 +105,7 @@ function AnimatedNumber({ value, duration = 2000 }) {
 
 export default function StatsSection() {
   return (
-    <section className="stats-section">
+    <section className="stats-section bg-light">
       <Container>
         <div className="text-center mb-5">
           <p className="text-uppercase text-muted mb-2" style={{ letterSpacing: '0.05em', fontSize: '0.875rem' }}>

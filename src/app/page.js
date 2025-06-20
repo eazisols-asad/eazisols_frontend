@@ -52,12 +52,12 @@ const faqs = [
 
 export default function Home() {
   return (
-    <div>
+    <div className='bg-light'>
       <HeroSection />     
           <LogoSlider />
 
       {/* Process Section */}
-      <section className="process-section py-5">
+        <section className="process-section py-5 bg-light">
         <Container>
           <div className="text-center mb-5">
             <p className="text-uppercase text-muted mb-1">OUR PROCESS</p>
@@ -73,50 +73,7 @@ export default function Home() {
 
       <StatsSection />
 
-      <section className="py-5">
-        <Container>
-          <Row className="text-center mb-5">
-            <Col>
-              <h2 className="display-5 fw-bold">We worked with all of them</h2>
-              <h3 className="h4 text-muted">We got you covered</h3>
-              <p className="lead">
-                Leading global tech services firm, delivering innovative solutions, exceptional results, and fostering lasting client relationships.
-              </p>
-            </Col>
-          </Row>
-
-          <Row className="g-4 text-center">
-            <Col md={6} lg={3}>
-              <div className="p-4">
-                <h4 className="fw-bold text-primary mb-2">We coded and designed over</h4>
-                <div className="display-4 fw-bold text-primary mb-2">40,000</div>
-                <p className="text-muted">Hours</p>
-              </div>
-            </Col>
-            <Col md={6} lg={3}>
-              <div className="p-4">
-                <h4 className="fw-bold text-primary mb-2">We wrote over</h4>
-                <div className="display-4 fw-bold text-primary mb-2">50,000+</div>
-                <p className="text-muted">lines of code</p>
-              </div>
-            </Col>
-            <Col md={6} lg={3}>
-              <div className="p-4">
-                <h4 className="fw-bold text-primary mb-2">1,000,000+</h4>
-                <div className="display-4 fw-bold text-primary mb-2">people</div>
-                <p className="text-muted">use the apps monthly that we created</p>
-              </div>
-            </Col>
-            <Col md={6} lg={3}>
-              <div className="p-4">
-                <h4 className="fw-bold text-primary mb-2">We worked with over</h4>
-                <div className="display-4 fw-bold text-primary mb-2">50+</div>
-                <p className="text-muted">Different companies</p>
-              </div>
-            </Col>
-          </Row>
-        </Container>
-      </section>
+  
 
       {/* FAQ Section */}
       <FAQSection faqs={faqs} title="Frequently Asked Questions" />
@@ -138,41 +95,7 @@ export default function Home() {
         </Container>
       </section>
 
-      {/* Start Your Free Trial Section */}
-      <section style={{ background: '#f51437', padding: '64px 0' }}>
-        <Container>
-          <Row className="justify-content-center text-center mb-4">
-            <Col lg={8}>
-              <h2 className="fw-bold text-white mb-3" style={{fontSize: '2rem'}}>Start Your Free Trial</h2>
-              <p className="text-white-50 mb-4" style={{fontWeight: 500}}>Experience the Benefits, No Commitment Required!</p>
-            </Col>
-          </Row>
-          <Row className="justify-content-center">
-            <Col lg={7}>
-              <Form className="d-flex flex-column flex-md-row align-items-center gap-3 justify-content-center">
-                <InputGroup className="flex-grow-1" style={{maxWidth: 500}}>
-                  <span className="input-group-text bg-white border-0 rounded-pill ps-4" style={{paddingRight: 0}}>
-                    <i className="bi bi-envelope-fill text-dark"></i>
-                  </span>
-                  <Form.Control
-                    type="email"
-                    placeholder="JhonDoe@gmail.com"
-                    className="border-0 rounded-pill ps-2"
-                    style={{height: 52, background: '#fff'}}
-                  />
-                </InputGroup>
-                <Button
-                  type="submit"
-                  className="rounded-pill px-4 fw-bold"
-                  style={{height: 52, background: '#000', border: 'none', color: '#fff', whiteSpace: 'nowrap'}}
-                >
-                  Get Started Now
-                </Button>
-              </Form>
-            </Col>
-          </Row>
-        </Container>
-      </section>
+   
     </div>
   );
 }

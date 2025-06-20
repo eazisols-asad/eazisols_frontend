@@ -7,7 +7,7 @@ import intouch from '@/app/assets/intouch.png';
 const InTouch = () => {
   return (
    <>
-       <section className="contact-section">
+       <section className="contact-section bg-light">
         <Container>
           <div className="contact-container">
           <div className='"d-flex flex-column justify-content-center align-items-center text-center'>

@@ -76,7 +76,7 @@ export default function ComparisonSection() {
   );
 
   return (
-    <section className="comparison-section py-5" ref={sectionRef}>
+    <section className="comparison-section py-5 bg-light" ref={sectionRef}>
       <Container>
         <div className="text-center mb-5">
           <p className="text-uppercase text-muted mb-1">COMPARISON</p>

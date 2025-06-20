@@ -23,7 +23,7 @@ export default function LogoSlider() {
   ];
 
   return (
-    <div className="row logosli-container">
+    <div className="row logosli-container bg-light">
     
       <div className="logos-grid">
         {logos.map((logo, index) => (
