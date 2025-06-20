@@ -2,7 +2,11 @@ import { Container, Row, Col, Button, Card, Form, InputGroup, Badge } from 'reac
 import Image from 'next/image';
 import FeatureCard from '../components/FeatureCard';
 import FAQSection from '../components/FAQSection';
-
+import { FcGoogle } from "react-icons/fc";
+import { FaGithub } from "react-icons/fa6";
+import { FaAws } from "react-icons/fa6";
+import { FaApple } from "react-icons/fa";
+import { FaMeta } from "react-icons/fa6";
 const faqs = [
   {
     question: 'What are the services provided by your software development firm?',
@@ -44,25 +48,26 @@ const faqs = [
 
 export default function CostCalculatorPage() {
   return (
-    <div className="bg-white min-vh-100 pt-5">
+    <div className="bg-white min-vh-100" >
       {/* Hero Section */}
-      <section className="text-center py-5">
+      <section className="text-center py-5 bg-light  pt-5">
         <Container>
           <div className="mb-3">
-            <Badge bg="secondary" className="rounded-pill px-3 mb-2" style={{animation: 'auto ease 0s 1 normal none running none', padding: '14px', backgroundColor: '#EEEEEE !important', color: '#000000',fontWeight: 500}}>Cost Calculator</Badge>
+            {/* <Badge  className="rounded-pill px-3 mb-2" style={{animation: 'auto ease 0s 1 normal none running none', padding: '14px', backgroundColor: '#EEEEEE !important', color: '#000000',fontWeight: 500}}>Cost Calculator</Badge> */}
             <h1 className="display-4 fw-bold mb-3" style={{textAlign: 'center', marginTop: 0, marginBottom: 0, paddingBottom: 0, fontSize: '60px', lineHeight: '72px',color: '#000000'}}>Idea <span >&rarr;</span> Estimation<br />in seconds</h1>
             <p className="lead text-muted mb-4" style={{maxWidth: 600, margin: '0 auto', textAlign: 'center', marginBottom: 0, fontFamily: 'Inter, sans-serif', fontSize: '18px', lineHeight: '30px',fontWeight: 400}}>Use industry data to estimate and understand development costs. No hidden fees. Just transparent insights.</p>
             <div className="d-flex justify-content-center gap-3 mb-4 flex-wrap">
-              <Button variant="dark" size="lg" className="rounded-pill px-4">Start Calculating</Button>
-              <Button variant="outline-dark" size="lg" className="rounded-pill px-4">Contact us</Button>
+              <Button variant="dark" size="lg" className="rounded-pill px-4" style={{fontSize: '14px'}}>Start Calculating</Button>
+              <Button variant="outline-dark" size="lg" className="rounded-pill px-4" style={{fontSize: '14px'}}>Contact us</Button>
             </div>
-            <div className="d-flex justify-content-center gap-3 flex-wrap">
+            <div className="d-flex justify-content-center gap-5 flex-wrap">
               {/* Placeholder icons */}
-              <span className="fs-3">⚡</span>
-              <span className="fs-3">🛠️</span>
-              <span className="fs-3">🌐</span>
-              <span className="fs-3">🔒</span>
-              <span className="fs-3">📈</span>
+              <span className="fs-3"><FcGoogle /></span>
+              <span className="fs-3"><FaGithub /></span>
+              <span className="fs-3"><FaAws /></span>
+              <span className="fs-3"><FaApple /></span>
+              <span className="fs-3"><FaMeta /></span>
+              <span className="fs-3"><FaMeta /></span>
             </div>
           </div>
         </Container>
@@ -72,68 +77,49 @@ export default function CostCalculatorPage() {
       <section className="py-5 bg-light px-3 px-md-5" style={{paddingLeft: '60px', paddingRight: '60px'}}>
         <Container  className="px-5">
           <div className="text-center mb-5">
-            <Button variant="outline-danger" size="sm" className="rounded-pill px-3 mb-2">How it works</Button>
-            <h2 className="fw-bold mb-4">See The Magic In Action</h2>
+          <Badge bg="secondary" color='light' className="rounded-pill px-3 mb-2" style={{animation: 'auto ease 0s 1 normal none running none', padding: '14px',fontWeight: 500}}>How it work</Badge>
+          <h2 className="fw-bold mb-4">See The Magic In Action</h2>
           </div>
           {/* Step 1 */}
-          <Row className="align-items-center mb-5 flex-row">
-            <Col xs={12} md={6} className="order-1 order-md-1 mb-4 mb-md-0">
-              <h5 className="fw-bold">Choose the Platform</h5>
-              <p className="text-muted">Choose your platform and app types to match your needs.</p>
+          <Row className="align-items-center mb-5">
+            <Col xs={12} md={6} className="mb-4 mb-md-0">
+                <h3 className='fw-bold'>01</h3>
+              <h5 className="fw-bold">Each day, you answer questions about your meditation experience, goals, and challenges.</h5>
+              {/* <p className="text-muted">Choose your platform and app types to match your needs.</p> */}
             </Col>
-            <Col xs={12} md={6} className="order-2 order-md-2 text-center">
-              <Card className="shadow-sm mx-auto" style={{maxWidth: 300, background: '#fff'}}>
-                <div className="card-body">
-                  <div style={{height: 120, background: '#f8f9fa', borderRadius: 12}} className="d-flex align-items-center justify-content-center">
-                    <span className="fs-1">🖥️</span>
-                  </div>
-                </div>
-              </Card>
+            <Col xs={12} md={6} className="text-center">
+             <Image src="/howToWork1.JPG" alt="How it works step 1" width={500} height={300} />
             </Col>
           </Row>
-          <div className="text-center mb-5">
-            <img src="/arrow1.png" alt="Curved Arrow" style={{maxWidth: '220px', width: '100%', height: 'auto', marginLeft: 'auto', marginRight: 'auto', display: 'block'}} />
-          </div>
+         
           {/* Step 2 */}
-          <Row className="align-items-center mb-5 flex-row">
-            <Col xs={12} md={6} className="order-1 order-md-1 mb-4 mb-md-0">
-              <h5 className="fw-bold">Let's Dive into Your Project Details</h5>
-              <p className="text-muted">Enter your project goals, requirements, and features for a quick estimate.</p>
+          <Row className="align-items-center mb-5">
+             <Col xs={12} md={6} className="text-center order-md-2">
+             <Image src="/howToWork2.JPG" alt="How it works step 2" width={500} height={300} />
             </Col>
-            <Col xs={12} md={6} className="order-2 order-md-2 text-center">
-              <Card className="shadow-sm mx-auto" style={{maxWidth: 300, background: '#fff'}}>
-                <div className="card-body">
-                  <div style={{height: 120, background: '#f8f9fa', borderRadius: 12}} className="d-flex align-items-center justify-content-center">
-                    <span className="fs-1">📝</span>
-                  </div>
-                </div>
-              </Card>
+            <Col xs={12} md={6} className="mb-4 mb-md-0 order-md-1">
+                 <h3 className='fw-bold'>02</h3>
+              <h5 className="fw-bold">Using an audio library with thousands of files, Balance assembles meditations personalized for you.</h5>
+              {/* <p className="text-muted">Enter your project goals, requirements, and features for a quick estimate.</p> */}
             </Col>
           </Row>
-          <div className="text-center mb-5">
-            <img src="/arrow2.png" alt="Curved Arrow" style={{maxWidth: '220px', width: '100%', height: 'auto', marginLeft: 'auto', marginRight: 'auto', display: 'block'}} />
-          </div>
+        
           {/* Step 3 */}
-          <Row className="align-items-center flex-row">
-            <Col xs={12} md={6} className="order-1 order-md-1 mb-4 mb-md-0">
-              <h5 className="fw-bold">Submit to Get Your Estimate</h5>
-              <p className="text-muted">Discover details, insights, and get your transparent estimate instantly.</p>
+         <Row className="align-items-center mb-5">
+            <Col xs={12} md={6} className="mb-4 mb-md-0">
+                <h3 className='fw-bold'>03</h3>
+              <h5 className="fw-bold">The more you share over time, the more personalized and effective your meditations become.</h5>
+              {/* <p className="text-muted">Choose your platform and app types to match your needs.</p> */}
             </Col>
-            <Col xs={12} md={6} className="order-2 order-md-2 text-center">
-              <Card className="shadow-sm mx-auto" style={{maxWidth: 300, background: '#fff'}}>
-                <div className="card-body">
-                  <div style={{height: 120, background: '#f8f9fa', borderRadius: 12}} className="d-flex align-items-center justify-content-center">
-                    <span className="fs-1">📊</span>
-                  </div>
-                </div>
-              </Card>
+            <Col xs={12} md={6} className="text-center">
+             <Image src="/howToWork3.JPG" alt="How it works step 3" width={500} height={300} />
             </Col>
           </Row>
         </Container>
       </section>
 
       {/* Features Section */}
-      <section className="py-5 bg-white">
+      <section className="py-5  bg-light">
         <Container>
           <div className="text-center mb-4">
             <span className=" bg-light text-dark px-4 py-2 mb-3" style={{fontWeight: 500, fontSize: '1rem'}}>Features</span>
