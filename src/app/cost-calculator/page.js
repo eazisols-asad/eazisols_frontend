@@ -83,8 +83,8 @@ export default function CostCalculatorPage() {
           {/* Step 1 */}
           <Row className="align-items-center mb-5">
             <Col xs={12} md={6} className="mb-4 mb-md-0">
-                <h3 className='fw-bold'>01</h3>
-              <h5 className="fw-bold">Each day, you answer questions about your meditation experience, goals, and challenges.</h5>
+                <h3 className='fw-bold' style={{backgroundColor: 'white', width: '9%', color: 'blue', padding: '8px', borderRadius: '9px', boxShadow: 'rgba(50, 50, 93, 0.25) 0px 2px 5px -1px, rgba(0, 0, 0, 0.3) 0px 1px 3px -1px'}}>01</h3>
+              <p style={{fontWeight: 600}}>Each day, you answer questions about your meditation experience, goals, and challenges.</p>
               {/* <p className="text-muted">Choose your platform and app types to match your needs.</p> */}
             </Col>
             <Col xs={12} md={6} className="text-center">
@@ -99,7 +99,7 @@ export default function CostCalculatorPage() {
             </Col>
             <Col xs={12} md={6} className="mb-4 mb-md-0 order-md-1">
                  <h3 className='fw-bold'>02</h3>
-              <h5 className="fw-bold">Using an audio library with thousands of files, Balance assembles meditations personalized for you.</h5>
+              <p style={{fontWeight: 600}}>Using an audio library with thousands of files, Balance assembles meditations personalized for you.</p>
               {/* <p className="text-muted">Enter your project goals, requirements, and features for a quick estimate.</p> */}
             </Col>
           </Row>
@@ -108,7 +108,7 @@ export default function CostCalculatorPage() {
          <Row className="align-items-center mb-5">
             <Col xs={12} md={6} className="mb-4 mb-md-0">
                 <h3 className='fw-bold'>03</h3>
-              <h5 className="fw-bold">The more you share over time, the more personalized and effective your meditations become.</h5>
+              <p style={{fontWeight: 600}}>The more you share over time, the more personalized and effective your meditations become.</p>
               {/* <p className="text-muted">Choose your platform and app types to match your needs.</p> */}
             </Col>
             <Col xs={12} md={6} className="text-center">
@@ -179,9 +179,13 @@ export default function CostCalculatorPage() {
                   </span>
                   <Form.Control
                     type="email"
-                    placeholder="JhonDoe@gmail.com"
+                    placeholder="JhonDoe@gmail.com" 
                     className="border-0 rounded-end-pill ps-2"
-                    style={{height: 52, background: '#fff'}}
+                    style={{
+                      height: 52,
+                      background: '#fff',
+                      outline: 'none'
+                    }}
                   />
                 </InputGroup>
                 <Button
