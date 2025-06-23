@@ -14,51 +14,27 @@ const stats = [
     prefix: 'We coded and designed over',
     number: 40000,
     suffix: 'Hours',
-    iconComponent: (
-      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
-        <circle cx="12" cy="12" r="10" />
-        <path d="M12 6v6l4 2" />
-      </svg>
-    )
+    icon: clock
   },
   {
     number: 1000000,
     suffix: '+',
     description: 'people use the apps monthly that we created',
-    iconComponent: (
-      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
-        <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2" />
-        <circle cx="9" cy="7" r="4" />
-        <path d="M23 21v-2a4 4 0 0 0-3-3.87" />
-        <path d="M16 3.13a4 4 0 0 1 0 7.75" />
-      </svg>
-    )
+    icon: people
   },
   {
     prefix: 'We wrote over',
     number: 50000,
     suffix: '+',
     description: 'lines of code',
-    iconComponent: (
-      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
-        <path d="M16 18l6-6-6-6" />
-        <path d="M8 6l-6 6 6 6" />
-      </svg>
-    )
+    icon: coding
   },
   {
     prefix: 'We worked with over',
     number: 50,
     suffix: '+',
     description: 'Different companies',
-    iconComponent: (
-      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
-        <rect x="2" y="3" width="20" height="18" rx="2" />
-        <path d="M12 7v10" />
-        <path d="M17 7v10" />
-        <path d="M7 7v10" />
-      </svg>
-    )
+    icon: building
   }
 ];
 
@@ -137,7 +113,7 @@ export default function StatsSection() {
             {stats.map((stat, index) => (
               <div key={index} className="stat-card">
                 <div className="stat-icon">
-                  {stat.iconComponent}
+                  <Image src={stat.icon} alt="Stat Icon" width={48} height={48} />
                 </div>
                 <div className="stat-info">
                   {stat.prefix && <div className="stat-prefix">{stat.prefix}</div>}

@@ -24,7 +24,7 @@ export default function NavigationBar() {
           <Navbar.Toggle aria-controls="basic-navbar-nav" />
 
           <Navbar.Collapse id="basic-navbar-nav">
-            <Nav className="ms-auto align-items-center gap-2">
+            <Nav className="ms-auto align-items-center gap-4">
               <Nav.Link as={Link} href="/">
                 Home
               </Nav.Link>
@@ -58,6 +58,7 @@ export default function NavigationBar() {
               </Nav.Link>
 
               {/* ✅ Buttons with icons */}
+              <Nav className=" align-items-center gap-2 icon-nav">
               <Nav.Link
                 href="tel:+1234567890"
                 className="icon-button text-dark"
@@ -81,6 +82,7 @@ export default function NavigationBar() {
               >
                 <FaWhatsapp size={18} />
               </Nav.Link>
+              </Nav>
             </Nav>
           </Navbar.Collapse>
         </Container>
