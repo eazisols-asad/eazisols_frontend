@@ -29,13 +29,13 @@ export default function Footer() {
             <h5 className="mb-3">Company</h5>
             <ul className="list-unstyled">
               <li className="mb-2">
-                <Link href="/contact" className="text-white text-decoration-none">Contact Us</Link>
+                <Link href="/contact">Contact Us</Link>
               </li>
               <li className="mb-2">
-                <Link href="/portfolio" className="text-white text-decoration-none">Portfolio</Link>
+                <Link href="/portfolio">Portfolio</Link>
               </li>
               <li className="mb-2">
-                <Link href="/cost-calculator" className="text-white text-decoration-none">Cost Calculator</Link>
+                <Link href="/cost-calculator" >Cost Calculator</Link>
               </li>
             </ul>
           </Col>
@@ -43,13 +43,13 @@ export default function Footer() {
             <h5 className="mb-3">Services</h5>
             <ul className="list-unstyled">
               <li className="mb-2">
-                <Link href="/services/ui-ux" className="text-white text-decoration-none">UI UX Design</Link>
+                <Link href="/services/ui-ux" className=" text-decoration-none">UI UX Design</Link>
               </li>
               <li className="mb-2">
-                <Link href="/services/development" className="text-white text-decoration-none">Mobile and Web Development</Link>
+                <Link href="/services/development" className=" text-decoration-none">Mobile and Web Development</Link>
               </li>
               <li className="mb-2">
-                <Link href="/services/business" className="text-white text-decoration-none">Business Website</Link>
+                <Link href="/services/business" className=" text-decoration-none">Business Website</Link>
               </li>
             </ul>
           </Col>

@@ -3,6 +3,11 @@
 import { Container } from 'react-bootstrap';
 import Image from 'next/image';
 import { useEffect, useState, useRef } from 'react';
+import statss from '@/app/assets/statss.png';
+import building from '@/app/assets/building.svg';
+import clock from '@/app/assets/clock.svg';
+import coding from '@/app/assets/coding.svg';
+import people from '@/app/assets/people.svg';
 
 const stats = [
   {
@@ -120,7 +125,7 @@ export default function StatsSection() {
         <div className="stats-grid">
           <div className="stats-illustration">
             <Image
-              src="/stats-illustration.svg"
+              src={statss}
               alt="Stats Illustration"
               fill
               style={{ objectFit: 'contain' }}

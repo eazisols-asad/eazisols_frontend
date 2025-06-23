@@ -2,6 +2,7 @@
 
 import { Container } from 'react-bootstrap';
 import Image from 'next/image';
+import challange from '@/app/assets/challange.png';
 
 const challenges = [
   {
@@ -56,7 +57,7 @@ export default function ChallengesSection() {
           
           <div className="challenges-illustration">
             <Image
-              src="/challenges-illustration.svg"
+              src={challange}
               alt="Challenges Illustration"
               width={500}
               height={500}
