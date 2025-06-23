@@ -161,18 +161,6 @@ img {
   overflow: hidden;
 }
 
-/* .stat-card::before {
-  content: '';
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  height: 4px;
-  background: linear-gradient(90deg, #007bff, #28a745, #ffc107, #dc3545);
-  opacity: 0;
-  transition: opacity 0.3s ease;
-} */
-
 .stat-card:hover {
   transform: translateY(-8px);
   box-shadow: 0 8px 30px rgba(0, 0, 0, 0.12);

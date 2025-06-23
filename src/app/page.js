@@ -80,6 +80,7 @@ export default function Home() {
   return (
     <div className="bg-light">
       <HeroSection />
+      
       <LogoSlider />
       <ProcessTimeline />
       <InTouch />
@@ -95,10 +96,10 @@ export default function Home() {
         <Container>
           <Row className="text-center">
             <Col>
-              <h2 className="display-5 fw-bold mb-4">Let's Get To Work!</h2>
+              <h2 className="display-5 fw-bold mb-4">{`Let's Get To Work!`}</h2>
               <p className="lead mb-4">
-                We're ready to get started on your next creative project. All
-                you need to do is hit the button below
+              {`  We're ready to get started on your next creative project. All
+                you need to do is hit the button below`}
               </p>
               <Button variant="light" size="lg">
                 Book an appointment
