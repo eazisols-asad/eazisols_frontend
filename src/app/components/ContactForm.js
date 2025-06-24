@@ -10,8 +10,9 @@ export default function ContactForm({ onSubmit, buttonText = "Please wait..." })
     name: '',
     email: '',
     phone: '',
-    communicationMethod: 'Email',
-    description: ''
+    message:'',
+    company_name: "Example Corp",
+    subject: "General Inquiry",
   });
 
   const [validated, setValidated] = useState(false);
@@ -129,8 +130,8 @@ export default function ContactForm({ onSubmit, buttonText = "Please wait..." })
           <Form.Control
             as="textarea"
             rows={4}
-            name="description"
-            value={formData.description}
+            name="message"
+            value={formData.message}
             onChange={handleChange}
             placeholder="Write..."
           />
@@ -146,8 +147,9 @@ export default function ContactForm({ onSubmit, buttonText = "Please wait..." })
         <Button 
           type="submit" 
           variant="dark" 
-          className="w-100 "
+          className="w-100 custom-submit-button"
           disabled={loading}
+
         >
           {loading ? buttonText : 'Submit'}
         </Button>

@@ -2,15 +2,28 @@
 
 import { Navbar, Nav, Container, NavDropdown, Button } from "react-bootstrap";
 import Link from "next/link";
-import { FiPhone, FiMail } from "react-icons/fi";
-import { FaWhatsapp } from "react-icons/fa";
+import eazistransbg from "@/app/assets/eazistransbg.png";
+import { usePathname } from "next/navigation";
+import { useEffect, useState } from "react";
 
 export default function NavigationBar() {
+  const pathname = usePathname();
+  const [scrolled, setScrolled] = useState(false);
+  const isHome = pathname === "/";
+
+  useEffect(() => {
+    const handleScroll = () => {
+      setScrolled(window.scrollY > 50); 
+    };
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
+
   return (
     <>
       <Navbar
         expand="lg"
-        className="bg-white py-3 shadow-sm fixed-top custom-navbar"
+         className={`shadow-sm fixed-top custom-navbar ${scrolled ? "navbar-scrolled" : isHome ? "navbar-home-top" : ""}`}
       >
         <Container>
           <Navbar.Brand
@@ -18,23 +31,44 @@ export default function NavigationBar() {
             href="/"
             className="d-flex align-items-center"
           >
-            <span className="fw-bold fst-italic fs-4 text-dark">Eazisols</span>
+            <img
+              src={eazistransbg.src}
+              alt="Eazisols Logo"
+              style={{
+                height: "100px", 
+                width: "auto", 
+                display: "block", 
+                maxHeight: "80px",
+              }}
+            />
           </Navbar.Brand>
 
           <Navbar.Toggle aria-controls="basic-navbar-nav" />
 
           <Navbar.Collapse id="basic-navbar-nav">
             <Nav className="ms-auto align-items-center gap-4">
-              <Nav.Link as={Link} href="/">
+              <Nav.Link
+                as={Link}
+                href="/"
+                className={pathname === "/" ? "active-link" : ""}
+              >
                 Home
               </Nav.Link>
-              <Nav.Link as={Link} href="/About">
+              <Nav.Link
+                as={Link}
+                href="/About"
+                className={pathname === "/About" ? "active-link" : ""}
+              >
                 About Us
               </Nav.Link>
               <Nav.Link as={Link} href="/Services">
                 Services
               </Nav.Link>
-              <NavDropdown title="Our Work" id="services-dropdown">
+              <NavDropdown
+                title="Our Work"
+                id="services-dropdown"
+                className="custom-dropdown"
+              >
                 <NavDropdown.Item as={Link} href="/services/marketing">
                   Case Studies
                 </NavDropdown.Item>
@@ -42,47 +76,25 @@ export default function NavigationBar() {
                   Blog
                 </NavDropdown.Item>
               </NavDropdown>
-              <Nav.Link as={Link} href="/Careers">
-                Careers
-              </Nav.Link>
-              <Nav.Link as={Link} href="/contact">
-                Contact Us
-              </Nav.Link>
-
               <Nav.Link
                 as={Link}
-                href="/cost-calculator"
-                className="position-relative fw-semibold text-dark"
+                href="/Careers"
+                className={pathname === "/careers" ? "active-link" : ""}
               >
-                Get a Quote
-              </Nav.Link>
-
-              {/* ✅ Buttons with icons */}
-              <Nav className=" align-items-center gap-2 icon-nav">
-              <Nav.Link
-                href="tel:+1234567890"
-                className="icon-button text-dark"
-                title="Call Us"
-              >
-                <FiPhone size={18} />
+                Careers
               </Nav.Link>
               <Nav.Link
-                href="#"
-                className="icon-button text-dark"
-                title="Drop a Message"
+                as={Link}
+                href="/contact"
+                className={pathname === "/contact" ? "active-link" : ""}
               >
-                <FiMail size={18} />
+                Contact Us
               </Nav.Link>
-              <Nav.Link
-                href="https://wa.me/1234567890"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="icon-button text-success"
-                title="WhatsApp"
-              >
-                <FaWhatsapp size={18} />
-              </Nav.Link>
-              </Nav>
+              <div className="d-flex align-items-center ">
+                <Link href="/cost-calculator" passHref>
+                  <Button className="quote-button">Get a Quote</Button>
+                </Link>
+              </div>
             </Nav>
           </Navbar.Collapse>
         </Container>

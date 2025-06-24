@@ -1,13 +1,33 @@
+"use client";
 import ContactForm from "../components/ContactForm";
 import Image from "next/image";
 import intouch from "@/app/assets/intouch.png";
+import useAPiAuth from "../components/useApiAuth";
 
-export const metadata = {
-  title: "Contact Us | Eazisols",
-  description: "Get in touch with Eazisols for your next project or inquiry.",
-};
+
+// export const metadata = {
+//   title: "Contact Us | Eazisols",
+//   description: "Get in touch with Eazisols for your next project or inquiry.",
+// };
 
 export default function ContactPage() {
+   const { postData ,getData} = useAPiAuth();
+  const handleSubmit = async (formData) => {
+     postData(
+     "/contact-us", 
+      formData,
+      (data)=>{
+        console.log("API Success:", data);
+
+        // navigate("/");
+      },
+      (error)=>{
+        console.error("user error:", error);
+      },
+
+    );
+    console.log(formData);
+  };
   return (
     <section className="container py-5">
       <div className="row align-items-center">
@@ -18,7 +38,7 @@ export default function ContactPage() {
             get back to you as soon as possible.
           </p>
 
-          <ContactForm buttonText="Sending..." />
+          <ContactForm buttonText="Sending..." onSubmit={handleSubmit} />
         </div>
         <div className="col-md-6 text-center">
           <Image

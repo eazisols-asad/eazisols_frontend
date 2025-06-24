@@ -1,64 +1,54 @@
-'use client';
+"use client";
 
-import React from 'react'
-import { Container, Row, Col, Button, Card } from 'react-bootstrap';
-import ContactForm from './ContactForm';
-import Image from 'next/image';
-import '../globals.css'
+import React from "react";
+import { Container, Row, Col } from "react-bootstrap";
+import ContactForm from "./ContactForm";
+import webbg from "@/app/assets/webbg.png";
+import "../globals.css";
 
 const HeroSection = () => {
   return (
-   <>
-        <section className=" min-vh-100 d-flex flex-column bg-light position-relative"
+    <>
+      <section
+        className="min-vh-100 d-flex flex-column bg-light position-relative hero-background"
+        style={{
+          backgroundImage: `url(${webbg.src})`,
+          backgroundSize: "cover",
+          backgroundPosition: "center",
+          backgroundRepeat: "no-repeat",
+        }}
       >
         <Container className="flex-grow-1 d-flex flex-column heroSection">
-          <Row className="align-items-center flex-grow-1 gx-4">
+          <Row className="align-items-start flex-grow-1 gx-4">
             <Col lg={7}>
-              <div className="pe-lg-5">
-                <h1 className="display-3 fw-bold mb-2">
-                  <span className=" herotext text-secondary">Transform your</span><br />
-                  <span className="text-secondary">idea into </span>
-                  <span className="text-dark">a startup</span>
+              <div className="mt-5 pe-lg-5 text-start">
+                <h1
+                  className="display-3 fw-bold mb-2"
+                  style={{ textAlign: "left" }}
+                >
+                  <span className="herotext text-white">Transform your</span>
+                  <br />
+                  <span className="text-white">idea into </span>
+                  <span style={{ color: "#00C2E5" }}>a startup</span>
                 </h1>
-                <div className="mt-5">
-                  <ContactForm 
-                    onSubmit={async (formData) => {
-                      // Handle form submission
-                      console.log(formData);
-                    }}
-                    buttonText="Submit"
-                  />
-                  <div className=" text-right ">
-                    <p className="text-muted mb-3  or-hero">OR</p>
-                    <Button 
-                      variant="dark" 
-                      size="lg" 
-                      className="rounded-pill px-4 "
-                      href="/book-appointment"
-                    >
-                      Book an appointment →
-                    </Button>
-                  </div>
-                </div>
               </div>
             </Col>
+
             <Col lg={5} className="mt-5 mt-lg-0">
-              <div className="globe-container position-relative">
-        <Image
-                  src="/globe-map.svg"
-                  alt="Globe Map"
-                  width={600}
-                  height={600}
-                  className="globe-image"
-          priority
-        />
+              <div className="mt-5">
+                <ContactForm
+                  onSubmit={async (formData) => {
+                    console.log(formData);
+                  }}
+                  buttonText="Submit"
+                />
               </div>
             </Col>
           </Row>
         </Container>
       </section>
-   </>
-  )
-}
+    </>
+  );
+};
 
-export default HeroSection
+export default HeroSection;
