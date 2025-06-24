@@ -9,51 +9,51 @@ const timeData = [
   { name: "Our Team", value: "1.8x", color: "#0ea5e9", baseWidth: "60%" },
   { name: "No Code Agency", value: "1x", color: "#333333", baseWidth: "20%" },
   {
-    name: "Traditional Agency",
-    value: "5.7x",
+    name: "Traditional Agency", 
+    value: "3x",
     color: "#333333",
     baseWidth: "70%",
   },
-  { name: "In-House Team", value: "7.2x", color: "#333333", baseWidth: "90%" },
+  { name: "In-House Team", value: "4x", color: "#333333", baseWidth: "90%" },
 ];
 
 const scalabilityData = [
   {
     name: "Our Team",
-    value: "250,000 Users",
-    color: "#0ea5e9",
+    value: "200k Users",
+    color: "#0ea5e9", 
     baseWidth: "60%",
   },
   {
     name: "No Code Agency",
-    value: "50,000 Users",
+    value: "25k Users",
     color: "#333333",
     baseWidth: "20%",
   },
   {
     name: "Traditional Agency",
-    value: "100,000 Users",
+    value: "75k Users",
     color: "#333333",
     baseWidth: "40%",
   },
   {
     name: "In-House Team",
-    value: "150,000 Users",
+    value: "100k Users",
     color: "#333333",
     baseWidth: "60%",
   },
 ];
 
 const pricingData = [
-  { name: "Our Team", value: "$50k", color: "#0ea5e9", baseWidth: "40%" },
-  { name: "No Code Agency", value: "$30k", color: "#333333", baseWidth: "20%" },
+  { name: "Our Team", value: "$45k", color: "#0ea5e9", baseWidth: "40%" },
+  { name: "No Code Agency", value: "$25k", color: "#333333", baseWidth: "20%" },
   {
     name: "Traditional Agency",
-    value: "$80k",
+    value: "$75k", 
     color: "#333333",
     baseWidth: "60%",
   },
-  { name: "In-House Team", value: "$120k", color: "#333333", baseWidth: "90%" },
+  { name: "In-House Team", value: "$100k", color: "#333333", baseWidth: "90%" },
 ];
 
 export default function ComparisonSection() {
@@ -78,7 +78,6 @@ export default function ComparisonSection() {
     return () => observer.disconnect();
   }, []);
 
-  // Reset animation when tab changes
   useEffect(() => {
     setIsVisible(false);
     setTimeout(() => setIsVisible(true), 100);
@@ -95,7 +94,7 @@ export default function ComparisonSection() {
               style={{
                 width: isVisible ? item.baseWidth : "0%",
                 backgroundColor: item.color,
-                transition: "width 1s ease-out",
+                transition: "width 0.8s ease-out",
               }}
             />
             <span className="comparison-value">{item.value}</span>
@@ -108,19 +107,17 @@ export default function ComparisonSection() {
   return (
     <section className="comparison-section py-5 bg-light" ref={sectionRef}>
       <Container>
-        <div className="text-center mb-5">
-          <p className="text-uppercase text-muted mb-1">COMPARISON</p>
-          <h2 className="display-4 fw-bold mb-3">
-            Who is the right technology partner
-            <br />
-            for you?
+        <div className="text-center mb-4">
+          <p className="text-uppercase text-muted mb-1">COMPARE & CHOOSE</p>
+          <h2 className="display-5 fw-bold mb-3">
+            Find Your Ideal Tech Partner
           </h2>
-          <p className="lead text-muted">
-            {` Choosing the right technology partner doesn't only influence your SaaS product - it shapes your entire business. We're here to help you make the right choice.`}
+          <p className="lead text-muted mb-4">
+            Compare options to make the best choice for your business success
           </p>
         </div>
 
-        <div className="tabs-container text-center mb-5">
+        <div className="tabs-container text-center mb-4">
           <div className="tab-buttons">
             {tabs.map((tab) => (
               <button

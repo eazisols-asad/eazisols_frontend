@@ -23,6 +23,7 @@ export default function NavigationBar() {
     <>
       <Navbar
         expand="lg"
+        style={{height: "90px"}}
          className={`shadow-sm fixed-top custom-navbar ${scrolled ? "navbar-scrolled" : isHome ? "navbar-home-top" : ""}`}
       >
         <Container>
@@ -92,7 +93,7 @@ export default function NavigationBar() {
               </Nav.Link>
               <div className="d-flex align-items-center ">
                 <Link href="/cost-calculator" passHref>
-                  <Button className="quote-button">Get a Quote</Button>
+                  <Button className="quote-button">Quote Generator</Button>
                 </Link>
               </div>
             </Nav>

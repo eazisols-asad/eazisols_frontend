@@ -18,7 +18,8 @@ import StatsSection from "./components/StatsSection";
 import FAQSection from "./components/FAQSection";
 import HeroSection from "./components/HeroSection";
 import InTouch from "./components/InTouch";
-
+import WaterfallProcess from "./components/WaterfallProcess";
+  
 const faqs = [
   {
     question:
@@ -82,7 +83,8 @@ export default function Home() {
       <HeroSection />
       
       <LogoSlider />
-      <ProcessTimeline />
+      {/* <ProcessTimeline /> */}
+      <WaterfallProcess />
       <InTouch />
       <ComparisonSection />
       <ChallengesSection />

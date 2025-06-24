@@ -11,7 +11,7 @@ export default function ContactForm({ onSubmit, buttonText = "Please wait..." })
     email: '',
     phone: '',
     message:'',
-    company_name: "Example Corp",
+    company_name: '',
     subject: "General Inquiry",
   });
 
@@ -40,8 +40,8 @@ export default function ContactForm({ onSubmit, buttonText = "Please wait..." })
       name: '',
       email: '',
       phone: '',
-      communicationMethod: 'Email',
-      description: ''
+      company_name: '',
+      message: ''
     });
     setValidated(false);
   };
@@ -111,16 +111,14 @@ export default function ContactForm({ onSubmit, buttonText = "Please wait..." })
           </Col>
           <Col md={6}>
             <Form.Group>
-              <Form.Label className="small-label">Preferred Medium of Communication</Form.Label>
-              <Form.Select
-                name="communicationMethod"
-                value={formData.communicationMethod}
+              <Form.Label className="small-label">Company Name</Form.Label>
+              <Form.Control
+                type="text"
+                name="company_name"
+                value={formData.company_name}
                 onChange={handleChange}
-              >
-                <option value="Email">Email</option>
-                <option value="Call">Call</option>
-                <option value="WhatsApp">WhatsApp</option>
-              </Form.Select>
+                placeholder="Your Company Name"
+              />
             </Form.Group>
           </Col>
         </Row>
@@ -129,7 +127,7 @@ export default function ContactForm({ onSubmit, buttonText = "Please wait..." })
           <Form.Label className="small-label">Product/Idea Description</Form.Label>
           <Form.Control
             as="textarea"
-            rows={4}
+            rows={2}
             name="message"
             value={formData.message}
             onChange={handleChange}
@@ -137,12 +135,7 @@ export default function ContactForm({ onSubmit, buttonText = "Please wait..." })
           />
         </Form.Group>
 
-        <Form.Group className="mb-2">
-          <Form.Text className="text-muted small"
-          >
-            By submitting this form, you agree to be contacted by our team.
-          </Form.Text>
-        </Form.Group>
+       
 
         <Button 
           type="submit" 
