@@ -19,6 +19,7 @@ import FAQSection from "./components/FAQSection";
 import HeroSection from "./components/HeroSection";
 import InTouch from "./components/InTouch";
 import WaterfallProcess from "./components/WaterfallProcess";
+import LogoSection from "./components/LogoSection";
   
 const faqs = [
   {
@@ -82,7 +83,8 @@ export default function Home() {
     <div className="bg-light">
       <HeroSection />
       
-      <LogoSlider />
+      {/* <LogoSlider /> */}
+      <LogoSection />
       {/* <ProcessTimeline /> */}
       <WaterfallProcess />
       <InTouch />
