@@ -1,101 +1,123 @@
 "use client";
-import { Container, Row, Col } from "react-bootstrap";
+import Image from "next/image";
+import { HiOutlineDocumentText ,HiOutlineGlobeAlt,HiOutlineCloud  } from "react-icons/hi";
+import { HiOutlineWindow } from "react-icons/hi2";
+const services = [
+  {
+    icon: HiOutlineDocumentText,
+    title: "Software Development", 
+    description: "Scalable, custom-built digital solutions",
+  },
+  {
+    icon: HiOutlineWindow ,
+    title: "UI/UX Design",
+    description: "Intuitive and engaging digital experiences",
+  },
+  {
+    icon: HiOutlineGlobeAlt,
+    title: "Emerging Tech & Innovation",
+    description: "AR/VR, blockchain, and other modern technologies",
+  },
+  {
+    icon: HiOutlineCloud ,
+    title: "Cloud & DevOps",
+    description: "Robust cloud infrastructure and operations",
+  },
+];
 
 export default function ServicesSection() {
-  const services = [
-    {
-      icon: "👤",
-      title: "UX Design",
-      description:
-        "Crafting seamless user experiences with elegant and intuitive design.",
-      bgColor: "#28a745", // Green
-    },
-    {
-      icon: "T",
-      title: "Branding",
-      description:
-        "Crafting Identity, Inspiring Connection: Your Brand’s Unique Story.",
-      bgColor: "#dc3545", // Red
-    },
-    {
-      icon: "⚑",
-      title: "3D Design",
-      description:
-        "Creating immersive worlds through intricate and innovative designs.",
-      bgColor: "#007bff", // Blue
-    },
-    {
-      icon: "T",
-      title: "Illustration",
-      description:
-        "Capturing Moments: A Visual Journey Through Time and Emotion.",
-      bgColor: "#6f42c1", // Purple
-    },
-  ];
-
   return (
-    <section
-      className="py-5 text-center"
-      style={{ backgroundColor: "#f9f9f9" }}
-    >
+    <section style={{ padding: "56px 0 32px 0" }}>
       <div className="container">
-        <h2 className="fw-bold mb-3">Our Services</h2>
-        <p className="text-muted mb-5">
-          Tailored Solutions for Your Success, Elevate Your Experience with Our
-          Exceptional and Comprehensive Services Today
-        </p>
-
-        <div className="row g-1">
+      <h2 className="text-center mb-5" style={{ fontWeight: 700, color: '#3a2e5c' }}>Services overview</h2>
+        {/* <h2 className="fw-bold mb-4" style={{ fontSize: 36, letterSpacing: -1 }}>Services overview</h2> */}
+        <div className="row g-4 mb-4">
           {services.map((service, idx) => (
-            <div
-              className="col-12 col-sm-6 col-lg-3 d-flex justify-content-center"
-              key={idx}
-            >
+            <div className="col-12 col-sm-6 col-lg-3 d-flex" key={idx}>
               <div
-                className="card h-100 border-0 shadow-sm p-4"
-                style={{
-                  maxWidth: "285px",
-                  width: "100%",
-                  minHeight: "250px",
-                  transition: "all 0.3s ease-in-out",
+                className="bg-white border rounded-4 shadow-sm p-4 w-100 h-100 d-flex flex-column align-items-start"
+                style={{ 
+                  minHeight: 220, 
+                  borderColor: "#f0f0f0", 
+                  boxShadow: "0 2px 12px 0 rgba(16,30,54,.04)",
                   cursor: "pointer",
+                  transition: "all 0.3s ease-in-out",
+                  position: "relative",
+                  overflow: "hidden"
                 }}
-                onMouseEnter={(e) => {
-                  e.currentTarget.style.transform = "translateY(-5px)";
-                  e.currentTarget.style.boxShadow =
-                    "0 8px 20px rgba(0, 0, 0, 0.1)";
-                  e.currentTarget.style.backgroundColor = "#f9f9f9";
+                onMouseOver={(e) => {
+                  e.currentTarget.style.transform = "translateY(-8px)";
+                  e.currentTarget.style.boxShadow = "0 12px 28px 0 rgba(16,30,54,.15)";
+                  e.currentTarget.style.borderColor = "#2563eb";
+                  const icon = e.currentTarget.querySelector('.service-icon');
+                  if (icon) {
+                    icon.style.transform = "scale(1.1) rotate(5deg)";
+                    icon.style.color = "#1d4ed8";
+                  }
                 }}
-                onMouseLeave={(e) => {
+                onMouseOut={(e) => {
                   e.currentTarget.style.transform = "translateY(0)";
-                  e.currentTarget.style.boxShadow =
-                    "0 .125rem .25rem rgba(0,0,0,.075)";
-                  e.currentTarget.style.backgroundColor = "#fff";
+                  e.currentTarget.style.boxShadow = "0 2px 12px 0 rgba(16,30,54,.04)";
+                  e.currentTarget.style.borderColor = "#f0f0f0";
+                  const icon = e.currentTarget.querySelector('.service-icon');
+                  if (icon) {
+                    icon.style.transform = "scale(1) rotate(0)";
+                    icon.style.color = "#2563eb";
+                  }
                 }}
               >
-                <div
-                  className="rounded-circle d-flex align-items-center justify-content-center mx-auto mb-3"
-                  style={{
-                    width: "50px",
-                    height: "50px",
-                    backgroundColor: service.bgColor,
-                    color: "#fff",
-                    fontSize: "20px",
-                    fontWeight: "bold",
-                  }}
-                >
-                  {service.icon}
+                <div className="mb-3 service-icon" style={{ transition: "all 0.3s ease-in-out" }}>
+                  <service.icon size={44} color="#2563eb" />
                 </div>
-                <h5 className="fw-semibold">{service.title}</h5>
-                <p className="mt-3 text-muted small">{service.description}</p>
+                <div>
+                  <div className="fw-bold mb-2" 
+                    style={{ 
+                      fontSize: 22, 
+                      color: "#23223a",
+                      // background: "linear-gradient(120deg, transparent 0%, transparent 50%, rgba(37,99,235,0.1) 50%)",
+                      // backgroundSize: "200% 100%",
+                      transition: "background-position 0.3s ease-in-out",
+                      padding: "4px 8px",
+                      margin: "-4px -8px"
+                    }}
+                  >
+                    {service.title}
+                  </div>
+                  <div className="text-muted" style={{ 
+                    fontSize: 16,
+                    lineHeight: 1.6,
+                    marginTop: "8px"
+                  }}>
+                    {service.description}
+                  </div>
+                </div>
               </div>
             </div>
           ))}
         </div>
-
-        <div className="d-flex justify-content-end mt-3">
-          <button className="btn custom-view-btn rounded-pill mt-2">
-            View more
+        <div className="d-flex justify-content-end">
+          <button
+            className="btn btn-primary rounded-3 px-4 py-2"
+            style={{ 
+              fontWeight: 500, 
+              fontSize: 18, 
+              background: "linear-gradient(135deg, #2563eb 0%, #1d4ed8 100%)", 
+              border: "none",
+              cursor: "pointer",
+              transition: "all 0.3s ease-in-out",
+              position: "relative",
+              overflow: "hidden"
+            }}
+            onMouseOver={(e) => {
+              e.currentTarget.style.transform = "translateY(-2px) scale(1.02)";
+              e.currentTarget.style.boxShadow = "0 8px 20px 0 rgba(37,99,235,.35)";
+            }}
+            onMouseOut={(e) => {
+              e.currentTarget.style.transform = "translateY(0) scale(1)";
+              e.currentTarget.style.boxShadow = "none";
+            }}
+          >
+            Explore Services
           </button>
         </div>
       </div>

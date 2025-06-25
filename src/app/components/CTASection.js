@@ -69,7 +69,8 @@ export default function CTASection() {
                 padding: "12px 32px",
               }}
             >
-              Learn More
+              Quote Generator
+
             </Button>
       </Box>
     </Box>
