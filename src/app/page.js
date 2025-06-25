@@ -87,10 +87,10 @@ export default function Home() {
       
       {/* <LogoSlider /> */}
       <LogoSection />
-      <Services />
-      {/* <ProcessTimeline /> */}
       <WaterfallProcess />
       <AboutSection />
+      <Services />
+      {/* <ProcessTimeline /> */}
       <CTASection />
       {/* <InTouch /> */}
       {/* <ComparisonSection /> */}
