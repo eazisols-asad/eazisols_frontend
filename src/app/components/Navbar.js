@@ -57,8 +57,8 @@ export default function NavigationBar() {
               </Nav.Link>
               <Nav.Link
                 as={Link}
-                href="/About"
-                className={pathname === "/About" ? "active-link" : ""}
+                href="/about-us"
+                className={pathname === "/about-us" ? "active-link" : ""}
               >
                 About Us
               </Nav.Link>

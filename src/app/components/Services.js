@@ -101,7 +101,7 @@ export default function ServicesSection() {
             style={{ 
               fontWeight: 500, 
               fontSize: 18, 
-              background: "linear-gradient(135deg, #2563eb 0%, #1d4ed8 100%)", 
+              background: "linear-gradient(135deg, #418ED6 0%, #418ED6 100%)", 
               border: "none",
               cursor: "pointer",
               transition: "all 0.3s ease-in-out",
@@ -110,7 +110,7 @@ export default function ServicesSection() {
             }}
             onMouseOver={(e) => {
               e.currentTarget.style.transform = "translateY(-2px) scale(1.02)";
-              e.currentTarget.style.boxShadow = "0 8px 20px 0 rgba(37,99,235,.35)";
+              e.currentTarget.style.boxShadow = "0 8px 20px 0 rgba(65, 142, 214)";
             }}
             onMouseOut={(e) => {
               e.currentTarget.style.transform = "translateY(0) scale(1)";
