@@ -34,8 +34,10 @@ export default function ServicesSection() {
   ];
 
   return (
-    <section className="py-5 text-center"
-    style={{backgroundColor: "#f9f9f9",}}>
+    <section
+      className="py-5 text-center"
+      style={{ backgroundColor: "#f9f9f9" }}
+    >
       <div className="container">
         <h2 className="fw-bold mb-3">Our Services</h2>
         <p className="text-muted mb-5">
@@ -55,17 +57,19 @@ export default function ServicesSection() {
                   maxWidth: "285px",
                   width: "100%",
                   minHeight: "250px",
-                  transition: "all 0.3s ease-in-out", 
-                  cursor: "pointer", 
+                  transition: "all 0.3s ease-in-out",
+                  cursor: "pointer",
                 }}
                 onMouseEnter={(e) => {
                   e.currentTarget.style.transform = "translateY(-5px)";
-                  e.currentTarget.style.boxShadow = "0 8px 20px rgba(0, 0, 0, 0.1)";
+                  e.currentTarget.style.boxShadow =
+                    "0 8px 20px rgba(0, 0, 0, 0.1)";
                   e.currentTarget.style.backgroundColor = "#f9f9f9";
                 }}
                 onMouseLeave={(e) => {
                   e.currentTarget.style.transform = "translateY(0)";
-                  e.currentTarget.style.boxShadow = "0 .125rem .25rem rgba(0,0,0,.075)";
+                  e.currentTarget.style.boxShadow =
+                    "0 .125rem .25rem rgba(0,0,0,.075)";
                   e.currentTarget.style.backgroundColor = "#fff";
                 }}
               >
@@ -90,10 +94,9 @@ export default function ServicesSection() {
         </div>
 
         <div className="d-flex justify-content-end mt-3">
-         <button className="btn custom-view-btn rounded-pill mt-2">
-  View more
-</button>
-
+          <button className="btn custom-view-btn rounded-pill mt-2">
+            View more
+          </button>
         </div>
       </div>
     </section>
