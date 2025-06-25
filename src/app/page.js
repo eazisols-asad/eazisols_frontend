@@ -20,6 +20,8 @@ import HeroSection from "./components/HeroSection";
 import InTouch from "./components/InTouch";
 import WaterfallProcess from "./components/WaterfallProcess";
 import LogoSection from "./components/LogoSection";
+import AboutSection from "./components/AboutSection";
+import CTASection from "./components/CTASection";
   
 const faqs = [
   {
@@ -87,16 +89,18 @@ export default function Home() {
       <LogoSection />
       {/* <ProcessTimeline /> */}
       <WaterfallProcess />
-      <InTouch />
-      <ComparisonSection />
-      <ChallengesSection />
-      <StatsSection />
+      <AboutSection />
+      <CTASection />
+      {/* <InTouch /> */}
+      {/* <ComparisonSection /> */}
+      {/* <ChallengesSection /> */}
+      {/* <StatsSection /> */}
 
       {/* FAQ Section */}
-      <FAQSection faqs={faqs} title="Frequently Asked Questions" />
+      {/* <FAQSection faqs={faqs} title="Frequently Asked Questions" /> */}
 
       {/* CTA Section */}
-      <section className="py-5 bg-primary text-white">
+      {/* <section className="py-5 bg-primary text-white">
         <Container>
           <Row className="text-center">
             <Col>
@@ -111,7 +115,7 @@ export default function Home() {
             </Col>
           </Row>
         </Container>
-      </section>
+      </section> */}
     </div>
   );
 }
