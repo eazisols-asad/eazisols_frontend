@@ -12,7 +12,7 @@ const InTouch = () => {
             <div className="text-center mb-5">
               <p className="text-uppercase mb-1">CONTACT US</p>
               <h2 className="display-4 fw-bold mb-4" style={{color: '#418ED6'}}>Get in Touch</h2>
-              <p className="lead text-muted">We'd love to hear from you. Let's build something amazing together!</p>
+              <p className="lead text-muted">{`We'd love to hear from you. Let's build something amazing together!`}</p>
             </div>
             
             <Row className="align-items-center g-0">
@@ -66,7 +66,7 @@ const InTouch = () => {
                   
                   <div className="alert alert-info" role="alert">
                     <i className="bi bi-info-circle me-2"></i>
-                    Fill out the form and we'll get back to you within 24 hours.
+                  {`  Fill out the form and we'll get back to you within 24 hours.`}
                   </div>
                 </div>
               </Col>
