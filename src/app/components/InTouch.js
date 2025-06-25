@@ -11,7 +11,7 @@ const InTouch = () => {
           <div className="contact-container">
             <div className="text-center mb-5">
               <p className="text-uppercase mb-1">CONTACT US</p>
-              <h2 className="display-4 fw-bold mb-4" style={{color: '#00C2E5'}}>Get in Touch</h2>
+              <h2 className="display-4 fw-bold mb-4" style={{color: '#418ED6'}}>Get in Touch</h2>
               <p className="lead text-muted">We'd love to hear from you. Let's build something amazing together!</p>
             </div>
             
@@ -26,7 +26,7 @@ const InTouch = () => {
                  
 
                   <div className="mb-4">
-                    <h5 className="mb-3" style={{color: '#00C2E5'}}>Why Choose Us:</h5>
+                    <h5 className="mb-3" style={{color: '#418ED6'}}>Why Choose Us:</h5>
                     <ul className="list-unstyled">
                       <li className="mb-3 d-flex align-items-center">
                         <span className="badge bg-primary rounded-circle me-2">✓</span>

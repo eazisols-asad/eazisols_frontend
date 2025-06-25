@@ -22,14 +22,14 @@ const HeroSection = () => {
         <Container className="flex-grow-1 d-flex flex-column justify-content-center heroSection">
           <Row className="align-items-center justify-content-center gx-4">
             <Col lg={7} >
-              <div className="mt-5 px-lg-5">
+              <div className="px-lg-5">
                 <h1
                   className="display-3 fw-bold mb-4"
                 >
                   <span className="herotext text-white">Bring your vision</span>
                   <br />
                   <span className="text-white">to life with </span>
-                  <span style={{ color: "#00C2E5", textShadow: "2px 2px 4px rgba(0,0,0,0.2)" }}>innovative solutions</span>
+                  <span style={{ color: "#418ED6", textShadow: "2px 2px 4px rgba(0,0,0,0.2)" }}>innovative solutions</span>
                   <p className="lead text-white mt-3" style={{fontSize: "1.2rem", fontWeight: "400", opacity: "0.9"}}>
                     We transform ideas into successful digital products through expert development and strategic guidance
                   </p>
@@ -39,15 +39,15 @@ const HeroSection = () => {
                   <Row >
                     <Col md={4}>
                       <p className="text-white mb-1">
-                        <FaPhone className="me-2" style={{color: "#00C2E5"}}/> +1 (555) 123-4567
+                        <FaPhone className="me-2" style={{color: "#418ED6"}}/> +1 (555) 123-4567
                       </p>
                       <p className="text-white mb-1">
-                        <FaEnvelope className="me-2" style={{color: "#00C2E5"}}/> contact@example.com
+                        <FaEnvelope className="me-2" style={{color: "#418ED6"}}/> contact@example.com
                       </p>
                     </Col>
                     <Col md={4}>
                       <p className="text-white mb-1">
-                        <FaWhatsapp className="me-2" style={{color: "#00C2E5"}}/> +1 (555) 987-6543
+                        <FaWhatsapp className="me-2" style={{color: "#418ED6"}}/> +1 (555) 987-6543
                       </p>
                     </Col>
                   </Row>

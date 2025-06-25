@@ -18,11 +18,11 @@ import StatsSection from "./components/StatsSection";
 import FAQSection from "./components/FAQSection";
 import HeroSection from "./components/HeroSection";
 import InTouch from "./components/InTouch";
-import WaterfallProcess from "./components/WaterfallProcess";
 import LogoSection from "./components/LogoSection";
 import AboutSection from "./components/AboutSection";
 import CTASection from "./components/CTASection";
-  
+import WaterfallProcess from "./components/WaterfallProcess";
+import Services from "./components/Services";  
 const faqs = [
   {
     question:
@@ -87,6 +87,7 @@ export default function Home() {
       
       {/* <LogoSlider /> */}
       <LogoSection />
+      <Services />
       {/* <ProcessTimeline /> */}
       <WaterfallProcess />
       <AboutSection />
