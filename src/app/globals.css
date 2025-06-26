@@ -1319,3 +1319,26 @@ footer hr {
   z-index: 2;
   object-fit: contain;
 }
+
+/* servicess */
+.clickable-text {
+  cursor: pointer;
+  position: relative;
+  display: inline-block;
+  transition: color 0.1s ease-in-out;
+}
+
+.clickable-text::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: -2px;
+  width: 0%;
+  height: 2px;
+  background-color: #000;
+  transition: width 0.3s ease;
+}
+
+.clickable-text:hover::after {
+  width: 100%;
+}

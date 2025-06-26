@@ -1,132 +1,117 @@
 "use client";
 import React from "react";
-import Image from "next/image";
 import { Container, Row, Col } from "react-bootstrap";
-import {
-  FaBinoculars,
-  FaBoxOpen,
-  FaShareAlt,
-  FaTools,
-  FaChartBar,
-  FaMapMarkerAlt,
-} from "react-icons/fa";
-import serbg from "@/app/assets/serbg.png";
+import whitebg from "@/app/assets/whitebg.jpg";
+import "../globals.css";
+import aboutus from "@/app/assets/aboutus.png";
 
-const services = [
-  {
-    icon: <FaBinoculars size={30} style={{ color: "#d2e4f5" }} />,
-    title: "we find what you need",
-    desc: "Vivamus magna justo, lacinia eget consectetur sed, convallis at tellus. Mauris blandit aliquet elit.",
-  },
-  {
-    icon: <FaBoxOpen size={30} style={{ color: "#d2e4f5" }} />,
-    title: "we pack it for you",
-    desc: "Vivamus magna justo, lacinia eget consectetur sed, convallis at tellus. Mauris blandit aliquet elit.",
-  },
-  {
-    icon: <FaShareAlt size={30} style={{ color: "#d2e4f5" }} />,
-    title: "we share it for you",
-    desc: "Vivamus magna justo, lacinia eget consectetur sed, convallis at tellus. Mauris blandit aliquet elit.",
-  },
-  {
-    icon: <FaTools size={30} style={{ color: "#d2e4f5" }} />,
-    title: "we will keep it running",
-    desc: "Vivamus magna justo, lacinia eget consectetur sed, convallis at tellus. Mauris blandit aliquet elit.",
-  },
-  {
-    icon: <FaChartBar size={30} style={{ color: "#d2e4f5" }} />,
-    title: "we will grow it",
-    desc: "Vivamus magna justo, lacinia eget consectetur sed, convallis at tellus. Mauris blandit aliquet elit.",
-  },
-  {
-    icon: <FaMapMarkerAlt size={30} style={{ color: "#d2e4f5" }} />,
-    title: "we will grow it",
-    desc: "Vivamus magna justo, lacinia eget consectetur sed, convallis at tellus. Mauris blandit aliquet elit.",
-  },
-];
-
-export default function servicess() {
+export default function Capabilities() {
   return (
     <>
-     <section
+      <div
+        className="hero-background py-5"
         style={{
-        //   backgroundImage: `url(${serbg.src})`,
-          backgroundRepeat: "no-repeat",
+          backgroundImage: `url(${aboutus.src})`,
           backgroundSize: "cover",
           backgroundPosition: "center",
-          padding: "80px 0",
+          backgroundRepeat: "no-repeat",
+          height: "250px",
+          marginTop: "-80px",
+          position: "relative",
+          zIndex: 1,
         }}
-      >
-        <Container className="d-flex justify-content-center">
-          <div
-            className="shadow bg-white rounded-3 overflow-hidden"
-            style={{ maxWidth: "900px", display: "flex", width: "100%" }}
+      ></div>
+      <section className="py-5 bg-white">
+        <Container>
+          <h5
+            className="fw-bold mb-5 ms-0"
+            style={{
+              fontSize: "3.7rem",
+              // letterSpacing: "-0.5px",
+              color: "#000",
+            }}
           >
-            <div style={{ width: "50%" }}>
-              <Image
-                src={serbg}
-                alt="Worker"
-                width={450}
-                height={300}
-                style={{
-                  width: "100%",
-                  height: "100%",
-                  objectFit: "cover",
-                }}
-              />
-            </div>
-            <div style={{ padding: "30px", width: "50%" }}>
-              <h5 className="fw-bold mb-3" style={{ color: "#0d3c61" }}>
-                if you <span style={{ color: "#003366" }}>choose us.</span>
-              </h5>
-              <p style={{ fontSize: "15px", color: "#444" }}>
-                Nulla porttitor accumsan tincidunt. Mauris blandit aliquet elit,
-                eget tincidunt nibh pulvinar a. Donec rutrum congue leo eget
-                malesuada. Curabitur aliquet quam id dui posuere blandit. Lorem
-                ipsum dolor sit amet, consectetur adipiscing elit.
-              </p>
-            </div>
-          </div>
-        </Container>
-      </section>
-    <section style={{ padding: "80px 0", backgroundColor: "#fff" }}>
-      <Container className="text-center">
-        <h1
-          style={{
-            fontSize: "5rem",
-            fontWeight: "800",
-            opacity: 0.08,
-            textTransform: "uppercase",
-          }}
-        >
-          Creation Drives
-        </h1>
-        <h3 className="fw-semibold text-dark" style={{ marginTop: "30px", marginBottom: "50px" }}>
-          what we do.
-        </h3>
-
-        <Row className="gy-4">
-          {services.map((service, index) => (
-            <Col key={index} md={6} lg={4}>
-              <div
-                className="p-4 text-center bg-white rounded shadow-sm"
-                style={{
-                  border: "2px solid #d2e4f5",
-                  transition: "all 0.3s ease-in-out",
-                  minHeight: "220px",
-                }}
-              >
-                <div className="mb-3">{service.icon}</div>
-                <h6 className="fw-bold mb-2 text-dark">{service.title}</h6>
-                <p className="text-muted" style={{ fontSize: "14px" }}>
-                  {service.desc}
-                </p>
+            Capabilities
+          </h5>
+          <Row>
+            <Col md={6}>
+              <div className="mb-5">
+                <h5
+                  className="fw-bold mb-3"
+                  style={{
+                    fontSize: "1.25rem",
+                    letterSpacing: "-0.2px",
+                    fontWeight: "900",
+                  }}
+                >
+                  Software Development
+                </h5>
+                <p className="mb-2 clickable-text">Web App Development</p><br />
+                <p className="mb-2 clickable-text">Mobile App Development</p><br />
+                <p className="mb-2 clickable-text">
+                  Custom Software Development
+                </p><br />
+                <p className="mb-2 clickable-text">Product Development</p><br />
+                <p className="mb-2 clickable-text">SaaS Development</p><br />
+                <p className="mb-2 clickable-text">E-commerce Solutions</p><br />
+                <p className="mb-0 clickable-text">Maintenance & Support</p><br />
+              </div>
+              <div className="mb-5">
+                <h5
+                  className="fw-bold mb-3"
+                  style={{ fontSize: "1.25rem", letterSpacing: "-0.2px" }}
+                >
+                  Emerging Tech & Innovation
+                </h5>
+                <p className="mb-2 clickable-text">AR/VR/XR</p><br />
+                <p className="mb-2 clickable-text">Metaverse Experiences</p><br />
+                <p className="mb-2 clickable-text">Blockchain & Cryptography</p><br />
+                <p className="mb-2 clickable-text">Web3 Solutions</p><br />
+                <p className="mb-2 clickable-text">IoT Development</p><br />
+                <p className="mb-0 clickable-text">Gen AI & Machine Learning</p><br />
               </div>
             </Col>
-          ))}
-        </Row>
-      </Container>
-    </section>
+
+            <Col md={6}>
+              <div className="mb-5">
+                <h5
+                  className="fw-bold mb-3"
+                  style={{ fontSize: "1.25rem", letterSpacing: "-0.2px" }}
+                >
+                  Quality Assurance
+                </h5>
+                <p className="mb-2 clickable-text">
+                  Software Quality Assurance
+                </p><br />
+                <p className="mb-0 clickable-text">Cybersecurity Solutions</p><br />
+              </div>
+              <div className="mb-5">
+                <h5
+                  className="fw-bold mb-3"
+                  style={{ fontSize: "1.25rem", letterSpacing: "-0.2px" }}
+                >
+                  Cloud Application Development
+                </h5>
+                <p className="mb-2 clickable-text">CloudOps & Migration</p><br />
+                <p className="mb-2 clickable-text">
+                  Cloud Integration & Maintenance
+                </p><br />
+                <p className="mb-0 clickable-text">Automation & Apps</p>
+              </div>
+              <div>
+                <h5
+                  className="fw-bold mb-3"
+                  style={{ fontSize: "1.25rem", letterSpacing: "-0.2px" }}
+                >
+                  UI/UX & Digital Design
+                </h5>
+                <p className="mb-2 clickable-text">UI/UX Design</p><br />
+                <p className="mb-0 clickable-text">Web & Mobile App Design</p><br />
+              </div>
+            </Col>
+          </Row>
+        </Container>
+      </section>
     </>
   );
 }

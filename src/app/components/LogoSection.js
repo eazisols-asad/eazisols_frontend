@@ -9,7 +9,7 @@ import logoPurple6 from "@/app/assets/logoPurple6.png";
 import logoPurple5 from "@/app/assets/logoPurple5.png";
 import logoPurple4 from "@/app/assets/logoPurple4.png";
 import logoPurple3 from "@/app/assets/logoPurple3.png";
-import logoPurple2 from "@/app/assets/logoPurple2.png";
+import logoPurple2 from "@/app/assets/logoPurple2.jpg";
 import logoPurple1 from "@/app/assets/logoPurple1.png";
 import "../globals.css";
 
