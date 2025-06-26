@@ -26,12 +26,14 @@ const HeroSection = () => {
                 <h1
                   className="display-3 fw-bold mb-4"
                 >
-                  <span className="herotext text-white">Bring your vision</span>
+                  <span className="herotext text-white">Transform Your </span>
                   <br />
-                  <span className="text-white">to life with </span>
-                  <span style={{ color: "#418ED6", textShadow: "2px 2px 4px rgba(0,0,0,0.2)" }}>innovative solutions</span>
+                  <span className="text-white">Idea</span>
+                  <span style={{ color: "#418ED6", textShadow: "2px 2px 4px rgba(0,0,0,0.2)" }}> Into Reality</span>
                   <p className="lead text-white mt-3" style={{fontSize: "1.2rem", fontWeight: "400", opacity: "0.9"}}>
-                    We transform ideas into successful digital products through expert development and strategic guidance
+                    Eazisols helps you design, develop, and scale digital solutions 
+                    <br />
+                  <span className="text-white"> from idea to execution</span>
                   </p>
                 </h1>
 

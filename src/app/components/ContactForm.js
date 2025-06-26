@@ -70,7 +70,7 @@ export default function ContactForm({ onSubmit, buttonText = "Please wait..." })
                 name="name"
                 value={formData.name}
                 onChange={handleChange}
-                placeholder="John Doe"
+                placeholder="Enter your full name"
               />
               <Form.Control.Feedback type="invalid">
                 Please provide your name.
@@ -86,7 +86,7 @@ export default function ContactForm({ onSubmit, buttonText = "Please wait..." })
                 name="email"
                 value={formData.email}
                 onChange={handleChange}
-                placeholder="johndoe@gmail.com"
+                placeholder="Enter your email address"
               />
               <Form.Control.Feedback type="invalid">
                 Please provide a valid email address.
@@ -117,21 +117,21 @@ export default function ContactForm({ onSubmit, buttonText = "Please wait..." })
                 name="company_name"
                 value={formData.company_name}
                 onChange={handleChange}
-                placeholder="Your Company Name"
+                placeholder="Company Name"
               />
             </Form.Group>
           </Col>
         </Row>
 
         <Form.Group className="mb-3">
-          <Form.Label className="small-label">Product/Idea Description</Form.Label>
+          <Form.Label className="small-label">Inquiry Details</Form.Label>
           <Form.Control
             as="textarea"
             rows={2}
             name="message"
             value={formData.message}
             onChange={handleChange}
-            placeholder="Write..."
+            placeholder="Briefly describe your project or query"
           />
         </Form.Group>
 

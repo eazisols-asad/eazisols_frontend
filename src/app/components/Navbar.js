@@ -62,7 +62,7 @@ export default function NavigationBar() {
               >
                 About Us
               </Nav.Link>
-              <Nav.Link as={Link} href="/Services">
+              <Nav.Link as={Link} href="/services">
                 Services
               </Nav.Link>
               <NavDropdown
@@ -79,7 +79,7 @@ export default function NavigationBar() {
               </NavDropdown>
               <Nav.Link
                 as={Link}
-                href="/Careers"
+                href="/careers"
                 className={pathname === "/careers" ? "active-link" : ""}
               >
                 Careers
