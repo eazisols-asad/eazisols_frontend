@@ -27,8 +27,8 @@ export default function Careers() {
               <p className="text-uppercase small mb-2">Careers at Eazisols</p>
               <h1 className="fw-bold display-5 mb-3">Build what the world needs.</h1>
               <p className="lead mb-3">
-                We're shaping the future of freight and logistics. If you're excited by the
-                prospect of unlocking the world's potential by speeding up the way goods move, join us.
+                Were shaping the future of freight and logistics. If youre excited by the
+                prospect of unlocking the worlds potential by speeding up the way goods move, join us.
               </p>
               <a href="#" className="btn btn-success fw-semibold">See open roles →</a>
             </div>
@@ -40,7 +40,7 @@ export default function Careers() {
       <div className="container py-5">
         <h2 className="text-center fw-semibold mb-3">Supported by exceptional benefits.</h2>
         <p className="text-center text-muted mx-auto mb-5" style={{ maxWidth: '700px' }}>
-          We appreciate the great work that our team does every day. That's why we offer an excellent benefits package that ensures each person has what they need to succeed inside and outside of the office.
+          We appreciate the great work that our team does every day. Thats why we offer an excellent benefits package that ensures each person has what they need to succeed inside and outside of the office.
         </p>
 
         <div className="row g-4">

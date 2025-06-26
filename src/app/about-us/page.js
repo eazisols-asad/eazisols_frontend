@@ -119,7 +119,7 @@ export default function about() {
             >
               Little Learners Academy takes pride in our commitment to
               delivering high-quality education and outstanding student
-              experiences. These accolades reflect our team's relentless efforts
+              experiences. These accolades reflect our teams relentless efforts
               in creating an exceptional learning environment for our students.
             </p>
           </div>
