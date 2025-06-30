@@ -1,17 +1,20 @@
-'use client';
+"use client";
 
-import { useState } from 'react';
-import { Form, Button, Row, Col } from 'react-bootstrap';
-import PhoneInput from 'react-phone-input-2';
-import 'react-phone-input-2/lib/bootstrap.css';
-import '../globals.css'
-export default function ContactForm({ onSubmit, buttonText = "Please wait..." }) {
+import { useState } from "react";
+import { Form, Button, Row, Col } from "react-bootstrap";
+import PhoneInput from "react-phone-input-2";
+import "react-phone-input-2/lib/bootstrap.css";
+import "../globals.css";
+export default function ContactForm({
+  onSubmit,
+  buttonText = "Please wait...",
+}) {
   const [formData, setFormData] = useState({
-    name: '',
-    email: '',
-    phone: '',
-    message:'',
-    company_name: '',
+    name: "",
+    email: "",
+    phone: "",
+    message: "",
+    company_name: "",
     subject: "General Inquiry",
   });
 
@@ -21,7 +24,7 @@ export default function ContactForm({ onSubmit, buttonText = "Please wait..." })
   const handleSubmit = async (event) => {
     event.preventDefault();
     const form = event.currentTarget;
-    
+
     if (form.checkValidity() === false) {
       event.stopPropagation();
       setValidated(true);
@@ -29,36 +32,61 @@ export default function ContactForm({ onSubmit, buttonText = "Please wait..." })
     }
 
     setLoading(true);
-    
+
     if (onSubmit) {
       await onSubmit(formData);
     }
-    
+
     setLoading(false);
-    // Reset form after successful submission
     setFormData({
-      name: '',
-      email: '',
-      phone: '',
-      company_name: '',
-      message: ''
+      name: "",
+      email: "",
+      phone: "",
+      company_name: "",
+      message: "",
     });
     setValidated(false);
   };
 
   const handleChange = (e) => {
     const { name, value } = e.target;
-    setFormData(prev => ({
+
+    if (name === "name") {
+      const cleaned = value
+        .replace(/[^A-Za-z .,'-]/g, "")
+        .replace(/\s+/g, " ")
+        .trim()
+        .split(" ")
+        .map((w) => w.charAt(0).toUpperCase() + w.slice(1))
+        .join(" ")
+        .slice(0, 50);
+      setFormData((prev) => ({ ...prev, [name]: cleaned }));
+      return;
+    }
+
+    if (name === "company_name") {
+      if (value.length > 50) return;
+    }
+
+    if (name === "email") {
+      if (value.length > 100) return;
+    }
+
+    if (name === "message") {
+      if (value.length > 500) return;
+    }
+
+    setFormData((prev) => ({
       ...prev,
-      [name]: value
+      [name]: value,
     }));
   };
 
   return (
     <div className="bg-white rounded-3  contact-form-box">
-      <h3 className="mb-2">Drop us a Message</h3>
-      <p className="text-muted">Drop your details, we will get in touch with you soon.</p>
-      
+      <h3 className="mb-2">Get in Touch</h3>
+      <p className="text-muted">Leave your details, we will reach out soon.</p>
+
       <Form noValidate validated={validated} onSubmit={handleSubmit}>
         <Row className="">
           <Col md={6}>
@@ -71,9 +99,10 @@ export default function ContactForm({ onSubmit, buttonText = "Please wait..." })
                 value={formData.name}
                 onChange={handleChange}
                 placeholder="Enter your full name"
+                maxLength={50}
               />
-              <Form.Control.Feedback type="invalid">
-                Please provide your name.
+              <Form.Control.Feedback type="invalid" style={{ marginTop: 0 }}>
+                Enter a valid name
               </Form.Control.Feedback>
             </Form.Group>
           </Col>
@@ -87,9 +116,10 @@ export default function ContactForm({ onSubmit, buttonText = "Please wait..." })
                 value={formData.email}
                 onChange={handleChange}
                 placeholder="Enter your email address"
+                maxLength={100}
               />
               <Form.Control.Feedback type="invalid">
-                Please provide a valid email address.
+                Enter a valid email address.
               </Form.Control.Feedback>
             </Form.Group>
           </Col>
@@ -100,9 +130,11 @@ export default function ContactForm({ onSubmit, buttonText = "Please wait..." })
             <Form.Group>
               <Form.Label className="small-label">Phone Number *</Form.Label>
               <PhoneInput
-                country={'us'}
+                country={"us"}
                 value={formData.phone}
-                onChange={phone => setFormData(prev => ({ ...prev, phone }))}
+                onChange={(phone) =>
+                  setFormData((prev) => ({ ...prev, phone }))
+                }
                 inputClass="form-control"
                 containerClass="phone-input"
                 required
@@ -117,7 +149,8 @@ export default function ContactForm({ onSubmit, buttonText = "Please wait..." })
                 name="company_name"
                 value={formData.company_name}
                 onChange={handleChange}
-                placeholder="Company Name"
+                placeholder="Company name"
+                maxLength={50}
               />
             </Form.Group>
           </Col>
@@ -126,27 +159,30 @@ export default function ContactForm({ onSubmit, buttonText = "Please wait..." })
         <Form.Group className="mb-3">
           <Form.Label className="small-label">Inquiry Details</Form.Label>
           <Form.Control
-            as="textarea"
-            rows={2}
+            // as="textarea"
+            // rows={2}
             name="message"
             value={formData.message}
             onChange={handleChange}
             placeholder="Briefly describe your project or query"
+            maxLength={500}
           />
+          {validated && formData.message.trim().length < 20 && (
+            <div className="text-danger small mt-1">
+              Please describe your query in at least 20 characters.
+            </div>
+          )}
         </Form.Group>
 
-       
-
-        <Button 
-          type="submit" 
-          variant="dark" 
+        <Button
+          type="submit"
+          variant="dark"
           className="w-100 custom-submit-button"
           disabled={loading}
-
         >
-          {loading ? buttonText : 'Submit'}
+          {loading ? buttonText : "Submit"}
         </Button>
       </Form>
     </div>
   );
-} 
+}

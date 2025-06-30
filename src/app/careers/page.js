@@ -1,91 +1,149 @@
 "use client";
-import React from 'react';
-import Image from 'next/image';
-import Head from 'next/head';
+import React from "react";
+import Image from "next/image";
+import blue from "@/app/assets/blue.jpg";
+import hcareer from "@/app/assets/hcareer.png";
+import { Box, Button, Typography } from "@mui/material";
+import "../globals.css";
+import CTASection from "../components/CTASection";
+import { Container, Row, Col } from "react-bootstrap";
+import {
+  FaNotesMedical,
+  FaUmbrellaBeach,
+  FaPlane,
+  FaUtensils,
+  FaHome,
+  FaDumbbell,
+  FaGamepad,
+  FaTableTennis,
+  FaUsers,
+  FaGift,
+  FaChartLine,
+} from "react-icons/fa";
+
+const techStack = [
+  { name: "OPD & IPD Medical Coverage", logo: FaNotesMedical },
+  { name: "Paid Leaves", logo: FaUmbrellaBeach },
+  { name: "Yearly Company Tours", logo: FaPlane },
+  { name: "Daily Office Lunch", logo: FaUtensils },
+  { name: "Work From Home Options", logo: FaHome },
+  { name: "On-site Gym Access", logo: FaDumbbell },
+  { name: "Video Games Lounge", logo: FaGamepad },
+  { name: "Table Tennis", logo: FaTableTennis },
+  { name: "Diverse & Inclusive Work Culture", logo: FaUsers },
+  { name: "Performance Bonuses", logo: FaGift },
+  { name: "Fast-Paced Growth Opportunities", logo: FaChartLine },
+];
 
 export default function Careers() {
   return (
     <>
-      <Head>
-        <title>Careers at Mothership</title>
-        <meta name="viewport" content="width=device-width, initial-scale=1" />
-      </Head>
+      <div
+        className="hero-background py-5"
+        style={{
+          backgroundImage: `url(${blue.src})`,
+          backgroundSize: "cover",
+          backgroundPosition: "center",
+          backgroundRepeat: "no-repeat",
+          height: "500px",
+          marginTop: "-80px",
+          position: "relative",
+          zIndex: 1,
+        }}
+      >
+        <section className="py-5">
+          <div className="container">
+            <div className="row align-items-center">
+              {/* Left: Text */}
+              <div className="col-md-6 text-white">
+                <h1 className="display-3 fw-bold mb-4">
+                  <span className="herotext text-white">Build Your Future</span>
+                  <br />
+                  <span className="text-white">with</span>
+                  <span
+                    style={{
+                      color: "#418ED6",
+                      textShadow: "2px 2px 4px rgba(0,0,0,0.2)",
+                    }}
+                  >
+                    {" "}
+                    Eazisols
+                  </span>
+                  <p
+                    className="lead text-white mt-3"
+                    style={{
+                      fontSize: "1.2rem",
+                      fontWeight: "400",
+                      opacity: "0.9",
+                    }}
+                  >
+                    Join a team that's redefining digital experiences
+                    <br />
+                    <span className="text-white">
+                      We're not just building software — we're building careers
+                    </span>
+                  </p>
+                </h1>
+                <Button
+                  variant="primary"
+                  size="lg"
+                  style={{
+                    backgroundColor: "#418ED6",
+                    border: "none",
+                    borderRadius: 8,
+                    fontWeight: 600,
+                    color: " #fff",
+                    padding: "12px 32px",
+                  }}
+                >
+                  See Open Positions
+                </Button>
+              </div>
 
-      {/* Hero Section */}
-      <div className="position-relative text-white">
-        <div className="w-100" style={{ height: '400px', overflow: 'hidden' }}>
-          <Image
-            // src="/truck-banner.jpg"
-            alt="Truck Banner"
-            layout="fill"
-            objectFit="cover"
-            quality={100}
-            priority
-          />
-          <div className="position-absolute top-0 start-0 w-100 h-100 bg-dark bg-opacity-75 d-flex align-items-center justify-content-center text-center px-3">
-            <div className="container">
-              <p className="text-uppercase small mb-2">Careers at Eazisols</p>
-              <h1 className="fw-bold display-5 mb-3">Build what the world needs.</h1>
-              <p className="lead mb-3">
-                Were shaping the future of freight and logistics. If youre excited by the
-                prospect of unlocking the worlds potential by speeding up the way goods move, join us.
-              </p>
-              <a href="#" className="btn btn-success fw-semibold">See open roles →</a>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      {/* Benefits Section */}
-      <div className="container py-5">
-        <h2 className="text-center fw-semibold mb-3">Supported by exceptional benefits.</h2>
-        <p className="text-center text-muted mx-auto mb-5" style={{ maxWidth: '700px' }}>
-          We appreciate the great work that our team does every day. Thats why we offer an excellent benefits package that ensures each person has what they need to succeed inside and outside of the office.
-        </p>
-
-        <div className="row g-4">
-          {[
-            {
-              icon: '🧑‍💻',
-              title: 'Your work matters',
-              desc: 'We offer very competitive salaries and equity, with a culture built around ownership of your work. Every team member is integral to the success of the company.'
-            },
-            {
-              icon: '🌴',
-              title: 'Flexible vacation policy',
-              desc: 'Enjoy unlimited paid time off that you can use for whatever you need. We even require you take at least 2 weeks annually.'
-            },
-            {
-              icon: '🖤',
-              title: 'Health and wellness',
-              desc: 'Medical, dental and vision insurance are covered by us so you have access to the right care for you. We also offer office wellness activities to stay balanced.'
-            },
-            {
-              icon: '🏢',
-              title: 'Beautiful workspace',
-              desc: 'We work out of bright, modern office spaces that are equipped with the latest technology and anything else you need to be productive. Oh, and we\'re dog-friendly.'
-            },
-            {
-              icon: '🍱',
-              title: 'Catered meals',
-              desc: 'We offer catered lunch weekly from a wide variety of neighborhood restaurants. Plus, our kitchens are always stocked with healthy snacks, coffee, and tea.'
-            },
-            {
-              icon: '🫂',
-              title: 'Strong community',
-              desc: 'From our "lunch and learn" series to volunteer activities to monthly team rock climbs, there\'s no shortage of fun to get involved in here.'
-            },
-          ].map((item, i) => (
-            <div className="col-md-4" key={i}>
-              <div className="h-100 p-3 border rounded shadow-sm bg-light">
-                <div className="fs-2 mb-2">{item.icon}</div>
-                <h5 className="fw-bold mb-2">{item.title}</h5>
-                <p className="text-muted">{item.desc}</p>
+              {/* Right: Image */}
+              <div className="col-md-6 text-center">
+                <img
+                  src={hcareer.src}
+                  alt="Career Illustration"
+                  className="img-fluid"
+                  style={{ maxHeight: "350px" }}
+                />
               </div>
             </div>
-          ))}
-        </div>
+          </div>
+        </section>
       </div>
+      <Container className="pt-5 mt-5">
+        {" "}
+        <Row className="g-4 justify-content-center">
+          {techStack.map((item, idx) => (
+            <Col key={idx} xs={6} sm={4} md={3} lg={2}>
+              <div
+                className="tech-card bg-white shadow-sm rounded-4 d-flex align-items-center justify-content-center flex-column p-3 h-100"
+                style={{
+                  minHeight: "100px",
+                  border: "1px solid #eee",
+                  transition: "all 0.3s ease",
+                }}
+              >
+                <div
+                  className="mb-2"
+                  style={{ fontSize: "1.5rem", color: "#2563eb" }}
+                >
+                  <item.logo />
+                </div>
+                <small className="fw-medium text-muted text-center">
+                  {item.name}
+                </small>
+              </div>
+            </Col>
+          ))}
+        </Row>
+        
+      </Container>
+      
+
+      <CTASection />
     </>
   );
 }

@@ -1,14 +1,6 @@
 "use client";
 import React from "react";
 import { Container, Row, Col } from "react-bootstrap";
-import {
-  FaClock,
-  FaChartBar,
-  FaBolt,
-  FaBook,
-  FaLightbulb,
-  FaLeaf,
-} from "react-icons/fa";
 import aboutus from "@/app/assets/aboutus.png";
 import CTASection from "../components/CTASection";
 import "../globals.css";

@@ -1,17 +1,46 @@
 "use client";
 import React from "react";
 import { Container, Row, Col } from "react-bootstrap";
-import whitebg from "@/app/assets/whitebg.jpg";
 import "../globals.css";
-import aboutus from "@/app/assets/aboutus.png";
+import contact from "@/app/assets/contact.png";
+import javas from "@/app/assets/javas.png";
+import typescript from "@/app/assets/typescript.png";
+import react from "@/app/assets/react.png";
+import flutter from "@/app/assets/flutter.png";
+import vue from "@/app/assets/vue.png";
+import node from "@/app/assets/node.png";
+import aspnet from "@/app/assets/aspnet.png";
+import php from "@/app/assets/php.png";
+import laravel from "@/app/assets/laravel.png";
+import python from "@/app/assets/python.png";
+import csharp from "@/app/assets/csharp.png";
+import mssql from "@/app/assets/mssql.png";
+import mysql from "@/app/assets/mysql.png";
+import dynamo from "@/app/assets/dynamo.png";
 
+const techStack = [
+  { name: "JavaScript", logo: javas },
+  { name: "TypeScript", logo: typescript },
+  { name: "React", logo: react },
+  { name: "Flutter", logo: flutter },
+  { name: "Vue.js", logo: vue },
+  { name: "Node.js", logo: node },
+  { name: ".Net", logo: aspnet },
+  { name: "php", logo: php },
+  { name: "Laravel", logo: laravel },
+  { name: "Python", logo: python },
+  { name: "C#", logo: csharp },
+  { name: "MsSQL", logo: mssql },
+  { name: "MySQL", logo: mysql },
+  { name: "DynamoDB", logo: dynamo },
+];
 export default function Capabilities() {
   return (
     <>
       <div
         className="hero-background py-5"
         style={{
-          backgroundImage: `url(${aboutus.src})`,
+          backgroundImage: `url(${contact.src})`,
           backgroundSize: "cover",
           backgroundPosition: "center",
           backgroundRepeat: "no-repeat",
@@ -112,6 +141,41 @@ export default function Capabilities() {
           </Row>
         </Container>
       </section>
+      <section className="py-5 bg-white text-center">
+      <Container>
+        <p className=" fw-semibold mb-1" style={{ fontSize: "0.95rem", color:'#418ED6', }}>
+          Software Tools We Use
+        </p>
+        <h2 className="fw-bold mb-3">Our technology stack</h2>
+        <p className="text-muted mb-5" style={{ maxWidth: "700px", margin: "0 auto" }}>
+          We are constantly evolving our engineering & design technology. This ensures that
+          we can offer the right solutions for your business needs.
+        </p>
+
+        <Row className="g-4 justify-content-center">
+          {techStack.map((item, idx) => (
+            <Col key={idx} xs={6} sm={4} md={3} lg={2}>
+              <div
+                className=" tech-card bg-white shadow-sm rounded-4 d-flex align-items-center justify-content-center flex-column p-3 h-100"
+                style={{
+                  minHeight: "100px",
+                  border: "1px solid #eee",
+                  transition: "all 0.3s ease",
+                }}
+              >
+                <img
+                  src={item.logo.src}
+                  alt={item.name}
+                  style={{ height: "40px", objectFit: "contain" }}
+                  className="mb-2"
+                />
+                <small className="fw-medium text-muted">{item.name}</small>
+              </div>
+            </Col>
+          ))}
+        </Row>
+      </Container>
+    </section>
     </>
   );
 }

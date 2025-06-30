@@ -41,15 +41,15 @@ const HeroSection = () => {
                   <Row >
                     <Col md={4}>
                       <p className="text-white mb-1">
-                        <FaPhone className="me-2" style={{color: "#418ED6"}}/> +1 (555) 123-4567
+                        <FaPhone className="me-2" style={{color: "#418ED6"}}/>+92 321 8881156
                       </p>
                       <p className="text-white mb-1">
-                        <FaEnvelope className="me-2" style={{color: "#418ED6"}}/> contact@example.com
+                        <FaEnvelope className="me-2" style={{color: "#418ED6"}}/>info@eazisols.com
                       </p>
                     </Col>
                     <Col md={4}>
                       <p className="text-white mb-1">
-                        <FaWhatsapp className="me-2" style={{color: "#418ED6"}}/> +1 (555) 987-6543
+                        <FaWhatsapp className="me-2" style={{color: "#25D366"}}/> +1 (555) 987-6543
                       </p>
                     </Col>
                   </Row>
