@@ -3,7 +3,7 @@ import React from "react";
 import { Box, Button, Typography } from "@mui/material";
 import bg5 from "@/app/assets/bg5.jpg";
 
-export default function CTASection() {
+export default function CTASection({ description1, description2 }) {
   return (
     <Box
       sx={{
@@ -55,7 +55,7 @@ export default function CTASection() {
             lineHeight: "1",
           }}
         >
-          YOU WANT TO SHOWCASE YOUR WEBSITE
+           {description1}
         </Typography>
        <Button
               variant="primary"
@@ -69,7 +69,7 @@ export default function CTASection() {
                 padding: "12px 32px",
               }}
             >
-              Quote Generator
+             {description2}
 
             </Button>
       </Box>

@@ -91,7 +91,10 @@ export default function Home() {
       <AboutSection />
       <Services />
       {/* <ProcessTimeline /> */}
-      <CTASection />
+      <CTASection
+      description1="YOU WANT TO SHOWCASE YOUR WEBSITE"
+      description2="Quote Generator"
+       />
       {/* <InTouch /> */}
       {/* <ComparisonSection /> */}
       {/* <ChallengesSection /> */}

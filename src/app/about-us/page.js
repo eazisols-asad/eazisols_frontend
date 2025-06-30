@@ -119,57 +119,6 @@ export default function about() {
           <Row className="gy-4">
             {awards.map((service, idx) => (
               <Col key={idx} md={3} lg={4} >
-                 {/* <div
-                className="bg-white border rounded-4 shadow-sm p-4 w-100 h-100 d-flex flex-column align-items-start"
-                style={{ 
-                  minHeight: 220, 
-                  borderColor: "#f0f0f0", 
-                  boxShadow: "0 2px 12px 0 rgba(16,30,54,.04)",
-                  cursor: "pointer",
-                  transition: "all 0.3s ease-in-out",
-                  position: "relative",
-                  overflow: "hidden"
-                }}
-                onMouseOver={(e) => {
-                  e.currentTarget.style.transform = "translateY(-8px)";
-                  e.currentTarget.style.boxShadow = "0 12px 28px 0 rgba(16,30,54,.15)";
-                  e.currentTarget.style.borderColor = "#2563eb";
-                  const icon = e.currentTarget.querySelector('.service-icon');
-                  if (icon) {
-                    icon.style.transform = "scale(1.1) rotate(5deg)";
-                    icon.style.color = "#1d4ed8";
-                  }
-                }}
-                onMouseOut={(e) => {
-                  e.currentTarget.style.transform = "translateY(0)";
-                  e.currentTarget.style.boxShadow = "0 2px 12px 0 rgba(16,30,54,.04)";
-                  e.currentTarget.style.borderColor = "#f0f0f0";
-                  const icon = e.currentTarget.querySelector('.service-icon');
-                  if (icon) {
-                    icon.style.transform = "scale(1) rotate(0)";
-                    icon.style.color = "#2563eb";
-                  }
-                }}
-              >
-                  <div
-                    className="position-absolute top-0 start-0 translate-middle-y"
-                    style={{
-                      marginRight: "10px",
-                      marginLeft: "20px",
-                      backgroundColor: "#d2e4f5",
-                      padding: "8px 12px",
-                      borderRadius: "10px",
-                      fontSize: "18px",
-                      border: "2px solid #000",
-                    }}
-                  >
-                    {award.icon}
-                  </div>
-                  <h5 className="fw-bold mb-2 mt-4">{award.title}</h5>
-                  <p className="text-muted mb-0" style={{ fontSize: "15px" }}>
-                    {award.description}
-                  </p>
-                </div> */}
                  
               <div
                 className="bg-white border rounded-4 shadow-sm p-4 w-100 h-100 d-flex flex-column align-items-start"
@@ -211,8 +160,6 @@ export default function about() {
                     style={{ 
                       fontSize: 22, 
                       color: "#23223a",
-                      // background: "linear-gradient(120deg, transparent 0%, transparent 50%, rgba(37,99,235,0.1) 50%)",
-                      // backgroundSize: "200% 100%",
                       transition: "background-position 0.3s ease-in-out",
                       padding: "4px 8px",
                       margin: "-4px -8px"
@@ -236,7 +183,9 @@ export default function about() {
           </Row>
         </Container>
       </section>
-      <CTASection />
+      <CTASection
+       description1="Let's build something impactful together"
+      description2="Quote Generator" />
     </>
   );
 }
