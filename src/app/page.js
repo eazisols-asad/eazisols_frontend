@@ -1,23 +1,7 @@
 "use client";
 
-import {
-  Container,
-  Row,
-  Col,
-  Button,
-  Card,
-  Form,
-  InputGroup,
-} from "react-bootstrap";
-import ContactForm from "./components/ContactForm";
-import LogoSlider from "./components/LogoSlider";
-import ProcessTimeline from "./components/ProcessTimeline";
-import ComparisonSection from "./components/ComparisonSection";
-import ChallengesSection from "./components/ChallengesSection";
-import StatsSection from "./components/StatsSection";
 import FAQSection from "./components/FAQSection";
 import HeroSection from "./components/HeroSection";
-import InTouch from "./components/InTouch";
 import LogoSection from "./components/LogoSection";
 import AboutSection from "./components/AboutSection";
 import CTASection from "./components/CTASection";
@@ -84,42 +68,15 @@ export default function Home() {
   return (
     <div className="bg-light">
       <HeroSection />
-      
-      {/* <LogoSlider /> */}
       <LogoSection />
       <WaterfallProcess />
       <AboutSection />
       <Services />
-      {/* <ProcessTimeline /> */}
       <CTASection
       description1="YOU WANT TO SHOWCASE YOUR WEBSITE"
       description2="Quote Generator"
        />
-      {/* <InTouch /> */}
-      {/* <ComparisonSection /> */}
-      {/* <ChallengesSection /> */}
-      {/* <StatsSection /> */}
-
-      {/* FAQ Section */}
-      {/* <FAQSection faqs={faqs} title="Frequently Asked Questions" /> */}
-
-      {/* CTA Section */}
-      {/* <section className="py-5 bg-primary text-white">
-        <Container>
-          <Row className="text-center">
-            <Col>
-              <h2 className="display-5 fw-bold mb-4">{`Let's Get To Work!`}</h2>
-              <p className="lead mb-4">
-              {`  We're ready to get started on your next creative project. All
-                you need to do is hit the button below`}
-              </p>
-              <Button variant="light" size="lg">
-                Book an appointment
-              </Button>
-            </Col>
-          </Row>
-        </Container>
-      </section> */}
+     
     </div>
   );
 }

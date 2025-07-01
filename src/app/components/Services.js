@@ -30,7 +30,6 @@ export default function ServicesSection() {
     <section style={{ padding: "56px 0 32px 0" }}>
       <div className="container">
       <h2 className="text-center mb-5" style={{ fontWeight: 700, color: '#3a2e5c' }}>Services overview</h2>
-        {/* <h2 className="fw-bold mb-4" style={{ fontSize: 36, letterSpacing: -1 }}>Services overview</h2> */}
         <div className="row g-4 mb-4">
           {services.map((service, idx) => (
             <div className="col-12 col-sm-6 col-lg-3 d-flex" key={idx}>
@@ -74,8 +73,6 @@ export default function ServicesSection() {
                     style={{ 
                       fontSize: 22, 
                       color: "#23223a",
-                      // background: "linear-gradient(120deg, transparent 0%, transparent 50%, rgba(37,99,235,0.1) 50%)",
-                      // backgroundSize: "200% 100%",
                       transition: "background-position 0.3s ease-in-out",
                       padding: "4px 8px",
                       margin: "-4px -8px"

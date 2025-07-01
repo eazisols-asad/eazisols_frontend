@@ -7,11 +7,11 @@ export default function CTASection({ description1, description2 }) {
   return (
     <Box
       sx={{
-        marginTop:"40px",
+        marginTop: "40px",
         position: "relative",
         width: "100%",
         height: "160px",
-       backgroundImage: `url(${bg5.src})`,
+        backgroundImage: `url(${bg5.src})`,
         backgroundSize: "cover",
         backgroundPosition: "center",
         display: "flex",
@@ -32,48 +32,41 @@ export default function CTASection({ description1, description2 }) {
         }}
       />
       <Box
+        className="d-flex flex-column flex-md-row align-items-center justify-content-between text-center text-md-start gap-3 px-3 px-md-4"
         sx={{
           position: "relative",
           zIndex: 2,
-          display: "flex",
-          alignItems: "center",
-          justifyContent: "space-between", 
-          maxWidth: "1200px", 
-          width: "100%", 
-          px: 4,
-          px: 2,
-          flexWrap: "wrap",
+          width: "100%",
+          maxWidth: "1200px",
         }}
       >
         <Typography
           sx={{
             fontFamily: `'Segoe UI', 'Helvetica Neue', Arial, sans-serif`,
             fontWeight: 800,
-            fontSize: "36px",
+            fontSize: { xs: "24px", md: "36px" }, 
             color: "white",
-            whiteSpace: "nowrap",
-            lineHeight: "1",
+            lineHeight: 1.2,
           }}
         >
-           {description1}
+          {description1}
         </Typography>
-       <Button
-              variant="primary"
-              size="lg"
-              style={{
-                backgroundColor: "#418ED6",
-                border: "none",
-                borderRadius: 8,
-                fontWeight: 600,
-                color:" #fff",
-                padding: "12px 32px",
-              }}
-            >
-             {description2}
 
-            </Button>
+        <Button
+          variant="primary"
+          size="lg"
+          style={{
+            backgroundColor: "#418ED6",
+            border: "none",
+            borderRadius: 8,
+            fontWeight: 600,
+            color: "#fff",
+            padding: "12px 32px",
+          }}
+        >
+          {description2}
+        </Button>
       </Box>
     </Box>
   );
-};
-
+}

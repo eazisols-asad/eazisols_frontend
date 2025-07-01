@@ -5,6 +5,7 @@ import blue from "@/app/assets/blue.jpg";
 import hcareer from "@/app/assets/hcareer.png";
 import { Box, Button, Collapse, Typography } from "@mui/material";
 import "../globals.css";
+import { useRouter } from "next/navigation";
 import CTASection from "../components/CTASection";
 import { Container, Row, Col } from "react-bootstrap";
 import {
@@ -65,6 +66,7 @@ const joinSteps = [
 ];
 
 export default function Careers() {
+  const router = useRouter();
   return (
     <>
       <div
@@ -124,6 +126,7 @@ export default function Careers() {
                     color: " #fff",
                     padding: "12px 32px",
                   }}
+                  onClick={() => router.push("/job-opening")}
                 >
                   See Open Positions
                 </Button>

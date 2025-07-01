@@ -70,10 +70,10 @@ export default function NavigationBar() {
                 id="services-dropdown"
                 className="custom-dropdown"
               >
-                <NavDropdown.Item as={Link} href="/services/marketing">
+                <NavDropdown.Item as={Link} href="/our-work">
                   Case Studies
                 </NavDropdown.Item>
-                <NavDropdown.Item as={Link} href="/services/development">
+                <NavDropdown.Item as={Link} href="/blogs">
                   Blog
                 </NavDropdown.Item>
               </NavDropdown>
