@@ -7,7 +7,7 @@ import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import logoPurple6 from "@/app/assets/logoPurple6.png";
 import logoPurple5 from "@/app/assets/logoPurple5.png";
-import logoPurple4 from "@/app/assets/logoPurple4.png";
+import logoPurple4 from "@/app/assets/logoPurple4.jpg";
 import logoPurple3 from "@/app/assets/logoPurple3.png";
 import logoPurple2 from "@/app/assets/logoPurple2.jpg";
 import logoPurple1 from "@/app/assets/logoPurple1.png";

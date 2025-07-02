@@ -35,7 +35,7 @@ export default function Footer() {
                 <Link href="/portfolio">Portfolio</Link>
               </li>
               <li className="mb-2">
-                <Link href="/cost-calculator" >Cost Calculator</Link>
+                <Link href="/quote" >Cost Calculator</Link>
               </li>
             </ul>
           </Col>
@@ -55,12 +55,12 @@ export default function Footer() {
           </Col>
           <Col md={3} className="mb-4">
             <h5 className="mb-3">Contact</h5>
-            <p className="mb-2">424 (2nd-3rd floor), J3 block Johar Town, Lahore.</p>
-            <p className="mb-2">hello@eazisols.com</p>
+            <p className="mb-2">65-J1 Wapda Town Lahore, Pakistan.</p>
+            <p className="mb-2">info@eazisols.com</p>
             <div className="contact-numbers">
-              <p className="mb-1">US - +1 234 567 8900</p>
-              <p className="mb-1">UK - +44 234 567 8901</p>
-              <p className="mb-1">Australia - +61 234 567 8902</p>
+              <p className="mb-1">HR: +92 321 8881156</p>
+              <p className="mb-1">BDM: +92 313 8484 008</p>
+              <p className="mb-1">UAE: +971 54 424 4629</p>
             </div>
           </Col>
         </Row>

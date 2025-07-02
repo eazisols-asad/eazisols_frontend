@@ -10,10 +10,11 @@ export default function NavigationBar() {
   const pathname = usePathname();
   const [scrolled, setScrolled] = useState(false);
   const isHome = pathname === "/";
+  const [expanded, setExpanded] = useState(false);
 
   useEffect(() => {
     const handleScroll = () => {
-      setScrolled(window.scrollY > 50); 
+      setScrolled(window.scrollY > 50);
     };
     window.addEventListener("scroll", handleScroll);
     return () => window.removeEventListener("scroll", handleScroll);
@@ -23,8 +24,12 @@ export default function NavigationBar() {
     <>
       <Navbar
         expand="lg"
-        style={{height: "90px"}}
-         className={`shadow-sm fixed-top custom-navbar ${scrolled ? "navbar-scrolled" : isHome ? "navbar-home-top" : ""}`}
+        expanded={expanded}
+        onToggle={() => setExpanded((prev) => !prev)}
+        style={{ height: "90px" }}
+        className={`shadow-sm fixed-top custom-navbar ${
+          scrolled ? "navbar-scrolled" : isHome ? "navbar-home-top" : ""
+        }`}
       >
         <Container>
           <Navbar.Brand
@@ -36,9 +41,9 @@ export default function NavigationBar() {
               src={eazistransbg.src}
               alt="Eazisols Logo"
               style={{
-                height: "100px", 
-                width: "auto", 
-                display: "block", 
+                height: "100px",
+                width: "auto",
+                display: "block",
                 maxHeight: "80px",
               }}
             />
@@ -51,6 +56,7 @@ export default function NavigationBar() {
               <Nav.Link
                 as={Link}
                 href="/"
+                onClick={() => setExpanded(false)}
                 className={pathname === "/" ? "active-link" : ""}
               >
                 Home
@@ -58,11 +64,12 @@ export default function NavigationBar() {
               <Nav.Link
                 as={Link}
                 href="/about-us"
+                onClick={() => setExpanded(false)}
                 className={pathname === "/about-us" ? "active-link" : ""}
               >
                 About Us
               </Nav.Link>
-              <Nav.Link as={Link} href="/services">
+              <Nav.Link as={Link} href="/services" onClick={() => setExpanded(false)}>
                 Services
               </Nav.Link>
               <NavDropdown
@@ -70,16 +77,17 @@ export default function NavigationBar() {
                 id="services-dropdown"
                 className="custom-dropdown"
               >
-                <NavDropdown.Item as={Link} href="/our-work">
+                <NavDropdown.Item as={Link} href="/our-work" onClick={() => setExpanded(false)}>
                   Case Studies
                 </NavDropdown.Item>
-                <NavDropdown.Item as={Link} href="/blogs">
+                <NavDropdown.Item as={Link} href="/blogs" onClick={() => setExpanded(false)}>
                   Blog
                 </NavDropdown.Item>
               </NavDropdown>
               <Nav.Link
                 as={Link}
                 href="/careers"
+                onClick={() => setExpanded(false)}
                 className={pathname === "/careers" ? "active-link" : ""}
               >
                 Careers
@@ -87,12 +95,13 @@ export default function NavigationBar() {
               <Nav.Link
                 as={Link}
                 href="/contact"
+                onClick={() => setExpanded(false)}
                 className={pathname === "/contact" ? "active-link" : ""}
               >
                 Contact Us
               </Nav.Link>
               <div className="d-flex align-items-center ">
-                <Link href="/cost-calculator" passHref>
+                <Link href="/quote" passHref onClick={() => setExpanded(false)}>
                   <Button className="quote-button">Quote Generator</Button>
                 </Link>
               </div>
