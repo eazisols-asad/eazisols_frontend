@@ -17,7 +17,7 @@ console.log("BASE URL:", baseUrl);
       const response = await axios.post(`${baseUrl}${endPoint}`, data, {
         headers: {
           Authorization: `Bearer ${token}`,
-          "Content-Type": "application/json",
+          // "Content-Type": "application/json",
         },
       });
       console.log("POST success:", response.data);

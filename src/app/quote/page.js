@@ -1,6 +1,8 @@
 "use client";
 import React, { useState } from "react";
 import { Container, Row, Col } from "react-bootstrap";
+import useAPiAuth from "../components/useApiAuth";
+import PhoneInput from "react-phone-input-2";
 import { Button, LinearProgress } from "@mui/material";
 import {
   FaGlobe,
@@ -33,8 +35,8 @@ import contact from "@/app/assets/contact.png";
 
 export default function MultiStepForm() {
   const [step, setStep] = useState(0);
+  const { postData, getData } = useAPiAuth();
   const [formData, setFormData] = useState({
-    
     services: [],
     industry: [],
     otherIndustry: "",
@@ -51,32 +53,32 @@ export default function MultiStepForm() {
   console.log(formData);
 
   const servicesList = [
-    { id:1 ,label: "Website", icon: <FaGlobe size={32} /> },
-    { id:2 ,label: "Mobile App", icon: <FaMobileAlt size={32} /> },
-    { id:3 ,label: "Custom Software", icon: <FaCode size={32} /> },
-    { id:4 ,label: "Automation", icon: <FaRobot size={32} /> },
-    { id:5 ,label: "E-commerce", icon: <FaShoppingCart size={32} /> },
-    { id:6 ,label: "Design (UI/UX)", icon: <FaPaintBrush size={32} /> },
-    { id:7 ,label: "QA / DevOps", icon: <FaShieldAlt size={32} /> },
-    { id:8 ,label: "Not Sure Yet", icon: <FaQuestionCircle size={32} /> },
+    { id: 1, label: "Website", icon: <FaGlobe size={32} /> },
+    { id: 2, label: "Mobile App", icon: <FaMobileAlt size={32} /> },
+    { id: 3, label: "Custom Software", icon: <FaCode size={32} /> },
+    { id: 4, label: "Automation", icon: <FaRobot size={32} /> },
+    { id: 5, label: "E-commerce", icon: <FaShoppingCart size={32} /> },
+    { id: 6, label: "Design (UI/UX)", icon: <FaPaintBrush size={32} /> },
+    { id: 7, label: "QA / DevOps", icon: <FaShieldAlt size={32} /> },
+    { id: 8, label: "Not Sure Yet", icon: <FaQuestionCircle size={32} /> },
   ];
   const industryList = [
-    { id:1 , label: "Healthcare", icon: <FaHeartbeat size={32} /> },
-    { id:2 ,label: "E-commerce", icon: <FaShoppingCart size={32} /> },
-    { id:3 ,label: "Fintech", icon: <FaUniversity size={32} /> },
-    { id:4 ,label: "Education", icon: <FaGraduationCap size={32} /> },
-    { id:5 ,label: "Logistics", icon: <FaTruck size={32} /> },
-    { id:6 ,label: "SaaS", icon: <FaBriefcase size={32} /> },
-    { id:7 ,label: "Other", icon: <FaRegEdit size={32} /> },
+    { id: 1, label: "Healthcare", icon: <FaHeartbeat size={32} /> },
+    { id: 2, label: "E-commerce", icon: <FaShoppingCart size={32} /> },
+    { id: 3, label: "Fintech", icon: <FaUniversity size={32} /> },
+    { id: 4, label: "Education", icon: <FaGraduationCap size={32} /> },
+    { id: 5, label: "Logistics", icon: <FaTruck size={32} /> },
+    { id: 6, label: "SaaS", icon: <FaBriefcase size={32} /> },
+    { id: 7, label: "Other", icon: <FaRegEdit size={32} /> },
   ];
-  const toggleService = (label) => {
-    setFormData((prev) => ({
-      ...prev,
-      services: prev.services.includes(label)
-        ? prev.services.filter((s) => s !== label)
-        : [...prev.services, label],
-    }));
-  };
+  // const toggleService = (label) => {
+  //   setFormData((prev) => ({
+  //     ...prev,
+  //     services: prev.services.includes(label)
+  //       ? prev.services.filter((s) => s !== label)
+  //       : [...prev.services, label],
+  //   }));
+  // };
 
   const handleNext = () => {
     if (step === 0 && formData.services.length === 0) {
@@ -93,6 +95,78 @@ export default function MultiStepForm() {
   const handleBack = () => {
     setStep(step - 1);
   };
+  const handleSubmit = async () => {
+    // if (!formData.fullName || !formData.email) {
+    //   alert("Full Name and Email are required.");
+    //   return;
+    // }
+    // const form=new formData()
+    const form = new FormData();
+    form.append("otherIndustry", formData.otherIndustry);
+    form.append("stage", formData.stage);
+    form.append("timeline", formData.timeline);
+    form.append("budget", formData.budget);
+    form.append("description", formData.description);
+    form.append("fullName", formData.fullName);
+    form.append("email", formData.email);
+    form.append("company", formData.company);
+    form.append("phone", formData.phone);
+    form.append("services", JSON.stringify(formData.services));
+    form.append("industry", JSON.stringify(formData.industry));
+    // form.append("services", formData.services);
+    // form.append("industry", formData.industry);
+  
+      form.append("file", formData.file);
+
+    postData(
+      "/cost-calculator",
+      form,
+      (data) => {
+        console.log("API Success:", data);
+        // setStep(step + 1);
+        // navigate("/");
+      },
+      (error) => {
+        console.error("Api error:", error);
+      }
+    );
+    console.log(formData);
+  };
+    
+
+  // const handleChange = (e) => {
+  //   const { name, value } = e.target;
+
+  //   if (name === "name") {
+  //     const cleaned = value
+  //       .replace(/[^A-Za-z .,'-]/g, "")
+  //       .replace(/\s+/g, " ")
+  //       .trim()
+  //       .split(" ")
+  //       .map((w) => w.charAt(0).toUpperCase() + w.slice(1))
+  //       .join(" ")
+  //       .slice(0, 50);
+  //     setFormData((prev) => ({ ...prev, [name]: cleaned }));
+  //     return;
+  //   }
+
+  //   if (name === "company_name") {
+  //     if (value.length > 50) return;
+  //   }
+
+  //   if (name === "email") {
+  //     if (value.length > 100) return;
+  //   }
+
+  //   if (name === "message") {
+  //     if (value.length > 500) return;
+  //   }
+
+  //   setFormData((prev) => ({
+  //     ...prev,
+  //     [name]: value,
+  //   }));
+  // };
   return (
     <>
       <div
@@ -137,7 +211,7 @@ export default function MultiStepForm() {
 
             <Row className="g-4 justify-content-center">
               {servicesList.map((item, idx) => {
-                const isSelected = formData.services.includes(item.label);
+                const isSelected = formData.services === item.label;
                 return (
                   <Col key={idx} xs={6} sm={4} md={3} lg={2}>
                     {/* <Col key={idx} xs={6} sm={6} md={3} lg={3}> */}
@@ -150,7 +224,12 @@ export default function MultiStepForm() {
                         cursor: "pointer",
                         transition: "all 0.3s ease",
                       }}
-                      onClick={() => toggleService(item.label)}
+                      onClick={() =>
+                        setFormData((prev) => ({
+                          ...prev,
+                          services: item.label,
+                        }))
+                      }
                     >
                       <div className="mb-2 text-primary">{item.icon}</div>
                       <small className="fw-medium text-muted text-center">
@@ -501,18 +580,21 @@ export default function MultiStepForm() {
             </div>
           </>
         )}
-        {/* Step 7 */}
+        {/* step 7 */}
         {step === 6 && (
           <>
-            <h2 className="text-center fw-bold mb-4">Your contact details</h2>
-
-            <div className="mx-auto" style={{ maxWidth: 600 }}>
+            <h2 className="text-center fw-bold mb-4">Your Contact Details</h2>
+            <div
+              className="mx-auto bg-white p-4 rounded-4 shadow-sm border-secondary-subtle"
+              style={{ maxWidth: 500 }}
+            >
               {/* Full Name */}
-              <div className="mb-3">
-                <label className="form-label fw-medium">Full Name *</label>
+              <div className="mb-3 d-flex align-items-center border-bottom">
+                <i className="bi bi-person-fill text-muted me-2"></i>
                 <input
                   type="text"
-                  className="form-control"
+                  className="form-control border-0 shadow-none"
+                  placeholder="Full Name"
                   value={formData.fullName || ""}
                   onChange={(e) =>
                     setFormData((prev) => ({
@@ -525,30 +607,27 @@ export default function MultiStepForm() {
               </div>
 
               {/* Email */}
-              <div className="mb-3">
-                <label className="form-label fw-medium">Email *</label>
+              <div className="mb-3 d-flex align-items-center border-bottom">
+                <i className="bi bi-envelope-fill text-muted me-2"></i>
                 <input
                   type="email"
-                  className="form-control"
+                  className="form-control border-0 shadow-none"
+                  placeholder="Email Address"
                   value={formData.email || ""}
                   onChange={(e) =>
-                    setFormData((prev) => ({
-                      ...prev,
-                      email: e.target.value,
-                    }))
+                    setFormData((prev) => ({ ...prev, email: e.target.value }))
                   }
                   required
                 />
               </div>
 
-              {/* Company Name */}
-              <div className="mb-3">
-                <label className="form-label fw-medium">
-                  Company Name (optional)
-                </label>
+              {/* Company */}
+              <div className="mb-3 d-flex align-items-center border-bottom">
+                <i className="bi bi-building text-muted me-2"></i>
                 <input
                   type="text"
-                  className="form-control"
+                  className="form-control border-0 shadow-none"
+                  placeholder="Company (optional)"
                   value={formData.company || ""}
                   onChange={(e) =>
                     setFormData((prev) => ({
@@ -560,29 +639,26 @@ export default function MultiStepForm() {
               </div>
 
               {/* Phone */}
-              <div className="mb-3">
-                <label className="form-label fw-medium">Phone (optional)</label>
-                <input
-                  type="tel"
-                  className="form-control"
+              <div className="mb-3 d-flex align-items-center border-bottom ">
+                <i className="bi bi-telephone-fill text-muted me-2"></i>
+                <PhoneInput
+                  country={"us"}
                   value={formData.phone || ""}
-                  onChange={(e) =>
-                    setFormData((prev) => ({
-                      ...prev,
-                      phone: e.target.value,
-                    }))
+                  onChange={(phone) =>
+                    setFormData((prev) => ({ ...prev, phone }))
                   }
+                  inputClass="custom-phone-input"
+                  containerClass="custom-phone-container"
+                  buttonClass="custom-phone-button"
                 />
               </div>
 
-              {/* Upload File */}
-              <div className="mb-3">
-                <label className="form-label fw-medium">
-                  Upload project brief / file (optional)
-                </label>
+              {/* File Upload */}
+              <div className="mb-3 d-flex align-items-center border-bottom">
+                <i className="bi bi-paperclip text-muted me-2"></i>
                 <input
                   type="file"
-                  className="form-control"
+                  className="form-control border-0 shadow-none"
                   onChange={(e) =>
                     setFormData((prev) => ({
                       ...prev,
@@ -597,22 +673,16 @@ export default function MultiStepForm() {
               <Button
                 variant="outlined"
                 onClick={handleBack}
-                sx={{ paddingX: 4, paddingY: 1.5 }}
+                sx={{ px: 4, py: 1.5 }}
               >
                 Back
               </Button>
               <Button
                 variant="contained"
-                onClick={() => {
-                  if (!formData.fullName || !formData.email) {
-                    alert("Full Name and Email are required.");
-                    return;
-                  }
-                  handleNext();
-                }}
-                sx={{ paddingX: 4, paddingY: 1.5 }}
+                onClick={() => handleSubmit()}
+                sx={{ px: 4, py: 1.5 }}
               >
-                Next
+                Submit
               </Button>
             </div>
           </>

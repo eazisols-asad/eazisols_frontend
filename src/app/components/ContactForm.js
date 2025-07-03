@@ -10,7 +10,7 @@ export default function ContactForm({
   buttonText = "Please wait...",
 }) {
   const [formData, setFormData] = useState({
-    name: "",
+    fullName: "",
     email: "",
     phone: "",
     message: "",
@@ -95,8 +95,8 @@ export default function ContactForm({
               <Form.Control
                 required
                 type="text"
-                name="name"
-                value={formData.name}
+                name="fullName"
+                value={formData.fullName}
                 onChange={handleChange}
                 placeholder="Enter your full name"
                 maxLength={50}

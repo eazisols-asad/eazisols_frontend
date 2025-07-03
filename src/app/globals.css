@@ -367,20 +367,18 @@ section.hero-background {
   color: white;
   padding: 5px 8px;
   font-size: 15px;
-  font-weight: 600;
+  font-weight: 500;
   border: none;
-  border-radius: 20px;
+  border-radius: 5px;
   transition: all 0.3s ease;
   height: 40px;
   width: 150px;
 }
 
 .quote-button:hover {
-  background-color: #3993e7;
+  background-color: #478fd2; 
   transform: scale(1.04);
 }
-
-
  .contact-form-box {
   max-width: 500px;
   padding: 19px;
@@ -875,3 +873,25 @@ footer hr {
   border-color: #000000 !important;
 }
 
+/* quote contact csss */
+.custom-phone-container { 
+  width: 100%;
+}
+
+.custom-phone-input {
+  border: none !important;
+  box-shadow: none !important;
+  width: 100%;
+  font-size: 1rem;
+  padding-left: 0.5rem; 
+  background-color: transparent;
+  height: 38px !important;
+}
+
+.custom-phone-button {
+  border: none !important;
+  background-color: transparent !important;
+}
+.phone-wrapper .flag-dropdown {
+  margin-right: 8px;
+}
