@@ -42,7 +42,7 @@ const SectionsSlider = () => {
 
   return (
     <>
-      <div style={{ paddingTop: "100px", paddingBottom: "100px" }}>
+      <div style={{ paddingTop: "50px", paddingBottom: "50px" }}>
         <div className="slider-wrapper">
           <Slider {...settings}>
             {imageData.map((image) => (

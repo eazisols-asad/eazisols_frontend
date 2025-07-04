@@ -125,7 +125,7 @@ export default function ContactForm({
           </Col>
         </Row>
 
-        <Row className="mb-1">
+        <Row className="mb-1 mt-3">
           <Col md={6}>
             <Form.Group>
               <Form.Label className="small-label">Phone Number *</Form.Label>
@@ -156,16 +156,17 @@ export default function ContactForm({
           </Col>
         </Row>
 
-        <Form.Group className="mb-3">
+        <Form.Group className="mb-3 ">
           <Form.Label className="small-label">Inquiry Details</Form.Label>
           <Form.Control
-            // as="textarea"
-            // rows={2}
+            as="textarea"
+            rows={2}
             name="message"
             value={formData.message}
             onChange={handleChange}
             placeholder="Briefly describe your project or query"
             maxLength={500}
+            style={{ resize: "none", overflow: "auto", height: "80px" }} 
           />
           {validated && formData.message.trim().length < 20 && (
             <div className="text-danger small mt-1">
@@ -177,7 +178,7 @@ export default function ContactForm({
         <Button
           type="submit"
           variant="dark"
-          className="w-100 custom-submit-button"
+          className="w-100 mt-2 custom-submit-button"
           disabled={loading}
         >
           {loading ? buttonText : "Submit"}

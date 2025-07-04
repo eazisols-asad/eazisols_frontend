@@ -1,12 +1,11 @@
 "use client";
 import React from "react";
 import Image from "next/image";
-import blue from "@/app/assets/blue.jpg";
-import hcareer from "@/app/assets/hcareer.png";
-import { Box, Button, Collapse, Typography } from "@mui/material";
+import { Button,  } from "@mui/material";
 import "../globals.css";
 import { useRouter } from "next/navigation";
 import CTASection from "../components/CTASection";
+import aboutus from "@/app/assets/aboutus.png";
 import { Container, Row, Col } from "react-bootstrap";
 import {
   FaNotesMedical,
@@ -24,6 +23,7 @@ import {
   FaPhoneAlt,
   FaHandshake,
 } from "react-icons/fa";
+import ReuseButton from "../components/ReuseButton";
 
 const techStack = [
   { name: "OPD & IPD Medical Coverage", logo: FaNotesMedical },
@@ -70,51 +70,36 @@ export default function Careers() {
   return (
     <>
       <div
-        className="hero-background py-5"
-        style={{
-          backgroundImage: `url(${blue.src})`,
-          backgroundSize: "cover",
-          backgroundPosition: "center",
-          backgroundRepeat: "no-repeat",
-          height: "500px",
-          marginTop: "-80px",
-          position: "relative",
-          zIndex: 1,
-        }}
-      >
-        <section className="py-5">
-          <div className="container">
-            <div className="row align-items-center">
-              {/* Left: Text */}
-              <div className="col-md-6 text-white">
-                <h1 className="display-3 fw-bold mb-4">
-                  <span className="herotext text-white">Build Your Future</span>
+              className="hero-background py-5"
+              style={{
+                backgroundImage: `url(${aboutus.src})`,
+                backgroundSize: "cover",
+                backgroundPosition: "center",
+                backgroundRepeat: "no-repeat",
+                height: "400px",
+                marginTop: "-80px",
+                position: "relative",
+                zIndex: 1,
+              }}
+            >
+              <div
+                className="container "
+                style={{
+                  paddingTop: "100px",
+                  color: "white",
+                }}
+              >
+                <h1 className="main-heading text-white">Build Your Future with Eazisols</h1>
+                <p
+                  className="lead text-white mt-1"
+                  style={{ fontSize: "1.2rem", fontWeight: "400", opacity: "0.9" }}
+                >
+                  Join a team that's redefining digital experiences
                   <br />
-                  <span className="text-white">with</span>
-                  <span
-                    style={{
-                      color: "#418ED6",
-                      textShadow: "2px 2px 4px rgba(0,0,0,0.2)",
-                    }}
-                  >
-                    {" "}
-                    Eazisols
+                  <span className="text-white">
+                   We're not just building software — we're building careers
                   </span>
-                  <p
-                    className="lead text-white mt-3"
-                    style={{
-                      fontSize: "1.2rem",
-                      fontWeight: "400",
-                      opacity: "0.9",
-                    }}
-                  >
-                    Join a team that's redefining digital experiences
-                    <br />
-                    <span className="text-white">
-                      We're not just building software — we're building careers
-                    </span>
-                  </p>
-                </h1>
+                </p>
                 <Button
                   variant="primary"
                   size="lg"
@@ -130,21 +115,8 @@ export default function Careers() {
                 >
                   See Open Positions
                 </Button>
-              </div>
-
-              {/* Right: Image */}
-              <div className="col-md-6 text-center d-none d-md-block">
-                <img
-                  src={hcareer.src}
-                  alt="Career Illustration"
-                  className="img-fluid"
-                  style={{ maxHeight: "350px" }}
-                />
-              </div>
+              </div> 
             </div>
-          </div>
-        </section>
-      </div>
       <section className="py-5 bg-light">
         <Container>
           <h2 className="fw-bold text-center mb-5">How You Join Eazisols</h2>

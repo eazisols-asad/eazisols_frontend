@@ -46,7 +46,7 @@ export default function about() {
           backgroundSize: "cover",
           backgroundPosition: "center",
           backgroundRepeat: "no-repeat",
-          height: "400px",
+          height: "300px",
           marginTop: "-80px",
           position: "relative",
           zIndex: 1,
@@ -55,33 +55,17 @@ export default function about() {
         <div
           className="container "
           style={{
-            paddingTop: "100px",
+            paddingTop: "80px",
             color: "white",
           }}
         >
-          <h1
-            className="herotext main-heading text-white fw-bold"
-            style={{ fontSize: "2.75rem" }}
+        <h1 className="main-heading text-white">Our Work in Action</h1>
+          
+          <p
+            className="lead text-white mt-3"
+            style={{ fontSize: "1.2rem", fontWeight: "400", opacity: "0.9" }}
           >
-            Our Work <br />
-            <span className="text-white fw-bold">in</span>
-            <span
-                    style={{
-                      color: "#418ED6",
-                      textShadow: "2px 2px 4px rgba(0,0,0,0.2)",
-                    }}
-                  >
-                    {" "}
-                    Action
-                  </span>
-          </h1>
-
-          <p className="lead text-white mt-3" style={{ fontSize: "1.25rem" }}>
-            See how we've helped clients
-            <br />
-            <span className="text-white ">
-              transform their vision into results
-            </span>
+            See how we've helped clients transform their vision into results
           </p>
         </div>
       </div>

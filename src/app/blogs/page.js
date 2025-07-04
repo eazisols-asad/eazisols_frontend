@@ -73,49 +73,28 @@ export default function Careers() {
           backgroundSize: "cover",
           backgroundPosition: "center",
           backgroundRepeat: "no-repeat",
-          height: "400px",
+          height: "300px",
           marginTop: "-80px",
           position: "relative",
           zIndex: 1,
         }}
       >
-        <section className="py-5">
-          <div className="container">
-            <div className="row align-items-center">
-              {/* Left: Text */}
-              <div className="col-md-6 text-white">
-                <h5 className="display-2 fw-bold mb-4">
-                  <span className="herotext text-white">Our Blog</span>
-                 
-                  <p
-                    className="lead text-white mt-3"
-                    style={{
-                      fontSize: "1.2rem",
-                      fontWeight: "400",
-                      opacity: "0.9",
-                    }}
-                  >
-                    Ideas, Innovation and Insights
-                    <br />
-                    <span className="text-white">
-                    from the
-                    </span>
-                        <span
-                    style={{
-                      color: "#418ED6",
-                      textShadow: "2px 2px 4px rgba(0,0,0,0.2)",
-                    }}
-                  >
-                    {" "}
-                    Eazisols
-                    <span className="text-white"> team</span>
-                  </span>
-                  </p>
-                </h5>
-              </div>
-            </div>
-          </div>
-        </section>
+       <div
+          className="container "
+          style={{
+            paddingTop: "80px",
+            color: "white",
+          }}
+        >
+        <h1 className="main-heading text-white">Our Blog</h1>
+          
+          <p
+            className="lead text-white mt-3"
+            style={{ fontSize: "1.2rem", fontWeight: "400", opacity: "0.9" }}
+          >
+           Ideas, innovation, and insights from the Eazisols team.
+          </p>
+        </div>
       </div>
 
       <section className="py-5 bg-light">

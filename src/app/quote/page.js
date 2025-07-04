@@ -2,6 +2,7 @@
 import React, { useState } from "react";
 import { Container, Row, Col } from "react-bootstrap";
 import useAPiAuth from "../components/useApiAuth";
+import { useSnackbar } from "../components/Snakbar";
 import PhoneInput from "react-phone-input-2";
 import { Button, LinearProgress } from "@mui/material";
 import {
@@ -36,6 +37,7 @@ import contact from "@/app/assets/contact.png";
 export default function MultiStepForm() {
   const [step, setStep] = useState(0);
   const { postData, getData } = useAPiAuth();
+  const { handleSnackbarOpen } = useSnackbar();
   const [formData, setFormData] = useState({
     services: [],
     industry: [],
@@ -51,6 +53,19 @@ export default function MultiStepForm() {
     file: null,
   });
   console.log(formData);
+  const [errors, setErrors] = useState({
+    fullName: "",
+    email: "",
+    services: "",
+    industry: "",
+    stage: "",
+    timeline: "",
+    budget: "",
+    description: "",
+    fullName: "",
+    email: "",
+    file: "",
+  });
 
   const servicesList = [
     { id: 1, label: "Website", icon: <FaGlobe size={32} /> },
@@ -81,14 +96,45 @@ export default function MultiStepForm() {
   // };
 
   const handleNext = () => {
-    if (step === 0 && formData.services.length === 0) {
-      alert("Please select at least one service.");
+    let newErrors = {};
+    let hasError = false;
+
+   if (step === 0 && formData.services.length === 0) {
+  newErrors.services = "Please select at least one service.";
+  hasError = true;
+}
+if (step === 1 && formData.industry.length === 0) {
+  newErrors.industry = "Please select your industry.";
+  hasError = true;
+}
+
+    if (step === 2 && !formData.stage) {
+      newErrors.stage = "Please select your project stage.";
+      hasError = true;
+    }
+
+    if (step === 3 && !formData.timeline) {
+      newErrors.timeline = "Please select a timeline.";
+      hasError = true;
+    }
+
+    if (step === 4 && !formData.budget) {
+      newErrors.budget = "Please select a budget.";
+      hasError = true;
+    }
+
+    if (step === 5 && !formData.description.trim()) {
+      newErrors.description = "Please enter a project description.";
+      hasError = true;
+    }
+
+    if (hasError) {
+      setErrors(newErrors);
+      handleSnackbarOpen("Please complete the required fields.", "error");
       return;
     }
-    if (step === 1 && formData.industry === "") {
-      alert("Please select your industry.");
-      return;
-    }
+
+    setErrors({});
     setStep(step + 1);
   };
 
@@ -96,11 +142,40 @@ export default function MultiStepForm() {
     setStep(step - 1);
   };
   const handleSubmit = async () => {
-    // if (!formData.fullName || !formData.email) {
-    //   alert("Full Name and Email are required.");
-    //   return;
-    // }
-    // const form=new formData()
+    const newErrors = {
+      fullName: "",
+      email: "",
+      file: "",
+    };
+
+    let hasError = false;
+
+    if (!formData.fullName.trim()) {
+      newErrors.fullName = "Full Name is required.";
+      hasError = true;
+    }
+    if (!formData.email.trim()) {
+      newErrors.email = "Email is required.";
+      hasError = true;
+    } else {
+      const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+      if (!emailRegex.test(formData.email)) {
+        newErrors.email = "Enter a valid email address.";
+        hasError = true;
+      }
+    }
+    if (!formData.file) {
+      newErrors.file = "File upload is required.";
+      hasError = true;
+    }
+
+    if (hasError) {
+      setErrors(newErrors);
+      handleSnackbarOpen("Please fill the required fields.", "error");
+      return;
+    }
+    setErrors({});
+
     const form = new FormData();
     form.append("otherIndustry", formData.otherIndustry);
     form.append("stage", formData.stage);
@@ -115,24 +190,24 @@ export default function MultiStepForm() {
     form.append("industry", JSON.stringify(formData.industry));
     // form.append("services", formData.services);
     // form.append("industry", formData.industry);
-  
-      form.append("file", formData.file);
+
+    form.append("file", formData.file);
 
     postData(
       "/cost-calculator",
       form,
       (data) => {
         console.log("API Success:", data);
+        handleSnackbarOpen("Form submitted successfully!", "success");
         // setStep(step + 1);
-        // navigate("/");
       },
       (error) => {
         console.error("Api error:", error);
+        handleSnackbarOpen("Something went wrong", "error");
       }
     );
     console.log(formData);
   };
-    
 
   // const handleChange = (e) => {
   //   const { name, value } = e.target;
@@ -211,23 +286,25 @@ export default function MultiStepForm() {
 
             <Row className="g-4 justify-content-center">
               {servicesList.map((item, idx) => {
-                const isSelected = formData.services === item.label;
+                const isSelected = formData.services.includes(item.label); 
                 return (
                   <Col key={idx} xs={6} sm={4} md={3} lg={2}>
                     {/* <Col key={idx} xs={6} sm={6} md={3} lg={3}> */}
                     <div
                       className={` bg-white rounded-4 d-flex align-items-center justify-content-center flex-column p-3 h-100 shadow-sm ${
-                        isSelected ? "border border-primary bg-light" : "border"
+                        isSelected ? "border border-primary" : "border"
                       }`}
                       style={{
                         minHeight: "120px",
                         cursor: "pointer",
                         transition: "all 0.3s ease",
+                        backgroundColor: isSelected ? "#d2e4f5" : "#ffffff",
+                        // backgroundColor: "#d2e4f5" ,
                       }}
                       onClick={() =>
                         setFormData((prev) => ({
                           ...prev,
-                          services: item.label,
+                           services: [item.label],
                         }))
                       }
                     >
@@ -240,6 +317,11 @@ export default function MultiStepForm() {
                 );
               })}
             </Row>
+            {errors.services && (
+              <div className="text-danger text-center mt-2">
+                {errors.services}
+              </div>
+            )}
 
             <div className="text-end mt-5">
               <Button
@@ -252,6 +334,7 @@ export default function MultiStepForm() {
             </div>
           </>
         )}
+
         {/* step 2 */}
         {step === 1 && (
           <>
@@ -263,7 +346,7 @@ export default function MultiStepForm() {
 
             <Row className="g-4 justify-content-center">
               {industryList.map((item, idx) => {
-                const isSelected = formData.industry === item.label;
+               const isSelected = formData.industry.includes(item.label);
                 return (
                   <Col key={idx} xs={6} sm={4} md={3} lg={2}>
                     <div
@@ -278,7 +361,7 @@ export default function MultiStepForm() {
                       onClick={() =>
                         setFormData((prev) => ({
                           ...prev,
-                          industry: item.label,
+                          industry: [item.label],
                           otherIndustry: "",
                         }))
                       }
@@ -292,6 +375,11 @@ export default function MultiStepForm() {
                 );
               })}
             </Row>
+            {errors.industry && (
+              <div className="text-danger text-center mt-2">
+                {errors.industry}
+              </div>
+            )}
 
             {/* Show text box if "Other" is selected */}
             {formData.industry === "Other" && (
@@ -382,6 +470,9 @@ export default function MultiStepForm() {
                 );
               })}
             </Row>
+            {errors.stage && (
+              <div className="text-danger text-center mt-2">{errors.stage}</div>
+            )}
 
             <div className="d-flex justify-content-between mt-5">
               <Button
@@ -449,6 +540,11 @@ export default function MultiStepForm() {
                 );
               })}
             </Row>
+            {errors.timeline && (
+              <div className="text-danger text-center mt-2">
+                {errors.timeline}
+              </div>
+            )}
 
             <div className="d-flex justify-content-between mt-5">
               <Button
@@ -517,7 +613,11 @@ export default function MultiStepForm() {
                 );
               })}
             </Row>
-
+            {errors.budget && (
+              <div className="text-danger text-center mt-2">
+                {errors.budget}
+              </div>
+            )}
             <div className="d-flex justify-content-between mt-5">
               <Button
                 variant="outlined"
@@ -561,6 +661,11 @@ export default function MultiStepForm() {
                 style={{ maxWidth: 600 }}
               />
             </div>
+            {errors.description && (
+              <div className="text-danger text-center mt-2">
+                {errors.description}
+              </div>
+            )}
 
             <div className="d-flex justify-content-between mt-5">
               <Button
@@ -585,8 +690,8 @@ export default function MultiStepForm() {
           <>
             <h2 className="text-center fw-bold mb-4">Your Contact Details</h2>
             <div
-              className="mx-auto bg-white p-4 rounded-4 shadow-sm border-secondary-subtle"
-              style={{ maxWidth: 500 }}
+              className="mx-auto bg-white p-4 rounded-4 shadow-sm "
+              style={{ maxWidth: 500, border: "1px solid 	#808080" }}
             >
               {/* Full Name */}
               <div className="mb-3 d-flex align-items-center border-bottom">
@@ -605,6 +710,11 @@ export default function MultiStepForm() {
                   required
                 />
               </div>
+              {errors.fullName && (
+                <div className="text-danger small mb-2 ms-4">
+                  {errors.fullName}
+                </div>
+              )}
 
               {/* Email */}
               <div className="mb-3 d-flex align-items-center border-bottom">
@@ -620,6 +730,11 @@ export default function MultiStepForm() {
                   required
                 />
               </div>
+              {errors.email && (
+                <div className="text-danger small mb-2 ms-4">
+                  {errors.email}
+                </div>
+              )}
 
               {/* Company */}
               <div className="mb-3 d-flex align-items-center border-bottom">
@@ -667,6 +782,9 @@ export default function MultiStepForm() {
                   }
                 />
               </div>
+              {errors.file && (
+                <div className="text-danger small mb-2 ms-4">{errors.file}</div>
+              )}
             </div>
 
             <div className="d-flex justify-content-between mt-4">
@@ -706,7 +824,7 @@ export default function MultiStepForm() {
               </Button>
               <Button
                 variant="contained"
-                href="/career"
+                href="/about-us"
                 sx={{ paddingX: 4, paddingY: 1.5 }}
               >
                 Explore Our Work

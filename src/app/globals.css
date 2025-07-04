@@ -453,7 +453,7 @@ section.hero-background {
   border-radius: 6px;
   box-sizing: border-box;
   line-height: 1.5;
-  margin-bottom: 12px;
+  /* margin-bottom: 12px; */
 }
 .contact-form-box input:focus,
 .contact-form-box select:focus,

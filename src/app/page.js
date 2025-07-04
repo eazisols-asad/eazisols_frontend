@@ -69,7 +69,7 @@ export default function Home() {
     <div className="bg-light">
       <HeroSection />
       <LogoSection />
-      <WaterfallProcess />
+      {/* <WaterfallProcess /> */}
       <AboutSection />
       <Services />
       <CTASection

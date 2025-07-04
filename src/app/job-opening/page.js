@@ -7,14 +7,14 @@ import contact from "@/app/assets/contact.png";
 
 export default function JobOpenings() {
   const [jobs, setJobs] = useState([]);
-  const { postData, getData } = useAPiAuth();
+  const { getData } = useAPiAuth();
 
   useEffect(() => {
     getData(
       "/api/careers",
       (data) => {
-        console.log("API response:", data);
-        setJobs(Array.isArray(data) ? data : data?.jobs || []);
+        console.log("Full API response:", data);
+        setJobs(Array.isArray(data?.data?.data) ? data.data.data : []);
       },
       (error) => {
         console.error("Failed to fetch jobs", error);

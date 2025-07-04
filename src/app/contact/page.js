@@ -5,20 +5,22 @@ import { FaLinkedin, FaFacebook, FaInstagram } from "react-icons/fa";
 import useAPiAuth from "../components/useApiAuth";
 import contact from "@/app/assets/contact.png";
 import { Container, Row, Col, Form, Button } from "react-bootstrap";
+import { useSnackbar } from "../components/Snakbar";
 
 export default function ContactPage() {
   const { postData, getData } = useAPiAuth();
+  const { handleSnackbarOpen } = useSnackbar();
   const handleSubmit = async (formData) => {
     postData(
       "/contact-us",
       formData,
       (data) => {
         console.log("API Success:", data);
-
-        // navigate("/");
+        handleSnackbarOpen("Form sent successfully!", "success"); 
       },
       (error) => {
         console.error("user error:", error);
+        handleSnackbarOpen("Something went wrong.", "error");
       }
     );
     console.log(formData);
@@ -32,7 +34,7 @@ export default function ContactPage() {
           backgroundSize: "cover",
           backgroundPosition: "center",
           backgroundRepeat: "no-repeat",
-          height: "200px",
+          height: "300px",
           marginTop: "-80px",
           position: "relative",
           zIndex: 1,
@@ -41,7 +43,7 @@ export default function ContactPage() {
         <div
           className="container "
           style={{
-            paddingTop: "45px",
+            paddingTop: "80px",
             color: "white",
           }}
         >

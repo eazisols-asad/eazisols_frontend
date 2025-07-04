@@ -2,6 +2,7 @@
 import Image from "next/image";
 import { HiOutlineDocumentText ,HiOutlineGlobeAlt,HiOutlineCloud  } from "react-icons/hi";
 import { HiOutlineWindow } from "react-icons/hi2";
+import ReuseButton from "./ReuseButton";
 const services = [
   {
     icon: HiOutlineDocumentText,
@@ -93,29 +94,8 @@ export default function ServicesSection() {
           ))}
         </div>
         <div className="d-flex justify-content-end">
-          <button
-            className="btn btn-primary rounded-3 px-4 py-2"
-            style={{ 
-              fontWeight: 500, 
-              fontSize: 18, 
-              background: "linear-gradient(135deg, #418ED6 0%, #418ED6 100%)", 
-              border: "none",
-              cursor: "pointer",
-              transition: "all 0.3s ease-in-out",
-              position: "relative",
-              overflow: "hidden"
-            }}
-            onMouseOver={(e) => {
-              e.currentTarget.style.transform = "translateY(-2px) scale(1.02)";
-              e.currentTarget.style.boxShadow = "0 8px 20px 0 rgba(65, 142, 214)";
-            }}
-            onMouseOut={(e) => {
-              e.currentTarget.style.transform = "translateY(0) scale(1)";
-              e.currentTarget.style.boxShadow = "none";
-            }}
-          >
-            Explore Services
-          </button>
+         <ReuseButton
+         description1="Explore Services" />
         </div>
       </div>
     </section>

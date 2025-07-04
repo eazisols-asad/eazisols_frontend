@@ -49,7 +49,17 @@ export default function Capabilities() {
           position: "relative",
           zIndex: 1,
         }}
-      ></div>
+      >
+         <div
+          className="container "
+          style={{
+            paddingTop: "100px",
+            color: "white",
+          }}
+        >
+          <h1 className="main-heading text-white">Our Services</h1>
+        </div>
+      </div>
       <section className="py-5 bg-white">
         <Container>
           <h5
@@ -143,13 +153,12 @@ export default function Capabilities() {
       </section>
       <section className="py-5 bg-white text-center">
       <Container>
-        <p className=" fw-semibold mb-1" style={{ fontSize: "0.95rem", color:'#418ED6', }}>
-          Software Tools We Use
-        </p>
-        <h2 className="fw-bold mb-3">Our technology stack</h2>
+        <h3 className=" fw-semibold mb-1" style={{  color:'#418ED6', }}>
+          Our Tech Toolkit
+        </h3>
+        {/* <h2 className="fw-bold mb-3">Our technology stack</h2> */}
         <p className="text-muted mb-5" style={{ maxWidth: "700px", margin: "0 auto" }}>
-          We are constantly evolving our engineering & design technology. This ensures that
-          we can offer the right solutions for your business needs.
+          We build with reliable and modern tools across the stack.
         </p>
 
         <Row className="g-4 justify-content-center">

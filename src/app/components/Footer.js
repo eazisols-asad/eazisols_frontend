@@ -53,7 +53,7 @@ export default function Footer() {
               </li>
             </ul>
           </Col>
-          <Col md={3} className="mb-4">
+          <Col md={3} className="mb-2">
             <h5 className="mb-3">Contact</h5>
             <p className="mb-2">65-J1 Wapda Town Lahore, Pakistan.</p>
             <p className="mb-2">info@eazisols.com</p>
@@ -64,7 +64,7 @@ export default function Footer() {
             </div>
           </Col>
         </Row>
-        <hr className="my-4" />
+        <hr className="my-2" />
         <Row>
           <Col className="text-center">
             <p className="mb-0">Copyright © {new Date().getFullYear()} Eazisols</p>

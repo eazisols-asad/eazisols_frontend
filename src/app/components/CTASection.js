@@ -2,8 +2,10 @@
 import React from "react";
 import { Box, Button, Typography } from "@mui/material";
 import bg5 from "@/app/assets/bg5.jpg";
+import { useRouter } from "next/navigation";
 
 export default function CTASection({ description1, description2 }) {
+  const router = useRouter();
   return (
     <Box
       sx={{
@@ -61,8 +63,9 @@ export default function CTASection({ description1, description2 }) {
             borderRadius: 8,
             fontWeight: 600,
             color: "#fff",
-            padding: "12px 32px",
+            padding: "12px 32px"
           }}
+          onClick={() => router.push("/quote")}
         >
           {description2}
         </Button>
