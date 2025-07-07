@@ -33,6 +33,7 @@ import {
   FaPiggyBank,
 } from "react-icons/fa";
 import contact from "@/app/assets/contact.png";
+import { IoIosArrowBack, IoIosArrowForward } from "react-icons/io";
 
 export default function MultiStepForm() {
   const [step, setStep] = useState(0);
@@ -199,7 +200,7 @@ if (step === 1 && formData.industry.length === 0) {
       (data) => {
         console.log("API Success:", data);
         handleSnackbarOpen("Form submitted successfully!", "success");
-        // setStep(step + 1);
+        setStep(step + 1);
       },
       (error) => {
         console.error("Api error:", error);
@@ -267,21 +268,21 @@ if (step === 1 && formData.industry.length === 0) {
           <h1 className="main-heading text-white">Get a Quick Estimate</h1>
         </div>
       </div>
-      <Container className="py-5">
+      <Container className="py-5 px-4">
         {/* MUI Progress Bar */}
         <LinearProgress
           variant="determinate"
           value={(step / 7) * 100}
           sx={{ height: 10, borderRadius: 5, mb: 4 }}
         />
-
+             {/* 1st step */}
         {step === 0 && (
           <>
             <h2 className="text-center fw-bold mb-4">
               What can we help you build?
             </h2>
             <p className="text-center text-muted mb-4">
-              Select one or more services
+              Select one service
             </p>
 
             <Row className="g-4 justify-content-center">
@@ -291,8 +292,8 @@ if (step === 1 && formData.industry.length === 0) {
                   <Col key={idx} xs={6} sm={4} md={3} lg={2}>
                     {/* <Col key={idx} xs={6} sm={6} md={3} lg={3}> */}
                     <div
-                      className={` bg-white rounded-4 d-flex align-items-center justify-content-center flex-column p-3 h-100 shadow-sm ${
-                        isSelected ? "border border-primary" : "border"
+                      className={` rounded-4 d-flex align-items-center justify-content-center flex-column p-3 h-100 shadow-sm ${
+                        isSelected ? "border" : "border"
                       }`}
                       style={{
                         minHeight: "120px",
@@ -328,6 +329,7 @@ if (step === 1 && formData.industry.length === 0) {
                 variant="contained"
                 onClick={handleNext}
                 sx={{ paddingX: 4, paddingY: 1.5 }}
+                endIcon={<IoIosArrowForward />} 
               >
                 Next
               </Button>
@@ -350,13 +352,14 @@ if (step === 1 && formData.industry.length === 0) {
                 return (
                   <Col key={idx} xs={6} sm={4} md={3} lg={2}>
                     <div
-                      className={` bg-white rounded-4 d-flex align-items-center justify-content-center flex-column p-3 h-100 shadow-sm ${
-                        isSelected ? "border border-primary bg-light" : "border"
+                      className={` rounded-4 d-flex align-items-center justify-content-center flex-column p-3 h-100 shadow-sm ${
+                        isSelected ? "border " : "border"
                       }`}
                       style={{
                         minHeight: "120px",
                         cursor: "pointer",
                         transition: "all 0.3s ease",
+                        backgroundColor: isSelected ? "#d2e4f5" : "#ffffff",
                       }}
                       onClick={() =>
                         setFormData((prev) => ({
@@ -405,6 +408,7 @@ if (step === 1 && formData.industry.length === 0) {
                 variant="outlined"
                 onClick={handleBack}
                 sx={{ paddingX: 4, paddingY: 1.5 }}
+                startIcon={<IoIosArrowBack />} 
               >
                 Back
               </Button>
@@ -412,6 +416,7 @@ if (step === 1 && formData.industry.length === 0) {
                 variant="contained"
                 onClick={handleNext}
                 sx={{ paddingX: 4, paddingY: 1.5 }}
+                endIcon={<IoIosArrowForward />} 
               >
                 Next
               </Button>
@@ -446,13 +451,14 @@ if (step === 1 && formData.industry.length === 0) {
                 return (
                   <Col key={idx} xs={6} sm={6} md={3} lg={3}>
                     <div
-                      className={` bg-white rounded-4 d-flex align-items-center justify-content-center flex-column p-3 h-100 shadow-sm ${
-                        isSelected ? "border border-primary bg-light" : "border"
+                      className={` rounded-4 d-flex align-items-center justify-content-center flex-column p-3 h-100 shadow-sm ${
+                        isSelected ? "border" : "border"
                       }`}
                       style={{
                         minHeight: "120px",
                         cursor: "pointer",
                         transition: "all 0.3s ease",
+                        backgroundColor: isSelected ? "#d2e4f5" : "#ffffff",
                       }}
                       onClick={() =>
                         setFormData((prev) => ({
@@ -479,6 +485,7 @@ if (step === 1 && formData.industry.length === 0) {
                 variant="outlined"
                 onClick={handleBack}
                 sx={{ paddingX: 4, paddingY: 1.5 }}
+                startIcon={<IoIosArrowBack />} 
               >
                 Back
               </Button>
@@ -486,6 +493,7 @@ if (step === 1 && formData.industry.length === 0) {
                 variant="contained"
                 onClick={handleNext}
                 sx={{ paddingX: 4, paddingY: 1.5 }}
+                endIcon={<IoIosArrowForward />} 
               >
                 Next
               </Button>
@@ -505,8 +513,8 @@ if (step === 1 && formData.industry.length === 0) {
             <Row className="g-4 justify-content-center">
               {[
                 { label: "ASAP", icon: <FaBolt size={32} /> },
-                { label: "1–2 months", icon: <FaClock size={32} /> },
-                { label: "3–6 months", icon: <FaCalendarAlt size={32} /> },
+                { label: "1-2 months", icon: <FaClock size={32} /> },
+                { label: "3-6 months", icon: <FaCalendarAlt size={32} /> },
                 {
                   label: "Flexible / Not sure",
                   icon: <FaQuestionCircle size={32} />,
@@ -516,13 +524,14 @@ if (step === 1 && formData.industry.length === 0) {
                 return (
                   <Col key={idx} xs={6} sm={6} md={3} lg={3}>
                     <div
-                      className={` bg-white rounded-4 d-flex align-items-center justify-content-center flex-column p-3 h-100 shadow-sm ${
-                        isSelected ? "border border-primary bg-light" : "border"
+                      className={` rounded-4 d-flex align-items-center justify-content-center flex-column p-3 h-100 shadow-sm ${
+                        isSelected ? "border " : "border"
                       }`}
                       style={{
                         minHeight: "120px",
                         cursor: "pointer",
                         transition: "all 0.3s ease",
+                        backgroundColor: isSelected ? "#d2e4f5" : "#ffffff",
                       }}
                       onClick={() =>
                         setFormData((prev) => ({
@@ -551,6 +560,7 @@ if (step === 1 && formData.industry.length === 0) {
                 variant="outlined"
                 onClick={handleBack}
                 sx={{ paddingX: 4, paddingY: 1.5 }}
+                startIcon={<IoIosArrowBack />} 
               >
                 Back
               </Button>
@@ -558,6 +568,7 @@ if (step === 1 && formData.industry.length === 0) {
                 variant="contained"
                 onClick={handleNext}
                 sx={{ paddingX: 4, paddingY: 1.5 }}
+                endIcon={<IoIosArrowForward />} 
               >
                 Next
               </Button>
@@ -589,13 +600,14 @@ if (step === 1 && formData.industry.length === 0) {
                 return (
                   <Col key={idx} xs={6} sm={6} md={3} lg={3}>
                     <div
-                      className={` bg-white rounded-4 d-flex align-items-center justify-content-center flex-column p-3 h-100 shadow-sm ${
-                        isSelected ? "border border-primary bg-light" : "border"
+                      className={` rounded-4 d-flex align-items-center justify-content-center flex-column p-3 h-100 shadow-sm ${
+                        isSelected ? "border " : "border"
                       }`}
                       style={{
                         minHeight: "120px",
                         cursor: "pointer",
                         transition: "all 0.3s ease",
+                        backgroundColor: isSelected ? "#d2e4f5" : "#ffffff",
                       }}
                       onClick={() =>
                         setFormData((prev) => ({
@@ -623,6 +635,7 @@ if (step === 1 && formData.industry.length === 0) {
                 variant="outlined"
                 onClick={handleBack}
                 sx={{ paddingX: 4, paddingY: 1.5 }}
+                startIcon={<IoIosArrowBack />} 
               >
                 Back
               </Button>
@@ -630,6 +643,7 @@ if (step === 1 && formData.industry.length === 0) {
                 variant="contained"
                 onClick={handleNext}
                 sx={{ paddingX: 4, paddingY: 1.5 }}
+                endIcon={<IoIosArrowForward />} 
               >
                 Next
               </Button>
@@ -672,6 +686,7 @@ if (step === 1 && formData.industry.length === 0) {
                 variant="outlined"
                 onClick={handleBack}
                 sx={{ paddingX: 4, paddingY: 1.5 }}
+                startIcon={<IoIosArrowBack />} 
               >
                 Back
               </Button>
@@ -679,6 +694,7 @@ if (step === 1 && formData.industry.length === 0) {
                 variant="contained"
                 onClick={handleNext}
                 sx={{ paddingX: 4, paddingY: 1.5 }}
+                endIcon={<IoIosArrowForward />} 
               >
                 Next
               </Button>
@@ -694,7 +710,7 @@ if (step === 1 && formData.industry.length === 0) {
               style={{ maxWidth: 500, border: "1px solid 	#808080" }}
             >
               {/* Full Name */}
-              <div className="mb-3 d-flex align-items-center border-bottom">
+              <div className=" d-flex align-items-center border-bottom">
                 <i className="bi bi-person-fill text-muted me-2"></i>
                 <input
                   type="text"
@@ -717,7 +733,7 @@ if (step === 1 && formData.industry.length === 0) {
               )}
 
               {/* Email */}
-              <div className="mb-3 d-flex align-items-center border-bottom">
+              <div className="mt-3 d-flex align-items-center border-bottom">
                 <i className="bi bi-envelope-fill text-muted me-2"></i>
                 <input
                   type="email"
@@ -737,7 +753,7 @@ if (step === 1 && formData.industry.length === 0) {
               )}
 
               {/* Company */}
-              <div className="mb-3 d-flex align-items-center border-bottom">
+              <div className="mt-3 d-flex align-items-center border-bottom">
                 <i className="bi bi-building text-muted me-2"></i>
                 <input
                   type="text"
@@ -754,7 +770,7 @@ if (step === 1 && formData.industry.length === 0) {
               </div>
 
               {/* Phone */}
-              <div className="mb-3 d-flex align-items-center border-bottom ">
+              <div className="mt-3 d-flex align-items-center border-bottom ">
                 <i className="bi bi-telephone-fill text-muted me-2"></i>
                 <PhoneInput
                   country={"us"}
@@ -769,7 +785,7 @@ if (step === 1 && formData.industry.length === 0) {
               </div>
 
               {/* File Upload */}
-              <div className="mb-3 d-flex align-items-center border-bottom">
+              <div className="mt-3 d-flex align-items-center border-bottom">
                 <i className="bi bi-paperclip text-muted me-2"></i>
                 <input
                   type="file"
@@ -792,6 +808,7 @@ if (step === 1 && formData.industry.length === 0) {
                 variant="outlined"
                 onClick={handleBack}
                 sx={{ px: 4, py: 1.5 }}
+                startIcon={<IoIosArrowBack />} 
               >
                 Back
               </Button>

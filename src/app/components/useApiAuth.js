@@ -4,7 +4,6 @@ import Cookies from "js-cookie";
 const useApiAuth = () => {
   const token = Cookies.get("token"); 
   const baseUrl = process.env.NEXT_PUBLIC_API_BASE_URL || "https://admin.eazisols.com";
-console.log("BASE URL:", baseUrl);
 
 
   const postData = async (

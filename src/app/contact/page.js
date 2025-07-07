@@ -54,7 +54,7 @@ export default function ContactPage() {
           </p>
         </div>
       </div>
-      <section style={{ backgroundColor: "#d2e4f5", padding: "60px 0" }}>
+      <section style={{ backgroundColor: "#d2e4f5", padding: "60px 20px" }}>
         <Container>
           <Row className="align-items-center">
             {/* LEFT SIDE */}

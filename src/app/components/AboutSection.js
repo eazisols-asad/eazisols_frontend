@@ -1,14 +1,18 @@
+"use client"; 
+
 import Image from "next/image";
 import React from "react";
 import { Container, Row, Col, Button } from "react-bootstrap";
 import about from "@/app/assets/about.png";
 import ReuseButton from "./ReuseButton";
+import { useRouter } from "next/navigation";
 
 export default function AboutSection() {
+  const router = useRouter();
   return (
-    <section className="">
-      <Container >
-        <Row className="align-items-center bg-white rounded-5 p-4 pt-5 pb-5">
+  <>
+      <Container className="px-3" style={{ maxWidth: "1200px" }}>
+        <Row className="align-items-center bg-white rounded-3 p-4 pt-5 pb-5">
           <Col lg={6} className="text-center">
             <Image
               src={about}
@@ -36,10 +40,11 @@ export default function AboutSection() {
            
             <ReuseButton 
               description1="Learn More"
+               onClick={() => router.push("/about-us")}
             />
           </Col>
         </Row>
       </Container>
-    </section>
+      </>
   );
 }

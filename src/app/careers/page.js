@@ -76,7 +76,7 @@ export default function Careers() {
                 backgroundSize: "cover",
                 backgroundPosition: "center",
                 backgroundRepeat: "no-repeat",
-                height: "400px",
+                height: "450px",
                 marginTop: "-80px",
                 position: "relative",
                 zIndex: 1,
@@ -85,7 +85,7 @@ export default function Careers() {
               <div
                 className="container "
                 style={{
-                  paddingTop: "100px",
+                  paddingTop: "80px",
                   color: "white",
                 }}
               >

@@ -8,13 +8,24 @@ import contact from "@/app/assets/contact.png";
 export default function JobOpenings() {
   const [jobs, setJobs] = useState([]);
   const { getData } = useAPiAuth();
+  const [filters, setFilters] = useState({
+    keyword: "",
+    workplace: "",
+    location: "",
+    department: "",
+    workType: "",
+  });
+  const [filteredJobs, setFilteredJobs] = useState([]);
 
   useEffect(() => {
     getData(
       "/api/careers",
       (data) => {
         console.log("Full API response:", data);
-        setJobs(Array.isArray(data?.data?.data) ? data.data.data : []);
+        // setFilteredJobs(Array.isArray(data?.data?.data) ? data.data.data : []);
+        const list = Array.isArray(data?.data?.data) ? data.data.data : [];
+        setJobs(list);
+        setFilteredJobs(list);
       },
       (error) => {
         console.error("Failed to fetch jobs", error);
@@ -22,10 +33,47 @@ export default function JobOpenings() {
     );
   }, []);
 
+const norm = (s) => (s ?? "").toLowerCase().replace(/[\s-]/g, "");
+const has = (field, value) =>
+  norm(field).includes(norm(value));
+
+const handleSearch = () => {
+  const kw = norm(filters.keyword);
+
+  const result = jobs.filter((job) => {
+    const matchKw =
+      !kw ||
+      norm(job.title).includes(kw) ||
+      norm(job.department).includes(kw);
+
+
+    const matchWorkplace =
+      !filters.workplace || has(job.schedule, filters.workplace);   
+    const matchWorkType =
+      !filters.workType || has(job.type, filters.workType);  
+
+    const matchLocation =
+      !filters.location || has(job.location, filters.location);  
+
+    const matchDept =
+      !filters.department || has(job.department, filters.department); 
+
+    return (
+      matchKw && matchWorkplace && matchLocation && matchDept && matchWorkType
+    );
+  });
+
+  console.log("Filters →", filters);
+  console.log("Found", result.length, "jobs");
+  setFilteredJobs(result);
+};
+
+
+
   return (
     <>
       <div
-        className="hero-background py-5"
+        className="hero-background py-5 "
         style={{
           backgroundImage: `url(${contact.src})`,
           backgroundSize: "cover",
@@ -64,11 +112,15 @@ export default function JobOpenings() {
               InputProps={{
                 sx: { height: 40 },
               }}
+              value={filters.keyword}
+              onChange={(e) =>
+                setFilters({ ...filters, keyword: e.target.value })
+              }
             />
           </Box>
 
           {/* Dropdown Filters */}
-          <Box className="row g-3">
+          <Box className="row g-3 ">
             <Box className="col-6 col-md-3">
               <TextField
                 fullWidth
@@ -77,6 +129,10 @@ export default function JobOpenings() {
                 defaultValue=""
                 SelectProps={{ displayEmpty: true }}
                 InputProps={{ sx: { height: 36 } }}
+                value={filters.workplace}
+                onChange={(e) =>
+                  setFilters({ ...filters, workplace: e.target.value })
+                }
               >
                 <MenuItem disabled value="">
                   Workplace Type
@@ -94,6 +150,10 @@ export default function JobOpenings() {
                 defaultValue=""
                 SelectProps={{ displayEmpty: true }}
                 InputProps={{ sx: { height: 36 } }}
+                value={filters.location}
+                onChange={(e) =>
+                  setFilters({ ...filters, location: e.target.value })
+                }
               >
                 <MenuItem disabled value="">
                   Location
@@ -110,12 +170,16 @@ export default function JobOpenings() {
                 defaultValue=""
                 SelectProps={{ displayEmpty: true }}
                 InputProps={{ sx: { height: 36 } }}
+                value={filters.department}
+                onChange={(e) =>
+                  setFilters({ ...filters, department: e.target.value })
+                }
               >
                 <MenuItem disabled value="">
                   Department
                 </MenuItem>
-                <MenuItem value="engineering">Engineering</MenuItem>
-                <MenuItem value="design">Design</MenuItem>
+                <MenuItem value="engineering">Developing</MenuItem>
+                <MenuItem value="qa">Design</MenuItem>
                 <MenuItem value="qa">QA</MenuItem>
               </TextField>
             </Box>
@@ -127,6 +191,10 @@ export default function JobOpenings() {
                 defaultValue=""
                 SelectProps={{ displayEmpty: true }}
                 InputProps={{ sx: { height: 36 } }}
+                value={filters.workType}
+                onChange={(e) =>
+                  setFilters({ ...filters, workType: e.target.value })
+                }
               >
                 <MenuItem disabled value="">
                   Work Type
@@ -150,6 +218,7 @@ export default function JobOpenings() {
                 height: 36,
                 padding: "6px 24px",
               }}
+              onClick={handleSearch}
             >
               Search
             </Button>
@@ -157,25 +226,35 @@ export default function JobOpenings() {
 
           {/* Jobs Display */}
           <div className="mt-4">
-            {jobs.length === 0 ? (
+            {filteredJobs.length === 0 ? (
               <p className="text-muted text-center">
-                No job openings available.
+                <span className="loader"></span>
               </p>
             ) : (
-              jobs.map((job, idx) => (
+              filteredJobs.map((job, idx) => (
                 <div
                   key={idx}
-                  className="py-3 border-bottom d-flex flex-column flex-md-row justify-content-between align-items-start"
+                  className="py-3 border-bottom d-flex  flex-md-row justify-content-between align-items-start"
+                  style={{ width: "100%" }}
                 >
-                  <div className="mb-2">
+                  <div className="mb-2" style={{ width: "50%" }}>
                     <h5 className="fw-bold text-success mb-1">{job.title}</h5>
                     <small className="text-muted">Posted {job.posted}</small>
                   </div>
-                  <div className="d-flex flex-wrap text-muted gap-4">
-                    <span className="fw-semibold">{job.type}</span>
-                    <span>{job.location}</span>
-                    <span>{job.department}</span>
-                    <span>{job.schedule}</span>
+                  <div
+                    className="d-flex justify-content-center text-muted gap-4 "
+                    style={{ width: "50%" }}
+                  >
+                    <span className="fw-semibold " style={{ width: "15%" }}>
+                      {job.type}
+                    </span>
+                    <span style={{ width: "15%" }}>{job.location}</span>
+                    <span style={{ width: "30%" }}>
+                      {job.department || "Development"}
+                    </span>
+                    <span style={{ width: "30%" }}>
+                      {job.schedule || "Full Time"}
+                    </span>
                   </div>
                 </div>
               ))
