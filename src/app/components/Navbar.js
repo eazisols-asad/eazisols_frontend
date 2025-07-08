@@ -5,13 +5,14 @@ import Link from "next/link";
 import eazistransbg from "@/app/assets/eazistransbg.png";
 import { usePathname } from "next/navigation";
 import { useEffect, useState } from "react";
+import CostCalculateModal from "./CostCalculator";
 
 export default function NavigationBar() {
   const pathname = usePathname();
   const [scrolled, setScrolled] = useState(false);
   const isHome = pathname === "/";
   const [expanded, setExpanded] = useState(false);
-
+const [openModal, setOpenModal] = useState(false);
   useEffect(() => {
     const handleScroll = () => {
       setScrolled(window.scrollY > 50);
@@ -77,10 +78,10 @@ export default function NavigationBar() {
                 id="services-dropdown"
                 className="custom-dropdown"
               >
-                <NavDropdown.Item as={Link} href="/our-work" onClick={() => setExpanded(false)}>
+                <NavDropdown.Item as={Link} href="/comingSoon" onClick={() => setExpanded(false)}>
                   Case Studies
                 </NavDropdown.Item>
-                <NavDropdown.Item as={Link} href="/blogs" onClick={() => setExpanded(false)}>
+                <NavDropdown.Item as={Link} href="/comingSoon" onClick={() => setExpanded(false)}>
                   Blog
                 </NavDropdown.Item>
               </NavDropdown>
@@ -101,7 +102,8 @@ export default function NavigationBar() {
                 Contact Us
               </Nav.Link>
               <div className="d-flex align-items-center ">
-                <Link href="/quote" passHref onClick={() => setExpanded(false)}>
+                {/* <Link href="/quote" passHref onClick={() => setExpanded(false)}> */}
+                <Link href=""  onClick={() => setOpenModal(true)}>
                   <Button className="quote-button">Quote Generator</Button>
                 </Link>
               </div>
@@ -112,6 +114,11 @@ export default function NavigationBar() {
 
       {/* Keeps space below fixed navbar */}
       <div className="navbar-spacer" style={{ height: "76px" }}></div>
+        <CostCalculateModal
+        open={openModal}
+        onClose={() => setOpenModal(false)}
+        title="Dynamic Modal Title"
+      ></CostCalculateModal>
     </>
   );
 }

@@ -44,7 +44,7 @@ export default function Capabilities() {
           backgroundSize: "cover",
           backgroundPosition: "center",
           backgroundRepeat: "no-repeat",
-          height: "250px",
+          height: "350px",
           marginTop: "-80px",
           position: "relative",
           zIndex: 1,
@@ -58,6 +58,16 @@ export default function Capabilities() {
           }}
         >
           <h1 className="main-heading text-white">Our Services</h1>
+          <p
+                  className="lead text-white mt-1"
+                  style={{ fontSize: "1.2rem", fontWeight: "400", opacity: "0.9" }}
+                >
+                  Join a team that's redefining digital experiences
+                  <br />
+                  <span className="text-white">
+                   We're not just building software — we're building careers
+                  </span>
+                </p>
         </div>
       </div>
       <section className="py-5 bg-white">

@@ -1,12 +1,20 @@
 "use client";
-import React from "react";
+import React, { useState } from "react";
 import { Box, Button, Typography } from "@mui/material";
 import bg5 from "@/app/assets/bg5.jpg";
 import { useRouter } from "next/navigation";
+import CostCalculateModal from "./CostCalculator";
 
 export default function CTASection({ description1, description2 }) {
   const router = useRouter();
+  const [openModal, setOpenModal] = useState(false);
   return (
+    <>
+     <CostCalculateModal
+            open={openModal}
+            onClose={() => setOpenModal(false)}
+            title="Dynamic Modal Title"
+          ></CostCalculateModal>
     <Box
       sx={{
         marginTop: "40px",
@@ -65,11 +73,13 @@ export default function CTASection({ description1, description2 }) {
             color: "#fff",
             padding: "12px 32px"
           }}
-          onClick={() => router.push("/quote")}
+          // onClick={() => router.push("/quote")}
+          onClick={() => setOpenModal(true)}
         >
           {description2}
         </Button>
       </Box>
     </Box>
+    </>
   );
 }
