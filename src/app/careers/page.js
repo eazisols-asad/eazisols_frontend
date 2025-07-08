@@ -212,6 +212,7 @@ export default function Careers() {
                   padding: "12px 32px",
                   color: "#fff",
                 }}
+                onClick={() => router.push("/job-opening")}
               >
                 Apply Now
               </Button>

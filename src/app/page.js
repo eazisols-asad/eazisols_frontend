@@ -2,7 +2,7 @@
 
 import FAQSection from "./components/FAQSection";
 import HeroSection from "./components/HeroSection";
-import LogoSection from "./components/LogoSection";
+import LogoSection, { ReverseSectionsSlider } from "./components/LogoSection";
 import AboutSection from "./components/AboutSection";
 import CTASection from "./components/CTASection";
 import WaterfallProcess from "./components/WaterfallProcess";
@@ -68,6 +68,7 @@ export default function Home() {
   return (
     <div className="bg-light">
       <HeroSection />
+      <ReverseSectionsSlider />
       <LogoSection />
       {/* <WaterfallProcess /> */}
       <AboutSection />

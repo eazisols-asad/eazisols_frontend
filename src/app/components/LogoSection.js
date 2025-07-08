@@ -33,6 +33,7 @@ const SectionsSlider = () => {
     slidesToScroll: 1,
     cssEase: "linear",
     pauseOnHover: true,
+        rtl: true,
     responsive: [
       { breakpoint: 1024, settings: { slidesToShow: 3 } },
       { breakpoint: 768, settings: { slidesToShow: 2 } },
@@ -65,3 +66,46 @@ const SectionsSlider = () => {
 };
 
 export default SectionsSlider;
+export const ReverseSectionsSlider = () => {
+  const settings = {
+    dots: false,
+    infinite: true,
+    autoplay: true,
+    autoplaySpeed: 2000,
+    speed: 1500,
+    slidesToShow: 6,
+    slidesToScroll: 1,
+    cssEase: "linear",
+    pauseOnHover: true,
+    responsive: [
+      { breakpoint: 1024, settings: { slidesToShow: 3 } },
+      { breakpoint: 768, settings: { slidesToShow: 2 } },
+      { breakpoint: 480, settings: { slidesToShow: 1 } },
+    ],
+  };
+
+  return (
+    <>
+      <div style={{ paddingTop: "50px",}}>
+        <div className="slider-wrapper">
+          <Slider {...settings}>
+            {imageData.map((image) => (
+              <div
+                className="clients-logo d-flex align-content-center"
+                key={image.id}
+              >
+                <img
+                  src={image.defaultSrc}
+                  alt={image.alt}
+                  className="logo default-logo"
+                />
+              </div>
+            ))}
+          </Slider>
+        </div>
+      </div>
+    </>
+  );
+};
+
+

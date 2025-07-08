@@ -4,8 +4,11 @@ import { TextField, MenuItem, Button, Box, Container } from "@mui/material";
 import "../globals.css";
 import useAPiAuth from "../components/useApiAuth";
 import contact from "@/app/assets/contact.png";
+import { useRouter } from "next/navigation";
+
 
 export default function JobOpenings() {
+    const router = useRouter();
   const [jobs, setJobs] = useState([]);
   const { getData } = useAPiAuth();
   const [filters, setFilters] = useState({
@@ -33,42 +36,7 @@ export default function JobOpenings() {
     );
   }, []);
 
-const norm = (s) => (s ?? "").toLowerCase().replace(/[\s-]/g, "");
-const has = (field, value) =>
-  norm(field).includes(norm(value));
-
-const handleSearch = () => {
-  const kw = norm(filters.keyword);
-
-  const result = jobs.filter((job) => {
-    const matchKw =
-      !kw ||
-      norm(job.title).includes(kw) ||
-      norm(job.department).includes(kw);
-
-
-    const matchWorkplace =
-      !filters.workplace || has(job.schedule, filters.workplace);   
-    const matchWorkType =
-      !filters.workType || has(job.type, filters.workType);  
-
-    const matchLocation =
-      !filters.location || has(job.location, filters.location);  
-
-    const matchDept =
-      !filters.department || has(job.department, filters.department); 
-
-    return (
-      matchKw && matchWorkplace && matchLocation && matchDept && matchWorkType
-    );
-  });
-
-  console.log("Filters →", filters);
-  console.log("Found", result.length, "jobs");
-  setFilteredJobs(result);
-};
-
-
+  
 
   return (
     <>
@@ -218,7 +186,7 @@ const handleSearch = () => {
                 height: 36,
                 padding: "6px 24px",
               }}
-              onClick={handleSearch}
+               onClick={() => router.push("/job-apply")}
             >
               Search
             </Button>
@@ -239,7 +207,7 @@ const handleSearch = () => {
                 >
                   <div className="mb-2" style={{ width: "50%" }}>
                     <h5 className="fw-bold text-success mb-1">{job.title}</h5>
-                    <small className="text-muted">Posted {job.posted}</small>
+                    {/* <small className="text-muted">Posted {job.posted}</small> */}
                   </div>
                   <div
                     className="d-flex justify-content-center text-muted gap-4 "
@@ -248,7 +216,13 @@ const handleSearch = () => {
                     <span className="fw-semibold " style={{ width: "15%" }}>
                       {job.type}
                     </span>
-                    <span style={{ width: "15%" }}>{job.location}</span>
+                    {/* <span style={{ width: "15%" }}>{job.location}</span> */}
+                    <span style={{ width: "15%" }}>
+                      {job.location
+                        ?.split(/[\s,]+/)
+                        .filter(Boolean)
+                        .pop() || ""}
+                    </span>
                     <span style={{ width: "30%" }}>
                       {job.department || "Development"}
                     </span>

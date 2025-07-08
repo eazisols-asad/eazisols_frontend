@@ -2,64 +2,48 @@
 import React from "react";
 import Image from "next/image";
 import aboutus from "@/app/assets/aboutus.png";
-import { Box, Button, Collapse, Typography } from "@mui/material";
 import "../globals.css";
 import CTASection from "../components/CTASection";
+import Link from "next/link";
 import { Container, Row, Col } from "react-bootstrap";
 import {
-  FaNotesMedical,
-  FaUmbrellaBeach,
-  FaPlane,
-  FaUtensils,
-  FaHome,
-  FaDumbbell,
-  FaGamepad,
-  FaTableTennis,
-  FaUsers,
-  FaGift,
-  FaChartLine,
-  FaPaperPlane,
-  FaPhoneAlt,
-  FaHandshake,
-} from "react-icons/fa";
-
-const techStack = [
-  { name: "OPD & IPD Medical Coverage", logo: FaNotesMedical },
-  { name: "Paid Leaves", logo: FaUmbrellaBeach },
-  { name: "Yearly Company Tours", logo: FaPlane },
-  { name: "Daily Office Lunch", logo: FaUtensils },
-  { name: "Work From Home Options", logo: FaHome },
-  { name: "On-site Gym Access", logo: FaDumbbell },
-  { name: "Video Games Lounge", logo: FaGamepad },
-  { name: "Table Tennis", logo: FaTableTennis },
-  { name: "Diverse & Inclusive Work Culture", logo: FaUsers },
-  { name: "Performance Bonuses", logo: FaGift },
-  { name: "Fast-Paced Growth Opportunities", logo: FaChartLine },
-];
-const joinSteps = [
+  Card,
+  CardActionArea,
+  CardContent,
+  CardMedia,
+  Typography,
+} from "@mui/material";
+import { FiMapPin } from "react-icons/fi";
+const BLOGS = [
   {
-    icon: FaPaperPlane,
-    title: "Apply with Intent",
-    description:
-      "Explore open roles that match your skills and ambitions — then send us your application.",
+    id: 1,
+    img: aboutus,
+    day: "15",
+    month: "DEC",
+    location: "Phonics, Newyork",
+    title: "Twice Profit Than Before You Ever Got In Business.",
+    excerpt:
+      "Residences can be classified by and how they are connected to neighbouring residences and land. Different types of housing tenure can be used for the same physical type.",
   },
   {
-    icon: FaPhoneAlt,
-    title: "Let's Get to Know You",
-    description:
-      "If there's a match, we'll connect through a quick call or task to understand your potential better.",
+    id: 2,
+    img: aboutus,
+    day: "12",
+    month: "SEPT",
+    location: "Cambridge, England",
+    title: "Residences Can Be Classified How They Are Connected.",
+    excerpt:
+      "Residences can be classified by and how they are connected to neighbouring residences and land. Different types of housing tenure can be used for the same physical type.",
   },
   {
-    icon: FaUsers,
-    title: "Meet the Team",
-    description:
-      "Join us for a conversation where we learn more about you — and you learn about life at Eazisols.",
-  },
-  {
-    icon: FaHandshake,
-    title: "Welcome Aboard",
-    description:
-      "Once selected, we'll guide you through a smooth onboarding experience so you can hit the ground running.",
+    id: 3,
+    img: aboutus,
+    day: "14",
+    month: "AUG",
+    location: "Barcelona, London",
+    title: "Different Type Of Housing Can Used Same Physical Type.",
+    excerpt:
+      "Decoration is the furnishing of a space with decorative elements, sometimes complemented by advice, sometimes complemented and practical assistance.",
   },
 ];
 
@@ -96,39 +80,90 @@ export default function Careers() {
           </p>
         </div>
       </div>
+      <section className="py-5 px-5 latest-blog">
+      <Container>
+        {/* Heading */}
+        <Typography
+          component="h2"
+          variant="h4"
+          align="center"
+          className="fw-bold mb-1"
+        >
+          <span className="text-dark">Latest </span>
+          <span className="text-secondary">Blog</span>
+        </Typography>
 
-      <section className="py-5 bg-light">
-        <Container>
-          <h2 className="fw-bold text-center mb-5">How You Join Eazisols</h2>
-          <Row className="g-4">
-            {joinSteps.map((step, idx) => (
-              <Col key={idx} xs={12} sm={6} lg={3}>
-                <div
-                  className="tech-card bg-white rounded-4 shadow-sm p-4 h-100"
-                  style={{
-                    border: "1px solid #eee",
-                    transition: "all 0.3s ease-in-out",
-                  }}
-                >
-                  <div
-                    style={{
-                      fontSize: "2rem",
-                      color: "#2563eb",
-                      marginBottom: "16px",
-                    }}
-                  >
-                    <step.icon />
+        <Typography
+          component="p"
+          variant="body1"
+          align="center"
+          className="lead text-muted mb-5"
+        >
+          Elegant retreat in Coral Gables setting. This home provides
+          entertaining spaces with kitchen opening
+        </Typography>
+
+        {/* Cards  */}
+        <Row className="g-4 justify-content-center">
+          {BLOGS.map((b) => (
+            <Col key={b.id} xs={12} sm={10} md={6} lg={4}>
+              <Card className="latest-blog-card h-100 border-0 shadow-sm">
+               
+                  {/* image */}
+                  <div className="position-relative">
+                    <CardMedia>
+                      <Image
+                        src={b.img}
+                        alt={b.title}
+                        width={500}
+                        height={300}
+                        className="w-100 rounded-top"
+                        style={{ objectFit: "cover" }}
+                      />
+                    </CardMedia>
+
+                    {/* date badge */}
+                    <div className="latest-blog-date">
+                      <span className="day">{b.day}</span>
+                      <span className="month">{b.month}</span>
+                    </div>
                   </div>
-                  <h5 className="fw-bold mb-2">{step.title}</h5>
-                  <p className="text-muted" style={{ fontSize: "0.95rem" }}>
-                    {step.description}
-                  </p>
-                </div>
-              </Col>
-            ))}
-          </Row>
-        </Container>
-      </section>
+
+                  {/* body */}
+                  <CardContent>
+                    <Typography
+                      variant="caption"
+                      className="d-flex align-items-center gap-1 text-muted mb-1"
+                    >
+                      <FiMapPin size={14} /> {b.location}
+                    </Typography>
+
+                    <Typography variant="h6" className="fw-bold mb-2">
+                      {b.title}
+                    </Typography>
+
+                    <Typography
+                      variant="body2"
+                      color="text.secondary"
+                      className="mb-4"
+                    >
+                      {b.excerpt}
+                    </Typography>
+
+                    <Typography
+                      variant="body2"
+                      className="read-more fw-medium text-primary"
+                    >
+                      Read More
+                    </Typography>
+                  </CardContent>
+              
+              </Card>
+            </Col>
+          ))}
+        </Row>
+      </Container>
+    </section>
       
       <CTASection
       description1="Want updates from us? Let's stay in touch."
