@@ -5,10 +5,10 @@ import "../globals.css";
 import useAPiAuth from "../components/useApiAuth";
 import contact from "@/app/assets/contact.png";
 import { useRouter } from "next/navigation";
-
+import Link from "next/link";
 
 export default function JobOpenings() {
-    const router = useRouter();
+  const router = useRouter();
   const [jobs, setJobs] = useState([]);
   const { getData } = useAPiAuth();
   const [filters, setFilters] = useState({
@@ -35,8 +35,6 @@ export default function JobOpenings() {
       }
     );
   }, []);
-
-  
 
   return (
     <>
@@ -177,7 +175,7 @@ export default function JobOpenings() {
 
           {/* Search Button Below */}
           <Box mt={3} className="text-end">
-            <Button
+            {/* <Button
               variant="contained"
               style={{
                 backgroundColor: "#418ED6",
@@ -186,10 +184,10 @@ export default function JobOpenings() {
                 height: 36,
                 padding: "6px 24px",
               }}
-               onClick={() => router.push("/job-apply")}
+              onClick={() => router.push("/job-apply")}
             >
               Search
-            </Button>
+            </Button> */}
           </Box>
 
           {/* Jobs Display */}
@@ -200,37 +198,43 @@ export default function JobOpenings() {
               </p>
             ) : (
               filteredJobs.map((job, idx) => (
-                <div
-                  key={idx}
-                  className="py-3 border-bottom d-flex  flex-md-row justify-content-between align-items-start"
-                  style={{ width: "100%" }}
+                <Link
+                  key={job.id} 
+                  href={`/job-opening/${job.id}`} 
+                  style={{ textDecoration: "none", color: "inherit" }}
                 >
-                  <div className="mb-2" style={{ width: "50%" }}>
-                    <h5 className="fw-bold text-success mb-1">{job.title}</h5>
-                    {/* <small className="text-muted">Posted {job.posted}</small> */}
-                  </div>
                   <div
-                    className="d-flex justify-content-center text-muted gap-4 "
-                    style={{ width: "50%" }}
+                    key={idx}
+                    className="py-3 border-bottom d-flex  flex-md-row justify-content-between align-items-start"
+                    style={{ width: "100%" }}
                   >
-                    <span className="fw-semibold " style={{ width: "15%" }}>
-                      {job.type}
-                    </span>
-                    {/* <span style={{ width: "15%" }}>{job.location}</span> */}
-                    <span style={{ width: "15%" }}>
-                      {job.location
-                        ?.split(/[\s,]+/)
-                        .filter(Boolean)
-                        .pop() || ""}
-                    </span>
-                    <span style={{ width: "30%" }}>
-                      {job.department || "Development"}
-                    </span>
-                    <span style={{ width: "30%" }}>
-                      {job.schedule || "Full Time"}
-                    </span>
+                    <div className="mb-2" style={{ width: "50%" }}>
+                      <h5 className="fw-bold text-success mb-1">{job.title}</h5>
+                      {/* <small className="text-muted">Posted {job.posted}</small> */}
+                    </div>
+                    <div
+                      className="d-flex justify-content-center text-muted gap-4 "
+                      style={{ width: "50%" }}
+                    >
+                      <span className="fw-semibold " style={{ width: "15%" }}>
+                        {job.workplace_type}
+                      </span>
+                      {/* <span style={{ width: "15%" }}>{job.location}</span> */}
+                      <span style={{ width: "15%" }}>
+                        {job.location
+                          ?.split(/[\s,]+/)
+                          .filter(Boolean)
+                          .pop() || ""}
+                      </span>
+                      <span style={{ width: "30%" }}>
+                        {job.department || "Development"}
+                      </span>
+                      <span style={{ width: "30%" }}>
+                        {job.work_type || "Full Time"}
+                      </span>
+                    </div>
                   </div>
-                </div>
+                </Link>
               ))
             )}
           </div>

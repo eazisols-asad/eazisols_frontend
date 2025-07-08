@@ -8,6 +8,7 @@ import {
   TextField,
   Typography,
 } from "@mui/material";
+import contact from "@/app/assets/contact.png";
 
 /* restore this helper block */
 const Section = ({ title, children }) => (
@@ -51,6 +52,30 @@ export default function JobApplicationForm() {
         file: null,
       });
   return (
+    <>
+      <div
+            className="hero-background py-5 "
+            style={{
+              backgroundImage: `url(${contact.src})`,
+              backgroundSize: "cover",
+              backgroundPosition: "center",
+              backgroundRepeat: "no-repeat",
+              height: "250px",
+              marginTop: "-80px",
+              position: "relative",
+              zIndex: 1,
+            }}
+          >
+            <div
+              className="container "
+              style={{
+                paddingTop: "80px",
+                color: "white",
+              }}
+            >
+              <h1 className="main-heading text-white">Start Growing With Us</h1>
+            </div>
+          </div>
     <Box sx={{ maxWidth: 500, mx: "auto", bgcolor: "#fff", p: 3 }}>
     
       <Section title="Personal information">
@@ -160,5 +185,6 @@ export default function JobApplicationForm() {
         Submit application
       </Button>
     </Box>
+    </>
   );
 }
