@@ -4,10 +4,13 @@ import { useParams, useRouter } from "next/navigation";
 import { Box, Container, Typography, Button } from "@mui/material";
 import useApiAuth from "@/app/components/useApiAuth"; 
 import contact from "@/app/assets/contact.png";  
+import axios from "axios";
 
 
 export default function JobDetail() {
    const { id } = useParams();
+   console.log("🚀 ~ JobDetail ~ id:", id)
+   
   const router = useRouter();
   const { getData } = useApiAuth();
   const [job, setJob] = useState(null);
@@ -16,7 +19,9 @@ export default function JobDetail() {
 
     useEffect(() => {
     if (!id) return;
+// const {data}= axios.get(`https://admin.eazisols.com/api/careers/${id}`)
 
+//     console.log("🚀 ~ useEffect ~ data:", data)
     getData(
       `/api/careers/${id}`,
       (res) => {
@@ -25,27 +30,29 @@ export default function JobDetail() {
         setLoading(false);              
       },
       (err) => {
-        if (err?.response?.status === 404) {
-          console.warn(`Endpoint /careers/${id} not found – falling back`);
-          getData(
-            "/api/careers",
-            (listRes) => {
-              const list = Array.isArray(listRes?.data?.data)
-                ? listRes.data.data
-                : [];
-              const match = list.find((j) => String(j.id) === String(id));
-              setJob(match || null);
-              setLoading(false);      
-            },
-            (e2) => {
-              console.error("Fallback list fetch failed", e2);
-              setLoading(false);          
-            }
-          );
-        } else {
-          console.error("Failed to fetch job", err);
-          setLoading(false);             
-        }
+        console.log("🚀 ~ useEffect ~ err:", err)
+        
+        // if (err?.response?.status === 404) {
+        //   console.warn(`Endpoint /careers/${id} not found – falling back`);
+        //   getData(
+        //     "/api/careers",
+        //     (listRes) => {
+        //       const list = Array.isArray(listRes?.data?.data)
+        //         ? listRes.data.data
+        //         : [];
+        //       const match = list.find((j) => String(j.id) === String(id));
+        //       setJob(match || null);
+        //       setLoading(false);      
+        //     },
+        //     (e2) => {
+        //       console.error("Fallback list fetch failed", e2);
+        //       setLoading(false);          
+        //     }
+        //   );
+        // } else {
+        //   console.error("Failed to fetch job", err);
+        //   setLoading(false);             
+        // }
       }
     );
   }, [id]);

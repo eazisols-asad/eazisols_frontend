@@ -10,7 +10,7 @@ import {
     Box,
     Button, LinearProgress
 } from '@mui/material';
-import { MdClose } from 'react-icons/md'; // ✅ React Icon
+import { MdClose } from 'react-icons/md';
 import { Container, Row, Col } from "react-bootstrap";
 import useAPiAuth from "../components/useApiAuth";
 import { useSnackbar } from "../components/Snakbar";
@@ -236,7 +236,7 @@ const CostCalculateModal = ({ open, onClose, title = "Cost Calculation", childre
                         maxHeight: "80px",
                     }}
                 /><IconButton edge="start" color="inherit" onClick={onClose} aria-label="close">
-                    <MdClose size={24} /> {/* ✅ React Icon close */}
+                    <MdClose size={24} /> 
                 </IconButton>
             </Toolbar>
             {/* </AppBar> */}

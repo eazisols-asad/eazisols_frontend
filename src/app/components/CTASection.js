@@ -63,7 +63,7 @@ export default function CTASection({ description1, description2 }) {
         </Typography>
 
         <Button
-          variant="primary"
+          // variant="primary"
           size="lg"
           style={{
             backgroundColor: "#418ED6",
@@ -71,7 +71,7 @@ export default function CTASection({ description1, description2 }) {
             borderRadius: 8,
             fontWeight: 600,
             color: "#fff",
-            padding: "12px 32px"
+            padding: "12px 20px"
           }}
           // onClick={() => router.push("/quote")}
           onClick={() => setOpenModal(true)}
