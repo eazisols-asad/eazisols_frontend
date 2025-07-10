@@ -7,6 +7,8 @@ import AboutSection from "./components/AboutSection";
 import CTASection from "./components/CTASection";
 import WaterfallProcess from "./components/WaterfallProcess";
 import Services from "./components/Services";  
+import NewBlogs from "./components/NewBlogs";
+import LogoSliderr from "./components/LogoSliderr";
 const faqs = [
   {
     question:
@@ -68,11 +70,13 @@ export default function Home() {
   return (
     <div className="bg-light">
       <HeroSection />
-      <ReverseSectionsSlider />
-      <LogoSection />
+      {/* <ReverseSectionsSlider />
+      <LogoSection /> */}
+      <LogoSliderr />
       {/* <WaterfallProcess /> */}
       <AboutSection />
       <Services />
+      <NewBlogs />
       <CTASection
       description1="YOU WANT TO SHOWCASE YOUR WEBSITE"
       description2="Quote Generator"

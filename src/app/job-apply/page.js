@@ -53,9 +53,21 @@ export default function JobApplicationForm() {
   });
   const { postData } = useAPiAuth();
   const { handleSnackbarOpen } = useSnackbar();
+  const [errors, setErrors] = useState({});
 
   const handleSubmit = async (e) => {
     e.preventDefault();
+    const newErrors = {};
+    if (!formData.firstName.trim())
+      newErrors.firstName = "First name is required";
+    if (!formData.lastName.trim()) newErrors.lastName = "Last name is required";
+    if (!formData.email.trim()) newErrors.email = "Email is required";
+    if (!formData.phone.trim()) newErrors.phone = "Phone number is required";
+    if (!formData.file) newErrors.file = "Resume is required";
+
+    setErrors(newErrors);
+
+    if (Object.keys(newErrors).length > 0) return;
 
     const form = new FormData();
     form.append("name", `${formData.firstName} ${formData.lastName}`);
@@ -75,6 +87,17 @@ export default function JobApplicationForm() {
       (data) => {
         console.log("API Success:", data);
         handleSnackbarOpen("Form sent successfully!", "success");
+        setFormData({
+          career_id: 4,
+          firstName: "",
+          lastName: "",
+          email: "",
+          phone: "",
+          file: null,
+          headline: "",
+          address: "",
+        });
+        setErrors({});
       },
       (error) => {
         console.error("user error:", error);
@@ -120,6 +143,8 @@ export default function JobApplicationForm() {
               onChange={(e) =>
                 setFormData({ ...formData, firstName: e.target.value })
               }
+              error={!!errors.firstName}
+              helperText={errors.firstName}
             />
             <TextField
               fullWidth
@@ -130,6 +155,8 @@ export default function JobApplicationForm() {
               onChange={(e) =>
                 setFormData({ ...formData, lastName: e.target.value })
               }
+              error={!!errors.lastName}
+              helperText={errors.lastName}
             />
           </Box>
 
@@ -143,14 +170,21 @@ export default function JobApplicationForm() {
               onChange={(e) =>
                 setFormData({ ...formData, email: e.target.value })
               }
+              error={!!errors.email}
+              helperText={errors.email}
             />
           </Box>
 
           <Box mb={2}>
-            <TextField fullWidth size="small" label="Headline (Optional)"   value={formData.headline || ""}
-  onChange={(e) =>
-    setFormData({ ...formData, headline: e.target.value })
-  }/>
+            <TextField
+              fullWidth
+              size="small"
+              label="Headline (Optional)"
+              value={formData.headline || ""}
+              onChange={(e) =>
+                setFormData({ ...formData, headline: e.target.value })
+              }
+            />
           </Box>
 
           <Box mb={2}>
@@ -170,6 +204,8 @@ export default function JobApplicationForm() {
               onChange={(e) =>
                 setFormData({ ...formData, phone: e.target.value })
               }
+              error={!!errors.phone}
+              helperText={errors.phone}
             />
           </Box>
 
@@ -235,28 +271,63 @@ export default function JobApplicationForm() {
             </Typography>
           </Box> */}
           <Box
-  sx={{
-    border: "1px dashed #94a3b8",
-    borderRadius: 2,
-    p: 4,
-    textAlign: "center",
-    color: "#64748b",
-  }}
->
-  <input
-    type="file"
-    onChange={(e) =>
-      setFormData({ ...formData, file: e.target.files?.[0] || null })
-    }
-    style={{ marginBottom: 8 }}
-  />
-  {formData.file && (
-    <Typography fontSize={12} mt={1}>
-      Selected: {formData.file.name}
-    </Typography>
-  )}
-</Box>
+            sx={{
+              border: "1px dashed #94a3b8",
+              borderRadius: 2,
+              p: 4,
+              textAlign: "center",
+              color: "#64748b",
+            }}
+          >
+            <Box
+              sx={{
+                width: 64,
+                height: 64,
+                borderRadius: "50%",
+                backgroundColor: "#d2e4f5",
+                mx: "auto",
+                mb: 2,
+                display: "flex",
+                alignItems: "center",
+                justifyContent: "center",
+                fontSize: 34,
+                color: "#4d8fcd",
+              }}
+            >
+              ⬆
+            </Box>
+            <Typography
+              component="span"
+              fontSize={14}
+              fontWeight={600}
+              sx={{ color: "#4d8fcd" }}
+            >
+              Upload a file
+            </Typography>
+            <Typography component="span" fontSize={14} color="text.secondary">
+              {" "}
+              or drag and drop here
+            </Typography>
 
+            <input
+              type="file"
+              onChange={(e) =>
+                setFormData({ ...formData, file: e.target.files?.[0] || null })
+              }
+              style={{ marginBottom: 8 }}
+            />
+            {errors.file && (
+              <Typography fontSize={12} color="error" mt={1}>
+                {errors.file}
+              </Typography>
+            )}
+
+            {formData.file && (
+              <Typography fontSize={12} mt={1}>
+                Selected: {formData.file.name}
+              </Typography>
+            )}
+          </Box>
         </Section>
 
         <Divider />
