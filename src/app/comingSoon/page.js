@@ -1,56 +1,96 @@
-import { Box, Container, Typography, TextField, Button, Stack } from "@mui/material";
 
-const ComingSoon = () => {
+  'use client';
+
+import React from 'react';
+import { Container, Row, Col } from 'react-bootstrap';
+import { Box, Typography } from '@mui/material';
+import { FaFacebookF, FaTwitter, FaInstagram, FaLinkedinIn } from 'react-icons/fa';
+import eazistransbg from "@/app/assets/eazistransbg.png";
+import comingbg from '@/app/assets/comingbg.png';
+
+
+export default function ComingSoon() {
   return (
     <Box
-      minHeight="100vh"
-      display="flex"
-      alignItems="center"
-      justifyContent="center"
-      sx={{ backgroundColor: "#f0f4f8" }}
+      sx={{
+        minHeight: '100vh',
+        backgroundColor: '#d2e4f5', 
+        display: 'flex',
+        alignItems: 'center',
+        justifyContent: 'center',
+        textAlign: 'center',
+        px: 2,
+      }}
     >
-      <Container maxWidth="sm" sx={{ textAlign: "center", backgroundColor: "#fff", borderRadius: 3, p: 4, boxShadow: 3 }}>
-        {/* SVG Illustration */}
-        <Box mb={3}>
-          <svg
-            width="100"
-            height="100"
-            viewBox="0 0 24 24"
-            fill="none"
-            xmlns="http://www.w3.org/2000/svg"
-          >
-            <path d="M12 2L15 8H9L12 2Z" fill="#1976d2" />
-            <path d="M12 22L9 16H15L12 22Z" fill="#1976d2" />
-            <path d="M2 12L8 15V9L2 12Z" fill="#1976d2" />
-            <path d="M22 12L16 9V15L22 12Z" fill="#1976d2" />
-          </svg>
-        </Box>
+      <Container>
+        <Row className="justify-content-center">
+          <Col lg={6} className="text-center text-lg-start mb-4 mb-lg-0">
+            <img
+              src={eazistransbg.src}
+              alt="Logo"
+              style={{ width: 140, mb:0 }}
+            />
 
-        {/* Heading */}
-        <Typography variant="h4" fontWeight="bold" gutterBottom color="primary">
-          Coming Soon
-        </Typography>
+            {/* <Typography
+              variant="h4"
+              sx={{
+                fontWeight: 500,
+                color: '#000',
+                mb: 1,
+                fontFamily: 'Poppins, sans-serif',
+              }}
+            >
+              OUR WEBSITE IS
+            </Typography> */}
+            <Typography
+              variant="h2"
+              sx={{
+                fontWeight: 800,
+                color: '#000',
+                mb: 3,
+                fontFamily: 'Poppins, sans-serif',
+              }}
+            >
+              COMING SOON
+            </Typography>
 
-        {/* Description */}
-        <Typography variant="body1" color="textSecondary" mb={3}>
-          We're building something awesome. Stay tuned!
-        </Typography>
+            <Typography
+              variant="h6"
+              sx={{
+                color: '#333',
+                mb: 3,
+                fontFamily: 'Poppins, sans-serif',
+              }}
+            >
+              Meanwhile feel free to interact with our social networks
+            </Typography>
 
-        {/* Email Input (Optional) */}
-        <Stack direction="row" spacing={1} justifyContent="center">
-          {/* <TextField
-            variant="outlined"
-            placeholder="Enter your email"
-            size="small"
-            sx={{ width: "70%" }}
-          /> */}
-          <Button variant="contained" color="primary">
-            Notify Me
-          </Button>
-        </Stack>
+            <div className="d-flex justify-content-center gap-4">
+              <a href="https://twitter.com" target="_blank" rel="noopener noreferrer">
+                <FaTwitter color="#1DA1F2" size={24} />
+              </a>
+              <a href="https://facebook.com" target="_blank" rel="noopener noreferrer">
+                <FaFacebookF color="#1877F2" size={24} />
+              </a>
+              <a href="https://www.instagram.com/eazisols/" target="_blank" rel="noopener noreferrer">
+                <FaInstagram color="#E4405F" size={24} />
+              </a>
+              <a href="https://www.linkedin.com/company/eazisols/" target="_blank" rel="noopener noreferrer">
+                <FaLinkedinIn color="#0077B5" size={24} />
+              </a>
+            </div>
+          </Col>
+           <Col lg={6} className="text-center">
+            <img
+              src={comingbg.src}
+              alt="Coming Soon Illustration"
+              style={{ maxWidth: '100%', height: 'auto' }}
+            />
+          </Col>
+        </Row>
       </Container>
     </Box>
   );
-};
+}
 
-export default ComingSoon;
+ 

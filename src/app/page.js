@@ -9,6 +9,7 @@ import WaterfallProcess from "./components/WaterfallProcess";
 import Services from "./components/Services";  
 import NewBlogs from "./components/NewBlogs";
 import LogoSliderr from "./components/LogoSliderr";
+import TestimonialSection from "./components/TestimonialSection";
 const faqs = [
   {
     question:
@@ -77,6 +78,7 @@ export default function Home() {
       <AboutSection />
       <Services />
       <NewBlogs />
+      <TestimonialSection />
       <CTASection
       description1="YOU WANT TO SHOWCASE YOUR WEBSITE"
       description2="Quote Generator"

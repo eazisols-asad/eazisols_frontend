@@ -12,7 +12,7 @@ import useAPiAuth from "../components/useApiAuth";
 import contact from "@/app/assets/contact.png";
 import { useSnackbar } from "../components/Snakbar";
 
-const Section = ({ title, children }) => (
+const Section = ({ title, children, onClear }) => (
   <Box mb={4}>
     {title && (
       <Box
@@ -30,9 +30,7 @@ const Section = ({ title, children }) => (
             userSelect: "none",
             "&:hover": { textDecoration: "underline" },
           }}
-          onClick={() => {
-            /* clear logic later */
-          }}
+          onClick={onClear}
         >
           Clear
         </Typography>
@@ -106,6 +104,20 @@ export default function JobApplicationForm() {
     );
     console.log(formData);
   };
+  const handleClear = () => {
+    setFormData({
+      career_id: 4,
+      firstName: "",
+      lastName: "",
+      email: "",
+      phone: "",
+      file: null,
+      headline: "",
+      address: "",
+    });
+    setErrors({});
+  };
+
   return (
     <>
       <div
@@ -132,7 +144,7 @@ export default function JobApplicationForm() {
         </div>
       </div>
       <Box sx={{ maxWidth: 500, mx: "auto", bgcolor: "#fff", p: 3 }}>
-        <Section title=" Personal information">
+        <Section title=" Personal information" onClear={handleClear}>
           <Box display="flex" gap={2} mb={2}>
             <TextField
               fullWidth
@@ -145,6 +157,7 @@ export default function JobApplicationForm() {
               }
               error={!!errors.firstName}
               helperText={errors.firstName}
+              // FormHelperTextProps={{ style: { color: "#d32f2f" } }}
             />
             <TextField
               fullWidth
@@ -157,6 +170,7 @@ export default function JobApplicationForm() {
               }
               error={!!errors.lastName}
               helperText={errors.lastName}
+              // FormHelperTextProps={{ style: { color: "#d32f2f" } }}
             />
           </Box>
 
@@ -172,6 +186,7 @@ export default function JobApplicationForm() {
               }
               error={!!errors.email}
               helperText={errors.email}
+              // FormHelperTextProps={{ style: { color: "#d32f2f" } }}
             />
           </Box>
 
@@ -206,6 +221,7 @@ export default function JobApplicationForm() {
               }
               error={!!errors.phone}
               helperText={errors.phone}
+              // FormHelperTextProps={{ style: { color: "#d32f2f" } }}
             />
           </Box>
 
@@ -230,47 +246,8 @@ export default function JobApplicationForm() {
               Resume
             </Typography>
           </Box>
-          {/* <Box
-            sx={{
-              border: "1px dashed #94a3b8",
-              borderRadius: 2,
-              p: 4,
-              textAlign: "center",
-              color: "#64748b",
-            }}
-          >
-            <Box
-              sx={{
-                width: 64,
-                height: 64,
-                borderRadius: "50%",
-                backgroundColor: "#d2e4f5",
-                mx: "auto",
-                mb: 2,
-                display: "flex",
-                alignItems: "center",
-                justifyContent: "center",
-                fontSize: 34,
-                color: "#4d8fcd",
-              }}
-            >
-              ⬆
-            </Box>
 
-            <Typography
-              component="span"
-              fontSize={14}
-              fontWeight={600}
-              sx={{ color: "#4d8fcd" }}
-            >
-              Upload a file
-            </Typography>
-            <Typography component="span" fontSize={14} color="text.secondary">
-              {" "}
-              or drag and drop here
-            </Typography>
-          </Box> */}
-          <Box
+          {/* <Box
             sx={{
               border: "1px dashed #94a3b8",
               borderRadius: 2,
@@ -325,6 +302,93 @@ export default function JobApplicationForm() {
             {formData.file && (
               <Typography fontSize={12} mt={1}>
                 Selected: {formData.file.name}
+              </Typography>
+            )}
+          </Box> */}
+          <Box
+            sx={{
+              border: "1px dashed #94a3b8",
+              borderRadius: 2,
+              p: 4,
+              textAlign: "center",
+              color: "#64748b",
+            }}
+          >
+            <Box
+              sx={{
+                width: 64,
+                height: 64,
+                borderRadius: "50%",
+                backgroundColor: "#d2e4f5",
+                mx: "auto",
+                mb: 2,
+                display: "flex",
+                alignItems: "center",
+                justifyContent: "center",
+                fontSize: 34,
+                color: "#4d8fcd",
+                cursor: "pointer",
+              }}
+              onClick={() => document.getElementById("fileInput")?.click()}
+            >
+              ⬆
+            </Box>
+
+            <Typography
+              component="span"
+              fontSize={14}
+              fontWeight={600}
+              sx={{ color: "#4d8fcd", cursor: "pointer" }}
+              onClick={() => document.getElementById("fileInput")?.click()}
+            >
+              Upload a file
+            </Typography>
+            <Typography component="span" fontSize={14} color="text.secondary">
+              {" "}
+              or drag and drop here
+            </Typography>
+
+            {/* <input
+              id="fileInput"
+              type="file"
+              onChange={(e) =>
+                setFormData({ ...formData, file: e.target.files?.[0] || null })
+              }
+              style={{ display: "none" }}
+            /> */}
+            <input
+              id="fileInput"
+              type="file"
+              onChange={(e) => {
+                const file = e.target.files?.[0] || null;
+                const allowedTypes = [
+                  "application/pdf",
+                  "application/msword",
+                  "application/vnd.openxmlformats-officedocument.wordprocessingml.document",
+                ];
+                if (file && !allowedTypes.includes(file.type)) {
+                  setErrors((prev) => ({
+                    ...prev,
+                    file: "Only PDF or Word documents are allowed.",
+                  }));
+                  setFormData((prev) => ({ ...prev, file: null }));
+                } else {
+                  setFormData((prev) => ({ ...prev, file }));
+                  setErrors((prev) => ({ ...prev, file: undefined }));
+                }
+              }}
+              style={{ display: "none" }}
+            />
+
+            {errors.file && (
+              <Typography fontSize={12} color="error" mt={1}>
+                {errors.file}
+              </Typography>
+            )}
+
+            {formData.file && (
+              <Typography fontSize={12} mt={1}>
+                {formData.file.name}
               </Typography>
             )}
           </Box>

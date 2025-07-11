@@ -51,10 +51,13 @@ export default function ContactForm({
   const handleChange = (e) => {
     const { name, value } = e.target;
 
-    if (name === "name") {
+    if (name === "fullName") {
       const cleaned = value
         .replace(/[^A-Za-z .,'-]/g, "")
-        .replace(/\s+/g, " ")
+        // .replace(/\s+/g, " ")
+        .replace(/\s{2,}/g, " ")
+        .replace(/\s+$/, "")
+        .replace(/^\s+/, "")
         .trim()
         .split(" ")
         .map((w) => w.charAt(0).toUpperCase() + w.slice(1))
@@ -65,15 +68,15 @@ export default function ContactForm({
     }
 
     if (name === "company_name") {
-      if (value.length > 50) return;
+      const cleaned = value.replace(/[0-9]/g, "").slice(0, 50);
+      setFormData((prev) => ({ ...prev, [name]: cleaned }));
+      return;
     }
 
-    if (name === "email") {
-      if (value.length > 100) return;
-    }
-
-    if (name === "message") {
-      if (value.length > 500) return;
+    if (name === "email" || name === "message") {
+      const cleaned = value.replace(/\s+/g, "");
+      setFormData((prev) => ({ ...prev, [name]: cleaned }));
+      return;
     }
 
     setFormData((prev) => ({
@@ -166,7 +169,7 @@ export default function ContactForm({
             onChange={handleChange}
             placeholder="Briefly describe your project or query"
             maxLength={500}
-            style={{ resize: "none", overflow: "auto", height: "80px" }} 
+            style={{ resize: "none", overflow: "auto", height: "80px" }}
           />
           {validated && formData.message.trim().length < 20 && (
             <div className="text-danger small mt-1">
