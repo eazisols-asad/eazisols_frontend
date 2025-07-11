@@ -77,8 +77,8 @@ export default function Home() {
       {/* <WaterfallProcess /> */}
       <AboutSection />
       <Services />
-      <NewBlogs />
-      <TestimonialSection />
+      {/* <NewBlogs />
+      <TestimonialSection /> */}
       <CTASection
       description1="YOU WANT TO SHOWCASE YOUR WEBSITE"
       description2="Quote Generator"
