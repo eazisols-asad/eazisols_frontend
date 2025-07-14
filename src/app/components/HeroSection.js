@@ -3,9 +3,10 @@
 import React from "react";
 import { Container, Row, Col } from "react-bootstrap";
 import ContactForm from "./ContactForm";
-import webbg from "@/app/assets/webbg.png";
+import herobghh from "@/app/assets/herobghh.png";
 import { FaPhone, FaEnvelope, FaWhatsapp } from "react-icons/fa";
 import "../globals.css";
+import td from "@/app/assets/td.png";
 
 const HeroSection = () => {
   return (
@@ -13,7 +14,7 @@ const HeroSection = () => {
       <section
         className="min-vh-100 d-flex flex-column bg-light position-relative hero-background"
         style={{
-          backgroundImage: `url(${webbg.src})`,
+          backgroundImage: `url(${td.src})`,
           backgroundSize: "cover",
           backgroundPosition: "center",
           backgroundRepeat: "no-repeat",

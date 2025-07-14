@@ -8,8 +8,6 @@ import axios from "axios";
 
 export default function JobDetail() {
   const { id } = useParams();
-  console.log("🚀 ~ JobDetail ~ id:", id);
-
   const router = useRouter();
   const { getData } = useApiAuth();
   const [job, setJob] = useState(null);
@@ -72,42 +70,47 @@ export default function JobDetail() {
           <h1 className="main-heading text-white">Start Growing With Us</h1>
         </div>
       </div>
-      <Container maxWidth="md" sx={{ py: 6 }}>
+      <Container maxWidth="md" sx={{ py: 3, height: "100%" }}>
+        
+        <Box sx={{ display: "flex", justifyContent: "center",  mb: 3 }}>
+          <Box sx={{ display: "flex", borderBottom: "none" }}>
+            <Button
+              variant="text"
+              sx={{
+                color: "#418ED6",
+                fontWeight: 600,
+                fontSize: "16px",
+                textTransform: "none",
+                borderBottom: "2px solid #418ED6",
+                borderRadius: 0,
+              }}
+              disableRipple
+            >
+              Overview
+            </Button>
+            <Button
+              variant="text"
+              sx={{
+                color: "#000000",
+                fontWeight: 600,
+                fontSize: "16px",
+                textTransform: "none",
+                borderBottom: "2px solid transparent",
+                borderRadius: 0,
+                ml: 3,
+                "&:hover": { color: "#323232" },
+              }}
+              onClick={() => router.push(`/job-apply?jobId=${id}`)}
+            >
+              Application
+            </Button>
+          </Box>
+        </Box>
         <Button variant="text" onClick={() => router.back()} sx={{ mb: 2 }}>
           ← Back to jobs
         </Button>
-        {/* <ul class="nav nav-tabs" id="myTab" role="tablist">
-          <li class="nav-item" role="presentation">
-            <button
-              class="nav-link active"
-              id="home-tab"
-              data-bs-toggle="tab"
-              data-bs-target="#home"
-              type="button"
-              role="tab"
-              aria-controls="home"
-              aria-selected="true"
-            >
-              Overview
-            </button>
-          </li>
-          <li class="nav-item" role="presentation">
-            <button
-              class="nav-link"
-              id="profile-tab"
-              data-bs-toggle="tab"
-              data-bs-target="#profile"
-              type="button"
-              role="tab"
-              aria-controls="profile"
-              aria-selected="false"
-            >
-              Application
-            </button>
-          </li>
-        </ul> */}
 
-        <Typography variant="h4" fontWeight={700} gutterBottom>
+        <Typography variant="h4" fontWeight={700} gutterBottom >
           {job.title}
         </Typography>
 
@@ -155,8 +158,8 @@ export default function JobDetail() {
         >
           Apply for this job
         </Button>
+        
       </Container>
     </>
   );
 }
-

@@ -24,7 +24,7 @@ export default function ComingSoon() {
     >
       <Container>
         <Row className="justify-content-center">
-          <Col lg={6} className="text-center text-lg-start mb-4 mb-lg-0">
+          <Col lg={6} className="text-center text-lg-start mb-1 mb-lg-0">
             <img
               src={eazistransbg.src}
               alt="Logo"
@@ -47,7 +47,7 @@ export default function ComingSoon() {
               sx={{
                 fontWeight: 800,
                 color: '#000',
-                mb: 3,
+                mb: 1,
                 fontFamily: 'Poppins, sans-serif',
               }}
             >
@@ -58,14 +58,14 @@ export default function ComingSoon() {
               variant="h6"
               sx={{
                 color: '#333',
-                mb: 3,
+                mb: 1,
                 fontFamily: 'Poppins, sans-serif',
               }}
             >
               Meanwhile feel free to interact with our social networks
             </Typography>
 
-            <div className="d-flex justify-content-center gap-4">
+            <div className="d-flex justify-content-center gap-4 ">
               <a href="https://twitter.com" target="_blank" rel="noopener noreferrer">
                 <FaTwitter color="#1DA1F2" size={24} />
               </a>

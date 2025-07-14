@@ -196,7 +196,7 @@ img {
   background-color: #fff !important;
   color: inherit !important;
   box-shadow: none !important;
-}/* Navbar Styles */
+}
 
 /* Navbar Styles */
 .fixed-top {
@@ -210,10 +210,10 @@ img {
 .navbar-spacer {
   height: 76px;
 }
-section.hero-background {
+/* section.hero-background {
   margin-top: -76px;
   padding-top: 76px;
-}
+} */
 .custom-navbar.navbar-scrolled .nav-link {
   color: #333 !important;
   transition: color 0.4s ease;
@@ -228,12 +228,13 @@ section.hero-background {
 }
 
 .custom-navbar {
-  background-color: transparent !important;
+  /* background-color: transparent !important; */
+  background-color: #fff !important;
   box-shadow: none !important;
   z-index: 1030;
    transition: background-color 0.4s ease, padding 0.3s ease;
 }
-.custom-navbar::before {
+/* .custom-navbar::before {
   content: '';
   position: absolute;
   top: 0;
@@ -248,7 +249,7 @@ section.hero-background {
 }
 .custom-navbar.navbar-scrolled::before {
   transform: translateY(0);
-}
+} */
 @keyframes slideDownBg {
   from {
     background-position: top;
@@ -261,7 +262,7 @@ section.hero-background {
 }
 .custom-navbar .nav-link {
   font-weight: 500;
-  color: #ffffff;
+  color: #0b0b0b;
   transition: color 0.3s ease;
 }
 

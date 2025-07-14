@@ -17,6 +17,7 @@ import csharp from "@/app/assets/csharp.png";
 import mssql from "@/app/assets/mssql.png";
 import mysql from "@/app/assets/mysql.png";
 import dynamo from "@/app/assets/dynamo.png";
+import ReuseContact from "../components/ReuseContact";
 
 const techStack = [
   { name: "JavaScript", logo: javas },
@@ -195,6 +196,7 @@ export default function Capabilities() {
         </Row>
       </Container>
     </section>
+    <ReuseContact />
     </>
   );
 }

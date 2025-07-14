@@ -10,6 +10,7 @@ import Services from "./components/Services";
 import NewBlogs from "./components/NewBlogs";
 import LogoSliderr from "./components/LogoSliderr";
 import TestimonialSection from "./components/TestimonialSection";
+import ReuseContact from "./components/ReuseContact";
 const faqs = [
   {
     question:
@@ -79,6 +80,7 @@ export default function Home() {
       <Services />
       {/* <NewBlogs />
       <TestimonialSection /> */}
+      <ReuseContact />
       <CTASection
       description1="YOU WANT TO SHOWCASE YOUR WEBSITE"
       description2="Quote Generator"

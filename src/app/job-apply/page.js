@@ -11,7 +11,7 @@ import {
 import useAPiAuth from "../components/useApiAuth";
 import contact from "@/app/assets/contact.png";
 import { useSnackbar } from "../components/Snakbar";
-
+import { useParams, useRouter } from "next/navigation";
 const Section = ({ title, children, onClear }) => (
   <Box mb={4}>
     {title && (
@@ -51,6 +51,8 @@ export default function JobApplicationForm() {
   });
   const { postData } = useAPiAuth();
   const { handleSnackbarOpen } = useSnackbar();
+  const router = useRouter();
+  const [jobId, setJobId] = useState(null);
   const [errors, setErrors] = useState({});
 
   const handleSubmit = async (e) => {
@@ -143,6 +145,39 @@ export default function JobApplicationForm() {
           <h1 className="main-heading text-white">Start Growing With Us</h1>
         </div>
       </div>
+      <Box sx={{ display: "flex", justifyContent: "center", mt: 4, mb: 3 }}>
+        <Box sx={{ display: "flex", borderBottom: "none" }}>
+          <Button
+            variant="text"
+            onClick={() => router.back()}
+            sx={{
+              color: "#000000",
+              fontWeight: 600,
+              fontSize: "16px",
+              textTransform: "none",
+              borderBottom: "2px solid transparent",
+              "&:hover": { color: "#323232" },
+            }}
+          >
+            Overview
+          </Button>
+          <Button
+            variant="text"
+            sx={{
+              color: "#418ED6",
+              fontWeight: 600,
+              fontSize: "16px",
+              textTransform: "none",
+              borderBottom: "2px solid #418ED6",
+              ml: 3,
+            }}
+            disableRipple
+          >
+            Application
+          </Button>
+        </Box>
+      </Box>
+
       <Box sx={{ maxWidth: 500, mx: "auto", bgcolor: "#fff", p: 3 }}>
         <Section title=" Personal information" onClear={handleClear}>
           <Box display="flex" gap={2} mb={2}>
