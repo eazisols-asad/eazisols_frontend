@@ -11,6 +11,8 @@ import NewBlogs from "./components/NewBlogs";
 import LogoSliderr from "./components/LogoSliderr";
 import TestimonialSection from "./components/TestimonialSection";
 import ReuseContact from "./components/ReuseContact";
+// import Hsection from "./components/Hsection";
+
 const faqs = [
   {
     question:
@@ -78,6 +80,7 @@ export default function Home() {
       {/* <WaterfallProcess /> */}
       <AboutSection />
       <Services />
+      {/* <Hsection /> */}
       {/* <NewBlogs />
       <TestimonialSection /> */}
       <ReuseContact />

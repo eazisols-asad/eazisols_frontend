@@ -1,7 +1,7 @@
 "use client";
 import React from "react";
 import { Container, Row, Col } from "react-bootstrap";
-import aboutus from "@/app/assets/aboutus.png";
+import nabout from "@/app/assets/nabout.png";
 import CTASection from "../components/CTASection";
 import "../globals.css";
 import {
@@ -14,7 +14,8 @@ import {
 } from "react-icons/hi";
 import ReuseContact from "../components/ReuseContact";
 import AboutTd from "../components/AboutTd";
-
+import CultureSection from "../components/CultureSection";
+import VisionSection from "../components/VisionSection";
 
 const awards = [
   {
@@ -59,22 +60,21 @@ export default function about() {
   return (
     <>
       <div
-        className="hero-background py-5"
+        className="py-5"
         style={{
-          backgroundImage: `url(${aboutus.src})`,
+          backgroundImage: `url(${nabout.src})`,
           backgroundSize: "cover",
           backgroundPosition: "center",
           backgroundRepeat: "no-repeat",
-          height: "300px",
-          marginTop: "-80px",
-          position: "relative",
-          zIndex: 1,
+          minHeight: "500px",
+          display: "flex",
+          alignItems: "center",
         }}
       >
         <div
           className="container "
           style={{
-            paddingTop: "80px",
+            // paddingTop: "80px",
             color: "white",
           }}
         >
@@ -194,10 +194,11 @@ export default function about() {
               </Col>
             ))}
           </Row>
-         
         </Container>
       </section>
-      {/* <AboutTd /> */}
+      {/* <VisionSection />
+      <CultureSection />
+      <AboutTd /> */}
       <ReuseContact />
       <CTASection
         description1="Let's build something impactful together"

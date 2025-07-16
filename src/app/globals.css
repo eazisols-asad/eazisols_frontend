@@ -215,7 +215,7 @@ img {
   padding-top: 76px;
 } */
 .custom-navbar.navbar-scrolled .nav-link {
-  color: #333 !important;
+  /* color: #333 !important; */
   transition: color 0.4s ease;
 }
 
@@ -994,4 +994,20 @@ footer hr {
 }
 .link-hover-effect:hover {
   color: #0d83f2 !important; 
+}
+/* Slide-in animation from right */
+@keyframes slideInFromRight {
+  from {
+    transform: translateX(100px);
+    opacity: 0;
+  }
+  to {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+
+/* Class to apply the animation */
+.animate-slide-in {
+  animation: slideInFromRight 1s ease-out forwards;
 }

@@ -1,6 +1,6 @@
 "use client";
 
-import React from "react";
+import React, { useEffect } from "react";
 import { Container, Row, Col } from "react-bootstrap";
 import ContactForm from "./ContactForm";
 import herobghh from "@/app/assets/herobghh.png";
@@ -9,6 +9,33 @@ import "../globals.css";
 import td from "@/app/assets/td.png";
 
 const HeroSection = () => {
+  useEffect(() => {
+    const style = document.createElement("style");
+    style.innerHTML = `
+      @keyframes slideUp {
+        from {
+          opacity: 0;
+          transform: translateY(40px);
+        }
+        to {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
+
+      .slide-up {
+      opacity: 0;
+      animation: slideUp 1.5s cubic-bezier(0.25, 0.8, 0.25, 1) forwards; 
+      animation-fill-mode: both;
+    }
+      }
+    `;
+    document.head.appendChild(style);
+
+    return () => {
+      document.head.removeChild(style);
+    };
+  }, []);
   return (
     <>
       <section
@@ -22,19 +49,21 @@ const HeroSection = () => {
       >
         <Container className="flex-grow-1 d-flex flex-column justify-content-center heroSection">
           <Row className="align-items-center justify-content-center gx-4">
-            <Col lg={7} >
+            <Col lg={7} className="slide-up">
               <div className="px-lg-5">
                 <h1
                   className="display-3 fw-bold mb-4"
                 >
-                  <span className="herotext text-white">Transform Your </span>
+                  <span className="herotext slide-up text-white">Transform Your </span>
                   <br />
-                  <span className="text-white">Idea</span>
-                  <span style={{ color: "#418ED6", textShadow: "2px 2px 4px rgba(0,0,0,0.2)" }}> Into Reality</span>
-                  <p className="lead text-white mt-3" style={{fontSize: "1.2rem", fontWeight: "400", opacity: "0.9"}}>
+                  <span className="text-white slide-up">Idea</span>
+                  <span className="text-white slide-up" style={{
+                  // color: "#418ED6",
+                   textShadow: "2px 2px 4px rgba(0,0,0,0.2)" }}> Into Reality</span>
+                  <p className="lead text-white slide-up mt-3" style={{fontSize: "1.2rem", fontWeight: "400", opacity: "0.9"}}>
                     Eazisols helps you design, develop, and scale digital solutions 
                     <br />
-                  <span className="text-white"> from idea to execution</span>
+                  <span className="text-white slide-up"> from idea to execution</span>
                   </p>
                 </h1>
 
@@ -42,15 +71,15 @@ const HeroSection = () => {
                   <Row >
                     <Col md={4}>
                       <p className="text-white mb-1">
-                        <FaPhone className="me-2" style={{color: "#418ED6"}}/>+92 321 8881156
+                        <FaPhone className="slide-up text-white me-2" style={{color: "#418ED6"}}/>+92 321 8881156
                       </p>
                       <p className="text-white mb-1">
-                        <FaEnvelope className="me-2" style={{color: "#418ED6"}}/>info@eazisols.com
+                        <FaEnvelope className="slide-up text-white me-2" style={{color: "#418ED6"}}/>info@eazisols.com
                       </p>
                     </Col>
                     <Col md={4}>
                       <p className="text-white mb-1">
-                        <FaWhatsapp className="me-2" style={{color: "#25D366"}}/> +1 (555) 987-6543
+                        <FaWhatsapp className="slide-up text-white me-2" style={{color: "#25D366"}}/> +1 (555) 987-6543
                       </p>
                     </Col>
                   </Row>
@@ -58,8 +87,8 @@ const HeroSection = () => {
               </div>
             </Col>
 
-            <Col lg={5} className="mt-4 mt-lg-0">
-              <div className="d-flex justify-content-center">
+            <Col lg={5} className=" mt-4 mt-lg-0 animate-slide-in">
+              <div className=" d-flex justify-content-center">
                 <ContactForm
                   onSubmit={async (formData) => {
                     console.log(formData);

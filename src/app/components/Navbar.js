@@ -12,7 +12,7 @@ export default function NavigationBar() {
   const [scrolled, setScrolled] = useState(false);
   const isHome = pathname === "/";
   const [expanded, setExpanded] = useState(false);
-const [openModal, setOpenModal] = useState(false);
+  const [openModal, setOpenModal] = useState(false);
   useEffect(() => {
     const handleScroll = () => {
       setScrolled(window.scrollY > 50);
@@ -70,18 +70,32 @@ const [openModal, setOpenModal] = useState(false);
               >
                 About Us
               </Nav.Link>
-              <Nav.Link as={Link} href="/services" onClick={() => setExpanded(false)}>
+              <Nav.Link
+                as={Link}
+                href="/services"
+                onClick={() => setExpanded(false)}
+                className={pathname === "/services" ? "active-link" : ""}
+              >
                 Services
               </Nav.Link>
+
               <NavDropdown
                 title="Our Work"
                 id="services-dropdown"
                 className="custom-dropdown"
               >
-                <NavDropdown.Item as={Link} href="/comingSoon" onClick={() => setExpanded(false)}>
+                <NavDropdown.Item
+                  as={Link}
+                  href="/comingSoon"
+                  onClick={() => setExpanded(false)}
+                >
                   Case Studies
                 </NavDropdown.Item>
-                <NavDropdown.Item as={Link} href="/comingSoon" onClick={() => setExpanded(false)}>
+                <NavDropdown.Item
+                  as={Link}
+                  href="/comingSoon"
+                  onClick={() => setExpanded(false)}
+                >
                   Blog
                 </NavDropdown.Item>
               </NavDropdown>
@@ -103,7 +117,7 @@ const [openModal, setOpenModal] = useState(false);
               </Nav.Link>
               <div className="d-flex align-items-center ">
                 {/* <Link href="/quote" passHref onClick={() => setExpanded(false)}> */}
-                <Link href=""  onClick={() => setOpenModal(true)}>
+                <Link href="" onClick={() => setOpenModal(true)}>
                   <Button className="quote-button">Quote Generator</Button>
                 </Link>
               </div>
@@ -114,7 +128,7 @@ const [openModal, setOpenModal] = useState(false);
 
       {/* Keeps space below fixed navbar */}
       <div className="navbar-spacer" style={{ height: "76px" }}></div>
-        <CostCalculateModal
+      <CostCalculateModal
         open={openModal}
         onClose={() => setOpenModal(false)}
         title="Dynamic Modal Title"

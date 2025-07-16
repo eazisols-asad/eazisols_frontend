@@ -110,13 +110,14 @@ export default function JobDetail() {
           ← Back to jobs
         </Button>
 
-        <Typography variant="h4" fontWeight={700} gutterBottom >
+        <Typography variant="h4" fontWeight={700} gutterBottom 
+        sx={{ textAlign: "center", mb: 4 }} >
           {job.title}
         </Typography>
 
         {/* ----- Description ----- */}
         {job.description && (
-          <Box mb={4}>
+          <Box mb={4}  p={3} sx={{ backgroundColor: "#f9f9f9", borderRadius: 2 }}>
             <Typography variant="h6" fontWeight={600} gutterBottom>
               Description
             </Typography>
@@ -126,7 +127,7 @@ export default function JobDetail() {
 
         {/* ----- Responsibilities ----- */}
         {job.responsibilities && (
-          <Box mb={4}>
+          <Box mb={4} p={3} sx={{ backgroundColor: "#f9f9f9", borderRadius: 2 }}>
             <Typography variant="h6" fontWeight={600} gutterBottom>
               Responsibilities
             </Typography>
@@ -138,13 +139,14 @@ export default function JobDetail() {
 
         {/* ----- Requirements ----- */}
         {job.requirements && (
-          <Box mb={4}>
+          <Box mb={4} p={3} sx={{ backgroundColor: "#f9f9f9", borderRadius: 2 }}>
             <Typography variant="h6" fontWeight={600} gutterBottom>
               Requirements
             </Typography>
             <Typography whiteSpace="pre-line">{job.requirements}</Typography>
           </Box>
         )}
+        <Box display="flex" justifyContent="center" mt={4}>
         <Button
           fullWidth
           variant="contained"
@@ -158,7 +160,7 @@ export default function JobDetail() {
         >
           Apply for this job
         </Button>
-        
+        </Box>
       </Container>
     </>
   );
