@@ -52,7 +52,7 @@ export default function ServicesSection() {
         >
           Services overview
         </h2>
-        <div className="row g-4 mb-4 d-flex justify-content-center align-items-center" style={{marginLeft:"12px",}}>
+        <div className="row g-4 mb-4 d-flex justify-content-center align-items-center" >
             {/* <div
               className="col-12 col-sm-6 col-lg-3 g-0 d-flex justify-content-evenly w-100 "
             
@@ -66,7 +66,7 @@ export default function ServicesSection() {
                 // key={idx}
                 className="bg-white border rounded-4 shadow-sm p-4 w-100 h-100 d-flex flex-column align-items-start servicess-card"
                 style={{
-                  maxWidth: 260, 
+                  maxWidth: 300, 
                   width: "100%",
                   minHeight: 220,
                   borderColor: "#f0f0f0",

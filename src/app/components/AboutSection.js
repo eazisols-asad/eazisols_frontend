@@ -11,7 +11,7 @@ export default function AboutSection() {
   const router = useRouter();
   return (
   <>
-      <Container className="px-3" style={{ maxWidth: "1230px" }}>
+      <Container>
         <Row className="align-items-center bg-white rounded-3 p-4 pt-5 pb-5">
           <Col lg={6} className="text-center">
             <Image
@@ -30,7 +30,7 @@ export default function AboutSection() {
             >
               About Us{" "}
             </h2>
-            <p className="lead text-muted mb-4" style={{ maxWidth: 500 }}>
+            <p className="lead text-muted mb-4">
               Helping businesses succeed through the power of software
               Software is the future of business in this digital-focused world.
               We use technology to change the way companies connect and
