@@ -18,8 +18,9 @@ const stats = [
     label: "Years in business",
     color: "#8C3FFF",
     position: {
-      top: { xs: 100, md: 40 },
-      right: { xs: "50%", md: 0 },
+       top: { xs: 150, md: 40 },
+       left: { xs: "50%", md: "auto" },
+       right: { xs: "auto", md: 0 },
       transform: { xs: "translateX(50%)", md: "none" },
     },
   },
@@ -28,8 +29,9 @@ const stats = [
     label: "Industrie explored",
     color: "#FF9C07",
     position: {
-      bottom: 0,
-      left: "50%",
+      top: { xs: 300, md: "auto" }, 
+      bottom: { xs: "auto", md: 0 },
+      left: { xs: "50%", md: "50%" },
       transform: "translateX(-50%)",
     },
   },
@@ -41,6 +43,7 @@ export default function VisionSection() {
       component="section"
       sx={{
         py: { xs: 6, md: 8 },
+        px: { xs: 2, sm: 3, md: 0 },
         backgroundImage: `url(${nabout.src})`,
         backgroundSize: "cover",
         backgroundPosition: "center",
@@ -85,7 +88,7 @@ export default function VisionSection() {
             flex={1}
             sx={{
               position: "relative",
-              minHeight: 320,
+              minHeight: { xs: 470, md: 320 },
               display: "flex",
               justifyContent: "center",
               alignItems: "center",
@@ -107,7 +110,11 @@ export default function VisionSection() {
                   justifyContent: "center",
                   alignItems: "center",
                   boxShadow: 3,
-                  ...item.position,
+                  top: item.position.top,
+                  bottom: item.position.bottom,
+                  left: item.position.left,
+                  right: item.position.right,
+                  transform: item.position.transform,
                 }}
               >
                 <Typography fontSize={24} fontWeight={700}>

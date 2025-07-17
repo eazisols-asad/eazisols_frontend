@@ -14,7 +14,8 @@ export default function TDHeroSection() {
         display: "flex",
         justifyContent: "center", 
         py: 2,
-      }}>
+      }}
+      className="paddingsection" >
     <Box
       sx={{
         backgroundImage: `url(${td.src})`,

@@ -43,6 +43,7 @@ body {
   color: var(--text-color);
   background: #ffffff;
   font-family: 'DM Sans', sans-serif !important;
+  
 }
 
 * {
@@ -110,7 +111,11 @@ img {
     padding: 2rem 0;
   }
 }
-
+@media (max-width: 768px) {
+  .paddingsection {
+    padding-right: 15px !important;
+  }
+}
 /* Custom styles */
 .nav-link {
   font-weight: 500;

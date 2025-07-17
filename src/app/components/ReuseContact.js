@@ -10,13 +10,13 @@ export default function ReuseContact() {
   const router = useRouter();
   return (
     <>
-      <Container className="px-3 py-4" style={{ maxWidth: "1200px" }}>
-        <Row className="align-items-center bg-white rounded-3 p-3 p-md-4 gx-5">
+      <Container className="px-3 py-4" style={{ maxWidth: "1200px",  }}>
+        <Row className="align-items-center bg-white rounded-3 p-3 p-md-4 gx-5" >
           {/* left side*/}
           <Col
             lg={6}
             md={12}
-            className="text-center mb-4 mb-lg-0"
+            className="paddingsection text-center mb-4 mb-lg-0"
             style={{ paddingRight: "0px" }}
           >
             <div

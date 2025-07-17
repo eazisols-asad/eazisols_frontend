@@ -7,7 +7,7 @@ import { useRouter } from "next/navigation";
 export default function CultureSection() {
   const router = useRouter();
   return (
-    <Box component="section" py={10}>
+    <Box className="paddingsection" component="section" py={10}>
       <Container>
         <Box
           display="flex"

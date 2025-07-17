@@ -42,7 +42,7 @@ export default function JobOpenings() {
 
   return (
     <>
-      <div
+      {/* <div
         className="hero-background py-5"
         style={{
           backgroundImage: `url(${contact.src})`,
@@ -64,7 +64,7 @@ export default function JobOpenings() {
         >
           <h1 className="main-heading text-white">Start Growing With Us</h1>
         </div>
-      </div>
+      </div> */}
 
       <section className="py-5 px-3 bg-light">
         <Container maxWidth="lg" sx={{ px: { xs: 2, md: 4 } }}>

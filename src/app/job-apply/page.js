@@ -122,7 +122,7 @@ export default function JobApplicationForm() {
 
   return (
     <>
-      <div
+      {/* <div
         className="hero-background py-5 "
         style={{
           backgroundImage: `url(${contact.src})`,
@@ -144,8 +144,9 @@ export default function JobApplicationForm() {
         >
           <h1 className="main-heading text-white">Start Growing With Us</h1>
         </div>
-      </div>
-      <Box sx={{ display: "flex", justifyContent: "center", mt: 4, mb: 3 }}>
+      </div> */}
+      <Box sx={{backgroundColor: "#f9f9f9",}}>
+      <Box sx={{ display: "flex", justifyContent: "center", mt: 4, mb: 3 , }}>
         <Box sx={{ display: "flex", borderBottom: "none" }}>
           <Button
             variant="text"
@@ -444,6 +445,7 @@ export default function JobApplicationForm() {
         >
           Submit application
         </Button>
+      </Box>
       </Box>
     </>
   );

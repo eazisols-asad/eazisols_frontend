@@ -66,7 +66,7 @@ export default function about() {
           backgroundSize: "cover",
           backgroundPosition: "center",
           backgroundRepeat: "no-repeat",
-          minHeight: "500px",
+          minHeight: "300px",
           display: "flex",
           alignItems: "center",
         }}

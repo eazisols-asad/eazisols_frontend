@@ -47,7 +47,7 @@ export default function JobDetail() {
 
   return (
     <>
-      <div
+      {/* <div
         className="hero-background py-5 "
         style={{
           backgroundImage: `url(${contact.src})`,
@@ -69,7 +69,7 @@ export default function JobDetail() {
         >
           <h1 className="main-heading text-white">Start Growing With Us</h1>
         </div>
-      </div>
+      </div> */}
       <Container maxWidth="md" sx={{ py: 3, height: "100%" }}>
         
         <Box sx={{ display: "flex", justifyContent: "center",  mb: 3 }}>
