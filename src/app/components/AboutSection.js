@@ -11,7 +11,7 @@ export default function AboutSection() {
   const router = useRouter();
   return (
   <>
-      <Container className="px-3" style={{ maxWidth: "1200px" }}>
+      <Container className="px-3" style={{ maxWidth: "1230px" }}>
         <Row className="align-items-center bg-white rounded-3 p-4 pt-5 pb-5">
           <Col lg={6} className="text-center">
             <Image

@@ -54,7 +54,7 @@ const HeroSection = () => {
                 <h1
                   className="display-3 fw-bold mb-4"
                 >
-                  <span className="herotext slide-up text-white">Transform Your </span>
+                  <span className=" slide-up text-white">Transform Your </span>
                   <br />
                   <span className="text-white slide-up">Idea</span>
                   <span className="text-white slide-up" style={{

@@ -101,7 +101,7 @@ export default function about() {
         </div>
       </div>
       <section style={{ padding: "80px 0" }}>
-        <Container>
+        <Container >
           <div className="text-center mb-5">
             <div
               className="py-1 px-3 rounded-pill border d-inline-block mb-2"
@@ -199,7 +199,11 @@ export default function about() {
       {/* <VisionSection />
       <CultureSection />
       <AboutTd /> */}
+      <section>
+      <div className="container-lg " >
       <ReuseContact />
+      </div>
+      </section>
       <CTASection
         description1="Let's build something impactful together"
         description2="Quote Generator"

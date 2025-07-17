@@ -6,7 +6,7 @@ import LogoSection, { ReverseSectionsSlider } from "./components/LogoSection";
 import AboutSection from "./components/AboutSection";
 import CTASection from "./components/CTASection";
 import WaterfallProcess from "./components/WaterfallProcess";
-import Services from "./components/Services";  
+import Services from "./components/Services";
 import NewBlogs from "./components/NewBlogs";
 import LogoSliderr from "./components/LogoSliderr";
 import TestimonialSection from "./components/TestimonialSection";
@@ -85,10 +85,9 @@ export default function Home() {
       <TestimonialSection /> */}
       <ReuseContact />
       <CTASection
-      description1="YOU WANT TO SHOWCASE YOUR WEBSITE"
-      description2="Quote Generator"
-       />
-     
+        description1="YOU WANT TO SHOWCASE YOUR WEBSITE"
+        description2="Quote Generator"
+      />
     </div>
   );
 }

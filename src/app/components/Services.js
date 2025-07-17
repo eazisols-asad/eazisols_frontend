@@ -39,8 +39,8 @@ export default function ServicesSection() {
     <section
       style={{
         padding: "56px 0 32px 0",
-        // backgroundImage: `url(${techtol.src})`, 
-        // backgroundSize: "cover", 
+        // backgroundImage: `url(${techtol.src})`,
+        // backgroundSize: "cover",
         // backgroundPosition: "center",
         // backgroundRepeat: "no-repeat",
       }}
@@ -52,12 +52,22 @@ export default function ServicesSection() {
         >
           Services overview
         </h2>
-        <div className="row g-4 mb-4">
+        <div className="row g-4 mb-4 d-flex justify-content-center align-items-center" style={{marginLeft:"12px",}}>
+            {/* <div
+              className="col-12 col-sm-6 col-lg-3 g-0 d-flex justify-content-evenly w-100 "
+            
+            > */}
           {services.map((service, idx) => (
-            <div className="col-12 col-sm-6 col-lg-3 d-flex" key={idx}>
+             <div
+      key={idx}
+      className="col-12 col-sm-6 col-lg-3 g-0 d-flex justify-content-evenly"
+    > 
               <div
-                className="bg-white border rounded-4 shadow-sm p-4 w-100 h-100 d-flex flex-column align-items-start"
+                // key={idx}
+                className="bg-white border rounded-4 shadow-sm p-4 w-100 h-100 d-flex flex-column align-items-start servicess-card"
                 style={{
+                  maxWidth: 260, 
+                  width: "100%",
                   minHeight: 220,
                   borderColor: "#f0f0f0",
                   boxShadow: "0 2px 12px 0 rgba(16,30,54,.04)",
@@ -70,11 +80,11 @@ export default function ServicesSection() {
                   e.currentTarget.style.transform = "translateY(-8px)";
                   e.currentTarget.style.boxShadow =
                     "0 12px 28px 0 rgba(16,30,54,.15)";
-                  e.currentTarget.style.borderColor = "#2563eb";
+                  e.currentTarget.style.borderColor = "#418ED6";
                   const icon = e.currentTarget.querySelector(".service-icon");
                   if (icon) {
                     icon.style.transform = "scale(1.1) rotate(5deg)";
-                    icon.style.color = "#1d4ed8";
+                    icon.style.color = "#418ED6";
                   }
                 }}
                 onMouseOut={(e) => {
@@ -85,7 +95,7 @@ export default function ServicesSection() {
                   const icon = e.currentTarget.querySelector(".service-icon");
                   if (icon) {
                     icon.style.transform = "scale(1) rotate(0)";
-                    icon.style.color = "#2563eb";
+                    icon.style.color = "#418ED6";
                   }
                 }}
               >
@@ -93,13 +103,13 @@ export default function ServicesSection() {
                   className="mb-3 service-icon"
                   style={{ transition: "all 0.3s ease-in-out" }}
                 >
-                  <service.icon size={44} color="#2563eb" />
+                  <service.icon size={36} color="#418ED6" />
                 </div>
                 <div>
                   <div
                     className="fw-bold mb-2"
                     style={{
-                      fontSize: 22,
+                      fontSize: 18,
                       color: "#23223a",
                       transition: "background-position 0.3s ease-in-out",
                       padding: "4px 8px",
@@ -111,7 +121,7 @@ export default function ServicesSection() {
                   <div
                     className="text-muted"
                     style={{
-                      fontSize: 16,
+                      fontSize: 14,
                       lineHeight: 1.6,
                       marginTop: "8px",
                     }}
@@ -120,10 +130,11 @@ export default function ServicesSection() {
                   </div>
                 </div>
               </div>
-            </div>
+              </div>
           ))}
         </div>
-        <div className="d-flex justify-content-end">
+            
+        <div className="d-flex justify-content-end pe-5">
           <ReuseButton
             onClick={() => router.push("/services")}
             description1="Explore Services"

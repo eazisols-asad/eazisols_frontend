@@ -25,11 +25,11 @@ export default function ComingSoon() {
       <Container>
         <Row className="justify-content-center">
           <Col lg={6} className="text-center text-lg-start mb-1 mb-lg-0">
-            <img
+            {/* <img
               src={eazistransbg.src}
               alt="Logo"
               style={{ width: 140, mb:0 }}
-            />
+            /> */}
 
             {/* <Typography
               variant="h4"
@@ -48,6 +48,7 @@ export default function ComingSoon() {
                 fontWeight: 800,
                 color: '#000',
                 mb: 1,
+                mt:10,
                 fontFamily: 'Poppins, sans-serif',
               }}
             >
