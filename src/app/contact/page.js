@@ -4,6 +4,7 @@ import Image from "next/image";
 import { FaLinkedin, FaFacebook, FaInstagram } from "react-icons/fa";
 import useAPiAuth from "../components/useApiAuth";
 import contact from "@/app/assets/contact.png";
+import CapgeminiCON from "@/app/assets/CapgeminiCON.webp";
 import { Container, Row, Col, Form, Button } from "react-bootstrap";
 import { useSnackbar } from "../components/Snakbar";
 
@@ -11,23 +12,29 @@ export default function ContactPage() {
   const { postData, getData } = useAPiAuth();
   const { handleSnackbarOpen } = useSnackbar();
   const handleSubmit = async (formData) => {
+    const cleanedFormData = {
+      ...formData,
+      fullName: formData.fullName.replace(/\s{2,}/g, " ").trim(),
+      company_name: formData.company_name.replace(/\s{2,}/g, " ").trim(),
+      message: formData.message.trim(),
+    };
     postData(
       "/contact-us",
-      formData,
+      cleanedFormData,
       (data) => {
         console.log("API Success:", data);
-        handleSnackbarOpen("Form sent successfully!", "success"); 
+        handleSnackbarOpen("Form sent successfully!", "success");
       },
       (error) => {
         console.error("user error:", error);
         handleSnackbarOpen("Something went wrong.", "error");
       }
     );
-    console.log(formData);
+    console.log(cleanedFormData);
   };
   return (
     <>
-      <div
+      {/* <div
         className="hero-background py-5"
         style={{
           backgroundImage: `url(${contact.src})`,
@@ -49,6 +56,49 @@ export default function ContactPage() {
         >
           <h1 className="main-heading text-white"> Let's Talk</h1>
           <p className="text-white">
+            Have a project in mind or a question about our services? We'd love
+            to hear from you.
+          </p>
+        </div>
+      </div> */}
+      <div
+        className="py-5"
+        style={{
+          backgroundImage: `url(${CapgeminiCON.src})`,
+          backgroundSize: "cover",
+          backgroundPosition: "center",
+          backgroundRepeat: "no-repeat",
+          minHeight: "300px",
+          overflow: "visible",
+          position: "relative",
+        }}
+      >
+        <div
+          className="about-overlay-box"
+          style={{
+            position: "absolute",
+            top: "80px",
+            left: "110px",
+            width: "600px",
+            height: "270px",
+            background: "rgba(65, 142, 214, 0.85)",
+            borderRadius: "10px",
+            padding: "40px",
+            display: "flex",
+            flexDirection: "column",
+            justifyContent: "center",
+            color: "white",
+            zIndex: 2,
+          }}
+        >
+          <h1 style={{ margin: 0, fontSize: "2.5rem", fontWeight: "bold" }}>
+            Let's Talk
+          </h1>{" "}
+          <br />
+          <p
+            className="lead text-white mt-2"
+            style={{ fontSize: "1.2rem", fontWeight: "400", opacity: "0.9" }}
+          >
             Have a project in mind or a question about our services? We'd love
             to hear from you.
           </p>

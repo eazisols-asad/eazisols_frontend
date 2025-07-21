@@ -145,7 +145,7 @@ export default function JobApplicationForm() {
           <h1 className="main-heading text-white">Start Growing With Us</h1>
         </div>
       </div> */}
-      <Box sx={{backgroundColor: "#f9f9f9",}}>
+      <Box sx={{backgroundColor: "#f9f9f9", }}>
       <Box sx={{ display: "flex", justifyContent: "center", mt: 4, mb: 3 , }}>
         <Box sx={{ display: "flex", borderBottom: "none" }}>
           <Button
@@ -179,7 +179,7 @@ export default function JobApplicationForm() {
         </Box>
       </Box>
 
-      <Box sx={{ maxWidth: 500, mx: "auto", bgcolor: "#fff", p: 3 }}>
+      <Box sx={{ maxWidth: 500, mx: "auto", bgcolor: "#fff", py:"6", }}>
         <Section title=" Personal information" onClear={handleClear}>
           <Box display="flex" gap={2} mb={2}>
             <TextField

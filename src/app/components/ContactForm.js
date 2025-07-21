@@ -39,7 +39,7 @@ export default function ContactForm({
 
     setLoading(false);
     setFormData({
-      name: "",
+      fullName: "",
       email: "",
       phone: "",
       company_name: "",
@@ -48,22 +48,55 @@ export default function ContactForm({
     setValidated(false);
   };
 
+  // const handleChange = (e) => {
+  //   const { name, value } = e.target;
+
+  //   if (name === "fullName") {
+  //     const cleaned = value
+  //       .replace(/[^A-Za-z .,'-]/g, "")
+
+  //       .slice(0, 50);
+  //     setFormData((prev) => ({ ...prev, [name]: cleaned }));
+  //     return;
+  //   }
+
+  //   if (name === "company_name") {
+  //     const cleaned = value.replace(/[0-9]/g, "").slice(0, 50);
+  //     setFormData((prev) => ({ ...prev, [name]: cleaned }));
+  //     return;
+  //   }
+
+  //   if (name === "email") {
+  //     const cleaned = value.replace(/\s+/g, "");
+  //     setFormData((prev) => ({ ...prev, [name]: cleaned }));
+  //     return;
+  //   }
+
+  //    if (name === "message") {
+  //     const cleaned = value
+  //     .replace(/\s+/g, "");
+  //     setFormData((prev) => ({ ...prev, [name]: cleaned }));
+  //     return;
+  //   }
+
+  //   setFormData((prev) => ({
+  //     ...prev,
+  //     [name]: value,
+  //   }));
+  // };
+
   const handleChange = (e) => {
     const { name, value } = e.target;
 
     if (name === "fullName") {
-      const cleaned = value
-        .replace(/[^A-Za-z .,'-]/g, "")
-        // .replace(/\s+/g, " ")
-        .replace(/\s{2,}/g, " ")
-        .replace(/\s+$/, "")
-        .replace(/^\s+/, "")
-        .trim()
-        .split(" ")
-        .map((w) => w.charAt(0).toUpperCase() + w.slice(1))
-        .join(" ")
-        .slice(0, 50);
-      setFormData((prev) => ({ ...prev, [name]: cleaned }));
+      const cleaned = value.replace(/[^A-Za-z .,'-]/g, "").slice(0, 50);
+
+      const capitalized = cleaned.replace(
+        /\b\w+/g,
+        (word) => word.charAt(0).toUpperCase() + word.slice(1)
+      );
+
+      setFormData((prev) => ({ ...prev, [name]: capitalized }));
       return;
     }
 
@@ -73,8 +106,13 @@ export default function ContactForm({
       return;
     }
 
-    if (name === "email" || name === "message") {
-      const cleaned = value.replace(/\s+/g, "");
+    if (name === "email") {
+      const cleaned = value.replace(/\s/g, "").slice(0, 100);
+      setFormData((prev) => ({ ...prev, [name]: cleaned }));
+      return;
+    }
+    if (name === "message") {
+      const cleaned = value.slice(0, 500);
       setFormData((prev) => ({ ...prev, [name]: cleaned }));
       return;
     }
@@ -118,6 +156,9 @@ export default function ContactForm({
                 name="email"
                 value={formData.email}
                 onChange={handleChange}
+                onKeyDown={(e) => {
+                  if (e.key === " ") e.preventDefault();
+                }}
                 placeholder="Enter your email address"
                 maxLength={100}
               />
@@ -160,7 +201,7 @@ export default function ContactForm({
         </Row>
 
         <Form.Group className="mb-3 ">
-          <Form.Label className="small-label">Inquiry Details</Form.Label>
+          <Form.Label className="small-label">Inquiry Details *</Form.Label>
           <Form.Control
             as="textarea"
             rows={2}

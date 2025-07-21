@@ -21,11 +21,17 @@ import maxlife from "@/app/assets/maxlife.png";
 import mfg from "@/app/assets/mfg.png";
 import mymint from "@/app/assets/mymint.png";
 import noir from "@/app/assets/noir.png";
-import ola from "@/app/assets/ola.png";
 import order from "@/app/assets/order.png";
 import rocket from "@/app/assets/rocket.png";
 import westilo from "@/app/assets/westilo.png";
 import westland from "@/app/assets/westland.png";
+import newlogo from "@/app/assets/newlogo.png";
+import jerry from "@/app/assets/jerry.png";
+import landbridge from "@/app/assets/landbridge.png";
+import offthe from "@/app/assets/offthe.png";
+import rolling from "@/app/assets/rolling.png";
+import tip from "@/app/assets/tip.png";
+import todays from "@/app/assets/todays.png";
 
 import "../globals.css";
 
@@ -46,11 +52,17 @@ const imageData = [
   { id: 14, defaultSrc: mfg.src, alt: "MFG" },
   { id: 15, defaultSrc: mymint.src, alt: "Mymint" },
   { id: 16, defaultSrc: noir.src, alt: "Noir" },
-  // { id: 17, defaultSrc: ola.src, alt: "Ola" },
+  { id: 17, defaultSrc: newlogo.src, alt: "pawTrack" },
   { id: 18, defaultSrc: order.src, alt: "Order" },
   { id: 19, defaultSrc: rocket.src, alt: "Rocket" },
   { id: 20, defaultSrc: westilo.src, alt: "Westilo" },
   { id: 21, defaultSrc: westland.src, alt: "Westland" },
+  { id: 22, defaultSrc: jerry.src, alt: "Jerry" },
+  { id: 23, defaultSrc: landbridge.src, alt: "LandBridge" },
+  { id: 24, defaultSrc: offthe.src, alt: "OffTheHook" },
+  { id: 25, defaultSrc: rolling.src, alt: "RollingLagon" },
+  { id: 26, defaultSrc: tip.src, alt: "TIB" },
+  { id: 27, defaultSrc: todays.src, alt: "DigitalAzari" },
 ];
 
 export default function LogoSliderr() {
@@ -85,7 +97,7 @@ export default function LogoSliderr() {
                   src={image.defaultSrc}
                   alt={image.alt}
                   style={{
-                    // maxHeight: "120px",
+                    maxHeight: "150px",
                     objectFit: "contain",
                     maxWidth: "100px",
                     minWidth: "100px",

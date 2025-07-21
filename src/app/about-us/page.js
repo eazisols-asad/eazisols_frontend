@@ -1,7 +1,8 @@
 "use client";
 import React from "react";
 import { Container, Row, Col } from "react-bootstrap";
-import nabout from "@/app/assets/nabout.png";
+import Lahore from "@/app/assets/Lahore.jpg";
+import Capgemini from "@/app/assets/Capgemini.webp";
 import CTASection from "../components/CTASection";
 import "../globals.css";
 import {
@@ -62,46 +63,47 @@ export default function about() {
       <div
         className="py-5"
         style={{
-          backgroundImage: `url(${nabout.src})`,
+          backgroundImage: `url(${Capgemini.src})`,
           backgroundSize: "cover",
           backgroundPosition: "center",
           backgroundRepeat: "no-repeat",
           minHeight: "300px",
-          display: "flex",
-          alignItems: "center",
+          overflow: "visible",
+          position: "relative",
         }}
       >
         <div
-          className="container "
+        className="about-overlay-box"
           style={{
-            // paddingTop: "80px",
+            position: "absolute",
+            top: "80px",
+            left: "110px",
+            width: "600px",
+            height: "270px", 
+            background: "rgba(65, 142, 214, 0.85)",
+            borderRadius: "10px",
+            padding: "40px",
+            display: "flex",
+            flexDirection: "column", 
+            justifyContent: "center",
             color: "white",
+            zIndex: 2,
           }}
         >
-          <h1 className="main-heading text-white">About Us</h1>
-
+          <h1 style={{ margin: 0, fontSize: "2.5rem", fontWeight: "bold" }}>
+            About Us
+          </h1>{" "}
+          <br />
           <p
             className="lead text-white mt-2"
             style={{ fontSize: "1.2rem", fontWeight: "400", opacity: "0.9" }}
           >
             Driving startup growth with smart digital tools
-            {/* <br />
-            <span className="text-white">
-              digital solutions tailored to accelerate their growth
-            </span> */}
-            {/* <br />
-            <span className="text-white">
-              We combine modern tech with human creativity
-            </span>
-            <br />
-            <span className="text-white">
-              to deliver solutions that drive real results
-            </span> */}
           </p>
         </div>
       </div>
-      <section style={{ padding: "80px 0" }}>
-        <Container >
+      <section style={{ padding: "80px 0", marginTop:"10px", }}>
+        <Container>
           <div className="text-center mb-5">
             <div
               className="py-1 px-3 rounded-pill border d-inline-block mb-2"
@@ -200,9 +202,9 @@ export default function about() {
       <CultureSection />
       <AboutTd /> */}
       <section>
-      <div className="container-lg " >
-      <ReuseContact />
-      </div>
+        <div className="container-lg ">
+          <ReuseContact />
+        </div>
       </section>
       <CTASection
         description1="Let's build something impactful together"

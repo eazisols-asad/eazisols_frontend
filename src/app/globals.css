@@ -1074,4 +1074,20 @@ footer hr {
     padding-right: 3.25rem;
   }
 }
+@media (max-width: 991px) {
+  .about-overlay-box {
+    width: 90% !important;
+    left: 20px !important;
+    top: 40px !important;
+    height: auto !important;
+    padding: 30px !important;
+  }
+  
+  .about-overlay-box h1 {
+    font-size: 2rem !important;
+  }
 
+  .about-overlay-box p {
+    font-size: 1rem !important;
+  }
+}

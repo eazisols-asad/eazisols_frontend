@@ -3,6 +3,7 @@ import React from "react";
 import { Container, Row, Col } from "react-bootstrap";
 import "../globals.css";
 import contact from "@/app/assets/contact.png";
+import CapgeminiSERVI from "@/app/assets/CapgeminiSERVI.webp";
 import javas from "@/app/assets/javas.png";
 import typescript from "@/app/assets/typescript.png";
 import react from "@/app/assets/react.png";
@@ -38,40 +39,50 @@ const techStack = [
 export default function Capabilities() {
   return (
     <>
-      <div
-        className="hero-background py-5"
-        style={{
-          backgroundImage: `url(${contact.src})`,
-          backgroundSize: "cover",
-          backgroundPosition: "center",
-          backgroundRepeat: "no-repeat",
-          height: "350px",
-          marginTop: "-80px",
-          position: "relative",
-          zIndex: 1,
-        }}
-      >
-         <div
-          className="container "
-          style={{
-            paddingTop: "100px",
-            color: "white",
-          }}
-        >
-          <h1 className="main-heading text-white">Our Services</h1>
-          <p
-                  className="lead text-white mt-1"
-                  style={{ fontSize: "1.2rem", fontWeight: "400", opacity: "0.9" }}
-                >
-                  Join a team that's redefining digital experiences
-                  <br />
-                  <span className="text-white">
-                   We're not just building software — we're building careers
-                  </span>
-                </p>
-        </div>
-      </div>
-      <section className="py-5 bg-white">
+    <div
+            className="py-5"
+            style={{
+              backgroundImage: `url(${CapgeminiSERVI.src})`,
+              backgroundSize: "cover",
+              backgroundPosition: "center",
+              backgroundRepeat: "no-repeat",
+              minHeight: "300px",
+              overflow: "visible",
+              position: "relative",
+            }}
+          >
+            <div
+            className="about-overlay-box"
+              style={{
+                position: "absolute",
+                top: "80px",
+                left: "110px",
+                width: "600px",
+                height: "270px", 
+                background: "rgba(65, 142, 214, 0.85)",
+                borderRadius: "10px",
+                padding: "40px",
+                display: "flex",
+                flexDirection: "column", 
+                justifyContent: "center",
+                color: "white",
+                zIndex: 2,
+              }}
+            >
+              <h1 style={{ margin: 0, fontSize: "2.5rem", fontWeight: "bold" }}>
+               Our Services
+              </h1>{" "}
+              <br />
+              <p
+                className="lead text-white mt-2"
+                style={{ fontSize: "1.2rem", fontWeight: "400", opacity: "0.9" }}
+              >
+                Join a team that's redefining digital experiences
+              </p>
+            </div>
+          </div>
+      
+      <section className="py-5 bg-white mt-5">
         <Container>
           <h5
             className="fw-bold mb-5 ms-0"

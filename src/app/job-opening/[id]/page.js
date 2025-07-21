@@ -153,7 +153,7 @@ export default function JobDetail() {
           sx={{
             bgcolor: "#4d8fcd",
             fontWeight: 600,
-            width: " 250px",
+            width: " 200px",
             "&:hover": { bgcolor: "#4d8fcd" },
           }}
           onClick={() => router.push(`/job-apply?jobId=${id}`)}

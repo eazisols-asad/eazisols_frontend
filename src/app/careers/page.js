@@ -6,6 +6,7 @@ import "../globals.css";
 import { useRouter } from "next/navigation";
 import CTASection from "../components/CTASection";
 import aboutus from "@/app/assets/aboutus.png";
+import Capgeminicarr from "@/app/assets/Capgeminicarr.webp";
 import { Container, Row, Col } from "react-bootstrap";
 import {
   FaNotesMedical,
@@ -69,7 +70,7 @@ export default function Careers() {
   const router = useRouter();
   return (
     <>
-      <div
+      {/* <div
               className="hero-background py-5"
               style={{
                 backgroundImage: `url(${aboutus.src})`,
@@ -109,15 +110,67 @@ export default function Careers() {
                     borderRadius: 8,
                     fontWeight: 600,
                     color: " #fff",
-                    padding: "12px 32px",
+                    padding: "12px 28px",
                   }}
                   onClick={() => router.push("/job-opening")}
                 >
                   See Open Positions
                 </Button>
               </div> 
-            </div>
-      <section className="py-5 bg-light">
+            </div> */}
+            <div
+                    className="py-5"
+                    style={{
+                      backgroundImage: `url(${Capgeminicarr.src})`,
+                      backgroundSize: "cover",
+                      backgroundPosition: "center",
+                      backgroundRepeat: "no-repeat",
+                      minHeight: "300px",
+                      overflow: "visible",
+                      position: "relative",
+                    }}
+                  >
+                    <div
+                    className="about-overlay-box"
+                      style={{
+                        position: "absolute",
+                        top: "80px",
+                        left: "110px",
+                        width: "600px",
+                        height: "270px", 
+                        background: "rgba(65, 142, 214, 0.85)",
+                        borderRadius: "10px",
+                        padding: "40px",
+                        display: "flex",
+                        flexDirection: "column", 
+                        justifyContent: "center",
+                        color: "white",
+                        zIndex: 2,
+                      }}
+                    >
+                      <h1 style={{ margin: 0, fontSize: "2.5rem", fontWeight: "bold" }}>
+                        Build Your Future with Eazisols
+                      </h1>{" "}
+                      <br />
+                      <Button
+                  variant="primary"
+                  size="lg"
+                  style={{
+                    backgroundColor: "#fff",
+                    border: "none",
+                    borderRadius: 8,
+                    fontWeight: 600,
+                    color: " #418ED6",
+                    padding: "12px 10px",
+                    width: "fit-content",
+                  }}
+                  onClick={() => router.push("/job-opening")}
+                >
+                  See Open Positions
+                </Button>
+                    </div>
+                  </div>
+      <section className="py-5 bg-light mt-5">
         <Container>
           <h2 className="fw-bold text-center mb-5">How You Join Eazisols</h2>
           <Row className="g-4">
@@ -133,7 +186,7 @@ export default function Careers() {
                   <div
                     style={{
                       fontSize: "2rem",
-                      color: "#2563eb",
+                      color: "#418ED6",
                       marginBottom: "16px",
                     }}
                   >
@@ -172,7 +225,7 @@ export default function Careers() {
               >
                 <div
                   className="mb-2"
-                  style={{ fontSize: "1.5rem", color: "#2563eb" }}
+                  style={{ fontSize: "1.5rem", color: "#418ED6" }}
                 >
                   <item.logo />
                 </div>
