@@ -5,6 +5,7 @@ import "../globals.css";
 import CTASection from "../components/CTASection";
 import Link from "next/link";
 import { Container, Row, Col } from "react-bootstrap";
+import salesforce from "@/app/assets/salesforce.jpg";
 import {
   Card,
   CardActionArea,
@@ -12,11 +13,12 @@ import {
   CardMedia,
   Typography,
 } from "@mui/material";
+
 import { FiMapPin } from "react-icons/fi";
 const BLOGS = [
   {
     id: 1,
-    img: aboutus,
+    img: salesforce,
     day: "15",
     month: "DEC",
     location: "Phonics, Newyork",
@@ -26,7 +28,7 @@ const BLOGS = [
   },
   {
     id: 2,
-    img: aboutus,
+    img: salesforce,
     day: "12",
     month: "SEPT",
     location: "Cambridge, England",
@@ -36,7 +38,7 @@ const BLOGS = [
   },
   {
     id: 3,
-    img: aboutus,
+    img: salesforce,
     day: "14",
     month: "AUG",
     location: "Barcelona, London",
@@ -52,7 +54,7 @@ export default function Careers() {
       <div
         className="hero-background py-5"
         style={{
-          // backgroundImage: `url(${aboutus.src})`,
+          backgroundImage: `url(${salesforce.src})`,
           backgroundSize: "cover",
           backgroundPosition: "center",
           backgroundRepeat: "no-repeat",
