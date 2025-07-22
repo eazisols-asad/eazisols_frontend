@@ -5,6 +5,10 @@ import { Form, Button, Row, Col } from "react-bootstrap";
 import PhoneInput from "react-phone-input-2";
 import "react-phone-input-2/lib/bootstrap.css";
 import "../globals.css";
+
+
+
+
 export default function ContactForm({
   onSubmit,
   buttonText = "Please wait...",
@@ -21,32 +25,36 @@ export default function ContactForm({
   const [validated, setValidated] = useState(false);
   const [loading, setLoading] = useState(false);
 
-  const handleSubmit = async (event) => {
-    event.preventDefault();
-    const form = event.currentTarget;
+ const handleSubmit = async (event) => {
+  event.preventDefault();
+  const form = event.currentTarget;
+  const isPhoneValid = formData.phone.trim() !== "";
+  const isMessageValid = formData.message.trim().length >= 20;
+  if (form.checkValidity() === false || !isPhoneValid || !isMessageValid) {
+    event.stopPropagation();
+    setValidated(true);
+    return;
+  }
 
-    if (form.checkValidity() === false) {
-      event.stopPropagation();
-      setValidated(true);
-      return;
-    }
+  setLoading(true);
 
-    setLoading(true);
+  if (onSubmit) {
+    await onSubmit(formData);
+  }
 
-    if (onSubmit) {
-      await onSubmit(formData);
-    }
+  setLoading(false);
 
-    setLoading(false);
-    setFormData({
-      fullName: "",
-      email: "",
-      phone: "",
-      company_name: "",
-      message: "",
-    });
-    setValidated(false);
-  };
+  setFormData({
+    fullName: "",
+    email: "",
+    phone: "",
+    company_name: "",
+    message: "",
+  });
+
+  setValidated(false);
+};
+
 
   // const handleChange = (e) => {
   //   const { name, value } = e.target;
@@ -181,8 +189,12 @@ export default function ContactForm({
                 }
                 inputClass="form-control"
                 containerClass="phone-input"
-                required
               />
+              {validated && formData.phone.trim() === "" && (
+                <div className="text-danger small mt-1">
+                  Phone number is required.
+                </div>
+              )}
             </Form.Group>
           </Col>
           <Col md={6}>
