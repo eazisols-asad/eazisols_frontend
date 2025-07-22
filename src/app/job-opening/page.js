@@ -3,9 +3,10 @@ import React, { useState, useEffect } from "react";
 import { TextField, MenuItem, Box, Container } from "@mui/material";
 import "../globals.css";
 import useAPiAuth from "../components/useApiAuth";
-import contact from "@/app/assets/contact.png";
 import { useRouter } from "next/navigation";
 import Link from "next/link";
+import { FaSearch } from "react-icons/fa";
+
 
 export default function JobOpenings() {
   const router = useRouter();
@@ -26,10 +27,10 @@ export default function JobOpenings() {
     getData(
       "/api/careers",
       (data) => {
-         console.log("Raw API response:", data);
+        console.log("Raw API response:", data);
         // const list = Array.isArray(data?.data?.data) ? data.data.data : [];
         const list = Array.isArray(data?.data) ? data.data : [];
-        console.log("🚀 ~ useEffect ~ list:", list)
+        console.log("🚀 ~ useEffect ~ list:", list);
         setJobs(list);
         setLoading(false);
       },
@@ -42,40 +43,91 @@ export default function JobOpenings() {
 
   return (
     <>
-      {/* <div
-        className="hero-background py-5"
+      <div
         style={{
-          backgroundImage: `url(${contact.src})`,
-          backgroundSize: "cover",
-          backgroundPosition: "center",
-          backgroundRepeat: "no-repeat",
-          height: "250px",
-          marginTop: "-80px",
-          position: "relative",
-          zIndex: 1,
+          backgroundColor: "#418ED6",
+          padding: "80px 20px",
+          textAlign: "center",
         }}
       >
-        <div
-          className="container"
+
+        <h2
           style={{
-            paddingTop: "80px",
             color: "white",
+            fontSize: "2rem",
+            fontWeight: "bold",
+            marginBottom: "30px",
           }}
         >
-          <h1 className="main-heading text-white">Start Growing With Us</h1>
+          Job Search
+        </h2>
+
+        <div
+          style={{
+            display: "flex",
+            justifyContent: "center",
+            alignItems: "center",
+          }}
+        >
+          <div
+            style={{
+              backgroundColor: "white",
+              borderRadius: "999px",
+              display: "flex",
+              alignItems: "center",
+              width: "100%",
+              maxWidth: "700px",
+              padding: "6px 10px",
+              boxShadow: "0 2px 5px rgba(0,0,0,0.1)",
+            }}
+          >
+            <input
+              type="text"
+              placeholder="Enter job name or reference id"
+              style={{
+                border: "none",
+                outline: "none",
+                flex: 1,
+                padding: "12px 20px",
+                fontSize: "1rem",
+                borderRadius: "999px",
+                minWidth: "0",
+              }}
+                value={filters.keyword}
+              onChange={(e) =>
+                setFilters({ ...filters, keyword: e.target.value })
+              }
+            />
+            
+            <button
+              style={{
+                width: "48px",
+                height: "48px",
+                borderRadius: "50%",
+                backgroundColor: "#418ED6",
+                border: "none",
+                display: "flex",
+                alignItems: "center",
+                justifyContent: "center",
+                cursor: "pointer",
+                flexShrink: 0,
+              }}
+            >
+            <FaSearch className="text-white" />
+            </button>
+          </div>
         </div>
-      </div> */}
+      </div>
 
       <section className="py-5 px-3 bg-light">
         <Container maxWidth="lg" sx={{ px: { xs: 2, md: 4 } }}>
           <h2 className="fw-bold text-center">Find Your Role at Eazisols</h2>
           <p className="text-muted text-center">
-            We're always on the lookout for passionate people to join our
-            growing team.
+           Rewrite your future. Search and apply for a job today
           </p>
 
           {/* Search Input */}
-          <Box className="mb-3">
+          {/* <Box className="mb-3">
             <TextField
               fullWidth
               placeholder="Search by title, team, or keyword..."
@@ -88,7 +140,7 @@ export default function JobOpenings() {
                 setFilters({ ...filters, keyword: e.target.value })
               }
             />
-          </Box>
+          </Box> */}
 
           {/* Dropdown Filters */}
           <Box className="row g-3">
@@ -109,7 +161,7 @@ export default function JobOpenings() {
                 </MenuItem>
                 <MenuItem value="Remote">Remote</MenuItem>
                 <MenuItem value="On Site">On Site</MenuItem>
-                <MenuItem value="hybride">Hybrid</MenuItem>
+                <MenuItem value="Hybrid">Hybrid</MenuItem>
               </TextField>
             </Box>
 
@@ -243,14 +295,16 @@ export default function JobOpenings() {
                 );
               }
 
-              return filtered.map((job, idx) => (
+              return filtered.map((job, idx) =>{
+                console.log("🚀 ~ returnfiltered.map ~ job:", job)
+                
+                return (
                 <Link
-                  key={job.id}
+                  key={idx}
                   href={`/job-opening/${job.id}`}
                   style={{ textDecoration: "none", color: "inherit" }}
                 >
                   <div
-                    key={idx}
                     className="py-3 border-bottom d-flex flex-md-row justify-content-between align-items-start"
                     style={{ width: "100%" }}
                   >
@@ -279,7 +333,7 @@ export default function JobOpenings() {
                     </div>
                   </div>
                 </Link>
-              ));
+              )});
             })()}
           </div>
         </Container>

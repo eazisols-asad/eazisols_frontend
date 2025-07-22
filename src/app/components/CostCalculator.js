@@ -45,7 +45,6 @@ import {
   FaPiggyBank,
 } from "react-icons/fa";
 import eazistransbg from "@/app/assets/eazistransbg.png";
-import contact from "@/app/assets/contact.png";
 import { IoIosArrowBack, IoIosArrowForward } from "react-icons/io";
 const Transition = forwardRef(function Transition(props, ref) {
   return <Slide direction="up" ref={ref} {...props} />;

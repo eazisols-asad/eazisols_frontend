@@ -7,8 +7,8 @@ import { useRouter } from "next/navigation";
 export default function CultureSection() {
   const router = useRouter();
   return (
-    <Box className="paddingsection" component="section" py={10}>
-      <Container>
+    <Container style={{ maxWidth: "1350px" }}>
+      <Box className="paddingsection" component="section" py={10}>
         <Box
           display="flex"
           flexDirection={{ xs: "column", md: "row" }}
@@ -23,11 +23,16 @@ export default function CultureSection() {
             </Typography>
 
             <Typography variant="body1" color="text.secondary" paragraph>
-              Appnovation is a place where innovators come to learn, discover
-              and grow. We are made up of bold and creative thinkers that come
-              from every walk of life. Our open culture drives success for our
-              clients and our focus on company wide inclusion creates a great
-              opportunity for our teams.
+              Eazisols is a place where innovators come to learn, discover,
+              and grow together. We are made up of bold, creative thinkers from
+              all walks of life, backgrounds, and experiences. Our strength lies
+              in our diversity — of people, perspectives, and ideas. We believe
+              that an open, inclusive culture fuels innovation and helps us
+              deliver exceptional results for our clients. By fostering an
+              environment where everyone feels valued and empowered, we create
+              space for collaboration, creativity, and continuous learning. At
+              Eazisols, diversity isn't just a value — it's how we grow
+              stronger, together.
             </Typography>
 
             <Link
@@ -68,7 +73,7 @@ export default function CultureSection() {
             />
           </Box>
         </Box>
-      </Container>
-    </Box>
+      </Box>
+    </Container>
   );
 }

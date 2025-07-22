@@ -1,7 +1,6 @@
 "use client";
 import React from "react";
 import Image from "next/image";
-import aboutus from "@/app/assets/aboutus.png";
 import "../globals.css";
 import CTASection from "../components/CTASection";
 import Link from "next/link";
@@ -53,7 +52,7 @@ export default function Careers() {
       <div
         className="hero-background py-5"
         style={{
-          backgroundImage: `url(${aboutus.src})`,
+          // backgroundImage: `url(${aboutus.src})`,
           backgroundSize: "cover",
           backgroundPosition: "center",
           backgroundRepeat: "no-repeat",

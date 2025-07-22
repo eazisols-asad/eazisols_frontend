@@ -27,7 +27,7 @@ export default function TDHeroSection() {
         minHeight: "350px",
         display: "flex",
         alignItems: "center",
-        maxWidth:"1100px",
+        maxWidth:"1300px",
       }}
     >
       <Container>

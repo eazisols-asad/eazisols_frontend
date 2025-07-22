@@ -5,7 +5,6 @@ import { Button,  } from "@mui/material";
 import "../globals.css";
 import { useRouter } from "next/navigation";
 import CTASection from "../components/CTASection";
-import aboutus from "@/app/assets/aboutus.png";
 import Capgeminicarr from "@/app/assets/Capgeminicarr.webp";
 import { Container, Row, Col } from "react-bootstrap";
 import {

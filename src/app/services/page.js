@@ -2,7 +2,6 @@
 import React from "react";
 import { Container, Row, Col } from "react-bootstrap";
 import "../globals.css";
-import contact from "@/app/assets/contact.png";
 import CapgeminiSERVI from "@/app/assets/CapgeminiSERVI.webp";
 import javas from "@/app/assets/javas.png";
 import typescript from "@/app/assets/typescript.png";

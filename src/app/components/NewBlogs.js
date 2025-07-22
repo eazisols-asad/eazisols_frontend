@@ -11,8 +11,9 @@ import {
 } from "@mui/material";
 import Image from "next/image";
 import Link from "next/link";
-import contact from "@/app/assets/contact.png";
-import webbg from "@/app/assets/webbg.png";
+import blognet from "@/app/assets/blognet.webp";
+import colorpatern from "@/app/assets/colorpatern.webp";
+import waterpat from "@/app/assets/waterpat.webp";
 
 const cardData = [
   {
@@ -78,7 +79,7 @@ export default function NewBlogs() {
                 cursor: "pointer",
               }}
             >
-              <Image src={webbg} alt="Card 1" layout="fill" objectFit="cover" />
+              <Image src={blognet} alt="Card 1" layout="fill" objectFit="cover" />
               <Box
                 sx={{
                   position: "absolute",
@@ -136,7 +137,7 @@ export default function NewBlogs() {
             >
               <Box sx={{ position: "relative", height: 180 }}>
                 <Image
-                  src={contact}
+                  src={colorpatern}
                   alt="Card 2"
                   layout="fill"
                   objectFit="cover"
@@ -191,7 +192,7 @@ export default function NewBlogs() {
             >
               <Box sx={{ position: "relative", height: 180 }}>
                 <Image
-                  src={contact}
+                  src={waterpat}
                   alt="Card 3"
                   layout="fill"
                   objectFit="cover"

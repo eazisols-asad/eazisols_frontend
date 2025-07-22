@@ -1,7 +1,6 @@
 "use client";
 import React from "react";
 import { Container, Row, Col } from "react-bootstrap";
-import aboutus from "@/app/assets/aboutus.png";
 import CTASection from "../components/CTASection";
 import "../globals.css";
 import {
@@ -42,7 +41,7 @@ export default function about() {
       <div
         className="hero-background py-5"
         style={{
-          backgroundImage: `url(${aboutus.src})`,
+          // backgroundImage: `url(${aboutus.src})`,
           backgroundSize: "cover",
           backgroundPosition: "center",
           backgroundRepeat: "no-repeat",

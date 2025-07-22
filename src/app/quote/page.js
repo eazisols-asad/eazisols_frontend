@@ -32,7 +32,6 @@ import {
   FaWallet,
   FaPiggyBank,
 } from "react-icons/fa";
-import contact from "@/app/assets/contact.png";
 import { IoIosArrowBack, IoIosArrowForward } from "react-icons/io";
 
 export default function MultiStepForm() {
@@ -245,29 +244,7 @@ if (step === 1 && formData.industry.length === 0) {
   // };
   return (
     <>
-      <div
-        className="hero-background py-5"
-        style={{
-          backgroundImage: `url(${contact.src})`,
-          backgroundSize: "cover",
-          backgroundPosition: "center",
-          backgroundRepeat: "no-repeat",
-          height: "250px",
-          marginTop: "-80px",
-          position: "relative",
-          zIndex: 1,
-        }}
-      >
-        <div
-          className="container "
-          style={{
-            paddingTop: "80px",
-            color: "white",
-          }}
-        >
-          <h1 className="main-heading text-white">Get a Quick Estimate</h1>
-        </div>
-      </div>
+     
       <Container className="py-5 px-4">
         {/* MUI Progress Bar */}
         <LinearProgress

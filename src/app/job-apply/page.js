@@ -9,7 +9,6 @@ import {
   Typography,
 } from "@mui/material";
 import useAPiAuth from "../components/useApiAuth";
-import contact from "@/app/assets/contact.png";
 import { useSnackbar } from "../components/Snakbar";
 import { useParams, useRouter } from "next/navigation";
 const Section = ({ title, children, onClear }) => (
@@ -122,30 +121,7 @@ export default function JobApplicationForm() {
 
   return (
     <>
-      {/* <div
-        className="hero-background py-5 "
-        style={{
-          backgroundImage: `url(${contact.src})`,
-          backgroundSize: "cover",
-          backgroundPosition: "center",
-          backgroundRepeat: "no-repeat",
-          height: "250px",
-          marginTop: "-80px",
-          position: "relative",
-          zIndex: 1,
-        }}
-      >
-        <div
-          className="container "
-          style={{
-            paddingTop: "80px",
-            color: "white",
-          }}
-        >
-          <h1 className="main-heading text-white">Start Growing With Us</h1>
-        </div>
-      </div> */}
-      <Box sx={{backgroundColor: "#f9f9f9", }}>
+      <Box sx={{ mb: 8 , }}>
       <Box sx={{ display: "flex", justifyContent: "center", mt: 4, mb: 3 , }}>
         <Box sx={{ display: "flex", borderBottom: "none" }}>
           <Button
@@ -282,65 +258,6 @@ export default function JobApplicationForm() {
               Resume
             </Typography>
           </Box>
-
-          {/* <Box
-            sx={{
-              border: "1px dashed #94a3b8",
-              borderRadius: 2,
-              p: 4,
-              textAlign: "center",
-              color: "#64748b",
-            }}
-          >
-            <Box
-              sx={{
-                width: 64,
-                height: 64,
-                borderRadius: "50%",
-                backgroundColor: "#d2e4f5",
-                mx: "auto",
-                mb: 2,
-                display: "flex",
-                alignItems: "center",
-                justifyContent: "center",
-                fontSize: 34,
-                color: "#4d8fcd",
-              }}
-            >
-              ⬆
-            </Box>
-            <Typography
-              component="span"
-              fontSize={14}
-              fontWeight={600}
-              sx={{ color: "#4d8fcd" }}
-            >
-              Upload a file
-            </Typography>
-            <Typography component="span" fontSize={14} color="text.secondary">
-              {" "}
-              or drag and drop here
-            </Typography>
-
-            <input
-              type="file"
-              onChange={(e) =>
-                setFormData({ ...formData, file: e.target.files?.[0] || null })
-              }
-              style={{ marginBottom: 8 }}
-            />
-            {errors.file && (
-              <Typography fontSize={12} color="error" mt={1}>
-                {errors.file}
-              </Typography>
-            )}
-
-            {formData.file && (
-              <Typography fontSize={12} mt={1}>
-                Selected: {formData.file.name}
-              </Typography>
-            )}
-          </Box> */}
           <Box
             sx={{
               border: "1px dashed #94a3b8",
@@ -384,14 +301,6 @@ export default function JobApplicationForm() {
               or drag and drop here
             </Typography>
 
-            {/* <input
-              id="fileInput"
-              type="file"
-              onChange={(e) =>
-                setFormData({ ...formData, file: e.target.files?.[0] || null })
-              }
-              style={{ display: "none" }}
-            /> */}
             <input
               id="fileInput"
               type="file"

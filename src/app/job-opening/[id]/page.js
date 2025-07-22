@@ -3,7 +3,6 @@ import React, { useEffect, useState } from "react";
 import { useParams, useRouter } from "next/navigation";
 import { Box, Container, Typography, Button } from "@mui/material";
 import useApiAuth from "@/app/components/useApiAuth";
-import contact from "@/app/assets/contact.png";
 import axios from "axios";
 
 export default function JobDetail() {
@@ -47,32 +46,52 @@ export default function JobDetail() {
 
   return (
     <>
-      {/* <div
-        className="hero-background py-5 "
+      <div
         style={{
-          backgroundImage: `url(${contact.src})`,
-          backgroundSize: "cover",
-          backgroundPosition: "center",
-          backgroundRepeat: "no-repeat",
-          height: "250px",
-          marginTop: "-80px",
-          position: "relative",
-          zIndex: 1,
+          backgroundColor: "#418ED6",
+          padding: "80px 20px",
+          textAlign: "center",
         }}
       >
+        <Typography
+          variant="h4"
+          fontWeight={700}
+          gutterBottom
+          sx={{ textAlign: "center", mb: 4, color: "white" }}
+        >
+          {job.title}
+        </Typography>
         <div
-          className="container "
           style={{
-            paddingTop: "80px",
-            color: "white",
+            display: "flex",
+            justifyContent: "center",
+            alignItems: "center",
           }}
         >
-          <h1 className="main-heading text-white">Start Growing With Us</h1>
+          <button
+            style={{
+              backgroundColor: "#fff",
+              border: "none",
+              borderRadius: "999px",
+              padding: "8px 28px",
+              fontSize: "1rem",
+              fontWeight: 500,
+              cursor: "pointer",
+              display: "flex",
+              alignItems: "center",
+              gap: "10px",
+              boxShadow: "0 2px 5px rgba(0,0,0,0.1)",
+            }}
+            onClick={() => router.push(`/job-apply?jobId=${id}`)}
+          >
+            Apply now <span style={{ fontSize: "1.2rem" }}>→</span>
+          </button>
         </div>
-      </div> */}
-      <Container maxWidth="md" sx={{ py: 3, height: "100%" }}>
-        
-        <Box sx={{ display: "flex", justifyContent: "center",  mb: 3 }}>
+      </div>
+      <Container
+      //  maxWidth="md" sx={{ py: 3, height: "100%" }}
+      >
+        <Box sx={{ display: "flex", justifyContent: "center", mb: 3 }}>
           <Box sx={{ display: "flex", borderBottom: "none" }}>
             <Button
               variant="text"
@@ -110,14 +129,18 @@ export default function JobDetail() {
           ← Back to jobs
         </Button>
 
-        <Typography variant="h4" fontWeight={700} gutterBottom 
+        {/* <Typography variant="h4" fontWeight={700} gutterBottom 
         sx={{ textAlign: "center", mb: 4 }} >
           {job.title}
-        </Typography>
+        </Typography> */}
 
         {/* ----- Description ----- */}
         {job.description && (
-          <Box mb={4}  p={3} sx={{ backgroundColor: "#f9f9f9", borderRadius: 2 }}>
+          <Box
+            mb={4}
+            p={3}
+            sx={{ backgroundColor: "#f9f9f9", borderRadius: 2 }}
+          >
             <Typography variant="h6" fontWeight={600} gutterBottom>
               Description
             </Typography>
@@ -127,7 +150,11 @@ export default function JobDetail() {
 
         {/* ----- Responsibilities ----- */}
         {job.responsibilities && (
-          <Box mb={4} p={3} sx={{ backgroundColor: "#f9f9f9", borderRadius: 2 }}>
+          <Box
+            mb={4}
+            p={3}
+            sx={{ backgroundColor: "#f9f9f9", borderRadius: 2 }}
+          >
             <Typography variant="h6" fontWeight={600} gutterBottom>
               Responsibilities
             </Typography>
@@ -139,28 +166,32 @@ export default function JobDetail() {
 
         {/* ----- Requirements ----- */}
         {job.requirements && (
-          <Box mb={4} p={3} sx={{ backgroundColor: "#f9f9f9", borderRadius: 2 }}>
+          <Box
+            mb={4}
+            p={3}
+            sx={{ backgroundColor: "#f9f9f9", borderRadius: 2 }}
+          >
             <Typography variant="h6" fontWeight={600} gutterBottom>
               Requirements
             </Typography>
             <Typography whiteSpace="pre-line">{job.requirements}</Typography>
           </Box>
         )}
-        <Box display="flex" justifyContent="center" mt={4}>
-        <Button
-          fullWidth
-          variant="contained"
-          sx={{
-            bgcolor: "#4d8fcd",
-            fontWeight: 600,
-            width: " 200px",
-            "&:hover": { bgcolor: "#4d8fcd" },
-          }}
-          onClick={() => router.push(`/job-apply?jobId=${id}`)}
-        >
-          Apply for this job
-        </Button>
-        </Box>
+        {/* <Box display="flex" justifyContent="center" mt={4}>
+          <Button
+            fullWidth
+            variant="contained"
+            sx={{
+              bgcolor: "#4d8fcd",
+              fontWeight: 600,
+              width: " 200px",
+              "&:hover": { bgcolor: "#4d8fcd" },
+            }}
+            onClick={() => router.push(`/job-apply?jobId=${id}`)}
+          >
+            Apply for this job
+          </Button>
+        </Box> */}
       </Container>
     </>
   );

@@ -3,7 +3,6 @@ import ContactForm from "../components/ContactForm";
 import Image from "next/image";
 import { FaLinkedin, FaFacebook, FaInstagram } from "react-icons/fa";
 import useAPiAuth from "../components/useApiAuth";
-import contact from "@/app/assets/contact.png";
 import CapgeminiCON from "@/app/assets/CapgeminiCON.webp";
 import { Container, Row, Col, Form, Button } from "react-bootstrap";
 import { useSnackbar } from "../components/Snakbar";

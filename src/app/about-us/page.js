@@ -143,11 +143,11 @@ export default function about() {
                     e.currentTarget.style.transform = "translateY(-8px)";
                     e.currentTarget.style.boxShadow =
                       "0 12px 28px 0 rgba(16,30,54,.15)";
-                    e.currentTarget.style.borderColor = "#2563eb";
+                    e.currentTarget.style.borderColor = "#418ED6";
                     const icon = e.currentTarget.querySelector(".service-icon");
                     if (icon) {
                       icon.style.transform = "scale(1.1) rotate(5deg)";
-                      icon.style.color = "#1d4ed8";
+                      icon.style.color = "#418ED6";
                     }
                   }}
                   onMouseOut={(e) => {
@@ -158,7 +158,7 @@ export default function about() {
                     const icon = e.currentTarget.querySelector(".service-icon");
                     if (icon) {
                       icon.style.transform = "scale(1) rotate(0)";
-                      icon.style.color = "#2563eb";
+                      icon.style.color = "#418ED6";
                     }
                   }}
                 >
@@ -166,7 +166,7 @@ export default function about() {
                     className="mb-3 service-icon"
                     style={{ transition: "all 0.3s ease-in-out" }}
                   >
-                    <service.icon size={44} color="#2563eb" />
+                    <service.icon size={44} color="#418ED6" />
                   </div>
                   <div>
                     <div
@@ -198,9 +198,9 @@ export default function about() {
           </Row>
         </Container>
       </section>
-      {/* <VisionSection />
-      <CultureSection />
-      <AboutTd /> */}
+      {/* <VisionSection /> */}
+      {/* <AboutTd />
+      <CultureSection /> */}
       <section>
         <div className="container-lg ">
           <ReuseContact />
