@@ -200,9 +200,9 @@ export default function about() {
         </Container>
       </section>
       {/* <VisionSection /> */}
-      <AboutTd />
+      {/* <AboutTd />
       <CultureSection />
-      <FeatureSection />
+      <FeatureSection /> */}
       <section>
         <div className="container-lg ">
           <ReuseContact />
