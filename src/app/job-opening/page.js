@@ -83,7 +83,7 @@ export default function JobOpenings() {
           >
             <input
               type="text"
-              placeholder="Enter job name or reference id"
+              placeholder="Search by title, team, or keyword..."
               style={{
                 border: "none",
                 outline: "none",

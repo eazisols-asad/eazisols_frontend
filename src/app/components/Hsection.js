@@ -1,68 +1,69 @@
-"use client";
-import Image from "next/image";
-import ReuseButton from "./ReuseButton";
-import { useRouter } from "next/navigation";
+'use client';
+import { Box, Button, Container, Grid, Typography } from '@mui/material';
+import Image from 'next/image';
+import ctta from "@/app/assets/ctta.png";
 
 export default function Hsection() {
-  const router = useRouter();
-
   return (
-    <section style={{ padding: "80px 0" }}>
-      <div className="container">
-        <div className="row align-items-center">
-          {/* Left Column - Text */}
-          <div className="col-12 col-lg-6 mb-5 mb-lg-0">
-            <p style={{ color: "#2563eb", fontWeight: 500, marginBottom: 10 }}>
-              Custom Software Development
-            </p>
-            <h1 style={{ fontWeight: 800, fontSize: "2.5rem", lineHeight: 1.2 }}>
-              Leading Custom Software <br />
-              Development & Consulting <br />
-              Company
-            </h1>
-            <p
-              style={{
-                marginTop: 20,
-                color: "#6b7280",
-                fontSize: 16,
-                lineHeight: 1.6,
+    <Box
+      sx={{
+        background: 'linear-gradient(90deg, #f89c1c 0%, #fbc22f 100%)',
+        py: { xs: 6, md: 10 },
+        px: 2,
+      }}
+    >
+      <Container maxWidth="lg">
+        <Grid container alignItems="center">
+          {/* LEFT SIDE */}
+          <Grid item xs={12} md={6}>
+            <Typography
+              variant="h4"
+              fontWeight="bold"
+              sx={{ color: '#1b1b1b', mb: 2 }}
+            >
+              ENJOY YOUR VACATION WITH US
+            </Typography>
+            <Typography variant="body1" sx={{ color: '#333', mb: 3 }}>
+              Travel to the any corner of the world, without going around in circles.
+              Travel to the any corner of the world, without going around in circles
+            </Typography>
+            <Button
+              variant="contained"
+              sx={{
+                backgroundColor: '#1b1b1b',
+                color: '#fff',
+                px: 3,
+                py: 1,
+                fontWeight: 'bold',
+                '&:hover': {
+                  backgroundColor: '#000',
+                },
               }}
             >
-              Let's transform your business for the better with top-tier Custom
-              Software Development. Partner with Solutionsloft's full stack
-              developers to achieve diabolically faster code efficiency and
-              product performance!
-            </p>
+              BOOK YOUR SEAT NOW
+            </Button>
+          </Grid>
 
-            <div className="mt-4">
-              <ReuseButton
-                description1="Let's Talk"
-                onClick={() => router.push("/contact")}
-              />
-            </div>
-          </div>
-
-          {/* Right Column - Image */}
-          <div className="col-12 col-lg-6 d-flex justify-content-center">
-            <div
-              style={{
-                width: 320,
-                height: 320,
-                borderRadius: "50%",
-                overflow: "hidden",
-                position: "relative",
+          {/* RIGHT SIDE */}
+          <Grid item xs={12} md={6} sx={{ display: 'flex', justifyContent: 'flex-end' }}>
+            <Box
+              sx={{
+                width: '100%',
+                maxWidth: 480,
+                height: 'auto',
+                mt: { xs: 4, md: 0 },
               }}
             >
               <Image
-                src="/images/showcase-image.png" 
-                alt="Showcase"
-                fill
-                style={{ objectFit: "cover" }}
+                src={ctta}
+                alt="Vacation Image"
+                style={{ width: '100%', height: 'auto', objectFit: 'cover' }}
+                priority
               />
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
+            </Box>
+          </Grid>
+        </Grid>
+      </Container>
+    </Box>
   );
 }

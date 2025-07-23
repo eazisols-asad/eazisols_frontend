@@ -11,7 +11,7 @@ import NewBlogs from "./components/NewBlogs";
 import LogoSliderr from "./components/LogoSliderr";
 import TestimonialSection from "./components/TestimonialSection";
 import ReuseContact from "./components/ReuseContact";
-// import Hsection from "./components/Hsection";
+import Hsection from "./components/Hsection";
 
 const faqs = [
   {
@@ -80,10 +80,10 @@ export default function Home() {
       {/* <WaterfallProcess /> */}
       <AboutSection />
       <Services />
-      {/* <Hsection /> */}
       {/* <NewBlogs />
       <TestimonialSection /> */}
       <ReuseContact />
+      {/* <Hsection /> */}
       <CTASection
         description1="YOU WANT TO SHOWCASE YOUR WEBSITE"
         description2="Quote Generator"

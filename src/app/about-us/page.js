@@ -17,6 +17,7 @@ import ReuseContact from "../components/ReuseContact";
 import AboutTd from "../components/AboutTd";
 import CultureSection from "../components/CultureSection";
 import VisionSection from "../components/VisionSection";
+import FeatureSection from "../components/FeatureSection";
 
 const awards = [
   {
@@ -199,8 +200,9 @@ export default function about() {
         </Container>
       </section>
       {/* <VisionSection /> */}
-      {/* <AboutTd />
-      <CultureSection /> */}
+      <AboutTd />
+      <CultureSection />
+      <FeatureSection />
       <section>
         <div className="container-lg ">
           <ReuseContact />

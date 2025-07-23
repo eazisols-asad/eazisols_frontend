@@ -97,7 +97,8 @@ export default function ContactForm({
     const { name, value } = e.target;
 
     if (name === "fullName") {
-      const cleaned = value.replace(/[^A-Za-z .,'-]/g, "").slice(0, 50);
+      let cleaned = value.replace(/[^A-Za-z .,'-]/g, "").slice(0, 50);
+      cleaned = cleaned.replace(/\s{2,}/g, " ");
 
       const capitalized = cleaned.replace(
         /\b\w+/g,
