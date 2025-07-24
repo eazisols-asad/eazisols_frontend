@@ -79,11 +79,11 @@ export default function Home() {
       <LogoSliderr />
       {/* <WaterfallProcess /> */}
       <AboutSection />
+      {/* <Hsection /> */}
       <Services />
       {/* <NewBlogs />
       <TestimonialSection /> */}
       <ReuseContact />
-      {/* <Hsection /> */}
       <CTASection
         description1="YOU WANT TO SHOWCASE YOUR WEBSITE"
         description2="Quote Generator"

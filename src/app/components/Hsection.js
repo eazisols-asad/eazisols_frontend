@@ -1,66 +1,103 @@
 'use client';
-import { Box, Button, Container, Grid, Typography } from '@mui/material';
-import Image from 'next/image';
-import ctta from "@/app/assets/ctta.png";
+import { Box, Container, Typography, Grid } from '@mui/material';
+import CountUp from 'react-countup';
+import { useInView } from 'react-intersection-observer'; 
 
 export default function Hsection() {
+  const { ref, inView } = useInView({
+    triggerOnce: true,
+    threshold: 0.4,     
+  });
+
+  const counters = [
+    { value: 50, suffix: '+', label: 'Clients trust Us' },
+    { value: 5, suffix: '+', label: 'Cool Number' },
+    { value: 20, suffix: '+', label: 'Industries Explored' },
+  ];
+
   return (
     <Box
       sx={{
-        background: 'linear-gradient(90deg, #f89c1c 0%, #fbc22f 100%)',
+        background: 'linear-gradient(90deg, #418ED6 0%, #003B8B 100%)',
         py: { xs: 6, md: 10 },
-        px: 2,
+        color: '#fff',
       }}
+      ref={ref} 
     >
-      <Container maxWidth="lg">
-        <Grid container alignItems="center">
-          {/* LEFT SIDE */}
-          <Grid item xs={12} md={6}>
+      <Container maxWidth="lg" >
+        <Grid container spacing={4} alignItems="center">
+          {/* Left Section */}
+          <Grid item xs={12} md={6} >
             <Typography
               variant="h4"
-              fontWeight="bold"
-              sx={{ color: '#1b1b1b', mb: 2 }}
-            >
-              ENJOY YOUR VACATION WITH US
-            </Typography>
-            <Typography variant="body1" sx={{ color: '#333', mb: 3 }}>
-              Travel to the any corner of the world, without going around in circles.
-              Travel to the any corner of the world, without going around in circles
-            </Typography>
-            <Button
-              variant="contained"
               sx={{
-                backgroundColor: '#1b1b1b',
-                color: '#fff',
-                px: 3,
-                py: 1,
-                fontWeight: 'bold',
-                '&:hover': {
-                  backgroundColor: '#000',
-                },
+                fontWeight: 700,
+                fontSize: { xs: '1.8rem', md: '2.5rem' },
+                mb: 2,
               }}
             >
-              BOOK YOUR SEAT NOW
-            </Button>
+              5+ Years Of Custom Development <br /> Dominancy
+            </Typography>
+
+            <Typography
+              variant="body1"
+              sx={{
+                fontSize: '1.05rem',
+                lineHeight: 1.8,
+                color: '#f0f0f0',
+              }}
+            >
+              We make technology happen! Our team of first class developers and
+              consultants will provide you next gen{' '}
+              <Box component="span" fontWeight={700}>
+                Software Development Services
+              </Box>
+              , leaving you to only focus on running your business, unperturbed.
+            </Typography>
           </Grid>
 
-          {/* RIGHT SIDE */}
-          <Grid item xs={12} md={6} sx={{ display: 'flex', justifyContent: 'flex-end' }}>
-            <Box
-              sx={{
-                width: '100%',
-                maxWidth: 480,
-                height: 'auto',
-                mt: { xs: 4, md: 0 },
-              }}
-            >
-              <Image
-                src={ctta}
-                alt="Vacation Image"
-                style={{ width: '100%', height: 'auto', objectFit: 'cover' }}
-                priority
-              />
-            </Box>
+          
+          <Grid
+            item
+            xs={12}
+            md={6}
+            container
+            spacing={3}
+            justifyContent="center"
+          >
+            {counters.map((item, i) => (
+              <Grid
+                item
+                xs={4}
+                key={i}
+                sx={{ textAlign: 'center', display: 'flex', justifyContent: 'center' }}
+              >
+                <Box
+                  sx={{
+                    width: 140,
+                    height: 140,
+                    border: '3px solid white',
+                    borderRadius: '50%',
+                    display: 'flex',
+                    flexDirection: 'column',
+                    justifyContent: 'center',
+                    alignItems: 'center',
+                    color: '#fff',
+                  }}
+                >
+                  <Typography variant="h5" sx={{ fontWeight: 700, fontSize: '2rem' }}>
+                    {inView ? (
+                      <CountUp start={1} end={item.value} duration={1.5} suffix={item.suffix} />
+                    ) : (
+                      `0${item.suffix}`
+                    )}
+                  </Typography>
+                  <Typography variant="body2" sx={{ fontSize: '1rem' }}>
+                    {item.label}
+                  </Typography>
+                </Box>
+              </Grid>
+            ))}
           </Grid>
         </Grid>
       </Container>

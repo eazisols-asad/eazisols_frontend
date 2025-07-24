@@ -1017,6 +1017,10 @@ footer hr {
   animation: slideInFromRight 1s ease-out forwards;
 }
 
+.servicess-card {
+  margin-bottom: 20px;
+}
+
 @media (min-width: 768px) {
   .servicess-card {
     margin-right: 12px;
@@ -1029,6 +1033,7 @@ footer hr {
     margin-right: 16px;
   }
 }
+
 
 .form-side {
   padding-left: 0px;
