@@ -214,7 +214,7 @@ export default function JobApplicationForm() {
           </Box>
         </Box>
 
-        <Box sx={{ maxWidth: 500, mx: "auto", bgcolor: "#fff", py: "6" }}>
+        <Box sx={{ maxWidth: 500, mx: "auto", bgcolor: "#fff", py: "6",px: { xs: 2, sm: 3, md: 0 },  }}>
           <Section title=" Personal information" onClear={handleClear}>
             <Box display="flex" gap={2} mb={2}>
               <TextField

@@ -220,11 +220,7 @@ const CostCalculateModal = ({
   };
 
   return (
-    <Dialog
-      fullScreen
-      open={open}
-      onClose={onClose}
-    >
+    <Dialog fullScreen open={open} onClose={onClose}>
       <Toolbar
         sx={{
           display: "flex",
@@ -252,8 +248,13 @@ const CostCalculateModal = ({
         </IconButton>
       </Toolbar>
 
-      <Container fluid="md" style={{ maxWidth: "55%" }}>
-
+      <Container
+        fluid="md"
+        style={{ maxWidth: "55%" }}
+        sx={{
+          px: { xs: 2, sm: 4, md: 6, lg: 10, xl: 12 },
+        }}
+      >
         {/* 1st step */}
         {step === 0 && (
           <>
@@ -266,7 +267,7 @@ const CostCalculateModal = ({
               {servicesList.map((item, idx) => {
                 const isSelected = formData.services.includes(item.label);
                 return (
-                  <Col key={idx} xs={3} sm={4} md={3} lg={3}>
+                  <Col key={idx} xs={6} sm={4} md={3} lg={3}>
                     {/* <Col key={idx} xs={6} sm={6} md={3} lg={3}> */}
                     <div
                       className={` rounded-4 d-flex align-items-center justify-content-center flex-column p-3 h-100 shadow-sm ${
@@ -274,10 +275,10 @@ const CostCalculateModal = ({
                       }`}
                       style={{
                         minHeight: "120px",
+                        minWidth: "100px",
                         cursor: "pointer",
                         transition: "all 0.3s ease",
                         backgroundColor: isSelected ? "#d2e4f5" : "#ffffff",
-                        
                       }}
                       onClick={() =>
                         setFormData((prev) => ({
@@ -311,13 +312,14 @@ const CostCalculateModal = ({
               {industryList.map((item, idx) => {
                 const isSelected = formData.industry.includes(item.label);
                 return (
-                  <Col key={idx} xs={6} sm={4} md={3} lg={3}>
+                  <Col key={idx} xs={12} sm={4} md={3} lg={3}>
                     <div
                       className={` rounded-4 d-flex align-items-center justify-content-center flex-column p-3 h-100 shadow-sm ${
                         isSelected ? "border " : "border"
                       }`}
                       style={{
                         minHeight: "120px",
+                        // minWidth: "100px",
                         cursor: "pointer",
                         transition: "all 0.3s ease",
                         backgroundColor: isSelected ? "#d2e4f5" : "#ffffff",
@@ -384,7 +386,7 @@ const CostCalculateModal = ({
               ].map((item, idx) => {
                 const isSelected = formData.stage === item.label;
                 return (
-                  <Col key={idx} xs={6} sm={6} md={3} lg={3}>
+                  <Col key={idx} xs={12} sm={6} md={3} lg={3}>
                     <div
                       className={` rounded-4 d-flex align-items-center justify-content-center flex-column p-3 h-100 shadow-sm ${
                         isSelected ? "border" : "border"
@@ -435,7 +437,7 @@ const CostCalculateModal = ({
               ].map((item, idx) => {
                 const isSelected = formData.timeline === item.label;
                 return (
-                  <Col key={idx} xs={6} sm={6} md={3} lg={3}>
+                  <Col key={idx} xs={12} sm={6} md={3} lg={3}>
                     <div
                       className={` rounded-4 d-flex align-items-center justify-content-center flex-column p-3 h-100 shadow-sm ${
                         isSelected ? "border " : "border"
@@ -487,7 +489,7 @@ const CostCalculateModal = ({
               ].map((item, idx) => {
                 const isSelected = formData.budget === item.label;
                 return (
-                  <Col key={idx} xs={6} sm={6} md={3} lg={3}>
+                  <Col key={idx} xs={12} sm={6} md={3} lg={3}>
                     <div
                       className={` rounded-4 d-flex align-items-center justify-content-center flex-column p-3 h-100 shadow-sm ${
                         isSelected ? "border " : "border"
@@ -538,21 +540,22 @@ const CostCalculateModal = ({
                     description: e.target.value,
                   }))
                 }
-                style={{ maxWidth: 600 }}
+                style={{  maxWidth: 600, minWidth: 280 }}
               />
             </div>
           </>
         )}
         {/* step 7 */}
+        <div className="contact-form-wrapper">
         {step === 6 && (
           <>
             <h2 className="text-center fw-bold mb-4">Your Contact Details</h2>
             <div
               className="mx-auto bg-white p-4 rounded-4 shadow-sm "
-              style={{ maxWidth: 500, border: "1px solid 	#808080" }}
+              style={{ maxWidth: 500, width: '100%', border: "1px solid 	#808080" }}
             >
               {/* Full Name */}
-              <div className=" d-flex align-items-center border-bottom">
+              <div className=" d-flex align-items-center border-bottom ">
                 <i className="bi bi-person-fill text-muted me-2"></i>
                 <input
                   type="text"
@@ -643,6 +646,7 @@ const CostCalculateModal = ({
             </div>
           </>
         )}
+        </div>
         {/* Step 8 */}
         {step === 7 && (
           <div className="text-center py-5">

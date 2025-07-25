@@ -87,7 +87,7 @@ const HeroSection = () => {
               </div>
             </Col>
 
-            <Col lg={5} className=" mt-4 mt-lg-0 animate-slide-in">
+            <Col lg={5} className=" mt-4 mt-lg-0 contact-col animate-slide-in">
               <div className=" d-flex justify-content-center">
                 <ContactForm
                   onSubmit={async (formData) => {

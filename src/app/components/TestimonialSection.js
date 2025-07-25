@@ -34,7 +34,7 @@ export default function TestimonialSection() {
         gap: 4,
         position: 'relative',
         px: { xs: 4, sm: 6, md: 12, lg: 16 },
-        py: { xs: 6, md: 10 },
+        py: { xs: 6, sm: 8, md: 10 },
       }}
     >
       {/* Left Side */}
@@ -144,6 +144,7 @@ export default function TestimonialSection() {
 
       {/* Arrows - back to right side */}
       <Box
+       className="custom-arrow-box"
         sx={{
           position: 'absolute',
           bottom: { xs: 20, md: 30 },
