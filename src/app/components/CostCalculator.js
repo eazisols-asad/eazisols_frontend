@@ -16,6 +16,7 @@ import { Container, Row, Col } from "react-bootstrap";
 import useAPiAuth from "../components/useApiAuth";
 import { useSnackbar } from "../components/Snakbar";
 import PhoneInput from "react-phone-input-2";
+import { useRef } from "react";
 import {
   FaGlobe,
   FaMobileAlt,
@@ -43,6 +44,8 @@ import {
   FaWallet,
   FaPuzzlePiece,
   FaPiggyBank,
+  FaCheckCircle,
+  FaExclamationCircle,
 } from "react-icons/fa";
 import eazistransbg from "@/app/assets/eazistransbg.png";
 import { IoIosArrowBack, IoIosArrowForward } from "react-icons/io";
@@ -77,6 +80,8 @@ const CostCalculateModal = ({
   const [step, setStep] = useState(0);
   const { postData, getData } = useAPiAuth();
   const { handleSnackbarOpen } = useSnackbar();
+  const fileInputRef = useRef(null);
+  const [loading, setLoading] = useState(false);
   const [formData, setFormData] = useState({
     services: [],
     industry: [],
@@ -152,6 +157,9 @@ const CostCalculateModal = ({
     setStep(step - 1);
   };
   const handleSubmit = async () => {
+    console.log("submit clicked");
+    setLoading(true);
+
     const newErrors = {
       fullName: "",
       email: "",
@@ -170,10 +178,11 @@ const CostCalculateModal = ({
     } else {
       const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
       if (!emailRegex.test(formData.email)) {
-        newErrors.email = "Enter a valid email address.";
+        newErrors.email = "Please enter a valid email address.";
         hasError = true;
       }
     }
+
     if (!formData.file) {
       newErrors.file = "File upload is required.";
       hasError = true;
@@ -181,9 +190,16 @@ const CostCalculateModal = ({
 
     if (hasError) {
       setErrors(newErrors);
-      handleSnackbarOpen("Please fill the required fields.", "error");
+
+      const firstError = Object.values(newErrors).find(Boolean);
+      handleSnackbarOpen(
+        firstError || "Please fill the required fields.",
+        "error"
+      );
+      setLoading(false);
       return;
     }
+  
     setErrors({});
 
     const form = new FormData();
@@ -210,13 +226,47 @@ const CostCalculateModal = ({
         console.log("API Success:", data);
         handleSnackbarOpen("Form submitted successfully!", "success");
         setStep(step + 1);
+        setLoading(false);
       },
       (error) => {
         console.error("Api error:", error);
         handleSnackbarOpen("Something went wrong", "error");
+        setLoading(false);
       }
     );
     console.log(formData);
+  };
+
+  const handleChange = (e) => {
+    const { name, value } = e.target;
+
+    setErrors((prev) => ({ ...prev, [name]: "" }));
+
+    if (name === "fullName") {
+      let cleaned = value.replace(/[^A-Za-z .,'-]/g, "").slice(0, 50);
+      cleaned = cleaned.replace(/\s{2,}/g, " ");
+      const capitalized = cleaned.replace(
+        /\b\w+/g,
+        (word) => word.charAt(0).toUpperCase() + word.slice(1)
+      );
+      setFormData((prev) => ({ ...prev, [name]: capitalized }));
+      return;
+    }
+
+    if (name === "company") {
+      const cleaned = value.replace(/[0-9]/g, "").slice(0, 50);
+      setFormData((prev) => ({ ...prev, [name]: cleaned }));
+      return;
+    }
+if (name === "email") {
+      const cleaned = value.replace(/\s/g, "").slice(0, 100);
+      setFormData((prev) => ({ ...prev, [name]: cleaned }));
+      return;
+    }
+    setFormData((prev) => ({
+      ...prev,
+      [name]: value,
+    }));
   };
 
   return (
@@ -249,8 +299,8 @@ const CostCalculateModal = ({
       </Toolbar>
 
       <Container
-        fluid="md"
-        style={{ maxWidth: "55%" }}
+        // fluid="md"
+        style={{ maxWidth: "750px" }}
         sx={{
           px: { xs: 2, sm: 4, md: 6, lg: 10, xl: 12 },
         }}
@@ -312,7 +362,7 @@ const CostCalculateModal = ({
               {industryList.map((item, idx) => {
                 const isSelected = formData.industry.includes(item.label);
                 return (
-                  <Col key={idx} xs={12} sm={4} md={3} lg={3}>
+                  <Col key={idx} xs={6} sm={4} md={3} lg={3}>
                     <div
                       className={` rounded-4 d-flex align-items-center justify-content-center flex-column p-3 h-100 shadow-sm ${
                         isSelected ? "border " : "border"
@@ -386,7 +436,7 @@ const CostCalculateModal = ({
               ].map((item, idx) => {
                 const isSelected = formData.stage === item.label;
                 return (
-                  <Col key={idx} xs={12} sm={6} md={3} lg={3}>
+                  <Col key={idx} xs={6} sm={6} md={3} lg={3}>
                     <div
                       className={` rounded-4 d-flex align-items-center justify-content-center flex-column p-3 h-100 shadow-sm ${
                         isSelected ? "border" : "border"
@@ -437,7 +487,7 @@ const CostCalculateModal = ({
               ].map((item, idx) => {
                 const isSelected = formData.timeline === item.label;
                 return (
-                  <Col key={idx} xs={12} sm={6} md={3} lg={3}>
+                  <Col key={idx} xs={6} sm={6} md={3} lg={3}>
                     <div
                       className={` rounded-4 d-flex align-items-center justify-content-center flex-column p-3 h-100 shadow-sm ${
                         isSelected ? "border " : "border"
@@ -489,7 +539,7 @@ const CostCalculateModal = ({
               ].map((item, idx) => {
                 const isSelected = formData.budget === item.label;
                 return (
-                  <Col key={idx} xs={12} sm={6} md={3} lg={3}>
+                  <Col key={idx} xs={6} sm={6} md={3} lg={3}>
                     <div
                       className={` rounded-4 d-flex align-items-center justify-content-center flex-column p-3 h-100 shadow-sm ${
                         isSelected ? "border " : "border"
@@ -540,112 +590,163 @@ const CostCalculateModal = ({
                     description: e.target.value,
                   }))
                 }
-                style={{  maxWidth: 600, minWidth: 280 }}
+                style={{ maxWidth: 600, minWidth: 280 }}
               />
             </div>
           </>
         )}
         {/* step 7 */}
         <div className="contact-form-wrapper">
-        {step === 6 && (
-          <>
-            <h2 className="text-center fw-bold mb-4">Your Contact Details</h2>
-            <div
-              className="mx-auto bg-white p-4 rounded-4 shadow-sm "
-              style={{ maxWidth: 500, width: '100%', border: "1px solid 	#808080" }}
-            >
-              {/* Full Name */}
-              <div className=" d-flex align-items-center border-bottom ">
-                <i className="bi bi-person-fill text-muted me-2"></i>
-                <input
-                  type="text"
-                  className="form-control border-0 shadow-none"
-                  placeholder="Full Name"
-                  value={formData.fullName || ""}
-                  onChange={(e) =>
-                    setFormData((prev) => ({
-                      ...prev,
-                      fullName: e.target.value,
-                    }))
-                  }
-                  required
-                />
-              </div>
-              {errors.fullName && (
-                <div className="text-danger small mb-2 ms-4">
-                  {errors.fullName}
+          {step === 6 && (
+            <>
+              <h2 className="text-center fw-bold mb-4">Your Contact Details</h2>
+              <div
+                className="mx-auto bg-white p-4 rounded-4 shadow-sm "
+                style={{
+                  maxWidth: 500,
+                  width: "100%",
+                  border: "1px solid 	#808080",
+                }}
+              >
+                {/* Full Name */}
+                <div className=" d-flex align-items-center border-bottom ">
+                  <i className="bi bi-person-fill text-muted me-2"></i>
+                  <input
+                    type="text"
+                    name="fullName"
+                    className="form-control border-0 shadow-none"
+                    placeholder="Full Name"
+                    value={formData.fullName || ""}
+                    onChange={handleChange}
+                    required
+                  />
                 </div>
-              )}
+                {errors.fullName && (
+                  <div className="text-danger small mb-2 ms-4">
+                    {errors.fullName}
+                  </div>
+                )}
 
-              {/* Email */}
-              <div className="mt-3 d-flex align-items-center border-bottom">
-                <i className="bi bi-envelope-fill text-muted me-2"></i>
-                <input
-                  type="email"
-                  className="form-control border-0 shadow-none"
-                  placeholder="Email Address"
-                  value={formData.email || ""}
-                  onChange={(e) =>
-                    setFormData((prev) => ({ ...prev, email: e.target.value }))
-                  }
-                  required
-                />
-              </div>
-              {errors.email && (
-                <div className="text-danger small mb-2 ms-4">
-                  {errors.email}
+                {/* Email */}
+                <div className="mt-3 d-flex align-items-center border-bottom">
+                  <i className="bi bi-envelope-fill text-muted me-2"></i>
+                  <input
+                    type="email"
+                    name="email"
+                    className="form-control border-0 shadow-none"
+                    placeholder="Email Address"
+                    value={formData.email || ""}
+                    onChange={handleChange}
+                    required
+                  />
                 </div>
-              )}
+                {errors.email && (
+                  <div className="text-danger small mb-2 ms-4">
+                    {errors.email}
+                  </div>
+                )}
 
-              {/* Company */}
-              <div className="mt-3 d-flex align-items-center border-bottom">
-                <i className="bi bi-building text-muted me-2"></i>
-                <input
-                  type="text"
-                  className="form-control border-0 shadow-none"
-                  placeholder="Company (optional)"
-                  value={formData.company || ""}
-                  onChange={(e) =>
-                    setFormData((prev) => ({
-                      ...prev,
-                      company: e.target.value,
-                    }))
-                  }
-                />
-              </div>
+                {/* Company */}
+                <div className="mt-3 d-flex align-items-center border-bottom">
+                  <i className="bi bi-building text-muted me-2"></i>
+                  <input
+                    type="text"
+                    name="company"
+                    className="form-control border-0 shadow-none"
+                    placeholder="Company (optional)"
+                    value={formData.company || ""}
+                    onChange={handleChange}
+                  />
+                </div>
 
-              {/* Phone */}
-              <div className="mt-3 d-flex align-items-center border-bottom ">
-                <i className="bi bi-telephone-fill text-muted me-2"></i>
-                <PhoneInput
-                  country={"us"}
-                  value={formData.phone || ""}
-                  onChange={(phone) =>
-                    setFormData((prev) => ({ ...prev, phone }))
-                  }
-                  inputClass="custom-phone-input"
-                  containerClass="custom-phone-container"
-                  buttonClass="custom-phone-button"
-                />
-              </div>
+                {/* Phone */}
+                <div className="mt-3 d-flex align-items-center border-bottom ">
+                  <i className="bi bi-telephone-fill text-muted me-2"></i>
+                  <PhoneInput
+                    country={"us"}
+                    value={formData.phone || ""}
+                    onChange={(phone) =>
+                      setFormData((prev) => ({ ...prev, phone }))
+                    }
+                    inputClass="custom-phone-input"
+                    containerClass="custom-phone-container"
+                    buttonClass="custom-phone-button"
+                  />
+                </div>
 
-              {/* File Upload */}
-              <div className="mt-3 d-flex align-items-center border-bottom">
-                <i className="bi bi-paperclip text-muted me-2"></i>
-                <input
-                  type="file"
-                  className="form-control border-0 shadow-none"
-                  onChange={(e) =>
-                    setFormData((prev) => ({
-                      ...prev,
-                      file: e.target.files[0],
-                    }))
-                  }
-                />
+                {/* File Upload */}
+                <div className="mt-3 position-relative">
+                <div className="d-flex align-items-center border-bottom">
+                  <i className="bi bi-paperclip text-muted me-2"></i>
+                  <input
+  ref={fileInputRef}
+  type="file"
+  accept=".pdf,.doc,.docx,.xls,.xlsx"
+  className="form-control border-0 shadow-none pe-5"
+  onChange={(e) => {
+    const file = e.target.files[0];
+    if (!file) {
+      setFormData((prev) => ({ ...prev, file: null }));
+      setErrors((prev) => ({ ...prev, file: "" }));
+      return;
+    }
+
+    const allowedTypes = [
+      "application/pdf",
+      "application/msword",
+      "application/vnd.openxmlformats-officedocument.wordprocessingml.document",
+      "application/vnd.ms-excel",
+      "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet",
+    ];
+
+    if (!allowedTypes.includes(file.type)) {
+      setFormData((prev) => ({ ...prev, file: null }));
+      setErrors((prev) => ({ ...prev, file: "Invalid file type." }));
+
+      // Clear the file input so user can try again
+      if (fileInputRef.current) fileInputRef.current.value = "";
+
+      return;
+    }
+
+    setFormData((prev) => ({ ...prev, file }));
+    setErrors((prev) => ({ ...prev, file: "" }));
+
+    console.log("Selected file:", file.name);
+  }}
+/>
+
+                  {formData.file && !errors.file ? (
+                      <FaCheckCircle
+                        className="text-success position-absolute"
+                        style={{
+                          right: "10px",
+                          top: "20px",
+                          transform: "translateY(-50%)",
+                          fontSize: "1.2rem",
+                        }}
+                      />
+                    ) : errors.file ? (
+                      <FaExclamationCircle
+                        className="text-danger position-absolute"
+                        style={{
+                          right: "10px",
+                          top: "20px",
+                          transform: "translateY(-50%)",
+                          fontSize: "1.2rem",
+                        }}
+                      />
+                    ) : null}
+                </div>
+                {errors.file && (
+                  <div className="text-danger small mt-1 ms-4">
+                    {errors.file}
+                  </div>
+                )}
+               </div>
               </div>
-            </div>
-          </>
-        )}
+            </>
+          )}
         </div>
         {/* Step 8 */}
         {step === 7 && (
@@ -676,32 +777,24 @@ const CostCalculateModal = ({
             sx={{ height: 10, borderRadius: 5, mb: 2 }}
           />
           <Box className="d-flex justify-content-between mt-3">
-            {step == 0 ? (
-              <Button
-                variant="outlined"
-                onClick={onClose}
-                sx={{ paddingX: 4, paddingY: 1.5 }}
-                startIcon={<IoIosArrowBack />}
-              >
-                Back
-              </Button>
-            ) : (
-              <Button
-                variant="outlined"
-                onClick={handleBack}
-                sx={{ paddingX: 4, paddingY: 1.5 }}
-                startIcon={<IoIosArrowBack />}
-              >
-                Back
-              </Button>
-            )}
+              {step !== 7 && (
+  <Button
+    variant="outlined"
+    onClick={step === 0 ? onClose : handleBack}
+    sx={{ paddingX: 4, paddingY: 1.5 }}
+    startIcon={<IoIosArrowBack />}
+  >
+    Back
+  </Button>
+)}
             {step == 6 ? (
               <Button
                 variant="contained"
+                 disabled={loading}
                 onClick={() => handleSubmit()}
                 sx={{ px: 4, py: 1.5 }}
               >
-                Submit
+                {loading ? "Submitting..." : "Submit"}
               </Button>
             ) : step == 7 ? (
               <Button

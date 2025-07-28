@@ -58,9 +58,11 @@ export default function JobApplicationForm() {
   const router = useRouter();
   const [jobId, setJobId] = useState(null);
   const [errors, setErrors] = useState({});
+  const [loading, setLoading] = useState(false);
 
   const handleSubmit = async (e) => {
     e.preventDefault();
+    setLoading(true);
 
     const newErrors = {};
     if (!formData.firstName.trim())
@@ -72,7 +74,10 @@ export default function JobApplicationForm() {
 
     setErrors(newErrors);
 
-    if (Object.keys(newErrors).length > 0) return;
+    if (Object.keys(newErrors).length > 0){
+      setLoading(false);
+      return;
+    } 
 
     const form = new FormData();
     form.append("name", `${formData.firstName} ${formData.lastName}`);
@@ -103,10 +108,12 @@ export default function JobApplicationForm() {
           address: "",
         });
         setErrors({});
+        setLoading(false);
       },
       (error) => {
         console.error("user error:", error);
         handleSnackbarOpen("Something went wrong.", "error");
+        setLoading(false);
       }
     );
     console.log(formData);
@@ -423,8 +430,9 @@ export default function JobApplicationForm() {
               "&:hover": { bgcolor: "#4d8fcd" },
             }}
             onClick={handleSubmit}
+            disabled={loading}
           >
-            Submit application
+            {loading ? "Submitting..." : "Submit application"}
           </Button>
         </Box>
       </Box>
