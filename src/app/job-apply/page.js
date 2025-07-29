@@ -162,7 +162,7 @@ export default function JobApplicationForm() {
     }
 
     if (name === "phone") {
-      let cleaned = value.replace(/[^0-9]/g, "").slice(0, 20);
+      let cleaned = value.replace(/[^0-9]/g, "").slice(0, 10);
       setFormData((prev) => ({ ...prev, [name]: cleaned }));
       return;
     }

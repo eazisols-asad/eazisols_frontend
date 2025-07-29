@@ -199,7 +199,7 @@ const CostCalculateModal = ({
       setLoading(false);
       return;
     }
-  
+
     setErrors({});
 
     const form = new FormData();
@@ -258,7 +258,7 @@ const CostCalculateModal = ({
       setFormData((prev) => ({ ...prev, [name]: cleaned }));
       return;
     }
-if (name === "email") {
+    if (name === "email") {
       const cleaned = value.replace(/\s/g, "").slice(0, 100);
       setFormData((prev) => ({ ...prev, [name]: cleaned }));
       return;
@@ -300,6 +300,7 @@ if (name === "email") {
 
       <Container
         // fluid="md"
+        className="section-service"
         style={{ maxWidth: "750px" }}
         sx={{
           px: { xs: 2, sm: 4, md: 6, lg: 10, xl: 12 },
@@ -676,47 +677,51 @@ if (name === "email") {
 
                 {/* File Upload */}
                 <div className="mt-3 position-relative">
-                <div className="d-flex align-items-center border-bottom">
-                  <i className="bi bi-paperclip text-muted me-2"></i>
-                  <input
-  ref={fileInputRef}
-  type="file"
-  accept=".pdf,.doc,.docx,.xls,.xlsx"
-  className="form-control border-0 shadow-none pe-5"
-  onChange={(e) => {
-    const file = e.target.files[0];
-    if (!file) {
-      setFormData((prev) => ({ ...prev, file: null }));
-      setErrors((prev) => ({ ...prev, file: "" }));
-      return;
-    }
+                  <div className="d-flex align-items-center border-bottom">
+                    <i className="bi bi-paperclip text-muted me-2"></i>
+                    <input
+                      ref={fileInputRef}
+                      type="file"
+                      accept=".pdf,.doc,.docx,.xls,.xlsx"
+                      className="form-control border-0 shadow-none pe-5"
+                      onChange={(e) => {
+                        const file = e.target.files[0];
+                        if (!file) {
+                          setFormData((prev) => ({ ...prev, file: null }));
+                          setErrors((prev) => ({ ...prev, file: "" }));
+                          return;
+                        }
 
-    const allowedTypes = [
-      "application/pdf",
-      "application/msword",
-      "application/vnd.openxmlformats-officedocument.wordprocessingml.document",
-      "application/vnd.ms-excel",
-      "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet",
-    ];
+                        const allowedTypes = [
+                          "application/pdf",
+                          "application/msword",
+                          "application/vnd.openxmlformats-officedocument.wordprocessingml.document",
+                          "application/vnd.ms-excel",
+                          "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet",
+                        ];
 
-    if (!allowedTypes.includes(file.type)) {
-      setFormData((prev) => ({ ...prev, file: null }));
-      setErrors((prev) => ({ ...prev, file: "Invalid file type." }));
+                        if (!allowedTypes.includes(file.type)) {
+                          setFormData((prev) => ({ ...prev, file: null }));
+                          setErrors((prev) => ({
+                            ...prev,
+                            file: "Invalid file type.",
+                          }));
 
-      // Clear the file input so user can try again
-      if (fileInputRef.current) fileInputRef.current.value = "";
+                          // Clear the file input so user can try again
+                          if (fileInputRef.current)
+                            fileInputRef.current.value = "";
 
-      return;
-    }
+                          return;
+                        }
 
-    setFormData((prev) => ({ ...prev, file }));
-    setErrors((prev) => ({ ...prev, file: "" }));
+                        setFormData((prev) => ({ ...prev, file }));
+                        setErrors((prev) => ({ ...prev, file: "" }));
 
-    console.log("Selected file:", file.name);
-  }}
-/>
+                        console.log("Selected file:", file.name);
+                      }}
+                    />
 
-                  {formData.file && !errors.file ? (
+                    {formData.file && !errors.file ? (
                       <FaCheckCircle
                         className="text-success position-absolute"
                         style={{
@@ -737,13 +742,13 @@ if (name === "email") {
                         }}
                       />
                     ) : null}
-                </div>
-                {errors.file && (
-                  <div className="text-danger small mt-1 ms-4">
-                    {errors.file}
                   </div>
-                )}
-               </div>
+                  {errors.file && (
+                    <div className="text-danger small mt-1 ms-4">
+                      {errors.file}
+                    </div>
+                  )}
+                </div>
               </div>
             </>
           )}
@@ -777,20 +782,20 @@ if (name === "email") {
             sx={{ height: 10, borderRadius: 5, mb: 2 }}
           />
           <Box className="d-flex justify-content-between mt-3">
-              {step !== 7 && (
-  <Button
-    variant="outlined"
-    onClick={step === 0 ? onClose : handleBack}
-    sx={{ paddingX: 4, paddingY: 1.5 }}
-    startIcon={<IoIosArrowBack />}
-  >
-    Back
-  </Button>
-)}
+            {step !== 7 && (
+              <Button
+                variant="outlined"
+                onClick={step === 0 ? onClose : handleBack}
+                sx={{ paddingX: 4, paddingY: 1.5 }}
+                startIcon={<IoIosArrowBack />}
+              >
+                Back
+              </Button>
+            )}
             {step == 6 ? (
               <Button
                 variant="contained"
-                 disabled={loading}
+                disabled={loading}
                 onClick={() => handleSubmit()}
                 sx={{ px: 4, py: 1.5 }}
               >

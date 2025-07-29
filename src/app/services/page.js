@@ -81,8 +81,10 @@ export default function Capabilities() {
             </div>
           </div>
       
-      <section className="py-5 bg-white mt-5 section-service">
-        <Container>
+      <section className="py-5 bg-white mt-5">
+        <Container
+        // className="section-service"
+        >
           <h5
             className="fw-bold mb-5 ms-0"
             style={{
