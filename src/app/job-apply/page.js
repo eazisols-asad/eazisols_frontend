@@ -134,6 +134,8 @@ export default function JobApplicationForm() {
 
   const handleChange = (e) => {
     const { name, value } = e.target;
+    
+    setErrors((prev) => ({ ...prev, [name]: "" }));
 
     if (name === "firstName") {
       let cleaned = value.replace(/[^A-Za-z .,'-]/g, "").slice(0, 20);
