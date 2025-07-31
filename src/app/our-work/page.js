@@ -2,11 +2,22 @@
 import React, { useState, useEffect } from "react";
 import { Container, Row, Col } from "react-bootstrap";
 import CTASection from "../components/CTASection";
-import salesforce from "@/app/assets/salesforce.jpg";
+import casestudies from "@/app/assets/casestudies.jpg";
 import "../globals.css";
-import { FaUsers, FaPaperPlane, FaPhoneAlt, FaHandshake } from "react-icons/fa";
+import Image from "next/image";
 import useAPiAuth from "../components/useApiAuth";
 import { useRouter } from "next/navigation";
+import ArrowForwardIosIcon from "@mui/icons-material/ArrowForwardIos";
+import Link from "next/link";
+import {
+  Card,
+  CardActionArea,
+  CardContent,
+  CardMedia,
+  Typography,
+} from "@mui/material";
+import { FiMapPin } from "react-icons/fi";
+import ReuseContact from "../components/ReuseContact";
 // const joinSteps = [
 //   {
 //     icon: FaPaperPlane,
@@ -35,19 +46,19 @@ import { useRouter } from "next/navigation";
 // ];
 
 export default function about() {
-   const router = useRouter();
+  const router = useRouter();
   const [cases, setcases] = useState([]);
   const { getData } = useAPiAuth();
 
   useEffect(() => {
     getData(
       "/api/case-studies",
-       (res) => {
-      console.log(" Full API Response:", res); 
-      console.log(" Data Array Only:", res?.data);
+      (res) => {
+        console.log(" Full API Response:", res);
+        console.log(" Data Array Only:", res?.data);
 
         const list = Array.isArray(res?.data) ? res.data : [];
-        console.log(" extracted blog list:", list);
+        console.log(" extracted case-studies list:", list);
         setcases(list);
       },
       (error) => {
@@ -60,7 +71,7 @@ export default function about() {
       <div
         className="py-5"
         style={{
-          backgroundImage: `url(${salesforce.src})`,
+          backgroundImage: `url(${casestudies.src})`,
           backgroundSize: "cover",
           backgroundPosition: "center",
           backgroundRepeat: "no-repeat",
@@ -101,37 +112,121 @@ export default function about() {
       </div>
 
       <section className="py-5 bg-light">
-        <Container className="mt-5">
+        <Container className="mt-5 section-service">
           <h2 className="fw-bold text-center mb-5">Case Study</h2>
-          <Row className="g-4">
-            {/* {joinSteps.map((step, idx) => (
-              <Col key={idx} xs={12} sm={6} lg={3}>
-                <div
-                  className="tech-card bg-white rounded-4 shadow-sm p-4 h-100"
-                  style={{
-                    border: "1px solid #eee",
-                    transition: "all 0.3s ease-in-out",
-                  }}
-                >
-                  <div
-                    style={{
-                      fontSize: "2rem",
-                      color: "#418ED6",
-                      marginBottom: "16px",
-                    }}
-                  >
-                    <step.icon />
-                  </div>
-                  <h5 className="fw-bold mb-2">{step.title}</h5>
-                  <p className="text-muted" style={{ fontSize: "0.95rem" }}>
-                    {step.description}
-                  </p>
-                </div>
-              </Col>
-            ))} */}
+
+          <Row className="g-4 justify-content-center">
+            {cases.map((c) => {
+              const createdAt = new Date(c.created_at);
+              const day = createdAt.getDate().toString().padStart(2, "0");
+              const month = createdAt
+                .toLocaleString("en-US", { month: "short" })
+                .toUpperCase();
+
+              return (
+                <Col key={c.id} xs={12} sm={10} md={6} lg={4}>
+                  <Card className="latest-blog-card h-100 border-0 shadow-sm">
+                    {/* image */}
+                    <div className="position-relative">
+                      <CardMedia>
+                        <Image
+                          src={`https://admin.eazisols.com/${c.thumbnail}`}
+                          alt={c.title}
+                          width={500}
+                          height={300}
+                          className="w-100 rounded-top"
+                          style={{
+                            height: "200px",
+                            objectFit: "cover",
+                            objectPosition: "center",
+                          }}
+                        />
+                      </CardMedia>
+
+                      {/* date badge */}
+                      <div className="latest-blog-date">
+                        <span className="day">{day}</span>
+                        <span className="month">{month}</span>
+                      </div>
+                    </div>
+
+                    {/* body */}
+                    <CardContent>
+                      <Typography
+                        variant="caption"
+                        className="d-flex align-items-center gap-1 text-muted mb-1"
+                      >
+                        <FiMapPin size={14} /> {"Location not specified"}
+                      </Typography>
+
+                      <Typography variant="h6" className="fw-bold mb-2">
+                        {c.title}
+                      </Typography>
+
+                      <div
+                        style={{
+                          display: "inline-flex",
+                          alignItems: "center",
+                          gap: "8px",
+                          padding: "6px 14px",
+                          borderRadius: "999px",
+                          backgroundColor: "#ffffff",
+                          border: "1px solid #e5e7eb",
+                          width: "fit-content",
+                          marginBottom: "12px",
+                        }}
+                      >
+                        <Typography
+                          variant="body2"
+                          style={{ color: "#374151", fontWeight: 500 }}
+                        >
+                          {c.Project || "App Development"}
+                        </Typography>
+                        <Link href={`/our-work/${c.id}`}>
+                          <div
+                            style={{
+                              backgroundColor: "#f9fafb",
+                              borderRadius: "50%",
+                              padding: "4px",
+                              border: "1px solid #e5e7eb",
+                              display: "flex",
+                              alignItems: "center",
+                              justifyContent: "center",
+                            }}
+                          >
+                            <ArrowForwardIosIcon
+                              sx={{ fontSize: 12, color: "#4b5563" }}
+                            />
+                          </div>
+                        </Link>
+                      </div>
+
+                      <Typography
+                        variant="body2"
+                        color="text.secondary"
+                        className="mb-4"
+                      >
+                        {c.description.replace(/<[^>]+>/g, "").slice(0, 100)}...
+                      </Typography>
+
+                      <Link href={`/our-work/${c.id}`}>
+                        <Typography
+                          variant="body2"
+                          className="read-more fw-medium text-primary"
+                          style={{ cursor: "pointer" }}
+                        >
+                          Read More
+                        </Typography>
+                      </Link>
+                    </CardContent>
+                  </Card>
+                </Col>
+              );
+            })}
           </Row>
         </Container>
       </section>
+      <ReuseContact />
       <CTASection
         description1="Let's build something impactful together"
         description2="Quote Generator"

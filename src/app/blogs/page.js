@@ -5,9 +5,10 @@ import "../globals.css";
 import CTASection from "../components/CTASection";
 import Link from "next/link";
 import { Container, Row, Col } from "react-bootstrap";
-import salesforce from "@/app/assets/salesforce.jpg";
+import bloog from "@/app/assets/bloog.webp";
 import useAPiAuth from "../components/useApiAuth";
 import { useRouter } from "next/navigation";
+
 import {
   Card,
   CardActionArea,
@@ -17,38 +18,7 @@ import {
 } from "@mui/material";
 
 import { FiMapPin } from "react-icons/fi";
-// const BLOGS = [
-//   {
-//     id: 1,
-//     img: salesforce,
-//     day: "15",
-//     month: "DEC",
-//     location: "Phonics, Newyork",
-//     title: "Twice Profit Than Before You Ever Got In Business.",
-//     excerpt:
-//       "Residences can be classified by and how they are connected to neighbouring residences and land. Different types of housing tenure can be used for the same physical type.",
-//   },
-//   {
-//     id: 2,
-//     img: salesforce,
-//     day: "12",
-//     month: "SEPT",
-//     location: "Cambridge, England",
-//     title: "Residences Can Be Classified How They Are Connected.",
-//     excerpt:
-//       "Residences can be classified by and how they are connected to neighbouring residences and land. Different types of housing tenure can be used for the same physical type.",
-//   },
-//   {
-//     id: 3,
-//     img: salesforce,
-//     day: "14",
-//     month: "AUG",
-//     location: "Barcelona, London",
-//     title: "Different Type Of Housing Can Used Same Physical Type.",
-//     excerpt:
-//       "Decoration is the furnishing of a space with decorative elements, sometimes complemented by advice, sometimes complemented and practical assistance.",
-//   },
-// ];
+import ReuseContact from "../components/ReuseContact";
 
 export default function Careers() {
   const router = useRouter();
@@ -58,9 +28,9 @@ export default function Careers() {
   useEffect(() => {
     getData(
       "/api/blogs",
-       (res) => {
-      console.log(" Full API Response:", res); 
-      console.log(" Data Array Only:", res?.data);
+      (res) => {
+        console.log(" Full API Response:", res);
+        console.log(" Data Array Only:", res?.data);
 
         const list = Array.isArray(res?.data) ? res.data : [];
         console.log(" extracted blog list:", list);
@@ -74,11 +44,10 @@ export default function Careers() {
 
   return (
     <>
-      
       <div
         className="py-5"
         style={{
-          backgroundImage: `url(${salesforce.src})`,
+          backgroundImage: `url(${bloog.src})`,
           backgroundSize: "cover",
           backgroundPosition: "center",
           backgroundRepeat: "no-repeat",
@@ -117,8 +86,9 @@ export default function Careers() {
           </p>
         </div>
       </div>
+
       <section className="py-5 px-5 latest-blog">
-        <Container>
+        <Container className="section-service">
           {/* Heading */}
           <Typography
             component="h2"
@@ -156,12 +126,12 @@ export default function Careers() {
                     <div className="position-relative">
                       <CardMedia>
                         <Image
-                          src={`https://admin.eazisols.com/${b.thumbnail}`} 
+                          src={`https://admin.eazisols.com/${b.thumbnail}`}
                           alt={b.title}
                           width={500}
                           height={300}
-                          className="w-100 rounded-top"
-                          style={{ objectFit: "cover" }}
+                          className="w-100"
+                          style={{ objectFit: "cover",  }}
                         />
                       </CardMedia>
 
@@ -193,16 +163,15 @@ export default function Careers() {
                         {b.description.replace(/<[^>]+>/g, "").slice(0, 100)}...
                       </Typography>
 
-                     <Link href={`/blogs/${b.id}`}>
-  <Typography
-    variant="body2"
-    className="read-more fw-medium text-primary"
-    style={{ cursor: "pointer" }}
-  >
-    Read More
-  </Typography>
-</Link>
-
+                      <Link href={`/blogs/${b.id}`}>
+                        <Typography
+                          variant="body2"
+                          className="read-more fw-medium text-primary"
+                          style={{ cursor: "pointer" }}
+                        >
+                          Read More
+                        </Typography>
+                      </Link>
                     </CardContent>
                   </Card>
                 </Col>
@@ -211,6 +180,7 @@ export default function Careers() {
           </Row>
         </Container>
       </section>
+      <ReuseContact />
 
       <CTASection
         description1="Want updates from us? Let's stay in touch."

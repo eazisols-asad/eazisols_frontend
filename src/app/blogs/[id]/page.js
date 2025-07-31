@@ -4,6 +4,7 @@ import { useParams, useRouter } from "next/navigation";
 import { Box, Container, Typography, Button } from "@mui/material";
 import useApiAuth from "@/app/components/useApiAuth";
 import axios from "axios";
+import ReuseContact from "@/app/components/ReuseContact";
 
 export default function blogsDetail() {
   const { id } = useParams();
@@ -131,6 +132,7 @@ export default function blogsDetail() {
           </Box>
         )} */}
       </Container>
+      <ReuseContact />
     </>
   );
 }
