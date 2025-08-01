@@ -50,30 +50,6 @@ export default function caseStudiesDetail() {
 
   return (
     <>
-      {/* <div
-        style={{
-          backgroundColor: "#418ED6",
-          padding: "80px 20px",
-          textAlign: "center",
-        }}
-      >
-        <Typography
-          variant="h4"
-          fontWeight={700}
-          gutterBottom
-          sx={{ textAlign: "center", mb: 4, color: "white" }}
-        >
-          {cases.title}
-        </Typography>
-        <div
-          style={{
-            display: "flex",
-            justifyContent: "center",
-            alignItems: "center",
-          }}
-        ></div>
-      </div> */}
-
       <Container className="mt-4">
         {cases.thumbnail && (
           <img
