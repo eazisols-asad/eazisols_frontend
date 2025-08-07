@@ -50,7 +50,7 @@ export default function blogsDetail() {
 
   return (
     <>
-    {/* <div
+      {/* <div
       style={{
               backgroundImage: `url(${blogs.thumbnail})`,
               backgroundSize: "cover",
@@ -62,31 +62,31 @@ export default function blogsDetail() {
               }}
      >
     </div> */}
-    <Box
-  sx={{
-    position: "relative",
-    height: { xs: "400px", md: "500px" },
-    backgroundImage: `url(https://admin.eazisols.com/${blogs.thumbnail})`,
-    backgroundSize: "cover",
-    backgroundPosition: "center",
-    color: "#fff",
-    display: "flex",
-    alignItems: "center",
-    justifyContent: "center",
-    textAlign: "left",
-    px: 2,
-  }}
->
-  <Box
-    // sx={{
-    //   maxWidth: "900px",
-    //   width: "100%",
-    //   // background: "rgba(0,0,0,0.5)",
-    //   background: "#418ED6",
-    //   padding: { xs: 3, md: 5 },
-    //   borderRadius: 2,
-    // }}
-     className="about-overlay-box"
+      <Box
+        sx={{
+          position: "relative",
+          height: { xs: "400px", md: "500px" },
+          backgroundImage: `url(https://admin.eazisols.com/${blogs.thumbnail})`,
+          backgroundSize: "cover",
+          backgroundPosition: "center",
+          color: "#fff",
+          display: "flex",
+          alignItems: "center",
+          justifyContent: "center",
+          textAlign: "left",
+          px: 2,
+        }}
+      >
+        <Box
+          // sx={{
+          //   maxWidth: "900px",
+          //   width: "100%",
+          //   // background: "rgba(0,0,0,0.5)",
+          //   background: "#418ED6",
+          //   padding: { xs: 3, md: 5 },
+          //   borderRadius: 2,
+          // }}
+          className="about-overlay-box"
           style={{
             position: "absolute",
             top: "280px",
@@ -103,50 +103,72 @@ export default function blogsDetail() {
             zIndex: 2,
             marginBottom: "10px",
           }}
-  >
-    <Typography variant="h4" fontWeight={700} sx={{ mb: 2 }}>
-      {blogs.title}
-    </Typography>
+        >
+          <Typography variant="h4" fontWeight={700} sx={{ mb: 2 }}>
+            {blogs.title}
+          </Typography>
 
-    <Typography variant="body1" sx={{ color: "#eee", mb: 3 }}>
-      Unlock sales potential with Salesforce implementation. Streamline
-      processes, boost efficiency, and enhance customer satisfaction.
-    </Typography>
+          <Typography variant="body1" sx={{ color: "#eee", mb: 3 }}>
+            Unlock sales potential with Salesforce implementation. Streamline
+            processes, boost efficiency, and enhance customer satisfaction.
+          </Typography>
 
-    <Box
-      sx={{
-        display: "flex",
-        alignItems: "center",
-        flexWrap: "wrap",
-        gap: 2,
-        fontSize: "14px",
-        color: "#ccc",
-      }}
-    >
-      <Box sx={{ display: "flex", alignItems: "center", gap: 1, color: "#fff",}}>
-        {/* <img
+          <Box
+            sx={{
+              display: "flex",
+              alignItems: "center",
+              flexWrap: "wrap",
+              gap: 2,
+              fontSize: "14px",
+              color: "#ccc",
+            }}
+          >
+            <Box
+              sx={{
+                display: "flex",
+                alignItems: "center",
+                gap: 1,
+                color: "#fff",
+              }}
+            >
+              {/* <img
           src="/logo/Solutionsloft.png"
           alt="SolutionsLoft"
           style={{ width: 28, height: 28, borderRadius: "50%" }}
         /> */}
-        <Typography>Eazisols</Typography>
+              <Typography>Eazisols</Typography>
+            </Box>
+
+            <Box
+              sx={{
+                display: "flex",
+                alignItems: "center",
+                gap: 1,
+                color: "#fff",
+              }}
+            >
+              <span>⏱</span>
+              <span>8 mins read</span>
+            </Box>
+
+            <Box
+              sx={{
+                display: "flex",
+                alignItems: "center",
+                gap: 1,
+                color: "#fff",
+              }}
+            >
+              <span>📅</span>
+              <span>
+                {new Date(blogs.created_at).toISOString().split("T")[0]}
+              </span>
+            </Box>
+          </Box>
+        </Box>
       </Box>
 
-      <Box sx={{ display: "flex", alignItems: "center", gap: 1 ,color: "#fff",}}>
-        <span>⏱</span>
-        <span>8 mins read</span>
-      </Box>
-
-      <Box sx={{ display: "flex", alignItems: "center", gap: 1, color: "#fff", }}>
-        <span>📅</span>
-        <span>{new Date(blogs.created_at).toISOString().split("T")[0]}</span>
-      </Box>
-    </Box>
-  </Box>
-</Box>
-
-      <Container className="mt-5"
-      style={{marginTop: "76px",}}>
+      <Container className="mt-5" style={{ marginTop: "76px" }}>
         {/* {blogs.thumbnail && (
           <img
             src={`https://admin.eazisols.com/${blogs.thumbnail}`}
