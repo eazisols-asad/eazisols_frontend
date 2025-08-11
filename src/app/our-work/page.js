@@ -130,7 +130,7 @@ export default function about() {
                     <div className="position-relative">
                       <CardMedia>
                         <Image
-                          src={`https://admin.eazisols.com/${c.thumbnail}`}
+                          src={c.thumbnail?.startsWith('http') ? c.thumbnail : `https://admin.eazisols.com/${c.thumbnail}`}
                           alt={c.title}
                           width={500}
                           height={300}
@@ -152,12 +152,12 @@ export default function about() {
 
                     {/* body */}
                     <CardContent>
-                      <Typography
+                      {/* <Typography
                         variant="caption"
                         className="d-flex align-items-center gap-1 text-muted mb-1"
                       >
                         <FiMapPin size={14} /> {"Location not specified"}
-                      </Typography>
+                      </Typography> */}
 
                       <Typography variant="h6" className="fw-bold mb-2">
                         {c.title}

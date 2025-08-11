@@ -199,9 +199,8 @@ export default function about() {
           </Row>
         </Container>
       </section>
-      {/* <VisionSection /> */}
-      {/* <AboutTd />
-      <CultureSection /> */}
+      <AboutTd />
+      <CultureSection />
       {/* <FeatureSection /> */}
       <section>
         <div className="container-lg ">

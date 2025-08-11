@@ -18,7 +18,7 @@ export default function Hsection() {
   return (
     <Box
       sx={{
-        background: 'linear-gradient(90deg, #418ED6 0%, #003B8B 100%)',
+        background: 'linear-gradient(90deg, #418ED6 0%, #2165B1 40%, #003B8B 100%)',
         py: { xs: 6, md: 10 },
         color: '#fff',
       }}
