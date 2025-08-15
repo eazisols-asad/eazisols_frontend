@@ -473,7 +473,7 @@ img {
 }
 .contact-form-box .phone-input {
   width: 100% !important;
-  margin-bottom: 12px;
+  /* margin-bottom: 12px; */
 }
 
 .contact-form-box .phone-input .form-control {
@@ -1035,23 +1035,23 @@ footer hr {
 }
 
 
-.form-side {
+/* .form-side {
   padding-left: 0px;
   padding-right: 150px;
-}
+} */
 
-@media (min-width: 992px) {
+/* @media (min-width: 992px) {
   .form-side {
     padding-left: 75px;
     padding-right: 0px;
   }
-}
+} */
 
 
-.map-side {
+/* .map-side {
   padding-left: 16px;
   padding-right: 16px;
-}
+} */
 
 .map-side .map-container {
   margin: 0 auto;
@@ -1064,10 +1064,10 @@ footer hr {
 }
 
 @media (min-width: 992px) {
-  .map-side {
+  /* .map-side {
     padding-left: 55px;
     padding-right: 55px;
-  }
+  } */
 
   .map-side .map-container {
     height: 450px; /* original size */
@@ -1145,4 +1145,35 @@ footer hr {
      padding-right: 16px !important;
   }
 }
+
+.job-row--even { background-color: #ffffff; }   
+.job-row--odd  { background-color: #f7f9fb; } 
+
+.job-row {
+  transition: background-color 300ms cubic-bezier(.4,0,.2,1),
+              color 240ms cubic-bezier(.4,0,.2,1),
+              border-color 300ms cubic-bezier(.4,0,.2,1);
+  will-change: background-color, color;
+}
+
+
+.job-row * {
+  transition: color 240ms cubic-bezier(.4,0,.2,1);
+}
+
+.job-row:hover {
+  background-color: #d2e4f5;
+}
+.job-row svg,
+.job-row svg path {
+  transition: color 240ms cubic-bezier(.4,0,.2,1),
+              fill 240ms cubic-bezier(.4,0,.2,1),
+              stroke 240ms cubic-bezier(.4,0,.2,1);
+}
+
+
+@media (prefers-reduced-motion: reduce) {
+  .job-row, .job-row * { transition: none; }
+}
+
 

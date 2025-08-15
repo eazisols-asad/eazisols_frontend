@@ -5,12 +5,14 @@ import { Form, Button, Row, Col } from "react-bootstrap";
 import PhoneInput from "react-phone-input-2";
 import "react-phone-input-2/lib/bootstrap.css";
 import "../globals.css";
+import { useSnackbar } from "./Snakbar";
+import useApiAuth from "./useApiAuth";
 
 
 
 
 export default function ContactForm({
-  onSubmit,
+
   buttonText = "Please wait...",
 }) {
   const [formData, setFormData] = useState({
@@ -24,7 +26,8 @@ export default function ContactForm({
 
   const [validated, setValidated] = useState(false);
   const [loading, setLoading] = useState(false);
-
+  const { postData, getData } = useApiAuth();
+  const { handleSnackbarOpen } = useSnackbar();
  const handleSubmit = async (event) => {
   event.preventDefault();
   const form = event.currentTarget;
@@ -38,9 +41,26 @@ export default function ContactForm({
 
   setLoading(true);
 
-  if (onSubmit) {
-    await onSubmit(formData);
-  }
+
+    const cleanedFormData = {
+      ...formData,
+      fullName: formData.fullName.replace(/\s{2,}/g, " ").trim(),
+      company_name: formData.company_name.replace(/\s{2,}/g, " ").trim(),
+      message: formData.message.trim(),
+    };
+    postData(
+      "/contact-us",
+      cleanedFormData,
+      (data) => {
+        console.log("API Success:", data);
+        handleSnackbarOpen("Form sent successfully!", "success");
+      },
+      (error) => {
+        console.error("user error:", error);
+        handleSnackbarOpen("Something went wrong.", "error");
+      }
+    );
+  
 
   setLoading(false);
 
@@ -138,7 +158,7 @@ export default function ContactForm({
       <p className="text-muted">Leave your details, we will reach out soon.</p>
 
       <Form noValidate validated={validated} onSubmit={handleSubmit}>
-        <Row className="">
+        <Row >
           <Col md={6}>
             <Form.Group>
               <Form.Label className="small-label">Name *</Form.Label>
@@ -178,7 +198,7 @@ export default function ContactForm({
           </Col>
         </Row>
 
-        <Row className="mb-1 mt-3">
+        <Row className="mt-3 mb-0">
           <Col md={6}>
             <Form.Group>
               <Form.Label className="small-label">Phone Number *</Form.Label>
@@ -192,7 +212,7 @@ export default function ContactForm({
                 containerClass="phone-input"
               />
               {validated && formData.phone.trim() === "" && (
-                <div className="text-danger small mt-1">
+                <div className="text-danger small">
                   Phone number is required.
                 </div>
               )}
@@ -213,7 +233,7 @@ export default function ContactForm({
           </Col>
         </Row>
 
-        <Form.Group className="mb-3 ">
+        <Form.Group className="mb-3 mt-3">
           <Form.Label className="small-label">Inquiry Details *</Form.Label>
           <Form.Control
             as="textarea"

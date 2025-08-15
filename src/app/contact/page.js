@@ -11,6 +11,7 @@ export default function ContactPage() {
   const { postData, getData } = useAPiAuth();
   const { handleSnackbarOpen } = useSnackbar();
   const handleSubmit = async (formData) => {
+    console.log("🚀 ~ handleSubmit ~ formData:", formData)
     const cleanedFormData = {
       ...formData,
       fullName: formData.fullName.replace(/\s{2,}/g, " ").trim(),
@@ -159,7 +160,7 @@ export default function ContactPage() {
 
             {/* RIGHT SIDE */}
             <Col lg={6} className="d-flex justify-content-end">
-              <ContactForm buttonText="Sending..." onSubmit={handleSubmit} />
+              <ContactForm buttonText="Sending..."/>
             </Col>
           </Row>
         </Container>

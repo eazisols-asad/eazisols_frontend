@@ -10,15 +10,15 @@ export default function ReuseContact() {
   const router = useRouter();
   return (
     <>
-      <Container className=" py-4 map-query" style={{ maxWidth: "1263px" , paddingLeft: ".25rem" ,
-    paddingRight: "3.25rem" }}>
+      <Container className=" py-4 map-query" style={{ maxWidth: "1342px" , paddingLeft: "36px" ,
+    paddingRight: "48px" }}>
         <Row className="align-items-center bg-white border rounded-3  p-md-4 gx-5">
           {/* left side*/}
           <Col
             lg={6}
             md={12}
             className=" text-center mb-4 mb-lg-0 map-side"
-            style={{ paddingRight: "0px", paddingLeft: "55px" }}
+            // style={{ paddingRight: "0px", paddingLeft: "55px" }}
           >
             <div
               style={{
@@ -48,7 +48,7 @@ export default function ReuseContact() {
             className=" mb-4 mb-lg-0 form-side ms-4 ms-lg-0"
             style={{
               
-              paddingRight: "0px",
+              // paddingRight: "0px",
               
             }}
           >

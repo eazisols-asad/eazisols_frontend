@@ -20,12 +20,18 @@ export default function Hsection() {
       sx={{
         background: 'linear-gradient(90deg, #418ED6 0%, #2165B1 40%, #003B8B 100%)',
         py: { xs: 6, md: 10 },
+        px: {xs: 6, md:10, },
         color: '#fff',
+        marginTop: "50px",
       }}
       ref={ref} 
     >
-      <Container maxWidth="lg" >
-        <Grid container spacing={4} alignItems="center">
+      <div  >
+        <Grid container spacing={4} alignItems="center"
+        sx={{
+          marginLeft: "20px",
+        }}
+        >
           {/* Left Section */}
           <Grid item xs={12} md={6} >
             <Typography
@@ -51,7 +57,7 @@ export default function Hsection() {
               consultants will provide you next gen{' '}
               <Box component="span" fontWeight={700}>
                 Software Development Services
-              </Box>
+              </Box><br />
               , leaving you to only focus on running your business, unperturbed.
             </Typography>
           </Grid>
@@ -100,7 +106,7 @@ export default function Hsection() {
             ))}
           </Grid>
         </Grid>
-      </Container>
+      </div>
     </Box>
   );
 }

@@ -60,14 +60,14 @@ export default function caseStudiesDetail() {
 
   if (loading)
     return (
-      <Container sx={{ py: 6, textAlign: "center" }}>
+      <Container sx={{ py: 6, textAlign: "center", minHeight: "70vh", }}>
         <span className="loader" />
       </Container>
     );
 
   if (!cases)
     return (
-      <Container sx={{ py: 6, textAlign: "center" }}>
+      <Container sx={{ py: 6, textAlign: "center", minHeight: "70vh", }}>
         <Typography variant="h6" color="error">
           case-studies not found
         </Typography>
@@ -75,28 +75,27 @@ export default function caseStudiesDetail() {
       </Container>
     );
 
-  // CHANGE: helpers (plain JS)
   const splitList = (text) =>
     (text || "")
       .split(/\r?\n|,|;|•/g)
       .map((t) => t.trim())
       .filter(Boolean);
 
-  const monthsBetween = (start, end) => {
-    if (!start || !end) return null;
-    const s = new Date(start);
-    const e = new Date(end);
-    if (isNaN(s.getTime()) || isNaN(e.getTime())) return null;
+  // const monthsBetween = (start, end) => {
+  //   if (!start || !end) return null;
+  //   const s = new Date(start);
+  //   const e = new Date(end);
+  //   if (isNaN(s.getTime()) || isNaN(e.getTime())) return null;
 
-    let months =
-      (e.getFullYear() - s.getFullYear()) * 12 + (e.getMonth() - s.getMonth());
-    if (e.getDate() < s.getDate()) months -= 1;
+  //   let months =
+  //     (e.getFullYear() - s.getFullYear()) * 12 + (e.getMonth() - s.getMonth());
+  //   if (e.getDate() < s.getDate()) months -= 1;
 
-    if (months < 0) return null;
-    return months === 0
-      ? "Less than 1 Month"
-      : `${months} Month${months > 1 ? "s" : ""}`;
-  };
+  //   if (months < 0) return null;
+  //   return months === 0
+  //     ? "Less than 1 Month"
+  //     : `${months} Month${months > 1 ? "s" : ""}`;
+  // };
 
   return (
     <>

@@ -3,6 +3,7 @@
 import { Navbar, Nav, Container, NavDropdown, Button } from "react-bootstrap";
 import Link from "next/link";
 import eazistransbg from "@/app/assets/eazistransbg.png";
+import eazilogo from "@/app/assets/eazilogo.png";
 import { usePathname } from "next/navigation";
 import { useEffect, useState } from "react";
 import CostCalculateModal from "./CostCalculator";
@@ -39,7 +40,7 @@ export default function NavigationBar() {
             className="d-flex align-items-center"
           >
             <img
-              src={eazistransbg.src}
+              src={eazilogo.src}
               alt="Eazisols Logo"
               style={{
                 height: "100px",
@@ -86,14 +87,14 @@ export default function NavigationBar() {
               >
                 <NavDropdown.Item
                   as={Link}
-                  href="/comingSoon"
+                  href="/our-work"
                   onClick={() => setExpanded(false)}
                 >
                   Case Studies
                 </NavDropdown.Item>
                 <NavDropdown.Item
                   as={Link}
-                  href="/comingSoon"
+                  href="/blogs"
                   onClick={() => setExpanded(false)}
                 >
                   Blog

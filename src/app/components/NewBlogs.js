@@ -44,8 +44,8 @@ const cardData = [
 
 export default function NewBlogs() {
   return (
-    <Container style={{ padding: "3rem 0" }}>
-      <Box sx={{ px: { xs: 4, md: 12 }, mb: 4 }}>
+    <Container style={{ padding: "3rem 0" }} className="bg-white mx-6 px-4" >
+      <Box sx={{ px: { xs: 4, md: 12, lg: 7, }, mb: 4 , }}>
         <Typography variant="subtitle2" color="text.secondary">
           News and Events
         </Typography>
@@ -54,7 +54,7 @@ export default function NewBlogs() {
           <span style={{ color: "#418ED6" }}>transformation</span>
         </Typography>
       </Box>
-      <Box sx={{ px: { xs: 2, md: 4 }, py: 4 }}>
+      <Box sx={{ px: { xs: 2, md: 4 ,}, py: 4 , }}>
         <Box
           sx={{
             display: "flex",
@@ -106,14 +106,13 @@ export default function NewBlogs() {
                   What's keeping CIOs up at night? Owning the AI agenda.
                 </Typography>
                 <Typography
-                  className="link-hover-effect"
+                className="link-hover-effect"
                   sx={{
                     color: "#418ED6",
                     fontWeight: 600,
                     fontSize: "14px",
                     mt: 2,
-                  }}
-                >
+                  }}>
                   Read the blog →
                 </Typography>
               </Box>

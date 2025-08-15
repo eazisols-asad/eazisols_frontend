@@ -3,12 +3,13 @@
 import FAQSection from "./components/FAQSection";
 import HeroSection from "./components/HeroSection";
 import LogoSection, { ReverseSectionsSlider } from "./components/LogoSection";
+import LogoSliderr, { ReverseSectionsSlideer } from "./components/LogoSliderr";
 import AboutSection from "./components/AboutSection";
 import CTASection from "./components/CTASection";
 import WaterfallProcess from "./components/WaterfallProcess";
 import Services from "./components/Services";
 import NewBlogs from "./components/NewBlogs";
-import LogoSliderr from "./components/LogoSliderr";
+// import LogoSliderr from "./components/LogoSliderr";
 import TestimonialSection from "./components/TestimonialSection";
 import ReuseContact from "./components/ReuseContact";
 import Hsection from "./components/Hsection";
@@ -77,6 +78,7 @@ export default function Home() {
       {/* <ReverseSectionsSlider />
       <LogoSection /> */}
       <LogoSliderr />
+        <ReverseSectionsSlideer />
       {/* <WaterfallProcess /> */}
       <AboutSection />
       <Hsection />

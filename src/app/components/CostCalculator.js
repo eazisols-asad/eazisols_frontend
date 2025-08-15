@@ -46,7 +46,9 @@ import {
   FaPiggyBank,
   FaCheckCircle,
   FaExclamationCircle,
+  FaRegCheckCircle,
 } from "react-icons/fa";
+import { IoMdCheckmarkCircleOutline } from "react-icons/io";
 import eazistransbg from "@/app/assets/eazistransbg.png";
 import { IoIosArrowBack, IoIosArrowForward } from "react-icons/io";
 const Transition = forwardRef(function Transition(props, ref) {
@@ -143,11 +145,27 @@ const CostCalculateModal = ({
       hasError = true;
     }
 
-    if (hasError) {
-      setErrors(newErrors);
-      handleSnackbarOpen("Please complete the required fields.", "error");
-      return;
-    }
+    // if (hasError) {
+    //   setErrors(newErrors);
+    //   handleSnackbarOpen("Please make a selection to continue.", "error");
+    //   return;
+    // }
+     if (hasError) {
+   setErrors(newErrors);
+   const firstError =
+     newErrors.services ||
+     newErrors.industry ||
+     newErrors.stage ||
+     newErrors.timeline ||
+     newErrors.budget ||
+     newErrors.description ||
+     newErrors.fullName ||
+     newErrors.email ||
+     newErrors.file ||
+    "Please make a selection to continue.";
+   handleSnackbarOpen(firstError, "error");
+   return;
+ }
 
     setErrors({});
     setStep(step + 1);
@@ -756,7 +774,22 @@ const CostCalculateModal = ({
         {/* Step 8 */}
         {step === 7 && (
           <div className="text-center py-5">
-            <h1 className="fw-bold mb-3 pt-5">Thanks!</h1>
+          <div
+      style={{
+        display: "inline-flex",
+        alignItems: "center",
+        justifyContent: "center",
+        width: 100,
+        height: 100,
+        borderRadius: "50%",
+        // background: "rgba(34, 197, 94, 0.12)", 
+        marginBottom: 2,
+        // boxShadow: "0 6px 20px rgba(34, 197, 94, 0.25)", 
+      }}
+    >
+      <IoMdCheckmarkCircleOutline size={90} color="#22c55e" /> 
+    </div>
+            <h1 className="fw-bold mb-3 pt-2">Thanks!</h1>
             <p className="text-muted mb-4 ">
               We'll get back to you within 1 business day <br />
               with a response tailored to your project.

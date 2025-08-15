@@ -12,7 +12,7 @@ export default function AboutSection() {
   return (
   <>
       <Container>
-        <Row className="align-items-center bg-white rounded-3 p-4 pt-5 pb-5">
+        <Row className="align-items-center bg-white rounded-3 p-4 pt-5 pb-5 mx-0 gx-0">
           <Col lg={6} className="text-center">
             <Image
               src={about}

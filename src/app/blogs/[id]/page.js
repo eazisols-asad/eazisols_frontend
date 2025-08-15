@@ -33,14 +33,14 @@ export default function blogsDetail() {
 
   if (loading)
     return (
-      <Container sx={{ py: 6, textAlign: "center" }}>
+      <Container sx={{ py: 6, textAlign: "center", minHeight: "70vh", }}>
         <span className="loader" />
       </Container>
     );
 
   if (!blogs)
     return (
-      <Container sx={{ py: 6, textAlign: "center" }}>
+      <Container sx={{ py: 6, textAlign: "center", minHeight: "70vh", }}>
         <Typography variant="h6" color="error">
           blogs not found
         </Typography>

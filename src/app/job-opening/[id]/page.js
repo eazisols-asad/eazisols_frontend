@@ -29,14 +29,14 @@ export default function JobDetail() {
 
   if (loading)
     return (
-      <Container sx={{ py: 6, textAlign: "center" }}>
+      <Container sx={{ py: 6, textAlign: "center", minHeight: "70vh", }}>
         <span className="loader" />
       </Container>
     );
 
   if (!job)
     return (
-      <Container sx={{ py: 6, textAlign: "center" }}>
+      <Container sx={{ py: 6, textAlign: "center", minHeight: "70vh", }}>
         <Typography variant="h6" color="error">
           Job not found
         </Typography>
@@ -91,7 +91,7 @@ export default function JobDetail() {
       <Container
       //  maxWidth="md" sx={{ py: 3, height: "100%" }}
       >
-        <Box sx={{ display: "flex", justifyContent: "center", mb: 3 }}>
+        <Box sx={{ display: "flex", justifyContent: "center", mb: 3, mt: 2, }}>
           <Box sx={{ display: "flex", borderBottom: "none" }}>
             <Button
               variant="text"

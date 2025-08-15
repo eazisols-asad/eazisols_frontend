@@ -50,7 +50,7 @@ const HeroSection = () => {
         <Container className="flex-grow-1 d-flex flex-column justify-content-center heroSection">
           <Row className="align-items-center justify-content-center gx-4">
             <Col lg={7} className="slide-up">
-              <div className="px-lg-5">
+              <div className="pe-lg-5 ps-lg-0">
                 <h1
                   className="display-3 fw-bold mb-4"
                 >
@@ -88,11 +88,8 @@ const HeroSection = () => {
             </Col>
 
             <Col lg={5} className=" mt-4 mt-lg-0 contact-col animate-slide-in">
-              <div className=" d-flex justify-content-center">
+              <div className=" d-flex justify-content-end">
                 <ContactForm
-                  onSubmit={async (formData) => {
-                    console.log(formData);
-                  }}
                   buttonText="Get Started"
                 />
               </div>

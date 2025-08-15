@@ -36,19 +36,13 @@ import todays from "@/app/assets/todays.png";
 import "../globals.css";
 
 const imageData = [
-  // { id: 1, defaultSrc: logoPurple1.src, alt: "Logo 1" },
-  // { id: 2, defaultSrc: logoPurple2.src, alt: "Logo 2" },
   { id: 3, defaultSrc: logoPurple3.src, alt: "Logo 3" },
-  { id: 4, defaultSrc: logoPurple4.src, alt: "Logo 4" },
   { id: 5, defaultSrc: logoPurple5.src, alt: "Logo 5" },
-  // { id: 6, defaultSrc: logoPurple6.src, alt: "Logo 6" },
-  { id: 7, defaultSrc: alkaios.src, alt: "Alkaios" },
+  
   { id: 8, defaultSrc: automat.src, alt: "Automat" },
   { id: 9, defaultSrc: crowd.src, alt: "Crowd" },
   { id: 10, defaultSrc: dis.src, alt: "Dis" },
-  { id: 11, defaultSrc: kinoki.src, alt: "Kinoki" },
   { id: 12, defaultSrc: loubiz.src, alt: "Loubiz" },
-  { id: 13, defaultSrc: maxlife.src, alt: "Maxlife" },
   { id: 14, defaultSrc: mfg.src, alt: "MFG" },
   { id: 15, defaultSrc: mymint.src, alt: "Mymint" },
   { id: 16, defaultSrc: noir.src, alt: "Noir" },
@@ -56,16 +50,26 @@ const imageData = [
   { id: 18, defaultSrc: order.src, alt: "Order" },
   { id: 19, defaultSrc: rocket.src, alt: "Rocket" },
   { id: 20, defaultSrc: westilo.src, alt: "Westilo" },
+  { id: 23, defaultSrc: landbridge.src, alt: "LandBridge" },
+];
+const imageDataT = [
+  { id: 1, defaultSrc: logoPurple1.src, alt: "Logo 1" },
+  { id: 2, defaultSrc: logoPurple2.src, alt: "Logo 2" },
+  { id: 4, defaultSrc: logoPurple4.src, alt: "Logo 4" },
+  { id: 6, defaultSrc: logoPurple6.src, alt: "Logo 6" },
+  { id: 7, defaultSrc: alkaios.src, alt: "Alkaios" },
+  { id: 11, defaultSrc: kinoki.src, alt: "Kinoki" },
+  { id: 13, defaultSrc: maxlife.src, alt: "Maxlife" },
   { id: 21, defaultSrc: westland.src, alt: "Westland" },
   { id: 22, defaultSrc: jerry.src, alt: "Jerry" },
-  { id: 23, defaultSrc: landbridge.src, alt: "LandBridge" },
   { id: 24, defaultSrc: offthe.src, alt: "OffTheHook" },
   { id: 25, defaultSrc: rolling.src, alt: "RollingLagon" },
   { id: 26, defaultSrc: tip.src, alt: "TIB" },
   { id: 27, defaultSrc: todays.src, alt: "DigitalAzari" },
 ];
 
-export default function LogoSliderr() {
+// export default function LogoSliderr() {
+const LogoSliderr = () => {
   const settings = {
     infinite: true,
     slidesToShow: 8,
@@ -85,7 +89,7 @@ export default function LogoSliderr() {
 
   return (
     <>
-      <div style={{ paddingTop: "40px", paddingBottom: "50px" }}>
+      <div style={{ paddingTop: "40px", paddingBottom: "20px" }}>
         <div className="slider-container">
           <Slider {...settings}>
             {imageData.map((image) => (
@@ -110,4 +114,52 @@ export default function LogoSliderr() {
       </div>
     </>
   );
-}
+};
+export default LogoSliderr;
+export const ReverseSectionsSlideer = () => {
+  const settings = {
+    infinite: true,
+    slidesToShow: 8,
+    slidesToScroll: 1,
+    autoplay: true,
+    // speed: 5000,
+    // autoplaySpeed: 2000,
+    speed: 2000,
+    autoplaySpeed: 0,
+    cssEase: "linear",
+    rtl: true,
+    responsive: [
+      { breakpoint: 1024, settings: { slidesToShow: 3 } },
+      { breakpoint: 768, settings: { slidesToShow: 2 } },
+      { breakpoint: 480, settings: { slidesToShow: 1 } },
+    ],
+  };
+
+  return (
+    <>
+      <div style={{ paddingTop: "15px", paddingBottom: "50px" }}>
+        <div className="slider-container">
+          <Slider {...settings}>
+            {imageDataT.map((image) => (
+              <div
+                className="clients-logo d-flex align-content-center"
+                key={image.id}
+              >
+                <img
+                  src={image.defaultSrc}
+                  alt={image.alt}
+                  style={{
+                    maxHeight: "200px",
+                    objectFit: "contain",
+                    maxWidth: "100px",
+                    minWidth: "100px",
+                  }}
+                />
+              </div>
+            ))}
+          </Slider>
+        </div>
+      </div>
+    </>
+  );
+};

@@ -7,7 +7,6 @@ import { useRouter } from "next/navigation";
 import Link from "next/link";
 import { FaSearch } from "react-icons/fa";
 
-
 export default function JobOpenings() {
   const router = useRouter();
   const [jobs, setJobs] = useState([]);
@@ -50,7 +49,6 @@ export default function JobOpenings() {
           textAlign: "center",
         }}
       >
-
         <h2
           style={{
             color: "white",
@@ -93,12 +91,12 @@ export default function JobOpenings() {
                 borderRadius: "999px",
                 minWidth: "0",
               }}
-                value={filters.keyword}
+              value={filters.keyword}
               onChange={(e) =>
                 setFilters({ ...filters, keyword: e.target.value })
               }
             />
-            
+
             <button
               style={{
                 width: "48px",
@@ -113,7 +111,7 @@ export default function JobOpenings() {
                 flexShrink: 0,
               }}
             >
-            <FaSearch className="text-white" />
+              <FaSearch className="text-white" />
             </button>
           </div>
         </div>
@@ -123,7 +121,7 @@ export default function JobOpenings() {
         <Container maxWidth="lg" sx={{ px: { xs: 2, md: 4 } }}>
           <h2 className="fw-bold text-center">Find Your Role at Eazisols</h2>
           <p className="text-muted text-center">
-           Rewrite your future. Search and apply for a job today
+            Rewrite your future. Search and apply for a job today
           </p>
 
           {/* Search Input */}
@@ -295,45 +293,51 @@ export default function JobOpenings() {
                 );
               }
 
-              return filtered.map((job, idx) =>{
-                console.log("🚀 ~ returnfiltered.map ~ job:", job)
-                
+              return filtered.map((job, idx) => {
+                console.log("🚀 ~ returnfiltered.map ~ job:", job);
+
                 return (
-                <Link
-                  key={idx}
-                  href={`/job-opening/${job.id}`}
-                  style={{ textDecoration: "none", color: "inherit" }}
-                >
-                  <div
-                    className="py-3 border-bottom d-flex flex-md-row justify-content-between align-items-start"
-                    style={{ width: "100%" }}
+                  <Link
+                    key={idx}
+                    href={`/job-opening/${job.id}`}
+                    style={{ textDecoration: "none", color: "inherit" }}
                   >
-                    <div className="mb-2" style={{ width: "50%" }}>
-                      <h5 className="fw-bold text-success mb-1">{job.title}</h5>
-                    </div>
                     <div
-                      className="d-flex justify-content-center text-muted gap-4"
-                      style={{ width: "50%" }}
+                      className={`job-row ${
+                        idx % 2 === 0 ? "job-row--even" : "job-row--odd"
+                      } py-3 border-bottom d-flex flex-md-row justify-content-between align-items-start`}
+                      // className="py-3 border-bottom d-flex flex-md-row justify-content-between align-items-start"
+                      style={{ width: "100%" }}
                     >
-                      <span className="fw-semibold" style={{ width: "15%" }}>
-                        {job.workplace_type}
-                      </span>
-                      <span style={{ width: "15%" }}>
-                        {job.location
-                          ?.split(/[\s,]+/)
-                          .filter(Boolean)
-                          .pop() || ""}
-                      </span>
-                      <span style={{ width: "30%" }}>
-                        {job.department || "Development"}
-                      </span>
-                      <span style={{ width: "30%" }}>
-                        {job.work_type || "Full Time"}
-                      </span>
+                      <div className="mb-2 ms-2" style={{ width: "50%" }}>
+                        <h5 className="fw-bold text-success mb-1">
+                          {job.title}
+                        </h5>
+                      </div>
+                      <div
+                        className="d-flex justify-content-center text-muted gap-4"
+                        style={{ width: "50%" }}
+                      >
+                        <span className="fw-semibold" style={{ width: "15%" }}>
+                          {job.workplace_type}
+                        </span>
+                        <span style={{ width: "15%" }}>
+                          {job.location
+                            ?.split(/[\s,]+/)
+                            .filter(Boolean)
+                            .pop() || ""}
+                        </span>
+                        <span style={{ width: "30%" }}>
+                          {job.department || "Development"}
+                        </span>
+                        <span style={{ width: "30%" }}>
+                          {job.work_type || "Full Time"}
+                        </span>
+                      </div>
                     </div>
-                  </div>
-                </Link>
-              )});
+                  </Link>
+                );
+              });
             })()}
           </div>
         </Container>

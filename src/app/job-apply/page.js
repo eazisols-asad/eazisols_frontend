@@ -1,5 +1,5 @@
 "use client";
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import {
   Box,
   Button,
@@ -10,7 +10,7 @@ import {
 } from "@mui/material";
 import useAPiAuth from "../components/useApiAuth";
 import { useSnackbar } from "../components/Snakbar";
-import { useParams, useRouter } from "next/navigation";
+import { useParams, useRouter, useSearchParams } from "next/navigation";
 import PhoneInput from "react-phone-input-2";
 import "react-phone-input-2/lib/bootstrap.css";
 import "../globals.css";
@@ -53,10 +53,11 @@ export default function JobApplicationForm() {
     address: "",
     file: null,
   });
-  const { postData } = useAPiAuth();
+  const { postData, getData } = useAPiAuth();
   const { handleSnackbarOpen } = useSnackbar();
   const router = useRouter();
   const [jobId, setJobId] = useState(null);
+    const [job, setJob] = useState("");
   const [errors, setErrors] = useState({});
   const [loading, setLoading] = useState(false);
 
@@ -134,7 +135,6 @@ export default function JobApplicationForm() {
 
   const handleChange = (e) => {
     const { name, value } = e.target;
-    
     setErrors((prev) => ({ ...prev, [name]: "" }));
 
     if (name === "firstName") {
@@ -186,11 +186,46 @@ export default function JobApplicationForm() {
       [name]: value,
     }));
   };
+  const searchParams = useSearchParams();
+
+useEffect(() => {
+  const qid = searchParams?.get("jobId");
+  if (qid) setJobId(qid);
+}, [searchParams]);
+useEffect(() => {
+  if (!jobId) return;
+  getData(
+    `/api/careers/${jobId}`,
+    (res) => {
+      const jobObj = res?.data?.data || res?.data || res;
+      setJob(jobObj);
+    },
+    (err) => {
+      console.error("Failed to load job detail:", err);
+    }
+  );
+}, [jobId]);
 
   return (
     <>
+     <div
+            style={{
+              backgroundColor: "#418ED6",
+              padding: "80px 20px",
+              textAlign: "center",
+            }}
+          >
+            <Typography
+              variant="h4"
+              fontWeight={700}
+              gutterBottom
+              sx={{ textAlign: "center", mb: 4, color: "white" }}
+            >
+              {job.title}
+            </Typography>
+          </div>
       <Box sx={{ mb: 8 }}>
-        <Box sx={{ display: "flex", justifyContent: "center", mt: 4, mb: 3 }}>
+        <Box sx={{ display: "flex", justifyContent: "center", mt: 2, mb: 3 }}>
           <Box sx={{ display: "flex", borderBottom: "none" }}>
             <Button
               variant="text"

@@ -33,12 +33,12 @@ export default function TestimonialSection() {
         justifyContent: 'space-between',
         gap: 4,
         position: 'relative',
-        px: { xs: 4, sm: 6, md: 12, lg: 16 },
+        px: { xs: 4, sm: 6, md: 12,  },
         py: { xs: 6, sm: 8, md: 10 },
       }}
     >
       {/* Left Side */}
-      <Box sx={{ maxWidth: 500 }}>
+      <Box sx={{ maxWidth: 500, paddingLeft: "18px", }}>
         <Typography
           variant="subtitle2"
           sx={{
@@ -74,7 +74,7 @@ export default function TestimonialSection() {
       </Box>
 
       {/* Right Side - Slider */}
-      <Box sx={{ maxWidth: 550, width: '100%' }}>
+      <Box sx={{ maxWidth: 550, width: '100%', paddingRight: "18px", }}>
         <Slider {...settings} ref={sliderRef}>
           {[1, 2].map((_, i) => (
             <Box
