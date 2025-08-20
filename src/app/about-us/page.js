@@ -1,7 +1,6 @@
 "use client";
 import React from "react";
 import { Container, Row, Col } from "react-bootstrap";
-import Lahore from "@/app/assets/Lahore.jpg";
 import Capgemini from "@/app/assets/Capgemini.webp";
 import CTASection from "../components/CTASection";
 import "../globals.css";
@@ -16,9 +15,6 @@ import {
 import ReuseContact from "../components/ReuseContact";
 import AboutTd from "../components/AboutTd";
 import CultureSection from "../components/CultureSection";
-import VisionSection from "../components/VisionSection";
-import FeatureSection from "../components/FeatureSection";
-
 const awards = [
   {
     icon: HiOutlineShieldCheck,
@@ -104,7 +100,7 @@ export default function about() {
         </div>
       </div>
       <section style={{ padding: "80px 0", marginTop:"10px", }}>
-        <Container>
+        <Container className="paddingsection">
           <div className="text-center mb-5">
             <div
               className="py-1 px-3 rounded-pill border d-inline-block mb-2"
@@ -116,7 +112,7 @@ export default function about() {
               Our Awards and Recognitions
             </h2>
             <p
-              className="text-muted"
+              className="text-muted "
               style={{ maxWidth: 800, margin: "0 auto" }}
             >
               Eazisols is a digital software house helping businesses build
@@ -201,7 +197,6 @@ export default function about() {
       </section>
       <AboutTd />
       <CultureSection />
-      {/* <FeatureSection /> */}
       <section>
         <div >
           <ReuseContact />

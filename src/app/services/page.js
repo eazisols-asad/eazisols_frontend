@@ -83,7 +83,7 @@ export default function Capabilities() {
       
       <section className="py-5 bg-white mt-5">
         <Container
-        // className="section-service"
+        className="paddingsection"
         >
           <h5
             className="fw-bold mb-5 ms-0"
@@ -175,7 +175,7 @@ export default function Capabilities() {
         </Container>
       </section>
       <section className="py-5 bg-white text-center">
-      <Container>
+      <Container className="paddingsection">
         <h3 className=" fw-semibold mb-1" style={{  color:'#418ED6', }}>
           Our Tech Toolkit
         </h3>

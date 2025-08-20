@@ -69,54 +69,7 @@ export default function Careers() {
   const router = useRouter();
   return (
     <>
-      {/* <div
-              className="hero-background py-5"
-              style={{
-                backgroundImage: `url(${aboutus.src})`,
-                backgroundSize: "cover",
-                backgroundPosition: "center",
-                backgroundRepeat: "no-repeat",
-                height: "450px",
-                marginTop: "-80px",
-                position: "relative",
-                zIndex: 1,
-              }}
-            >
-              <div
-                className="container "
-                style={{
-                  paddingTop: "80px",
-                  color: "white",
-                }}
-              >
-                <h1 className="main-heading text-white">Build Your Future with Eazisols</h1>
-                <p
-                  className="lead text-white mt-1"
-                  style={{ fontSize: "1.2rem", fontWeight: "400", opacity: "0.9" }}
-                >
-                  Join a team that's redefining digital experiences
-                  <br />
-                  <span className="text-white">
-                   We're not just building software — we're building careers
-                  </span>
-                </p>
-                <Button
-                  variant="primary"
-                  size="lg"
-                  style={{
-                    backgroundColor: "#418ED6",
-                    border: "none",
-                    borderRadius: 8,
-                    fontWeight: 600,
-                    color: " #fff",
-                    padding: "12px 28px",
-                  }}
-                  onClick={() => router.push("/job-opening")}
-                >
-                  See Open Positions
-                </Button>
-              </div> 
-            </div> */}
+     
             <div
                     className="py-5"
                     style={{
@@ -169,8 +122,8 @@ export default function Careers() {
                 </Button>
                     </div>
                   </div>
-      <section className="py-5 bg-light mt-5">
-        <Container>
+      <section className="py-5 mt-5">
+        <Container className="paddingsection">
           <h2 className="fw-bold text-center mb-5">How You Join Eazisols</h2>
           <Row className="g-4">
             {joinSteps.map((step, idx) => (
@@ -201,7 +154,7 @@ export default function Careers() {
           </Row>
         </Container>
       </section>
-      <Container className="pt-5 mt-5">
+      <Container className="pt-5 mt-5 paddingsection">
         <Col className="text-center">
           <h1 className="fw-bold mb-3">Why Join Us</h1>
           <p
@@ -237,7 +190,7 @@ export default function Careers() {
         </Row>
       </Container>
       <section className="py-5">
-        <Container>
+        <Container className="paddingsection">
           <Row className="align-items-center justify-content-between">
             <Col md={8} className="text-center text-md-start mb-4 mb-md-0">
               <h2 className="fw-bold mb-3" style={{ fontSize: "2.2rem" }}>

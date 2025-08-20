@@ -1,7 +1,7 @@
 "use client";
 import React, { useState } from "react";
 import { Box, Button, Typography } from "@mui/material";
-import bg5 from "@/app/assets/bg5.jpg";
+import ctas from "@/app/assets/ctas.png";
 import { useRouter } from "next/navigation";
 import CostCalculateModal from "./CostCalculator";
 import proo from "@/app/assets/proo.jpg";
@@ -23,7 +23,7 @@ export default function CTASection({ description1, description2 }) {
           position: "relative",
           width: "100%",
           height: "200px",
-          backgroundImage: `url(${proo.src})`,
+          backgroundImage: `url(${ctas.src})`,
           backgroundSize: "cover",
           backgroundPosition: "center",
           display: "flex",
@@ -39,7 +39,7 @@ export default function CTASection({ description1, description2 }) {
             left: 0,
             width: "100%",
             height: "100%",
-            backgroundColor: "rgba(0, 0, 0, 0.4)",
+            // backgroundColor: "rgba(0, 0, 0, 0.4)",
             // zIndex: 1,
           }}
         />
@@ -49,6 +49,7 @@ export default function CTASection({ description1, description2 }) {
             position: "relative",
             zIndex: 2,
             width: "100%",
+            marginLeft: {xs: "15px", md: "28px" },
             maxWidth: "1200px",
           }}
         >
@@ -69,11 +70,11 @@ export default function CTASection({ description1, description2 }) {
             // variant="primary"
             size="lg"
             style={{
-              backgroundColor: "#418ED6",
+              backgroundColor: "#fff",
               border: "none",
               borderRadius: 8,
               fontWeight: 600,
-              color: "#fff",
+              color: "#418ED6",
               padding: "12px 20px",
             }}
             // onClick={() => router.push("/quote")}

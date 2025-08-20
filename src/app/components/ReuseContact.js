@@ -45,7 +45,7 @@ export default function ReuseContact() {
           <Col
             lg={6}
             md={12}
-            className=" mb-4 mb-lg-0 form-side ms-4 ms-lg-0"
+            className=" mb-4 mb-lg-0 form-side  ms-lg-0"
             style={{
               
               // paddingRight: "0px",

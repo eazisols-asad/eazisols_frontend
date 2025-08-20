@@ -318,7 +318,7 @@ export default function JobOpenings() {
                         className="d-flex justify-content-center text-muted gap-4"
                         style={{ width: "50%" }}
                       >
-                        <span className="fw-semibold" style={{ width: "15%" }}>
+                        <span className="fw-semibold ms-2" style={{ width: "15%" }}>
                           {job.workplace_type}
                         </span>
                         <span style={{ width: "15%" }}>

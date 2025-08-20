@@ -8,7 +8,7 @@ export default function CultureSection() {
   const router = useRouter();
   return (
     <Container style={{ maxWidth: "1350px" }}>
-      <Box className="paddingsection" component="section" py={10}>
+      <Box component="section" py={10}>
         <Box
           display="flex"
           flexDirection={{ xs: "column", md: "row" }}

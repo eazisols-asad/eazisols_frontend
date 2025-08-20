@@ -87,7 +87,7 @@ export default function Careers() {
         </div>
       </div>
 
-      <section className="py-5 px-5 latest-blog">
+      <section className="py-5 latest-blog">
         <Container className="section-service">
           {/* Heading */}
           <Typography

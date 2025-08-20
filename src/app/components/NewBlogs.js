@@ -44,7 +44,7 @@ const cardData = [
 
 export default function NewBlogs() {
   return (
-    <Container style={{ padding: "3rem 0" }} className="bg-white mx-6 px-4" >
+    <Container style={{ padding: "3rem 0", }} >
       <Box sx={{ px: { xs: 4, md: 12, lg: 7, }, mb: 4 , }}>
         <Typography variant="subtitle2" color="text.secondary">
           News and Events
@@ -54,24 +54,26 @@ export default function NewBlogs() {
           <span style={{ color: "#418ED6" }}>transformation</span>
         </Typography>
       </Box>
-      <Box sx={{ px: { xs: 2, md: 4 ,}, py: 4 , }}>
+      
         <Box
+          // className="paddingsection"
           sx={{
             display: "flex",
             flexDirection: { xs: "column", md: "row" },
             gap: 3,
             justifyContent: "center",
-            alignItems: "stretch",
-            mr: { xs: 3, md: 0 },
+            // alignItems: "stretch",
+            // mr: { xs: 3, md: 0 },
+            px: { xs: 2, md: 4 ,}, py: 4 ,
           }}
         >
           {/* Card 1 */}
-          <Link href="#" passHref>
+          {/* <Link href="#" passHref> */}
             <Box
               className="custom-card-shadow"
               sx={{
                 position: "relative",
-                width: 390,
+                width: 380,
                 height: 400,
                 borderRadius: "16px",
                 overflow: "hidden",
@@ -117,14 +119,14 @@ export default function NewBlogs() {
                 </Typography>
               </Box>
             </Box>
-          </Link>
+          {/* </Link> */}
 
           {/* Card 2 */}
           <Link href="#" passHref>
             <Box
               className="custom-card-shadow"
               sx={{
-                width: 390,
+                width: 380,
                 height: 400,
                 borderRadius: "16px",
                 overflow: "hidden",
@@ -179,7 +181,7 @@ export default function NewBlogs() {
             <Box
               className="custom-card-shadow"
               sx={{
-                width: 390,
+                width: 380,
                 height: 400,
                 borderRadius: "16px",
                 overflow: "hidden",
@@ -230,7 +232,7 @@ export default function NewBlogs() {
             </Box>
           </Link>
         </Box>
-      </Box>
+      
       {/* Second Row of Cards */}
       <Box sx={{ px: { xs: 2, md: 4 } }}>
         <Box
@@ -247,7 +249,7 @@ export default function NewBlogs() {
               className="custom-card-shadow"
               key={idx}
               sx={{
-                width: 390,
+                width: 380,
                 height: 280,
                 borderRadius: "16px",
                 overflow: "hidden",

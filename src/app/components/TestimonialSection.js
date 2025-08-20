@@ -38,7 +38,7 @@ export default function TestimonialSection() {
       }}
     >
       {/* Left Side */}
-      <Box sx={{ maxWidth: 500, paddingLeft: "18px", }}>
+      <Box sx={{ maxWidth: 500, paddingLeft: "4px", }}>
         <Typography
           variant="subtitle2"
           sx={{
@@ -74,7 +74,7 @@ export default function TestimonialSection() {
       </Box>
 
       {/* Right Side - Slider */}
-      <Box sx={{ maxWidth: 550, width: '100%', paddingRight: "18px", }}>
+      <Box sx={{ maxWidth: 550, width: '100%', }}>
         <Slider {...settings} ref={sliderRef}>
           {[1, 2].map((_, i) => (
             <Box

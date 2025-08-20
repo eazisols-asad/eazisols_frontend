@@ -39,12 +39,17 @@ const HeroSection = () => {
   return (
     <>
       <section
-        className="min-vh-100 d-flex flex-column bg-light position-relative hero-background"
+        className="d-flex flex-column bg-light position-relative hero-background"
+        // className="min-vh-100 d-flex flex-column bg-light position-relative hero-background"
         style={{
           backgroundImage: `url(${td.src})`,
           backgroundSize: "cover",
           backgroundPosition: "center",
           backgroundRepeat: "no-repeat",
+          minHeight: "520px",
+          overflow: "visible",
+          position: "relative",
+          // marginTop: "24px",
         }}
       >
         <Container className="flex-grow-1 d-flex flex-column justify-content-center heroSection">

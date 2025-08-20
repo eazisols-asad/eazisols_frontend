@@ -34,33 +34,6 @@ export default function ContactPage() {
   };
   return (
     <>
-      {/* <div
-        className="hero-background py-5"
-        style={{
-          backgroundImage: `url(${contact.src})`,
-          backgroundSize: "cover",
-          backgroundPosition: "center",
-          backgroundRepeat: "no-repeat",
-          height: "300px",
-          marginTop: "-80px",
-          position: "relative",
-          zIndex: 1,
-        }}
-      >
-        <div
-          className="container "
-          style={{
-            paddingTop: "80px",
-            color: "white",
-          }}
-        >
-          <h1 className="main-heading text-white"> Let's Talk</h1>
-          <p className="text-white">
-            Have a project in mind or a question about our services? We'd love
-            to hear from you.
-          </p>
-        </div>
-      </div> */}
       <div
         className="py-5"
         style={{
@@ -105,7 +78,7 @@ export default function ContactPage() {
         </div>
       </div>
       <section style={{ backgroundColor: "#d2e4f5", padding: "60px 20px" }}>
-        <Container>
+        <Container className="paddingsection">
           <Row className="align-items-center">
             {/* LEFT SIDE */}
             <Col lg={6} className="mb-5 mb-lg-0">
@@ -132,7 +105,7 @@ export default function ContactPage() {
               {/* Social Icons */}
               <div className="d-flex gap-3 mb-4">
                 <a
-                  href="https://www.linkedin.com/company/YOUR_PAGE"
+                  href="https://www.linkedin.com/company/eazisols/"
                   target="_blank"
                   rel="noopener noreferrer"
                   aria-label="LinkedIn"
@@ -140,7 +113,7 @@ export default function ContactPage() {
                   <FaLinkedin size={24} style={{ color: "#0A66C2" }} />
                 </a>
                 <a
-                  href="https://www.facebook.com/YOUR_PAGE"
+                  href="https://www.facebook.com/eazisols"
                   target="_blank"
                   rel="noopener noreferrer"
                   aria-label="Facebook"
@@ -148,7 +121,7 @@ export default function ContactPage() {
                   <FaFacebook size={24} style={{ color: "#1877F2" }} />
                 </a>
                 <a
-                  href="https://www.instagram.com/YOUR_PAGE"
+                  href="https://www.instagram.com/eazisols/"
                   target="_blank"
                   rel="noopener noreferrer"
                   aria-label="Instagram"
@@ -159,7 +132,7 @@ export default function ContactPage() {
             </Col>
 
             {/* RIGHT SIDE */}
-            <Col lg={6} className="d-flex justify-content-end">
+            <Col lg={6} className="d-flex justify-content-end ">
               <ContactForm buttonText="Sending..."/>
             </Col>
           </Row>

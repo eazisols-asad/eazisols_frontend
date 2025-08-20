@@ -50,18 +50,6 @@ export default function blogsDetail() {
 
   return (
     <>
-      {/* <div
-      style={{
-              backgroundImage: `url(${blogs.thumbnail})`,
-              backgroundSize: "cover",
-              backgroundPosition: "center",
-              backgroundRepeat: "no-repeat",
-              minHeight: "300px",
-              overflow: "visible",
-              position: "relative",
-              }}
-     >
-    </div> */}
       <Box
         sx={{
           position: "relative",
@@ -78,14 +66,7 @@ export default function blogsDetail() {
         }}
       >
         <Box
-          // sx={{
-          //   maxWidth: "900px",
-          //   width: "100%",
-          //   // background: "rgba(0,0,0,0.5)",
-          //   background: "#418ED6",
-          //   padding: { xs: 3, md: 5 },
-          //   borderRadius: 2,
-          // }}
+       
           className="about-overlay-box"
           style={{
             position: "absolute",
