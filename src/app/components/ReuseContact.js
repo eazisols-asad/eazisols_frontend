@@ -10,7 +10,7 @@ export default function ReuseContact() {
   const router = useRouter();
   return (
     <>
-      <Container className=" py-4 map-query" style={{ maxWidth: "1342px" , paddingLeft: "36px" ,
+      <Container className=" py-4 map-query" style={{ maxWidth: "1342px" , paddingLeft: "41px" ,
     paddingRight: "48px" }}>
         <Row className="align-items-center bg-white border rounded-3  p-md-4 gx-5">
           {/* left side*/}

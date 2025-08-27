@@ -27,7 +27,7 @@ export default function CTASection({ description1, description2 }) {
           backgroundSize: "cover",
           backgroundPosition: "center",
           display: "flex",
-          justifyContent: "center",
+          justifyContent: "start",
           alignItems: "center",
           overflow: "hidden",
         }}
@@ -49,8 +49,9 @@ export default function CTASection({ description1, description2 }) {
             position: "relative",
             zIndex: 2,
             width: "100%",
-            marginLeft: {xs: "15px", md: "28px" },
+            marginLeft: {xs: "15px", md: "28px", lg: "103px",},
             maxWidth: "1200px",
+            // marginLeft: "103px",
           }}
         >
           <Typography

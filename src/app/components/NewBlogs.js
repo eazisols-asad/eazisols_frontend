@@ -73,7 +73,7 @@ export default function NewBlogs() {
               className="custom-card-shadow"
               sx={{
                 position: "relative",
-                width: 380,
+                width: {lg: "359px"},
                 height: 400,
                 borderRadius: "16px",
                 overflow: "hidden",
@@ -126,7 +126,7 @@ export default function NewBlogs() {
             <Box
               className="custom-card-shadow"
               sx={{
-                width: 380,
+                width: {lg: "359px"},
                 height: 400,
                 borderRadius: "16px",
                 overflow: "hidden",
@@ -181,7 +181,7 @@ export default function NewBlogs() {
             <Box
               className="custom-card-shadow"
               sx={{
-                width: 380,
+                width: {lg: "359px"},
                 height: 400,
                 borderRadius: "16px",
                 overflow: "hidden",
@@ -249,7 +249,7 @@ export default function NewBlogs() {
               className="custom-card-shadow"
               key={idx}
               sx={{
-                width: 380,
+                width: {lg: "359px"},
                 height: 280,
                 borderRadius: "16px",
                 overflow: "hidden",
