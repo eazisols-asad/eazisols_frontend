@@ -1162,4 +1162,20 @@ footer hr {
   .job-row, .job-row * { transition: none; }
 }
 
+.workpadding{
+  padding: 0 16px; 
+}
+
+@media (min-width: 768px) and (max-width: 991px) {
+  .workpadding {
+    padding: 0 40px;  
+  }
+}
+
+@media (min-width: 992px) {
+  .workpadding {
+    padding: 0 112px; 
+  }
+}
+
 

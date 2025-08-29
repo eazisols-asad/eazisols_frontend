@@ -51,12 +51,10 @@ const imageData = [
   { id: 19, defaultSrc: rocket.src, alt: "Rocket" },
   { id: 20, defaultSrc: westilo.src, alt: "Westilo" },
   { id: 23, defaultSrc: landbridge.src, alt: "LandBridge" },
-];
-const imageDataT = [
-  { id: 1, defaultSrc: logoPurple1.src, alt: "Logo 1" },
-  { id: 2, defaultSrc: logoPurple2.src, alt: "Logo 2" },
-  { id: 4, defaultSrc: logoPurple4.src, alt: "Logo 4" },
-  { id: 6, defaultSrc: logoPurple6.src, alt: "Logo 6" },
+  //  { id: 1, defaultSrc: logoPurple1.src, alt: "Logo 1" },
+  // { id: 2, defaultSrc: logoPurple2.src, alt: "Logo 2" },
+  // { id: 4, defaultSrc: logoPurple4.src, alt: "Logo 4" },
+  // { id: 6, defaultSrc: logoPurple6.src, alt: "Logo 6" },
   { id: 7, defaultSrc: alkaios.src, alt: "Alkaios" },
   { id: 11, defaultSrc: kinoki.src, alt: "Kinoki" },
   { id: 13, defaultSrc: maxlife.src, alt: "Maxlife" },
@@ -67,9 +65,24 @@ const imageDataT = [
   { id: 26, defaultSrc: tip.src, alt: "TIB" },
   { id: 27, defaultSrc: todays.src, alt: "DigitalAzari" },
 ];
+// const imageDataT = [
+//   { id: 1, defaultSrc: logoPurple1.src, alt: "Logo 1" },
+//   { id: 2, defaultSrc: logoPurple2.src, alt: "Logo 2" },
+//   { id: 4, defaultSrc: logoPurple4.src, alt: "Logo 4" },
+//   { id: 6, defaultSrc: logoPurple6.src, alt: "Logo 6" },
+//   { id: 7, defaultSrc: alkaios.src, alt: "Alkaios" },
+//   { id: 11, defaultSrc: kinoki.src, alt: "Kinoki" },
+//   { id: 13, defaultSrc: maxlife.src, alt: "Maxlife" },
+//   { id: 21, defaultSrc: westland.src, alt: "Westland" },
+//   { id: 22, defaultSrc: jerry.src, alt: "Jerry" },
+//   { id: 24, defaultSrc: offthe.src, alt: "OffTheHook" },
+//   { id: 25, defaultSrc: rolling.src, alt: "RollingLagon" },
+//   { id: 26, defaultSrc: tip.src, alt: "TIB" },
+//   { id: 27, defaultSrc: todays.src, alt: "DigitalAzari" },
+// ];
 
-// export default function LogoSliderr() {
-const LogoSliderr = () => {
+export default function LogoSliderr() {
+// const LogoSliderr = () => {
   const settings = {
     infinite: true,
     slidesToShow: 8,
@@ -89,7 +102,7 @@ const LogoSliderr = () => {
 
   return (
     <>
-      <div style={{ paddingTop: "40px", paddingBottom: "20px" }}>
+      <div style={{ paddingTop: "40px", paddingBottom: "50px" }}>
         <div className="slider-container">
           <Slider {...settings}>
             {imageData.map((image) => (
@@ -115,51 +128,51 @@ const LogoSliderr = () => {
     </>
   );
 };
-export default LogoSliderr;
-export const ReverseSectionsSlideer = () => {
-  const settings = {
-    infinite: true,
-    slidesToShow: 8,
-    slidesToScroll: 1,
-    autoplay: true,
-    // speed: 5000,
-    // autoplaySpeed: 2000,
-    speed: 2000,
-    autoplaySpeed: 0,
-    cssEase: "linear",
-    rtl: true,
-    responsive: [
-      { breakpoint: 1024, settings: { slidesToShow: 3 } },
-      { breakpoint: 768, settings: { slidesToShow: 2 } },
-      { breakpoint: 480, settings: { slidesToShow: 2 } },
-    ],
-  };
+// export default LogoSliderr;
+// export const ReverseSectionsSlideer = () => {
+//   const settings = {
+//     infinite: true,
+//     slidesToShow: 8,
+//     slidesToScroll: 1,
+//     autoplay: true,
+//     // speed: 5000,
+//     // autoplaySpeed: 2000,
+//     speed: 2000,
+//     autoplaySpeed: 0,
+//     cssEase: "linear",
+//     rtl: true,
+//     responsive: [
+//       { breakpoint: 1024, settings: { slidesToShow: 3 } },
+//       { breakpoint: 768, settings: { slidesToShow: 2 } },
+//       { breakpoint: 480, settings: { slidesToShow: 2 } },
+//     ],
+//   };
 
-  return (
-    <>
-      <div style={{ paddingTop: "15px", paddingBottom: "50px" }}>
-        <div className="slider-container">
-          <Slider {...settings}>
-            {imageDataT.map((image) => (
-              <div
-                className="clients-logo d-flex align-content-center"
-                key={image.id}
-              >
-                <img
-                  src={image.defaultSrc}
-                  alt={image.alt}
-                  style={{
-                    maxHeight: "200px",
-                    objectFit: "contain",
-                    maxWidth: "100px",
-                    minWidth: "100px",
-                  }}
-                />
-              </div>
-            ))}
-          </Slider>
-        </div>
-      </div>
-    </>
-  );
-};
+//   return (
+//     <>
+//       <div style={{ paddingTop: "15px", paddingBottom: "50px" }}>
+//         <div className="slider-container">
+//           <Slider {...settings}>
+//             {imageDataT.map((image) => (
+//               <div
+//                 className="clients-logo d-flex align-content-center"
+//                 key={image.id}
+//               >
+//                 <img
+//                   src={image.defaultSrc}
+//                   alt={image.alt}
+//                   style={{
+//                     maxHeight: "200px",
+//                     objectFit: "contain",
+//                     maxWidth: "100px",
+//                     minWidth: "100px",
+//                   }}
+//                 />
+//               </div>
+//             ))}
+//           </Slider>
+//         </div>
+//       </div>
+//     </>
+//   );
+// };

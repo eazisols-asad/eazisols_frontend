@@ -149,29 +149,14 @@ export default function blogsDetail() {
         </Box>
       </Box>
 
-      <Container className="mt-5" style={{ marginTop: "76px" }}>
-        {/* {blogs.thumbnail && (
-          <img
-            src={`https://admin.eazisols.com/${blogs.thumbnail}`}
-            alt={blogs.title}
-            style={{
-              width: "100%",
-              marginTop: "10px",
-              height: "500px",
-              borderRadius: "6px",
-              marginBottom: "20px",
-              objectFit: "cover",
-              boxShadow: "0 2px 8px rgba(0,0,0,0.05)",
-            }}
-          />
-        )} */}
+      <section className="mt-10 workpadding" style={{ marginTop: "76px" }}>
 
         {blogs.description && (
           <Box
             mb={4}
             mt={4}
-            p={3}
-            sx={{ backgroundColor: "#f9f9f9", borderRadius: 2 }}
+            // p={3}
+            // sx={{  borderRadius: 2 }}
           >
             <Typography variant="h6" fontWeight={600} gutterBottom>
               Description
@@ -182,7 +167,7 @@ export default function blogsDetail() {
             />
           </Box>
         )}
-      </Container>
+      </section>
       <ReuseContact />
     </>
   );

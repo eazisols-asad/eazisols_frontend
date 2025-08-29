@@ -44,8 +44,10 @@ const cardData = [
 
 export default function NewBlogs() {
   return (
+    <>
     <Container style={{ padding: "3rem 0", }} >
-      <Box sx={{ px: { xs: 4, md: 12, lg: 7, }, mb: 4 , }}>
+      <Box sx={{ px: { xs: 4, md: 12,  }, mb: 4 , pl: { lg: "46px" }, 
+    pr: { lg: 7 },  }}>
         <Typography variant="subtitle2" color="text.secondary">
           News and Events
         </Typography>
@@ -62,18 +64,21 @@ export default function NewBlogs() {
             flexDirection: { xs: "column", md: "row" },
             gap: 3,
             justifyContent: "center",
+            // border: "1px solid #e0e0e0",
             // alignItems: "stretch",
             // mr: { xs: 3, md: 0 },
             px: { xs: 2, md: 4 ,}, py: 4 ,
           }}
         >
+       
           {/* Card 1 */}
-          {/* <Link href="#" passHref> */}
+          
             <Box
               className="custom-card-shadow"
               sx={{
                 position: "relative",
-                width: {lg: "359px"},
+                 width: { xs: "100%", sm: "100%", md: 360, lg: 380 }, 
+                 maxWidth: "24rem",
                 height: 400,
                 borderRadius: "16px",
                 overflow: "hidden",
@@ -119,14 +124,15 @@ export default function NewBlogs() {
                 </Typography>
               </Box>
             </Box>
-          {/* </Link> */}
+          
 
           {/* Card 2 */}
           <Link href="#" passHref>
             <Box
               className="custom-card-shadow"
               sx={{
-                width: {lg: "359px"},
+                // width: {lg: "359px"},
+                maxWidth : "24rem !important",
                 height: 400,
                 borderRadius: "16px",
                 overflow: "hidden",
@@ -181,7 +187,8 @@ export default function NewBlogs() {
             <Box
               className="custom-card-shadow"
               sx={{
-                width: {lg: "359px"},
+                // width: {lg: "359px"},
+                maxWidth : "24rem !important",
                 height: 400,
                 borderRadius: "16px",
                 overflow: "hidden",
@@ -231,10 +238,11 @@ export default function NewBlogs() {
               </Box>
             </Box>
           </Link>
+
         </Box>
       
       {/* Second Row of Cards */}
-      <Box sx={{ px: { xs: 2, md: 4 } }}>
+      {/* <Box sx={{ px: { xs: 2, md: 4 } }}>
         <Box
           sx={{
             display: "flex",
@@ -249,7 +257,8 @@ export default function NewBlogs() {
               className="custom-card-shadow"
               key={idx}
               sx={{
-                width: {lg: "359px"},
+                maxWidth : "24rem !important",
+                // width: {lg: "359px"},
                 height: 280,
                 borderRadius: "16px",
                 overflow: "hidden",
@@ -305,7 +314,9 @@ export default function NewBlogs() {
             </Box>
           ))}
         </Box>
-      </Box>
+      </Box> */}
+     
     </Container>
+    </>
   );
 }

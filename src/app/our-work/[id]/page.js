@@ -99,22 +99,24 @@ export default function caseStudiesDetail() {
 
   return (
     <>
-      <Container className="mt-4" style={{ maxWidth: "1200px" }}>
+        <section className="workpadding ">
+        {/* <Container className="paddingsection mt-4"> */}
         {cases.thumbnail && (
           <img
             src={`https://admin.eazisols.com/${cases.thumbnail}`}
             alt={cases.title}
             style={{
-              maxWidth: "800px",
+              // width: "1298px",
+              // maxWidth: "500px",
               // minHeight: "300px",
               // width: "100%",
               marginTop: "10px",
-              marginLeft: "20px",
-              marginRight: "20px",
+              // marginLeft: "20px",
+              // marginRight: "20px",
               height: "500px",
               borderRadius: "6px",
               marginBottom: "20px",
-              objectFit: "cover",
+              // objectFit: "cover",
               boxShadow: "0 2px 8px rgba(0,0,0,0.05)",
             }}
           />
@@ -374,7 +376,8 @@ export default function caseStudiesDetail() {
             />
           </Box>
         )} */}
-      </Container>
+      {/* </Container> */}
+      </section>
       <ReuseContact />
     </>
   );
