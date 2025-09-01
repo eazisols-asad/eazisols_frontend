@@ -7,7 +7,7 @@ import "../globals.css";
 import Image from "next/image";
 import useAPiAuth from "../components/useApiAuth";
 import { useRouter } from "next/navigation";
-import ArrowForwardIosIcon from "@mui/icons-material/ArrowForwardIos";
+import { FaArrowRight } from "react-icons/fa";
 import Link from "next/link";
 import {
   Card,
@@ -16,7 +16,7 @@ import {
   CardMedia,
   Typography,
 } from "@mui/material";
-import { FiMapPin } from "react-icons/fi";
+// import { FiMapPin } from "react-icons/fi";
 import ReuseContact from "../components/ReuseContact";
 // const joinSteps = [
 //   {
@@ -194,7 +194,7 @@ export default function about() {
                               justifyContent: "center",
                             }}
                           >
-                            <ArrowForwardIosIcon
+                            <FaArrowRight 
                               sx={{ fontSize: 12, color: "#4b5563" }}
                             />
                           </div>
