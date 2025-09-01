@@ -481,7 +481,7 @@ if (step === 1 && formData.industry.length === 0) {
         {step === 3 && (
           <>
             <h2 className="text-center fw-bold mb-4">
-              What's your ideal timeline?
+              {`What's your ideal timeline?`}
             </h2>
             <p className="text-center text-muted mb-4">
               Select an estimated project timeline
@@ -556,7 +556,7 @@ if (step === 1 && formData.industry.length === 0) {
         {step === 4 && (
           <>
             <h2 className="text-center fw-bold mb-4">
-              What's your estimated budget?
+              {`What's your estimated budget?`}
             </h2>
             <p className="text-center text-muted mb-4">
               Select your approximate project budget
@@ -804,8 +804,8 @@ if (step === 1 && formData.industry.length === 0) {
           <div className="text-center py-5">
             <h2 className="fw-bold mb-3">Thanks!</h2>
             <p className="text-muted mb-4">
-              We'll get back to you within 1 business day with a response
-              tailored to your project.
+              {`We'll get back to you within 1 business day with a response
+              tailored to your project.`}
             </p>
 
             <div className="d-flex justify-content-center gap-3 flex-wrap">

@@ -38,7 +38,7 @@ import "../globals.css";
 const imageData = [
   { id: 3, defaultSrc: logoPurple3.src, alt: "Logo 3" },
   { id: 5, defaultSrc: logoPurple5.src, alt: "Logo 5" },
-  
+
   { id: 8, defaultSrc: automat.src, alt: "Automat" },
   { id: 9, defaultSrc: crowd.src, alt: "Crowd" },
   { id: 10, defaultSrc: dis.src, alt: "Dis" },
@@ -82,7 +82,7 @@ const imageData = [
 // ];
 
 export default function LogoSliderr() {
-// const LogoSliderr = () => {
+  // const LogoSliderr = () => {
   const settings = {
     infinite: true,
     slidesToShow: 8,
@@ -110,15 +110,12 @@ export default function LogoSliderr() {
                 className="clients-logo d-flex align-content-center"
                 key={image.id}
               >
-                <img
+                <Image
                   src={image.defaultSrc}
                   alt={image.alt}
-                  style={{
-                    maxHeight: "150px",
-                    objectFit: "contain",
-                    maxWidth: "100px",
-                    minWidth: "100px",
-                  }}
+                  width={100}
+                  height={150}
+                  style={{ objectFit: "contain" }}
                 />
               </div>
             ))}
@@ -127,7 +124,7 @@ export default function LogoSliderr() {
       </div>
     </>
   );
-};
+}
 // export default LogoSliderr;
 // export const ReverseSectionsSlideer = () => {
 //   const settings = {

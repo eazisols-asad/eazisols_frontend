@@ -45,7 +45,7 @@ import ReuseContact from "../components/ReuseContact";
 //   },
 // ];
 
-export default function about() {
+export default function Work() {
   const router = useRouter();
   const [cases, setcases] = useState([]);
   const { getData } = useAPiAuth();
@@ -106,7 +106,7 @@ export default function about() {
             className="lead text-white mt-2"
             style={{ fontSize: "1.2rem", fontWeight: "400", opacity: "0.9" }}
           >
-            See how we've helped clients transform their vision into results
+           {`See how we've helped clients transform their vision into results`}
           </p>
         </div>
       </div>

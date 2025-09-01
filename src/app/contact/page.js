@@ -65,15 +65,15 @@ export default function ContactPage() {
           }}
         >
           <h1 style={{ margin: 0, fontSize: "2.5rem", fontWeight: "bold" }}>
-            Let's Talk
+            {`Let's Talk`}
           </h1>{" "}
           <br />
           <p
             className="lead text-white mt-2"
             style={{ fontSize: "1.2rem", fontWeight: "400", opacity: "0.9" }}
           >
-            Have a project in mind or a question about our services? We'd love
-            to hear from you.
+           {`Have a project in mind or a question about our services? We'd love
+            to hear from you.`}
           </p>
         </div>
       </div>

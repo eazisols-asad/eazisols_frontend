@@ -51,7 +51,7 @@ const SectionsSlider = () => {
                 className="clients-logo d-flex align-content-center"
                 key={image.id}
               >
-                <img
+                <Image
                   src={image.defaultSrc}
                   alt={image.alt}
                   className="logo default-logo"
@@ -94,7 +94,7 @@ export const ReverseSectionsSlider = () => {
                 className="clients-logo d-flex align-content-center"
                 key={image.id}
               >
-                <img
+                <Image
                   src={image.defaultSrc}
                   alt={image.alt}
                   className="logo default-logo"

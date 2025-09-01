@@ -7,6 +7,7 @@ import eazilogo from "@/app/assets/eazilogo.png";
 import { usePathname } from "next/navigation";
 import { useEffect, useState } from "react";
 import CostCalculateModal from "./CostCalculator";
+import Image from "next/image";
 
 export default function NavigationBar() {
   const pathname = usePathname();
@@ -39,13 +40,14 @@ export default function NavigationBar() {
             href="/"
             className="d-flex align-items-center"
           >
-            <img
-              src={eazilogo.src}
+            <Image
+              src={eazilogo}
               alt="Eazisols Logo"
+              width={120} 
+              height={60} 
               style={{
-                height: "100px",
+                height: "auto",
                 width: "auto",
-                display: "block",
                 maxHeight: "80px",
               }}
             />

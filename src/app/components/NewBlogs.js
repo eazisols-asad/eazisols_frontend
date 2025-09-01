@@ -110,7 +110,7 @@ export default function NewBlogs() {
                     fontFamily: "'Inter', sans-serif",
                   }}
                 >
-                  What's keeping CIOs up at night? Owning the AI agenda.
+                  {`What's keeping CIOs up at night? Owning the AI agenda.`}
                 </Typography>
                 <Typography
                 className="link-hover-effect"

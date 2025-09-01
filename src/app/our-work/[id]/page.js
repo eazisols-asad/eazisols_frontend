@@ -33,7 +33,7 @@ const monthsBetween = (start, end) => {
     : `${months} Month${months > 1 ? "s" : ""}`;
 };
 
-export default function caseStudiesDetail() {
+export default function CaseStudiesDetail() {
   const { id } = useParams();
   const caseId = Array.isArray(id) ? id[0] : id;
 
@@ -60,14 +60,14 @@ export default function caseStudiesDetail() {
 
   if (loading)
     return (
-      <Container sx={{ py: 6, textAlign: "center", minHeight: "70vh", }}>
+      <Container sx={{ py: 6, textAlign: "center", minHeight: "70vh" }}>
         <span className="loader" />
       </Container>
     );
 
   if (!cases)
     return (
-      <Container sx={{ py: 6, textAlign: "center", minHeight: "70vh", }}>
+      <Container sx={{ py: 6, textAlign: "center", minHeight: "70vh" }}>
         <Typography variant="h6" color="error">
           case-studies not found
         </Typography>
@@ -99,25 +99,20 @@ export default function caseStudiesDetail() {
 
   return (
     <>
-        <section className="workpadding ">
+      <section className="workpadding ">
         {/* <Container className="paddingsection mt-4"> */}
         {cases.thumbnail && (
-          <img
+          <Image
             src={`https://admin.eazisols.com/${cases.thumbnail}`}
             alt={cases.title}
+            width={400}
+            height={100}
             style={{
-              // width: "1298px",
-              // maxWidth: "500px",
-              // minHeight: "300px",
-              // width: "100%",
               marginTop: "10px",
-              // marginLeft: "20px",
-              // marginRight: "20px",
-              height: "500px",
               borderRadius: "6px",
               marginBottom: "20px",
-              // objectFit: "cover",
               boxShadow: "0 2px 8px rgba(0,0,0,0.05)",
+              objectFit: "cover",
             }}
           />
         )}
@@ -272,7 +267,7 @@ export default function caseStudiesDetail() {
                 style={{ height: 50, width: 50 }}
               />
               <Typography variant="subtitle2" className="text-muted mt-2">
-                Client's Location
+                {`Client's Location`}
               </Typography>
               <Typography variant="h6" fontWeight={600}>
                 {cases?.client_location || "—uk"}
@@ -376,7 +371,7 @@ export default function caseStudiesDetail() {
             />
           </Box>
         )} */}
-      {/* </Container> */}
+        {/* </Container> */}
       </section>
       <ReuseContact />
     </>

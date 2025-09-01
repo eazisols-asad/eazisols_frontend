@@ -51,6 +51,7 @@ import {
 import { IoMdCheckmarkCircleOutline } from "react-icons/io";
 import eazistransbg from "@/app/assets/eazistransbg.png";
 import { IoIosArrowBack, IoIosArrowForward } from "react-icons/io";
+import Image from "next/image";
 const Transition = forwardRef(function Transition(props, ref) {
   return <Slide direction="up" ref={ref} {...props} />;
 });
@@ -296,9 +297,11 @@ const CostCalculateModal = ({
           alignItems: "center",
         }}
       >
-        <img
+        <Image
           src={eazistransbg.src}
           alt="Eazisols Logo"
+          width={200}
+          height={200}
           style={{
             height: "100px",
             width: "auto",
@@ -488,7 +491,7 @@ const CostCalculateModal = ({
         {step === 3 && (
           <>
             <h2 className="text-center fw-bold mb-4">
-              What's your ideal timeline?
+              {`What's your ideal timeline?`}
             </h2>
             <p className="text-center text-muted mb-4">
               Select an estimated project timeline
@@ -539,7 +542,7 @@ const CostCalculateModal = ({
         {step === 4 && (
           <>
             <h2 className="text-center fw-bold mb-4">
-              What's your estimated budget?
+              {`What's your estimated budget?`}
             </h2>
             <p className="text-center text-muted mb-4">
               Select your approximate project budget
@@ -791,8 +794,8 @@ const CostCalculateModal = ({
     </div>
             <h1 className="fw-bold mb-3 pt-2">Thanks!</h1>
             <p className="text-muted mb-4 ">
-              We'll get back to you within 1 business day <br />
-              with a response tailored to your project.
+           {`We'll get back to you within 1 business day`} <br />
+        {`with a response tailored to your project.`}
             </p>
           </div>
         )}

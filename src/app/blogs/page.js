@@ -40,7 +40,7 @@ export default function Careers() {
         console.error("Failed to fetch blogs", error);
       }
     );
-  }, []);
+  });
 
   return (
     <>

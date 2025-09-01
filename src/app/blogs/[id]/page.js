@@ -6,7 +6,7 @@ import useApiAuth from "@/app/components/useApiAuth";
 import axios from "axios";
 import ReuseContact from "@/app/components/ReuseContact";
 
-export default function blogsDetail() {
+export default function BlogsDetail() {
   const { id } = useParams();
   const blogId = Array.isArray(id) ? id[0] : id;
 
@@ -29,7 +29,7 @@ export default function blogsDetail() {
         setLoading(false);
       }
     );
-  }, [blogId]);
+  });
 
   if (loading)
     return (

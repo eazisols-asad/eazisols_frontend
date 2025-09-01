@@ -19,11 +19,11 @@ export default function CultureSection() {
           {/* Left Section - Text Content */}
           <Box flex={1}>
             <Typography variant="h4" fontWeight={600} gutterBottom>
-              A Diverse Culture & Teams
+            {`A Diverse Culture & Teams`}
             </Typography>
 
             <Typography variant="body1" color="text.secondary" paragraph>
-              Eazisols is a place where innovators come to learn, discover,
+            {`Eazisols is a place where innovators come to learn, discover,
               and grow together. We are made up of bold, creative thinkers from
               all walks of life, backgrounds, and experiences. Our strength lies
               in our diversity — of people, perspectives, and ideas. We believe
@@ -32,7 +32,7 @@ export default function CultureSection() {
               environment where everyone feels valued and empowered, we create
               space for collaboration, creativity, and continuous learning. At
               Eazisols, diversity isn't just a value — it's how we grow
-              stronger, together.
+              stronger, together.`}
             </Typography>
 
             <Link
@@ -46,7 +46,7 @@ export default function CultureSection() {
               }}
               onClick={() => router.push("/careers")}
             >
-              Learn more about our careers with us →
+              {`Learn more about our careers with us →`}
             </Link>
           </Box>
 

@@ -65,7 +65,7 @@ export default function TestimonialSection() {
           }}
         >
           WHAT OUR <br />
-          CLIENTS SAY'S
+         {`CLIENTS SAY'S`}
         </Typography>
         <Typography sx={{ fontSize: '16px', lineHeight: 1.7, color: '#6b6b6b' }}>
           Nunc vel ligula ut erat scelerisque vehicula sit amet porttitor magna.

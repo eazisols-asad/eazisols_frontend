@@ -43,25 +43,25 @@ const joinSteps = [
     icon: FaPaperPlane,
     title: "Apply with Intent",
     description:
-      "Explore open roles that match your skills and ambitions — then send us your application.",
+      `Explore open roles that match your skills and ambitions — then send us your application.`,
   },
   {
     icon: FaPhoneAlt,
     title: "Let's Get to Know You",
     description:
-      "If there's a match, we'll connect through a quick call or task to understand your potential better.",
+      `If there's a match, we'll connect through a quick call or task to understand your potential better.`,
   },
   {
     icon: FaUsers,
     title: "Meet the Team",
     description:
-      "Join us for a conversation where we learn more about you — and you learn about life at Eazisols.",
+      `oin us for a conversation where we learn more about you — and you learn about life at Eazisols.`,
   },
   {
     icon: FaHandshake,
     title: "Welcome Aboard",
     description:
-      "Once selected, we'll guide you through a smooth onboarding experience so you can hit the ground running.",
+      `Once selected, we'll guide you through a smooth onboarding experience so you can hit the ground running.`,
   },
 ];
 
@@ -161,7 +161,7 @@ export default function Careers() {
             className="text-muted mb-5"
             style={{ maxWidth: "700px", margin: "0 auto" }}
           >
-            Why You'll Love Working at Eazisols
+            {`Why You'll Love Working at Eazisols`}
           </p>
         </Col>
         <Row className="g-4 justify-content-center">
@@ -194,15 +194,15 @@ export default function Careers() {
           <Row className="align-items-center justify-content-between">
             <Col md={8} className="text-center text-md-start mb-4 mb-md-0">
               <h2 className="fw-bold mb-3" style={{ fontSize: "2.2rem" }}>
-                We'd Love to Have You Onboard
+                {`We'd Love to Have You Onboard`}
               </h2>
               <p
                 className="text-muted"
                 style={{ fontSize: "1.05rem", maxWidth: "700px" }}
               >
-                We're always looking for passionate people to join us. Whether
+          {`We're always looking for passionate people to join us. Whether
                 you're a coder, designer, or strategist — there's a place here
-                for you.
+                for you.`}
               </p>
             </Col>
             <Col md={4} className="text-center text-md-end">

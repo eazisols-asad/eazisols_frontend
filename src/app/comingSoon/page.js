@@ -7,6 +7,7 @@ import { Box, Typography } from '@mui/material';
 import { FaFacebookF, FaTwitter, FaInstagram, FaLinkedinIn } from 'react-icons/fa';
 import eazistransbg from "@/app/assets/eazistransbg.png";
 import comingbg from '@/app/assets/comingbg.png';
+import Image from "next/image";
 
 
 export default function ComingSoon() {
@@ -82,7 +83,7 @@ export default function ComingSoon() {
             </div>
           </Col>
            <Col lg={6} className="text-center">
-            <img
+            <Image
               src={comingbg.src}
               alt="Coming Soon Illustration"
               style={{ maxWidth: '100%', height: 'auto' }}

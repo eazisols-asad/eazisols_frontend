@@ -18,6 +18,7 @@ import mssql from "@/app/assets/mssql.png";
 import mysql from "@/app/assets/mysql.png";
 import dynamo from "@/app/assets/dynamo.png";
 import ReuseContact from "../components/ReuseContact";
+import Image from "next/image";
 
 const techStack = [
   { name: "JavaScript", logo: javas },
@@ -76,7 +77,7 @@ export default function Capabilities() {
                 className="lead text-white mt-2"
                 style={{ fontSize: "1.2rem", fontWeight: "400", opacity: "0.9" }}
               >
-                Join a team that's redefining digital experiences
+                {`Join a team that's redefining digital experiences`}
               </p>
             </div>
           </div>
@@ -89,7 +90,6 @@ export default function Capabilities() {
             className="fw-bold mb-5 ms-0"
             style={{
               fontSize: "3.7rem",
-              // letterSpacing: "-0.5px",
               color: "#000",
             }}
           >
@@ -195,9 +195,11 @@ export default function Capabilities() {
                   transition: "all 0.3s ease",
                 }}
               >
-                <img
+                <Image
                   src={item.logo.src}
                   alt={item.name}
+                  width={100}
+                  height={40}
                   style={{ height: "40px", objectFit: "contain" }}
                   className="mb-2"
                 />
