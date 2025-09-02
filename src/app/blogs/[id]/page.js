@@ -29,7 +29,7 @@ export default function BlogsDetail() {
         setLoading(false);
       }
     );
-  });
+  }, [blogId]);
 
   if (loading)
     return (
