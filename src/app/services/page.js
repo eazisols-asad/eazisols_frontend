@@ -37,7 +37,7 @@ const techStack = [
   { name: "DynamoDB", logo: dynamo },
 ];
 export default function Capabilities() {
-  
+  // console.log('test')
   return (
     <>
     <div
