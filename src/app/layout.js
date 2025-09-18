@@ -5,6 +5,7 @@ import Footer from './components/Footer';
 import Providers from './providers';
 import { DM_Sans } from 'next/font/google';
 import { Snakbar } from './components/Snakbar';
+import NewNavbar from './components/new/NewNavbar';
 
 
 const dmSans = DM_Sans({
@@ -25,7 +26,8 @@ export default function RootLayout({ children }) {
       <body >
          <Snakbar>
         <Providers>
-          <Navbar />
+          {/* <Navbar /> */}
+          <NewNavbar />
           <main>{children}</main>
           <Footer />
         </Providers>
