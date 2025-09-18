@@ -37,6 +37,7 @@ const techStack = [
   { name: "DynamoDB", logo: dynamo },
 ];
 export default function Capabilities() {
+  // conosle.log('test')
   return (
     <>
     <div
