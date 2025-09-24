@@ -22,6 +22,7 @@ import NewCTA from "./components/new/NewCTA";
 import Review from "./components/new/Review";
 import ChallengesSection from "./components/new/ChallengesSection";
 import BarChart from "./components/new/BarChart";
+import NewReview from "./components/new/NewReview";
 
 
 
@@ -48,7 +49,8 @@ export default function Home() {
       /> */}
       {/* <Services /> */}
       <ProcessTimeline />
-      <Review />
+      {/* <Review /> */}
+      <NewReview />
       <ChallengesSection />
       <StatsSection />
       <BarChart />

@@ -1601,3 +1601,27 @@ footer hr {
     padding: 24px;
   }
 }
+.faq-question {
+          font-weight: 600;
+          font-size: 1.1rem;
+          padding: 12px 15px;
+          border-radius: 6px;
+          color: #000;
+          transition: all 0.3s ease;
+        }
+        .faq-question:hover {
+          color: #418ED6; 
+        }
+        .faq-question.active {
+          background-color: #418ED6;
+          color: #fff;
+        }
+        .faq-question.active span {
+          color: #fff;
+        }
+        .faq-question span {
+          font-size: 1.2rem;
+        }
+        .faq-box {
+    border-left: 6px solid #418ED6; 
+  }

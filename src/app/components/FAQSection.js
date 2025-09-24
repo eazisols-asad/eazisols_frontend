@@ -1,7 +1,7 @@
-'use client';
+"use client";
 
-import React, { useState } from 'react';
-import { Container, Row, Col } from 'react-bootstrap';
+import React, { useState } from "react";
+import { Container, Row, Col } from "react-bootstrap";
 import Link from "next/link";
 
 const faqs = [
@@ -59,18 +59,17 @@ const faqs = [
     answer:
       "To initiate the process, you can contact us through our contact form, email, or phone. Our team will quickly arrange a meeting to discuss your project requirements, goals, and address any specific questions you might have. Following this, we will devise a customized plan and furnish you with a detailed proposal for your software development project.",
   },
-  
 ];
 
 export default function FAQSection() {
   const [activeIndex, setActiveIndex] = useState(null);
 
   const toggleFAQ = (index) => {
-    setActiveIndex(activeIndex === index ? null : index); 
+    setActiveIndex(activeIndex === index ? null : index);
   };
 
   return (
-    <section className="py-5 bg-light">
+    <section className="py-4 bg-light">
       <Container>
         {/* Title Section */}
         <Row className="text-center mb-5">
@@ -85,22 +84,26 @@ export default function FAQSection() {
             {faqs.map((faq, index) => (
               <div
                 key={index}
-                className="mb-3 p-3 bg-white rounded-3 shadow-sm"
-                style={{ cursor: 'pointer' }}
-                onClick={() => toggleFAQ(index)} 
+                className="mb-3 p-3 bg-white rounded-3 shadow-sm faq-box"
+                style={{ cursor: "pointer" }}
+                onClick={() => toggleFAQ(index)}
               >
                 <div
-                  className="d-flex justify-content-between align-items-center"
-                  style={{ fontWeight: 600, fontSize: '1.1rem' }}
+                  className={`d-flex justify-content-between align-items-center faq-question ${
+                    activeIndex === index ? "active" : ""
+                  }`}
                 >
                   {faq.question}
-                  <span style={{ fontSize: '1.2rem' }}>
-                    {activeIndex === index ? '−' : '+'}
+                  <span style={{ fontSize: "1.2rem" }}>
+                    {activeIndex === index ? "−" : "+"}
                   </span>
                 </div>
 
                 {activeIndex === index && (
-                  <div className="mt-3 text-muted" style={{ fontSize: '0.95rem' }}>
+                  <div
+                    className="mt-3 text-muted"
+                    style={{ fontSize: "0.95rem" }}
+                  >
                     {faq.answer}
                   </div>
                 )}
@@ -108,11 +111,24 @@ export default function FAQSection() {
             ))}
           </Col>
         </Row>
-         <Row className='mt-5'>
+        <Row className="mt-5">
           <Col className="text-center">
-            <p style={{ fontSize: "0.9rem", color: "#666", marginBottom: "20px" }}>
+            <p
+              style={{
+                fontSize: "0.9rem",
+                color: "#666",
+                marginBottom: "20px",
+              }}
+            >
               Still have more questions?{" "}
-              <Link href="/contact" style={{ color: "#418ED6", textDecoration: "none", fontWeight: 500 }}>
+              <Link
+                href="/contact"
+                style={{
+                  color: "#418ED6",
+                  textDecoration: "none",
+                  fontWeight: 500,
+                }}
+              >
                 Contact us
               </Link>
             </p>

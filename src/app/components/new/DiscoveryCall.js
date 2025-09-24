@@ -9,7 +9,7 @@ export default function DiscoveryCall() {
       style={{
         // backgroundColor: "#f8f8f8",
         paddingTop: "80px",
-        paddingBottom: "80px",
+        // paddingBottom: "80px",
       }}
     >
       <div style={{ textAlign: "center", marginBottom: "40px" }}>
