@@ -3,10 +3,7 @@
 import { useRef } from "react";
 import Slider from "react-slick";
 import { Container, Row, Col, Card, Button } from "react-bootstrap";
-import {
-  FaStar,
-  FaCheckCircle,
-} from "react-icons/fa";
+import { FaStar, FaCheckCircle } from "react-icons/fa";
 import { IoIosArrowBack, IoIosArrowForward } from "react-icons/io";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
@@ -37,7 +34,8 @@ const reviews = [
   {
     title: "E-commerce Platform Build",
     rating: 5,
-    review: "Outstanding work! They delivered before deadline and with perfect quality.",
+    review:
+      "Outstanding work! They delivered before deadline and with perfect quality.",
     date: "May 5, 2023",
     feedback:
       "The team built a complete e-commerce store with integrations, admin dashboard, and smooth checkout.",
@@ -69,13 +67,20 @@ export default function TestimonialSection() {
     infinite: true,
     speed: 500,
     arrows: false,
-    slidesToShow: 1, 
+    slidesToShow: 1,
     slidesToScroll: 1,
   };
 
   return (
-    <section style={{ backgroundColor: "#f8f8f8", padding: "60px 0" }}>
-      <Container>
+    <section style={{ backgroundColor: "#f8f8f8", }}>
+      <Container
+        style={{
+          backgroundColor: "#ffffffff",
+          maxWidth: "1312px",
+          marginTop: "70px",
+          borderRadius: "20px",
+        }}
+      >
         {/* Section Title */}
         <Row className="mb-5 text-center">
           <Col>
@@ -84,6 +89,7 @@ export default function TestimonialSection() {
                 letterSpacing: "2px",
                 textTransform: "uppercase",
                 color: "#666",
+                paddingTop: "25px",
               }}
             >
               Reviews
@@ -143,10 +149,10 @@ export default function TestimonialSection() {
               {reviews.map((item, index) => (
                 <Card
                   key={index}
-                  className="shadow-sm border-0 rounded-3"
+                  className=" border-0 rounded-3"
                   style={{ margin: "0 10px" }}
                 >
-                 <Card.Header className="bg-dark text-white d-flex justify-content-between align-items-center">
+                  <Card.Header className="bg-dark text-white d-flex justify-content-between align-items-center">
                     <h5 className="mb-0">Eazisols Reviews</h5>
                     {/* <span style={{ fontSize: "0.9rem" }}>Powered by <strong>Clutch</strong></span> */}
                   </Card.Header>
@@ -154,8 +160,7 @@ export default function TestimonialSection() {
                   <Card.Body className="p-4">
                     <Row className="g-4">
                       {/* Project Info */}
-                      <Col md={4}
-                      style={{ borderRight: "1px solid #e0e0e0" }}>
+                      <Col md={4} style={{ borderRight: "1px solid #e0e0e0" }}>
                         <h6
                           className="fw-bold text-uppercase mb-3"
                           style={{
@@ -165,15 +170,22 @@ export default function TestimonialSection() {
                         >
                           Project
                         </h6>
-                        <p><strong>Type:</strong> {item.project.services}</p>
-                        <p><strong>Budget:</strong> {item.project.budget}</p>
-                        <p><strong>Timeline:</strong> {item.project.dateRange}</p>
-                        <p><strong>Summary:</strong> {item.project.summary}</p>
+                        <p>
+                          <strong>Type:</strong> {item.project.services}
+                        </p>
+                        <p>
+                          <strong>Budget:</strong> {item.project.budget}
+                        </p>
+                        <p>
+                          <strong>Timeline:</strong> {item.project.dateRange}
+                        </p>
+                        <p>
+                          <strong>Summary:</strong> {item.project.summary}
+                        </p>
                       </Col>
 
                       {/* Feedback */}
-                      <Col md={4}
-                      style={{ borderRight: "1px solid #e0e0e0" }}>
+                      <Col md={4} style={{ borderRight: "1px solid #e0e0e0" }}>
                         <h6
                           className="fw-bold text-uppercase mb-3"
                           style={{
@@ -190,7 +202,8 @@ export default function TestimonialSection() {
                         </div>
                         <p>
                           <strong>Ratings:</strong> Quality: {item.rating} |
-                          Schedule: {item.rating} | Cost: {item.rating} | Refer: {item.rating}
+                          Schedule: {item.rating} | Cost: {item.rating} | Refer:{" "}
+                          {item.rating}
                         </p>
                         <blockquote
                           style={{
@@ -226,10 +239,18 @@ export default function TestimonialSection() {
                         >
                           Reviewer
                         </h6>
-                        <p><strong>Reviewer:</strong> {item.reviewer.title}</p>
-                        <p><strong>Industry:</strong> {item.reviewer.company}</p>
-                        <p><strong>Location:</strong> {item.reviewer.location}</p>
-                        <p><strong>Company Size:</strong> {item.reviewer.size}</p>
+                        <p>
+                          <strong>Reviewer:</strong> {item.reviewer.title}
+                        </p>
+                        <p>
+                          <strong>Industry:</strong> {item.reviewer.company}
+                        </p>
+                        <p>
+                          <strong>Location:</strong> {item.reviewer.location}
+                        </p>
+                        <p>
+                          <strong>Company Size:</strong> {item.reviewer.size}
+                        </p>
                         <p>
                           <strong>Status:</strong>{" "}
                           <span style={{ color: "green", fontWeight: "bold" }}>

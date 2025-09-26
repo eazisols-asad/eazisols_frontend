@@ -95,7 +95,7 @@ export default function Footer() {
             </Col>
             <Col md={3} className="mb-2">
               <h5 className="mb-3">Contact</h5>
-              <p className="mb-2">65-J1 Wapda Town Lahore, Pakistan.</p>
+              <p className="mb-2">Lahore, Pakistan.</p>
               <p className="mb-2">info@eazisols.com</p>
               <div className="contact-numbers">
                 <p className="mb-1">HR: +92 321 8881156</p>

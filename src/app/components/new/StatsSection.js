@@ -106,10 +106,10 @@ function AnimatedNumber({ value, duration = 2000 }) {
 
 export default function StatsSection() {
   return (
-    <section className="stats-section">
-      <Container>
+    <section className="stats-section" style={{ backgroundColor: "#f8f8f8",}}>
+      <Container style={{backgroundColor: "#ffffffff",maxWidth: "1312px",marginTop:"70px", borderRadius: "20px",}}>
         <div className="text-center mb-5">
-          <p className="text-uppercase text-muted mb-2" style={{ letterSpacing: '0.05em', fontSize: '0.875rem' }}>
+          <p className="text-uppercase text-muted mb-2 pt-4" style={{ letterSpacing: '0.05em', fontSize: '0.875rem' }}>
             WE WORKED WITH ALL OF THEM
           </p>
           <h2 className="display-5 fw-bold mb-3">We got you covered</h2>

@@ -2,6 +2,7 @@
 
 import Image from "next/image";
 import eazilogo from "@/app/assets/eazilogo.png";
+import hh from "@/app/assets/hh.png";
 import image from "@/app/assets/image.png";
 import { Container, Row, Col, Button } from "react-bootstrap";
 import { getCalApi } from "@calcom/embed-react";
@@ -20,14 +21,28 @@ export default function NewHero() {
 
   return (
     <>
-      <section
+      {/* <section
         style={{
           backgroundColor: "#f8f8f8",
           paddingTop: "90px",
           paddingBottom: "90px",
           minHeight: "520px",
         }}
-      >
+      > */}
+        <section
+              className="d-flex flex-column bg-light position-relative hero-background"
+              // className="min-vh-100 d-flex flex-column bg-light position-relative hero-background"
+              style={{
+                backgroundImage: `url(${hh.src})`,
+                backgroundSize: "cover",
+                backgroundPosition: "center",
+                backgroundRepeat: "no-repeat",
+                minHeight: "520px",
+                overflow: "visible",
+                position: "relative",
+                // marginTop: "24px",
+              }}
+            >
         <Container className="flex-grow-1 d-flex flex-column justify-content-center pt-5">
           <Row className="align-items-center">
             {/* Left Column - Text */}

@@ -17,7 +17,7 @@ export default function NewCTA() {
 
   return (
     <section
-      className="d-flex justify-content-center mb-4"
+      className="d-flex justify-content-center mb-4 mt-5"
       style={{
         // background: 'linear-gradient(90deg, #418ED6 50%, #2165B1 100%, #003B8B 100%)',
         background: 'linear-gradient(90deg, #418ED6 50%, #2165B1 100%)',

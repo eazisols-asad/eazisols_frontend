@@ -1,17 +1,19 @@
 "use client";
 
 import Cal from "@calcom/embed-react";
+import { Container } from "react-bootstrap";
 
 export default function DiscoveryCall() {
 
   return (
     <section
       style={{
-        // backgroundColor: "#f8f8f8",
-        paddingTop: "80px",
-        // paddingBottom: "80px",
+        backgroundColor: "#f8f8f8",
+        // paddingTop: "30px",
+        // paddingBottom: "30px",
       }}
     >
+    <Container style={{backgroundColor: "#ffffffff",maxWidth: "1312px", borderRadius: "20px",marginTop: "70px",}}>
       <div style={{ textAlign: "center", marginBottom: "40px" }}>
         <p
           style={{
@@ -19,6 +21,7 @@ export default function DiscoveryCall() {
             letterSpacing: "2px",
             fontSize: "0.9rem",
             color: "#777",
+            paddingTop: "25px",
           }}
         >
           DISCOVERY CALL
@@ -70,6 +73,7 @@ export default function DiscoveryCall() {
           />
         </div>
       </div>
+      </Container>
     </section>
   );
 }

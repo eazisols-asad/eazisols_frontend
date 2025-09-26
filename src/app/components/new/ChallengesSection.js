@@ -30,10 +30,10 @@ const challenges = [
 
 export default function ChallengesSection() {
   return (
-    <section className="challenges-section">
-      <Container>
+    <section className="challenges-section" style={{ backgroundColor: "#f8f8f8",}}>
+      <Container style={{backgroundColor: "#ffffffff",maxWidth: "1312px", borderRadius: "20px",marginTop: "70px",}}>
         <div className="text-center mb-5">
-          <p className="text-uppercase text-muted mb-2" style={{ letterSpacing: '0.05em', fontSize: '0.875rem' }}>
+          <p className="text-uppercase text-muted mb-2 pt-4" style={{ letterSpacing: '0.05em', fontSize: '0.875rem' }}>
             YOU WANT TO START A SAAS STARTUP, BUT...
           </p>
           <h2 className="display-5 fw-bold mb-3">Struggling to get started?</h2>
@@ -42,8 +42,8 @@ export default function ChallengesSection() {
           </p>
         </div>
 
-        <div className="challenges-grid">
-          <div className="challenges-content">
+        <div className="challenges-grid ">
+          <div className="challenges-content pb-4">
             {challenges.map((challenge, index) => (
               <div key={index} className="challenge-card">
                 <span className="challenge-icon" role="img" aria-label={challenge.title}>

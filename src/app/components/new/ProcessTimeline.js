@@ -63,16 +63,17 @@ const processSteps = [
 
 export default function ProcessTimeline() {
   return (
-    <Container>
-      <div className="text-center mb-5 mt-5">
-        <p className="text-uppercase text-muted mb-1">OUR PROCESS</p>
+    <>
+    <Container style={{backgroundColor: "#ffffffff",maxWidth: "1312px",marginTop:"70px", borderRadius: "20px",}}>
+      <div className="text-center mb-5">
+        <p className="text-uppercase text-muted mb-1 pt-4">OUR PROCESS</p>
         <h2 className="display-4 fw-bold" style={{ fontSize: "40px" }}>
           100-Day Launch
         </h2>
       </div>
 
       <div
-        className="container process-timeline"
+        className="container process-timeline "
         style={{
           display: "flex",
           flexDirection: "column",
@@ -141,5 +142,6 @@ export default function ProcessTimeline() {
         </div>
       </div>
     </Container>
+    </>
   );
 }

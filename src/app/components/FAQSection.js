@@ -69,8 +69,8 @@ export default function FAQSection() {
   };
 
   return (
-    <section className="py-4 bg-light">
-      <Container>
+    <section className=" bg-light">
+      <Container style={{marginTop: "70px",}}>
         {/* Title Section */}
         <Row className="text-center mb-5">
           <Col>
